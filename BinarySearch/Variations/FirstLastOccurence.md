@@ -38,3 +38,17 @@ def last_occurrence(arr, target):
             right = mid - 1
     return result
 ```
+
+### Count Occurences
+The First and Last occurrence together enables us to calculate the count of occurences of an element, we do it by using count = last - first + 1.
+
+```python
+def count_occurrences(arr, target):
+    first = first_occurrence(arr, target)
+    if first == -1:
+        return 0
+    last = last_occurrence(arr, target)
+    return last - first + 1
+```
+
+Note: We conduct two binary searches to find the first index and the last index of the occurence.
