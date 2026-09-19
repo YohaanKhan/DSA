@@ -66,3 +66,51 @@ Set every item's id to "${opts.idPrefix}-<n>" where <n> is a two-digit number
 starting at 01. Set stage, topic, subtopic, difficulty and priority to exactly
 the values above.${avoid}`;
 }
+
+/**
+ * The assistant you prompt during the AI-assisted coding round.
+ *
+ * THIS PROMPT IS THE PEDAGOGY. A helpful assistant papers over a vague prompt
+ * and you learn nothing; a literal one makes a vague prompt produce visibly
+ * deficient code, which is exactly the feedback the round is training.
+ */
+export const EXAM_ASSISTANT_SYSTEM = `You are a coding assistant inside a timed assessment.
+
+Answer exactly what the user's prompt asks for — no more. Do not volunteer edge
+cases, complexity analysis, input parsing, or improvements the user did not
+request. If the request is ambiguous, make a reasonable assumption and state it
+in one line. Return code in a single fenced block.
+
+Do not coach the user, do not point out what their prompt is missing, and do not
+ask clarifying questions. Produce the most direct implementation of what they
+literally wrote.`;
+
+/** Judges one wizard step against its rubric when an API key is available. */
+export const AIC_JUDGE_SYSTEM = `You grade one step of a candidate's work in an
+AI-assisted coding assessment.
+
+You are given a list of required elements and the candidate's text. For each
+element, decide whether the candidate genuinely covered it — in their own words
+counts, a synonym counts, an obvious paraphrase counts. A passing mention of a
+related word does not count if the substance is absent.
+
+Be strict but fair. Do not reward padding, and do not penalise brevity when the
+substance is present. Return only the ids of the elements that were covered.`;
+
+export function buildJudgePrompt(opts: {
+  step: string;
+  requirements: { id: string; requirement: string }[];
+  text: string;
+}): string {
+  return `Step: ${opts.step}
+
+Required elements:
+${opts.requirements.map((r) => `- ${r.id}: ${r.requirement}`).join('\n')}
+
+Candidate's text:
+"""
+${opts.text}
+"""
+
+Which element ids did the candidate genuinely cover?`;
+}

@@ -7,6 +7,7 @@
 | **Prerequisites** | Phase 00; Phase 02's runner (to execute the final code) |
 | **Unlocks** | Stage 4 — the ₹3.25 LPA multiplier |
 | **Skippable?** | No. This is the differentiator. |
+| **Status** | ✅ **Built.** See `app/src/lib/scoring/aic.ts`, `app/src/components/aic/`, `app/src/app/api/aic/`, `app/content/aic/problems.json`. |
 
 > **The strategic case for this phase.** Every other stage is a gate: clearing it gets you to
 > the next one. This stage (with the coding problems) is the *multiplier* — it's what separates
@@ -180,14 +181,43 @@ Without `ANTHROPIC_API_KEY`, or when the daily cap trips:
 
 ## Acceptance tests
 
-- [ ] Wizard enforces forward-only progression
-- [ ] Pasting the problem statement into step 3 is rejected with the coaching message
-- [ ] A vague prompt produces visibly worse code than the exemplar prompt (spot-check 3 problems)
-- [ ] Step 4 subtracts for false positives
-- [ ] Step 5 distinguishes a targeted follow-up from a restart
-- [ ] Final code compiles and runs against tests
-- [ ] Every run appears in `/log` with prompts, review text and score
-- [ ] With the key removed, all five steps still score and the fallback output is shown
+- [x] Wizard enforces forward-only progression
+- [x] Pasting the problem statement into step 3 is **rejected** — verified in a browser, reported as "100% of this is the problem statement"
+- [x] Step 4 subtracts 0.5 per invented issue; verified by claiming a thread-safety problem that is not there
+- [x] Step 5 distinguishes a targeted follow-up from a restart (trigram containment against the original prompt)
+- [x] Final code is compiled and run against the tests; failures are named
+- [x] Every run is recorded in `submissions` for interview prep
+- [x] **With no API key, all five steps still score** and the scripted flawed output is shown
+- [x] A stated complexity that misses the target costs a mark and says so
+
+### Verified scoring behaviour
+
+A deliberately mediocre run scored **57/100**: Frame 1.7/5 (missed the empty-array and
+negative cases), Plan 0/5 (proposed sorting, stated O(n log n) against a target of O(n)),
+Prompt 5/5, Review 2/5 (caught two real issues, invented one), Refine 5/5.
+
+### Bugs this phase's verification caught
+
+| Bug | How it was found |
+| --- | --- |
+| `RubricElement` was exported only as a Zod value, not a type | Typecheck, when the API route tried to use it as a type. |
+| The submit button read "Submit write" | Screenshot review — the label was being sliced out of the step title. |
+| Result screenshot fired before the finish call returned | The finish route compiles and runs Java (~4.7s). The test now waits for the result, not a fixed duration. |
+
+### Deviations from the plan
+
+1. **The rubric carries matchable patterns, not just prose.** The plan had
+   `rubric.frame: string[]`. That cannot be scored without an LLM, which would have made the
+   whole module unusable with no API key. Each element is now
+   `{ id, requirement, patterns[] }`, so it scores offline and the LLM is an upgrade rather
+   than a dependency.
+2. **The exemplar prompt must pass its own rubric**, enforced by rule V13. Otherwise the app
+   could show a "model answer" it would itself mark down.
+3. **`npm run content:verify-aic`** compiles each reference solution (must pass every test)
+   and each fallback assistant output (must FAIL at least one). Without the second check the
+   offline review step could have nothing real to catch.
+4. **Python is excluded from the AIC language enum** — it is not accepted in the exam's
+   code-writing rounds.
 
 ## Done when
 

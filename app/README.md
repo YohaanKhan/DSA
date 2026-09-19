@@ -27,6 +27,7 @@ npm run dev                    # http://localhost:3000
 | `npm run db:migrate` | Apply migrations |
 | `npm run db:seed` | Load `content/` into the database (idempotent) |
 | `npm run content:inject` | Turn `content/solutions/*` into debugging exercises (free — no LLM) |
+| `npm run content:verify-aic` | Compile each AIC reference solution and check each fallback genuinely fails |
 | `npm run screenshot` | Visual smoke check across themes and phone width |
 
 ## What exists today
@@ -55,6 +56,15 @@ npm run dev                    # http://localhost:3000
 - Read → hypothesise → fix → validate flow with a locked editor, scored hint
   ladder, minimal-diff feedback and an edge-case checklist
 - Language-trap MCQ set for the classic C/C++/Java gotchas
+
+**Phase 03 — AI-assisted coding**
+- Forward-only Frame / Plan / Prompt / Review / Refine wizard, weighted 20/15/30/25/10
+- **The anti-paste rule**: a prompt that is ≥70% lifted from the problem statement is
+  rejected, so you cannot practise the behaviour the round penalises
+- The assistant is deliberately literal — a vague prompt produces visibly deficient code
+- Review is penalised 0.5 per invented issue, so ticking everything backfires
+- Works with no API key: all five steps still score, and a scripted flawed reply gives the
+  review step something real to catch
 
 Every other route is a stub naming the phase that builds it.
 

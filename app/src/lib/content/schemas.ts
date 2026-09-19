@@ -94,20 +94,39 @@ export const DebugItem = Base.extend({
   hints: z.array(z.string()).length(4, 'the hint ladder is exactly four rungs'),
 });
 
+/**
+ * A rubric element carries matchable patterns, not just prose, so the whole
+ * module still scores with no API key — which matters on exam eve.
+ */
+export const RubricElement = z.object({
+  id: z.string().min(1),
+  requirement: z.string().min(3),
+  patterns: z.array(z.string().min(2)).min(1),
+});
+
 export const AICProblem = Base.extend({
   kind: z.literal('aic'),
   title: z.string().min(3),
   problem: z.string().min(40),
-  language: z.enum(['c', 'cpp', 'java', 'python']),
+  // Python is excluded on purpose: it is not accepted in the exam's
+  // code-writing rounds. See plan/09-PYTHON-BRIDGE.md.
+  language: z.enum(['c', 'cpp', 'java']),
   rubric: z.object({
-    frame: z.array(z.string()).min(1),
-    plan: z.array(z.string()).min(1),
-    prompt: z.array(z.string()).min(1),
-    review: z.array(z.string()).min(1),
+    frame: z.array(RubricElement).min(1),
+    plan: z.array(RubricElement).min(1),
+    prompt: z.array(RubricElement).min(1),
+    review: z.array(RubricElement).min(1),
   }),
+  /** Plausible-sounding non-issues. Claiming one costs 0.5 on the review step. */
+  reviewDecoys: z.array(RubricElement).default([]),
+  expectedComplexity: z.string().min(4),
   referenceSolution: z.string().min(10),
   modelPromptExample: z.string().min(40),
-  fallbackAssistantOutput: z.string().optional(),
+  /**
+   * Shown in place of a live model when no API key is set. Deliberately
+   * flawed, so the review step still has something real to catch offline.
+   */
+  fallbackAssistantOutput: z.string().min(10),
   tests: z.array(z.object({ stdin: z.string(), expectedStdout: z.string() })).min(3),
 });
 
@@ -168,4 +187,5 @@ export type MCQItem = z.infer<typeof MCQItem>;
 export type TraceItem = z.infer<typeof TraceItem>;
 export type DebugItem = z.infer<typeof DebugItem>;
 export type AICProblem = z.infer<typeof AICProblem>;
+export type RubricElement = z.infer<typeof RubricElement>;
 export type StageId = (typeof STAGES)[number];

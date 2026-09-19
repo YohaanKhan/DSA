@@ -1,0 +1,507 @@
+[
+  {
+    "id": "aic-second-largest",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "arrays",
+    "subtopic": "scan",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "arrays",
+      "edge-cases"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Second largest distinct value",
+    "language": "java",
+    "problem": "Given an integer array, return the second largest DISTINCT value. If fewer than two distinct values exist, return Integer.MIN_VALUE.",
+    "expectedComplexity": "O(n)",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "Says the input is an integer array",
+          "patterns": [
+            "int array",
+            "integer array",
+            "int[]",
+            "array of int"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "Says the output is a single integer",
+          "patterns": [
+            "return an int",
+            "returns an int",
+            "single integer",
+            "one integer",
+            "an int value"
+          ]
+        },
+        {
+          "id": "distinct",
+          "requirement": "Notes that duplicates collapse — 'distinct' is doing work here",
+          "patterns": [
+            "distinct",
+            "unique",
+            "duplicate"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "States what happens with fewer than two distinct values",
+          "patterns": [
+            "min_value",
+            "fewer than two",
+            "less than two",
+            "minimum value",
+            "sentinel"
+          ]
+        },
+        {
+          "id": "empty",
+          "requirement": "Considers an empty array",
+          "patterns": [
+            "empty",
+            "zero elements",
+            "no elements",
+            "length 0"
+          ]
+        },
+        {
+          "id": "negatives",
+          "requirement": "Considers negative values",
+          "patterns": [
+            "negative",
+            "below zero",
+            "minus"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "single-pass",
+          "requirement": "Proposes a single pass rather than sorting",
+          "patterns": [
+            "single pass",
+            "one pass",
+            "single scan",
+            "one scan",
+            "single traversal"
+          ]
+        },
+        {
+          "id": "two-trackers",
+          "requirement": "Keeps two running values",
+          "patterns": [
+            "two variables",
+            "largest and second",
+            "top two",
+            "two trackers",
+            "best and second"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time and constant space",
+          "patterns": [
+            "o(n)",
+            "linear time",
+            "o(1) space",
+            "constant space"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names the language explicitly",
+          "patterns": [
+            "java"
+          ]
+        },
+        {
+          "id": "behaviour",
+          "requirement": "States the exact behaviour wanted",
+          "patterns": [
+            "second largest",
+            "second-largest",
+            "second highest"
+          ]
+        },
+        {
+          "id": "distinct",
+          "requirement": "Says distinct, not just second largest",
+          "patterns": [
+            "distinct",
+            "unique"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "Specifies the fewer-than-two-distinct return",
+          "patterns": [
+            "min_value",
+            "minimum value",
+            "fewer than two",
+            "less than two"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names the edge cases to handle",
+          "patterns": [
+            "empty",
+            "single element",
+            "one element",
+            "all equal",
+            "duplicate"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "Asks for or states the complexity",
+          "patterns": [
+            "o(n)",
+            "complexity",
+            "linear time",
+            "constant space"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "dup-max",
+          "requirement": "Spots that a duplicated maximum must not count as the runner-up",
+          "patterns": [
+            "duplicate",
+            "repeated max",
+            "same value twice",
+            "twice"
+          ]
+        },
+        {
+          "id": "all-equal",
+          "requirement": "Spots the all-equal-values case",
+          "patterns": [
+            "all equal",
+            "all the same",
+            "identical"
+          ]
+        },
+        {
+          "id": "short-array",
+          "requirement": "Spots empty or single-element input",
+          "patterns": [
+            "empty",
+            "single element",
+            "one element",
+            "length 0",
+            "length 1"
+          ]
+        },
+        {
+          "id": "init",
+          "requirement": "Spots that initialising trackers to 0 breaks all-negative input",
+          "patterns": [
+            "initialis",
+            "initializ",
+            "min_value",
+            "starting value",
+            "negative"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "thread-safety",
+        "requirement": "Claims a thread-safety problem",
+        "patterns": [
+          "thread safe",
+          "thread-safety",
+          "concurren",
+          "race condition"
+        ]
+      },
+      {
+        "id": "sql",
+        "requirement": "Claims an injection problem",
+        "patterns": [
+          "sql injection",
+          "injection attack"
+        ]
+      },
+      {
+        "id": "memory-leak",
+        "requirement": "Claims a memory leak, in a garbage-collected language",
+        "patterns": [
+          "memory leak",
+          "free the memory",
+          "dealloc"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a Java method `int secondLargest(int[] nums)` that returns the second largest DISTINCT value in the array.\n\nInput: an int array, length 0 to 100000. Values may be negative and may repeat.\nOutput: the second largest distinct value, or Integer.MIN_VALUE when there are fewer than two distinct values.\n\nRequirements:\n- Handle these edge cases: empty array, single element, all elements equal, a duplicated maximum, and all-negative values.\n- Target O(n) time and O(1) extra space. Do not sort.\n\nAlso state the time and space complexity.\n\nRead n from stdin, then n integers, and print the result.",
+    "fallbackAssistantOutput": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    static int secondLargest(int[] nums) {\n        int largest = 0;\n        int second = 0;\n        for (int i = 0; i < nums.length; i++) {\n            if (nums[i] > largest) {\n                second = largest;\n                largest = nums[i];\n            } else if (nums[i] > second) {\n                second = nums[i];\n            }\n        }\n        return second;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] nums = new int[n];\n        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();\n        System.out.println(secondLargest(nums));\n    }\n}\n```\n\nThis scans the array once and keeps the two largest values it has seen.",
+    "referenceSolution": "import java.util.Scanner;\n\npublic class Main {\n    static int secondLargest(int[] nums) {\n        int largest = Integer.MIN_VALUE;\n        int second = Integer.MIN_VALUE;\n        for (int v : nums) {\n            if (v > largest) {\n                second = largest;\n                largest = v;\n            } else if (v < largest && v > second) {\n                second = v;\n            }\n        }\n        return second;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.hasNextInt() ? sc.nextInt() : 0;\n        int[] nums = new int[n];\n        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();\n        System.out.println(secondLargest(nums));\n    }\n}",
+    "tests": [
+      {
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648"
+      },
+      {
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648"
+      },
+      {
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5"
+      },
+      {
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      }
+    ]
+  },
+  {
+    "id": "aic-first-non-repeating",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "strings",
+    "subtopic": "frequency",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "strings",
+      "hashing"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "First non-repeating character",
+    "language": "java",
+    "problem": "Given a line of lowercase text, print the first character that appears exactly once. If every character repeats, print the word none.",
+    "expectedComplexity": "O(n)",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "Says the input is a line of text",
+          "patterns": [
+            "string",
+            "line of text",
+            "text"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "Says the output is one character or a word",
+          "patterns": [
+            "one character",
+            "single character",
+            "a char",
+            "print the character"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "States what to print when nothing is unique",
+          "patterns": [
+            "none",
+            "no unique",
+            "every character repeats"
+          ]
+        },
+        {
+          "id": "order",
+          "requirement": "Notes that FIRST means original order, not alphabetical",
+          "patterns": [
+            "first",
+            "order",
+            "earliest",
+            "leftmost"
+          ]
+        },
+        {
+          "id": "empty",
+          "requirement": "Considers an empty line",
+          "patterns": [
+            "empty",
+            "blank",
+            "no characters",
+            "length 0"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "two-pass",
+          "requirement": "Counts first, then scans in order",
+          "patterns": [
+            "two pass",
+            "count then",
+            "first pass",
+            "frequency",
+            "count each"
+          ]
+        },
+        {
+          "id": "storage",
+          "requirement": "Uses a frequency map or a 26-slot array",
+          "patterns": [
+            "map",
+            "array of 26",
+            "hashmap",
+            "counts array",
+            "frequency table"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time",
+          "patterns": [
+            "o(n)",
+            "linear time"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names the language explicitly",
+          "patterns": [
+            "java"
+          ]
+        },
+        {
+          "id": "behaviour",
+          "requirement": "States the exact behaviour wanted",
+          "patterns": [
+            "first",
+            "non-repeating",
+            "appears exactly once",
+            "appears once"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "Specifies the no-unique-character output",
+          "patterns": [
+            "none",
+            "no unique"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names the edge cases",
+          "patterns": [
+            "empty",
+            "all repeat",
+            "every character repeats",
+            "single character"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "Asks for or states the complexity",
+          "patterns": [
+            "o(n)",
+            "complexity",
+            "linear time"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "order-bug",
+          "requirement": "Checks it returns the FIRST such character, not any",
+          "patterns": [
+            "first",
+            "order",
+            "earliest"
+          ]
+        },
+        {
+          "id": "none-case",
+          "requirement": "Checks the all-repeating case prints none",
+          "patterns": [
+            "none",
+            "all repeat",
+            "every character"
+          ]
+        },
+        {
+          "id": "empty",
+          "requirement": "Checks empty input",
+          "patterns": [
+            "empty",
+            "blank",
+            "no input"
+          ]
+        },
+        {
+          "id": "charset",
+          "requirement": "Checks how non-letters or spaces are treated",
+          "patterns": [
+            "space",
+            "non-letter",
+            "punctuation",
+            "digit",
+            "character set"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "thread-safety",
+        "requirement": "Claims a thread-safety problem",
+        "patterns": [
+          "thread safe",
+          "thread-safety",
+          "concurren"
+        ]
+      },
+      {
+        "id": "recursion-depth",
+        "requirement": "Claims a stack overflow in an iterative solution",
+        "patterns": [
+          "stack overflow",
+          "recursion depth",
+          "too deep"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a Java program that reads one line from stdin and prints the first character that appears exactly once in it.\n\nInput: a single line, lowercase letters, possibly empty, up to 100000 characters.\nOutput: that one character on its own line, or the word none if every character repeats.\n\nRequirements:\n- First means earliest in the original order, not alphabetically smallest.\n- Handle these edge cases: an empty line, a line where all characters repeat, and a single-character line.\n- Target O(n) time using a frequency count.\n\nAlso state the complexity.",
+    "fallbackAssistantOutput": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        Map<Character, Integer> counts = new HashMap<>();\n        for (char c : line.toCharArray()) {\n            counts.put(c, counts.getOrDefault(c, 0) + 1);\n        }\n        for (Map.Entry<Character, Integer> e : counts.entrySet()) {\n            if (e.getValue() == 1) {\n                System.out.println(e.getKey());\n                return;\n            }\n        }\n        System.out.println(\"none\");\n    }\n}\n```\n\nThis counts each character and then returns one that occurred a single time.",
+    "referenceSolution": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.hasNextLine() ? sc.nextLine() : \"\";\n        int[] counts = new int[128];\n        for (int i = 0; i < line.length(); i++) counts[line.charAt(i)]++;\n        for (int i = 0; i < line.length(); i++) {\n            if (counts[line.charAt(i)] == 1) {\n                System.out.println(line.charAt(i));\n                return;\n            }\n        }\n        System.out.println(\"none\");\n    }\n}",
+    "tests": [
+      {
+        "stdin": "leetcode\n",
+        "expectedStdout": "l"
+      },
+      {
+        "stdin": "aabb\n",
+        "expectedStdout": "none"
+      },
+      {
+        "stdin": "\n",
+        "expectedStdout": "none"
+      },
+      {
+        "stdin": "z\n",
+        "expectedStdout": "z"
+      },
+      {
+        "stdin": "aabbc\n",
+        "expectedStdout": "c"
+      }
+    ]
+  }
+]

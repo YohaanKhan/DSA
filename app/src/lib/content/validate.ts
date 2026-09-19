@@ -172,10 +172,33 @@ export function validateItems(
     }
 
     if (it.kind === 'aic') {
-      // V13 — rubric arrays non-empty (length is enforced by V1; this catches blank strings)
+      // V13 — every rubric element must be scorable offline, so it needs at
+      // least one usable pattern. A rubric element with no pattern silently
+      // scores zero forever, which would be worse than not having it.
+      const seenIds = new Set<string>();
       for (const [key, arr] of Object.entries(it.rubric)) {
-        if ((arr as string[]).some((entry) => entry.trim().length === 0)) {
-          violations.push({ rule: 'V13', itemId: it.id, file, message: `rubric.${key} contains an empty requirement` });
+        for (const element of arr as { id: string; patterns: string[] }[]) {
+          if (element.patterns.every((p) => p.trim().length < 2)) {
+            violations.push({ rule: 'V13', itemId: it.id, file, message: `rubric.${key}.${element.id} has no usable pattern, so it can never be matched` });
+          }
+          const key2 = `${key}.${element.id}`;
+          if (seenIds.has(key2)) {
+            violations.push({ rule: 'V13', itemId: it.id, file, message: `duplicate rubric element id ${key2}` });
+          }
+          seenIds.add(key2);
+        }
+      }
+      // The exemplar prompt must itself satisfy the prompt rubric — otherwise
+      // the app would show the learner a "model answer" that it would mark down.
+      const haystack = it.modelPromptExample.toLowerCase();
+      for (const element of it.rubric.prompt) {
+        if (!element.patterns.some((p) => haystack.includes(p.toLowerCase()))) {
+          violations.push({
+            rule: 'V13',
+            itemId: it.id,
+            file,
+            message: `modelPromptExample fails its own rubric element "${element.id}" (${element.requirement})`,
+          });
         }
       }
     }
