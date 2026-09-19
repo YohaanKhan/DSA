@@ -8,6 +8,19 @@ This repository holds two things:
    These are kept because arrays / strings / two-pointers / binary search are exactly the
    DSA surface the Exceller technical module tests.
 
+## Run the app
+
+```bash
+cd app
+npm install
+npm run setup     # migrations, content, and a report of what is missing
+npm run dev       # http://localhost:3000
+```
+
+Nothing is required beyond Node 20.9+. No API key, no internet, no accounts —
+`npm run setup` tells you what the optional pieces would add and what skipping
+them costs. See [`app/README.md`](app/README.md) for the full detail.
+
 ## Start here
 
 | If you want to… | Read |

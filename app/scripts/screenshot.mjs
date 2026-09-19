@@ -21,7 +21,12 @@ const page = await browser.newPage({ viewport: { width: 1400, height: 1000 } });
 page.on('console', (m) => { if (m.type() === 'error') problems.push(`console: ${m.text()}`); });
 page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));
 
-for (const [path, name] of [['/', 'dashboard'], ['/settings', 'settings'], ['/debug', 'debug'], ['/drill', 'drill']]) {
+for (const [path, name] of [
+  ['/', 'dashboard'], ['/settings', 'settings'], ['/debug', 'debug'], ['/drill', 'drill'],
+  ['/games', 'games'], ['/games/digit', 'games-digit'],
+  ['/comm', 'comm'], ['/comm/essay', 'comm-essay'], ['/comm/speak', 'comm-speak'],
+  ['/mock', 'mock'], ['/review', 'review'], ['/log', 'log'], ['/aic', 'aic'], ['/trace', 'trace'],
+]) {
   await page.goto(BASE + path, { waitUntil: 'networkidle' });
   await page.screenshot({ path: `${OUT}/${name}.png`, fullPage: true });
 }
