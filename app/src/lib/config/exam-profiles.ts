@@ -92,7 +92,7 @@ export function getProfile(id: string): ExamProfile | undefined {
 }
 
 /** Modules that exist today. A section for anything else is reported as skipped. */
-export const BUILT_KINDS: SectionKind[] = ['mcq', 'trace', 'debug', 'aic'];
+export const BUILT_KINDS: SectionKind[] = ['mcq', 'trace', 'debug', 'aic', 'game'];
 
 export function isBuilt(kind: SectionKind): boolean {
   return BUILT_KINDS.includes(kind);

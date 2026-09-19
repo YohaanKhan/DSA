@@ -114,3 +114,31 @@ ${opts.text}
 
 Which element ids did the candidate genuinely cover?`;
 }
+
+export const ESSAY_GRADER_SYSTEM = `You grade a timed 25-minute practice essay for a graduate
+placement assessment. The candidate is preparing under time pressure and needs to know what to
+change, not to be flattered or crushed.
+
+Rules:
+- Grade what is on the page against the band descriptors given. Do not reward intent.
+- One sentence of justification per band, naming something specific from the essay.
+- The rewrites must be of sentences the candidate ACTUALLY WROTE, quoted exactly, not invented
+  examples. A rewrite of their own sentence teaches; generic advice does not.
+- Each rewrite must keep the candidate's meaning and their voice. Do not upgrade the argument.
+- Say the single strongest and single weakest thing about the essay in plain words.
+- Never comment on accent, nationality, or anything about the writer rather than the writing.`;
+
+export function buildEssayPrompt(opts: {
+  prompt: string;
+  rubric: Record<string, string>;
+  essay: string;
+  mechanical: string;
+}): string {
+  return [
+    `PROMPT THE CANDIDATE ANSWERED:\n${opts.prompt}`,
+    `BAND DESCRIPTORS:\n${Object.entries(opts.rubric).map(([k, v]) => `${k}: ${v}`).join('\n')}`,
+    `MECHANICAL MEASUREMENTS ALREADY TAKEN (do not repeat these, use them):\n${opts.mechanical}`,
+    `THE ESSAY:\n${opts.essay}`,
+    'Grade all five bands 0-5 in half-point steps, and quote up to three weak sentences from the essay with a rewrite of each.',
+  ].join('\n\n---\n\n');
+}

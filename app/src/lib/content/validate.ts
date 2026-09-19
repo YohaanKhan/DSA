@@ -273,6 +273,22 @@ function bankRules(items: ContentItem[]): Violation[] {
     }
   }
 
+  // V16 — an explanation must never name an option by letter. Banks get their
+  // answer distribution rebalanced by rotating options (see V7), and a rotation
+  // silently turns "option b uses three gerunds" into a lie. Quoting the text
+  // instead is permutation-proof.
+  for (const it of items) {
+    if (it.kind !== 'mcq') continue;
+    const named = it.explanation.match(/\boptions?\s+[abcd]\b/i);
+    if (named) {
+      out.push({
+        rule: 'V16',
+        itemId: it.id,
+        message: `explanation says "${named[0]}" — quote the option's text instead, because rebalancing rotates the letters`,
+      });
+    }
+  }
+
   // V14b — two debug exercises must not be the same broken program. Injection
   // can land two families on the same site, and solving one would give the other away.
   const seenBroken = new Map<string, string>();

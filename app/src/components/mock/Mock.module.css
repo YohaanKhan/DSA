@@ -59,3 +59,15 @@
 .note { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.6; max-width: var(--measure); }
 .error { color: var(--bad); font-size: var(--t-sm); }
 .actions { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+
+/* ---- Cognitive section ---------------------------------------------------- */
+.gameRules { display: flex; flex-direction: column; gap: var(--s-2); margin: 0; padding-left: var(--s-5); font-size: var(--t-sm); line-height: 1.6; }
+.gameHud {
+  display: flex; align-items: center; gap: var(--s-4); flex-wrap: wrap;
+  padding: var(--s-3) var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
+  font-size: var(--t-sm);
+}
+.spacer { flex: 1 1 auto; }

@@ -5,18 +5,27 @@ Design and rationale live in [`../plan/`](../plan/).
 
 ## Run it
 
+From a fresh clone, two commands:
+
 ```bash
 npm install
-cp .env.example .env.local     # every value is optional
-npm run db:migrate
-npm run db:seed
+npm run setup                  # .env.local, migrations, content, and a report
 npm run dev                    # http://localhost:3000
 ```
+
+`npm run setup` applies the migrations, seeds every content bank, validates them,
+and then prints what it found — including which optional pieces are missing and
+exactly what each one costs you. Nothing it reports as missing stops the app
+running; the features concerned fall back to deterministic scoring.
+
+Re-running it is safe: the seeder is idempotent, and an existing `.env.local` is
+left alone.
 
 ## Scripts
 
 | Command | Does |
 | --- | --- |
+| `npm run setup` | Migrations, seed, validate, and a readiness report |
 | `npm run dev` | Dev server (Turbopack) |
 | `npm run build` | Production build |
 | `npm run typecheck` | `tsc --noEmit` |
@@ -78,7 +87,34 @@ npm run dev                    # http://localhost:3000
 - Interleaved SM-2 review queue, and a submission log that exports to Markdown for the
   technical interview
 
-Only the cognitive games (Phase 04) and communication studio (Phase 05) remain as stubs.
+**Phase 04 — cognitive arcade**
+- Grid, Switch, Digit and Motion challenges, procedurally generated from a seed, so the
+  post-run screen prints a seed and `/games/<id>?seed=N` replays those exact levels
+- Each generator **proves its own puzzles**: Switch brute-forces every operator sequence and
+  keeps only uniquely determined ones; Digit re-derives a use-once solution; Motion
+  enumerates the board's reachable component and walks a multi-source BFS backwards from
+  every solved state, so the "optimal moves" it scores you against is a fact, not a guess
+- The rules screen precedes every run, with no auto-start
+- Scoring is level² / seconds, with the marginal value of the next level shown live
+- **Plateau detection**: a flat slope over eight or more runs drops the stage's dashboard
+  weight to 0.3, so the app stops sending you to the fun module and sends you to a gate
+
+**Phase 05 — communication studio**
+- Timed essay: autosaves to this machine *and* the database every ten seconds, survives a
+  refresh, nudges you to stop planning and then to start proofreading, and auto-submits at zero
+- Essay grading in two layers — the mechanical one (length, paragraphing, intro/conclusion
+  detection, run-ons, lexical variety, connector density, passive ratio, prompt coverage)
+  always runs with no key; the model layer adds the grammar band and rewrites of *your own*
+  sentences when a key is set. Grammar is reported as **not scored** offline rather than guessed
+- Speaking: 45-second think timer, 90-second window, and six metrics computed locally from the
+  transcript — pace, filler rate, pause profile, point coverage, sentence completion, time used
+- Accent is never scored, here or in the reported rubric
+- Without the Web Speech API the studio still records and measures pauses and timing, and says
+  plainly which metrics it could not take
+- 30 essay prompts, 24 speaking prompts and 36 grammar/vocabulary questions, hand-authored
+
+Listening and reading drills are deliberately not built — they are the least-reported
+components, and text-to-speech is a poor stand-in for real exam audio.
 
 ## Keyboard shortcuts (drill runner)
 

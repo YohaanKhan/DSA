@@ -8,6 +8,8 @@ import { Icon } from '@/components/ui/Icon';
 import { DrillRunner, type RunnerItem } from '@/components/drill/DrillRunner';
 import { DebugLab, type DebugExercise } from '@/components/debug/DebugLab';
 import { AicWizard, type AicProblem } from '@/components/aic/AicWizard';
+import { MockGameSection } from './MockGameSection';
+import type { GameId } from '@/lib/games';
 import { formatClock } from '@/lib/format';
 import styles from './Mock.module.css';
 
@@ -81,6 +83,8 @@ export function MockRunner({ mockId, onFinish }: { mockId: string; onFinish: () 
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
+      // A game section needs nothing fetched: its puzzles are generated from a
+      // seed, and its "items" are already the game ids.
       if (section.kind === 'mcq' || section.kind === 'trace') {
         setItems(data.items as RunnerItem[]);
       } else if (section.kind === 'debug') {
@@ -178,6 +182,15 @@ export function MockRunner({ mockId, onFinish }: { mockId: string; onFinish: () 
     }
     if (aicProblem) {
       return <AicWizard problem={aicProblem} onExit={(score) => void completeSection(score)} />;
+    }
+    if (section.kind === 'game') {
+      return (
+        <MockGameSection
+          gameIds={section.itemIds as GameId[]}
+          minutes={section.minutes}
+          onComplete={(score) => void completeSection(score)}
+        />
+      );
     }
     return <p className={styles.note}>Loading section…</p>;
   }

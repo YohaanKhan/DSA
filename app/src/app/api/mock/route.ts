@@ -5,6 +5,7 @@ import { db } from '@/lib/db/client';
 import { sessions } from '@/lib/db/schema';
 import { getProfile, isBuilt } from '@/lib/config/exam-profiles';
 import { selectItems } from '@/lib/content/select';
+import { GAMES } from '@/lib/games';
 import type { MockState, SectionState } from '@/lib/mock/state';
 
 const Body = z.object({ profileId: z.string() });
@@ -24,6 +25,13 @@ export async function POST(request: Request) {
         id: section.id, itemIds: [], startedAt: null, finishedAt: null, score: null,
         skipped: true, skipReason: `The ${section.kind} module is not built yet.`,
       };
+    }
+
+    // A cognitive section has no content bank — the puzzles are generated. Its
+    // "items" are the games it will run, picked fresh so two mocks differ.
+    if (section.kind === 'game') {
+      const picked = [...GAMES].sort(() => Math.random() - 0.5).slice(0, section.count).map((g) => g.id);
+      return { id: section.id, itemIds: picked, startedAt: null, finishedAt: null, score: null, skipped: false };
     }
 
     const kinds = section.kind === 'mcq' ? ['mcq'] : [section.kind];
