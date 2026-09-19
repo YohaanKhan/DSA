@@ -1,7 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode, Ref } from 'react';
 import { Icon, type IconName } from './Icon';
 import styles from './Button.module.css';
 
@@ -13,6 +13,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   fullWidth?: boolean;
   children?: ReactNode;
+  /** React 19 passes refs as a normal prop; no forwardRef needed. */
+  ref?: Ref<HTMLButtonElement>;
 }
 
 export function Button({
@@ -25,10 +27,12 @@ export function Button({
   className,
   children,
   disabled,
+  ref,
   ...rest
 }: ButtonProps) {
   return (
     <button
+      ref={ref}
       className={clsx(
         'microlabel',
         // .press carries the hard shadow; ghost is deliberately flat, and relying

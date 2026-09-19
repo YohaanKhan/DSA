@@ -28,15 +28,36 @@ npm run dev                    # http://localhost:3000
 | `npm run db:seed` | Load `content/` into the database (idempotent) |
 | `npm run screenshot` | Visual smoke check across themes and phone width |
 
-## What exists today (Phase 00)
+## What exists today
 
+**Phase 00 — foundation**
 - Design system: tokens, custom icon set, hand-built primitives, no UI library
 - SQLite schema (10 tables) via Drizzle
 - Content pipeline: Zod schemas, topic registry, 15 validation rules, idempotent seeder
 - `useExamTimer` — the shared, drift-free timer
 - App shell, readiness dashboard, settings
 
+**Phase 01 — drill engine**
+- Session API with **server-side grading**; the answer key and execution trace never
+  reach the browser before you answer
+- Four selection strategies: `weakest` (the default), `unseen`, `due`, `random`
+- Keyboard-first runner with confidence capture, per-question budget and instant explanations
+- Trace Lab with a variable-table stepper that replays execution line by line
+- SM-2 spaced repetition, capped at a 3-day interval so nothing goes stale before the exam
+- Content generator using structured outputs, with validation and answer-key rebalancing
+
 Every other route is a stub naming the phase that builds it.
+
+## Keyboard shortcuts (drill runner)
+
+| Key | Does |
+| --- | --- |
+| `1`–`4` | Pick an option |
+| `S` / `G` | Mark the answer as Sure / a Guess |
+| `F` | Flag for later |
+| `Enter` | Submit, or advance once answered. In Trace Lab it walks focus to the next required step. |
+| `Space` | Next question, after answering |
+| `←` `→` | Step the variable table |
 
 ## Requirements
 

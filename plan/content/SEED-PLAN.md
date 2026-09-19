@@ -105,24 +105,31 @@ readiness score and you'll walk in over-confident.
 
 ## Budget estimate
 
-| Bank set | Approx. generation cost |
-| --- | --- |
-| AI Literacy (150) | ~$0.60 |
-| Pseudocode traces (120) | ~$0.90 (longer outputs — traces are verbose) |
-| Technical MCQs (420) | ~$1.80 |
-| English (120) | ~$0.45 |
-| AIC problems (20) | ~$0.40 (long, rubric-heavy) |
-| Communication prompts (90) | ~$0.25 |
-| Behavioural (60) | ~$0.10 |
-| **Total** | **~$4.50**, one-time |
+Generation uses **`claude-opus-5`** (quality matters most here, and it runs once).
+At its published rate of **$5 per million input tokens and $25 per million output tokens**,
+and roughly 350-450 output tokens per item once explanations and distractor rationales are
+included:
 
-Debug exercises cost **nothing** — bug injection is mechanical. That's a large part of why the
-injection engine is worth its build hour.
+| Bank set | Items | Approx. cost |
+| --- | --- | --- |
+| AI Literacy | 150 | ~$1.60 |
+| Pseudocode traces | 120 | ~$2.40 (traces are verbose — a step per loop iteration) |
+| Technical MCQs | 420 | ~$4.50 |
+| English | 120 | ~$1.20 |
+| AIC problems | 20 | ~$0.50 (long, rubric-heavy) |
+| Communication prompts | 90 | ~$0.40 |
+| Behavioural | 60 | ~$0.15 |
+| **Total** | **~980** | **~$11**, one-time |
 
-Set `LLM_DAILY_CAP_USD=10` for generation day, then drop it back to 2 for practice days (where
-the only recurring cost is AIC assistant calls and essay grading, roughly $0.10–0.30/day).
+Debug exercises cost **nothing** — bug injection is mechanical. That is a large part of why
+the injection engine is worth its build hour.
 
----
+Set `LLM_DAILY_CAP_USD=15` for generation day, then drop it back to 2 for practice days. The
+only recurring cost after that is AIC assistant calls and essay grading, roughly $0.10-0.30/day.
+
+> **The cap is enforced, not advisory.** `parseStructured` refuses to spend once the day's
+> total is reached and throws `LlmUnavailableError`, which every caller catches and degrades
+> from rather than failing. You cannot accidentally run up a bill overnight.
 
 ## If you have no API key
 

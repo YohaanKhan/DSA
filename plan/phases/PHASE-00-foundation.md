@@ -7,6 +7,7 @@
 | **Prerequisites** | Node 20+, optionally `gcc`/`g++`/`javac` |
 | **Unlocks** | Every other phase |
 | **Skippable?** | No |
+| **Status** | ✅ **Built.** See `app/`. |
 
 ---
 

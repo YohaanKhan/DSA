@@ -13,9 +13,11 @@
     "db:seed": "tsx src/lib/db/seed.ts",
     "content:validate": "tsx scripts/validate-content.ts",
     "test": "vitest run",
-    "screenshot": "node scripts/screenshot.mjs"
+    "screenshot": "node scripts/screenshot.mjs",
+    "content:generate": "tsx scripts/generate-content.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
     "@tanstack/react-query": "^5.103.1",
     "better-sqlite3": "^13.0.3",
     "clsx": "^2.1.1",

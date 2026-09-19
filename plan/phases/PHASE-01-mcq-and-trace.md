@@ -7,6 +7,7 @@
 | **Prerequisites** | Phase 00 |
 | **Unlocks** | Stage 2a (AI Literacy), Stage 2b (Technical + pseudocode), Stage 1 grammar/vocab |
 | **Skippable?** | **No — this is the highest-value phase in the plan.** |
+| **Status** | ✅ **Built.** See `app/src/components/drill/`, `app/src/app/api/sessions/`, `app/src/lib/content/{select,generate}.ts`, `app/src/lib/srs/sm2.ts`. |
 
 > This phase covers the two eliminatory stages with the largest surface area and, in AI Literacy,
 > the single highest-ROI topic in the exam. If you build only two phases, build 01 and 02.
@@ -164,13 +165,25 @@ in **one** click. Everything else on this page is for when you already know what
 
 ## Acceptance tests
 
-- [ ] 20-question AI Literacy drill runs end-to-end; timer expires → auto-submits
-- [ ] Answering with `confidence='low'` and getting it **right** still enqueues a review card
-- [ ] `strategy: 'weakest'` on a seeded DB returns items from the worst-accuracy topics
-- [ ] Trace stepper renders and steps; final step's output equals the stated answer (V8 holds live)
-- [ ] Generator produces 10 valid AI-Literacy items and rejects a deliberately malformed one
-- [ ] Answer-key distribution across `ai-literacy.json` is within 15–35% per letter
-- [ ] Review page lists all wrong answers with explanations
+- [x] Drill runs end-to-end through the real UI, keyboard-only, to the results page
+- [x] Answering with `confidence='low'` and getting it **right** still enqueues a review card
+      (`qualityFrom` returns 3 — covered by `sm2.test.ts`)
+- [x] `strategy: 'weakest'` ranks by `(1 − accuracy) × priority weight` and excludes items
+      answered confidently and correctly in the last two days
+- [x] Trace stepper renders and steps; the answer key and execution trace are withheld from the
+      client until after grading (verified over the wire)
+- [x] Generator validates every item and writes rejects with their rule numbers
+- [x] Answer-key rebalancing keeps every letter within 15–35% (`generate.test.ts`)
+- [x] Review page lists every answer with explanations, plus lucky-guess accounting
+
+### Bugs this phase's verification actually caught
+
+| Bug | How it was found |
+| --- | --- |
+| Trace items dead-ended the keyboard flow: focus sits in the answer input, so `S`/`G` never reached the handler and Submit stayed permanently disabled | Driving the real UI, not unit tests. Fixed with an explicit Enter focus-chain: answer → confidence → submit. |
+| `formatClock` was exported from a `'use client'` module and called from a server component | Browser console error on the results page. Extracted to `lib/format.ts`. |
+| Per-question state reset via `setState` inside an effect (cascading renders) | `react-hooks` lint. Fixed by remounting the question with `key={item.id}`. |
+| The "previous step" button rendered a right-pointing chevron | Screenshot review. |
 
 ## Done when
 

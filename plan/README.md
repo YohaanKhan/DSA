@@ -22,8 +22,8 @@ a local web app for practising every stage of the Capgemini Exceller 2026 assess
 ### Then build
 | Phase | Guide | Time | Skippable |
 | --- | --- | --- | --- |
-| 00 | [Foundation](phases/PHASE-00-foundation.md) | 2.5 h | No |
-| 01 | [MCQ Engine + Trace Lab + content generation](phases/PHASE-01-mcq-and-trace.md) | 3.5 h | **No — highest value** |
+| 00 | [Foundation](phases/PHASE-00-foundation.md) ✅ built | 2.5 h | No |
+| 01 | [MCQ Engine + Trace Lab + content generation](phases/PHASE-01-mcq-and-trace.md) ✅ built | 3.5 h | **No — highest value** |
 | 02 | [Debugging Lab](phases/PHASE-02-debugging-lab.md) | 3 h | No |
 | 03 | [AI-Assisted Coding Simulator](phases/PHASE-03-ai-assisted-coding.md) | 3 h | No |
 | 04 | [Cognitive Arcade](phases/PHASE-04-cognitive-arcade.md) | 3 h | Partly |

@@ -1,0 +1,52 @@
+.wrap { display: flex; flex-direction: column; gap: var(--s-3); max-width: 100%; }
+
+.controls { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.stepLabel { color: var(--ink-muted); }
+
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-4); }
+@media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } }
+
+.tableScroll { overflow-x: auto; border: var(--border-w) solid var(--edge); }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+}
+.table th, .table td {
+  padding: var(--s-2) var(--s-3);
+  text-align: left;
+  border-bottom: 1px solid var(--edge-soft);
+  white-space: nowrap;
+}
+.table th {
+  position: sticky;
+  top: 0;
+  background: var(--paper-sunken);
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.row { color: var(--ink-muted); cursor: pointer; }
+.row:hover { background: var(--paper-sunken); }
+
+/* The current step is inverted, not tinted — it must be unmissable. */
+.current {
+  background: var(--stage-current, var(--ink));
+  color: var(--stage-current-ink, var(--paper));
+}
+.current:hover { background: var(--stage-current, var(--ink)); }
+
+/* A cell whose value changed on this step flashes, then settles. */
+.changed { font-weight: 700; box-shadow: inset 0 -3px 0 0 currentColor; }
+
+.note { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.55; }
+.output {
+  font-family: var(--font-mono);
+  color: var(--ok);
+  font-weight: 700;
+}
+.legend { color: var(--ink-faint); }

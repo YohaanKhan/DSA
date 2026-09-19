@@ -1,7 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { formatClock } from '@/lib/hooks/useExamTimer';
+import { formatClock } from '@/lib/format';
 import { Icon } from './Icon';
 import styles from './ExamTimer.module.css';
 
