@@ -17,6 +17,7 @@ a local web app for practising every stage of the Capgemini Exceller 2026 assess
 | 05 | [**Architecture**](05-ARCHITECTURE.md) | Stack + rationale, repo layout, code runner, LLM usage, 7 ADRs | 12 min |
 | 06 | [**Data Model**](06-DATA-MODEL.md) | Content JSON schemas with worked exemplars + full SQLite schema | 12 min |
 | 07 | [**Scoring & Analytics**](07-SCORING-AND-ANALYTICS.md) | Every number the app shows, defined precisely | 10 min |
+| 08 | [**Design Guide**](08-DESIGN-GUIDE.md) | The Arcade Brutalist system: colour, type, motion, custom icons, full component inventory | 12 min |
 
 ### Then build
 | Phase | Guide | Time | Skippable |

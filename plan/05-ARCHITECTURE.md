@@ -5,14 +5,15 @@
 | Layer | Choice | Why this and not the alternative |
 | --- | --- | --- |
 | Framework | **Next.js 15 (App Router) + TypeScript** | One process serves UI *and* API routes. You need server-side code (compile/run, LLM calls with a secret key) but not a second service. Alternative (Vite SPA + Express) = two things to run, no benefit. |
-| Styling | **Tailwind CSS v4** + a few shadcn/ui primitives | Fast, no design system to invent. Copy-in components, no runtime dependency. |
+| Styling | **Tailwind CSS v4** (tokens via `@theme`) + CSS Modules. **No component library.** | The brief calls for a custom look, so every component is hand-built per [`08-DESIGN-GUIDE.md`](08-DESIGN-GUIDE.md). Tailwind carries layout utilities; CSS Modules carry the brutalist details (hard shadows, press-translate). |
 | State | **React state + TanStack Query** for server data; **Zustand** only for the live-timer/game state | Timers and games need a store outside React re-render cycles; everything else is server data. Redux is overkill. |
 | Database | **SQLite via better-sqlite3 + Drizzle ORM** | Local-first, zero setup, synchronous (simplifies API routes), real SQL for the analytics queries. Alternative (IndexedDB) makes cross-module analytics painful and loses the data if you clear the browser. |
 | Code editor | **Monaco** (`@monaco-editor/react`) | Needed for the Debugging Lab. Has C/C++/Java syntax + diffing built in. |
 | Code execution | **Pluggable `CodeRunner`**: `LocalRunner` (gcc/g++/javac) ‖ `PistonRunner` (remote) | Local is fast and offline; remote is the fallback if you lack toolchains. See below. |
 | LLM | **Anthropic SDK**, model `claude-sonnet-5` (drills) / `claude-opus-5` (grading) | Needed for the AI-assisted round and essay/speech grading. Key stays server-side in `.env.local`. |
 | Speech | **Web Speech API** (recognition) + **MediaRecorder** (capture) + **SpeechSynthesis** (TTS for listening) | Browser-native, free, no API cost. Chrome required for recognition — documented as such. |
-| Charts | **Recharts** | Readiness trends. Small, declarative. |
+| Charts | **Custom SVG** | Sparklines and heatmaps are ~40 lines each and must match the design language (hard polylines, no gradients). A charting library would fight the aesthetic and add 100 KB. |
+| Fonts | **Space Grotesk + JetBrains Mono** via `next/font/google` | Self-hosted, no layout shift. Distinctive UI face, mono for all changing numerals. |
 | Validation | **Zod** | One schema definition used for both content validation and API input. |
 | Testing | **Vitest** + **Playwright** (smoke only) | Content validation and scoring logic need real tests; UI does not, given the timeline. |
 
@@ -29,6 +30,8 @@ server for one, you should use it for all.
 app/                                  # the Next.js app (created in PHASE-00)
 ├── src/
 │   ├── app/                          # App Router
+│   │   ├── tokens.css                # design tokens (single source of truth)
+│   │   ├── globals.css
 │   │   ├── layout.tsx
 │   │   ├── page.tsx                  # Dashboard
 │   │   ├── drill/
@@ -60,7 +63,7 @@ app/                                  # the Next.js app (created in PHASE-00)
 │   │       ├── readiness/route.ts
 │   │       └── content/validate/route.ts
 │   ├── components/
-│   │   ├── ui/                       # shadcn primitives
+│   │   ├── ui/                       # custom primitives (see 08-DESIGN-GUIDE)
 │   │   ├── drill/                    # QuestionCard, OptionList, Timer, ProgressBar
 │   │   ├── trace/                    # VariableTable, Stepper
 │   │   ├── debug/                    # CodeEditor, TestResults, HintLadder
@@ -245,6 +248,8 @@ architectural answer to the conflicting reports in the research dossier.
 | 005 | One timer implementation (`useExamTimer`) shared by all modules | Per-module timers | Timer drift and pause semantics are the #1 source of bugs in this kind of app |
 | 006 | Zod schema is the single source of truth for content | Separate TS types + validation | Prevents the type/validator drift that lets bad questions through |
 | 007 | Games re-implemented from reported mechanics, not copied | Attempt pixel-accurate clone | Legally clean and pedagogically equivalent — we train the skill, not the UI |
+| 008 | Hand-built component system, zero UI dependencies | shadcn/ui, MUI, Chakra | The brief asks for a custom, non-template look. A library's defaults are exactly the template we're avoiding, and fighting its theme costs more than writing ~20 small components. |
+| 009 | Stage hue via a single `data-stage` attribute setting `--stage-current` | Per-component colour props | One attribute re-skins a whole screen; components never hardcode or know their stage. |
 
 ---
 

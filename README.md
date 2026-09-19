@@ -17,6 +17,7 @@ This repository holds two things:
 | Know what the exam actually is | [`plan/01-RESEARCH-DOSSIER.md`](plan/01-RESEARCH-DOSSIER.md) |
 | Get the exhaustive syllabus | [`plan/02-SYLLABUS-MAP.md`](plan/02-SYLLABUS-MAP.md) |
 | Get study links (YouTube, courses, docs) | [`plan/03-RESOURCE-LIBRARY.md`](plan/03-RESOURCE-LIBRARY.md) |
+| See the design system | [`plan/08-DESIGN-GUIDE.md`](plan/08-DESIGN-GUIDE.md) |
 | Build the app | [`plan/phases/`](plan/phases/) |
 | Just study for a week | [`plan/study/7-DAY-PLAN.md`](plan/study/7-DAY-PLAN.md) |
 

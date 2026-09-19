@@ -25,10 +25,12 @@ cd /path/to/DSA
 npx create-next-app@latest app --typescript --tailwind --eslint --app \
     --src-dir --import-alias "@/*" --no-turbopack
 cd app
-npm i better-sqlite3 drizzle-orm zod @tanstack/react-query zustand \
-      recharts nanoid clsx date-fns
+npm i better-sqlite3 drizzle-orm zod @tanstack/react-query zustand nanoid clsx date-fns
 npm i -D drizzle-kit @types/better-sqlite3 vitest tsx
 ```
+
+**No UI library** (ADR-008). Every component is hand-built per
+[`../08-DESIGN-GUIDE.md`](../08-DESIGN-GUIDE.md). Charts are custom SVG, so no Recharts.
 
 Add to `package.json`:
 ```json
@@ -188,10 +190,16 @@ is what actually stops over-dwelling; a section clock alone doesn't).
 
 ---
 
-## Step 0.5 — App shell + dashboard skeleton (30 min)
+## Step 0.5 — Design tokens + app shell + dashboard skeleton (45 min)
 
-- `src/app/layout.tsx` — nav (Dashboard / Drill / Trace / Debug / AI-Coding / Games /
-  Communication / Mock / Review / Log / Settings), dark mode, TanStack Query provider
+Build the design system foundation first — see [`../08-DESIGN-GUIDE.md`](../08-DESIGN-GUIDE.md).
+
+- `src/app/tokens.css` — every colour, type, space, shadow and motion token; the press
+  interaction, focus ring and `prefers-reduced-motion` handling, each written **once**
+- `src/components/ui/` — the primitives: `Icon`, `StatusGlyph`, `Button`, `Panel`, `Badge`,
+  `ProgressTrack`, `KeyCap`
+- `src/components/dashboard/` — `StageCard`, `ReadinessSparkline` (custom SVG)
+- `src/app/layout.tsx` — `NavRail` + `TopBar`, theme switching, TanStack Query provider
 - `src/app/page.tsx` — dashboard with **six stage cards** reading from
   `/api/readiness`, which for now returns `null` readiness for every stage
   ⇒ all cards show ⬜ **Untested**. This is correct and honest on day one.
