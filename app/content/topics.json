@@ -1,0 +1,54 @@
+{
+  "english": {
+    "grammar": { "priority": "P0", "subtopics": ["subject-verb", "tenses", "articles", "prepositions", "pronouns", "conditionals", "voice", "speech", "modifiers", "parallelism", "connectors", "error-spotting", "sentence-correction"] },
+    "vocabulary": { "priority": "P1", "subtopics": ["synonyms", "antonyms", "one-word-substitution", "idioms", "confused-pairs", "word-formation", "context-meaning"] },
+    "reading": { "priority": "P1", "subtopics": ["main-idea", "detail", "inference", "tone", "vocab-in-context", "para-jumbles", "cloze"] },
+    "writing": { "priority": "P0", "subtopics": ["structure", "thesis", "paragraphing", "mechanics", "length-discipline"] },
+    "speaking": { "priority": "P0", "subtopics": ["describe", "opinion", "self-introduction", "explain-process", "retell"] },
+    "listening": { "priority": "P2", "subtopics": ["comprehension", "note-taking", "dictation"] }
+  },
+  "ai-literacy": {
+    "genai-foundations": { "priority": "P0", "subtopics": ["what-is-genai", "discriminative-vs-generative", "ai-ml-dl-genai", "training-vs-inference", "foundation-models", "finetune-vs-prompt", "modalities"] },
+    "llm-limitations": { "priority": "P0", "subtopics": ["tokens", "context-window", "hallucination", "knowledge-cutoff", "non-determinism", "bias", "reasoning-limits", "prompt-injection"] },
+    "prompt-engineering": { "priority": "P0", "subtopics": ["specificity", "role-prompting", "few-shot", "chain-of-thought", "output-format", "delimiters", "iteration", "anti-patterns"] },
+    "rag": { "priority": "P1", "subtopics": ["why-rag", "pipeline", "embeddings", "vector-db", "rag-vs-finetune", "failure-modes", "grounding"] },
+    "agentic-ai": { "priority": "P1", "subtopics": ["agent-definition", "tool-calling", "planning", "multi-agent", "human-in-loop", "guardrails"] },
+    "responsible-ai": { "priority": "P0", "subtopics": ["bias-fairness", "transparency", "privacy", "accountability", "safety", "output-validation", "ip", "regulation"] },
+    "ai-assisted-dev": { "priority": "P1", "subtopics": ["assistant-strengths", "review-discipline", "security", "testing", "licensing"] }
+  },
+  "technical": {
+    "pseudocode": { "priority": "P0", "subtopics": ["loops", "nested-loops", "conditionals", "recursion", "bitwise", "integer-arithmetic", "arrays", "strings", "pointers", "find-error", "insert-line"] },
+    "dsa": { "priority": "P0", "subtopics": ["arrays", "strings", "two-pointers", "hashing", "searching", "sorting", "recursion", "complexity", "sliding-window", "greedy", "stacks-queues", "linked-lists", "trees", "math", "matrices"] },
+    "oop": { "priority": "P0", "subtopics": ["pillars", "class-object", "constructors", "overloading-overriding", "static-instance", "access-modifiers", "abstract-interface", "inheritance-composition", "java-specifics", "cpp-specifics"] },
+    "dbms": { "priority": "P0", "subtopics": ["keys", "er-model", "normalisation", "acid", "transactions", "concurrency", "indexing", "views", "procedures-triggers", "sql-vs-nosql"] },
+    "sql": { "priority": "P0", "subtopics": ["select-where", "joins", "group-by-having", "aggregates", "subqueries", "set-operations", "ddl-dml-dcl-tcl", "constraints", "nulls", "delete-truncate-drop", "window-functions"] },
+    "os": { "priority": "P1", "subtopics": ["process-thread", "scheduling", "context-switching", "deadlock", "synchronisation", "memory", "paging", "page-replacement", "file-systems"] },
+    "networks": { "priority": "P1", "subtopics": ["osi-tcpip", "tcp-udp", "handshake", "ip-addressing", "dns", "dhcp", "http-https", "tls", "devices", "arp", "ports", "topologies", "firewall"] },
+    "git-se": { "priority": "P1", "subtopics": ["sdlc", "agile", "testing-levels", "solid", "git-basics", "git-branching", "merge-conflicts", "ci-cd"] },
+    "languages": { "priority": "P1", "subtopics": ["c-fundamentals", "c-pointers", "cpp-stl", "java-basics", "java-collections", "java-strings", "operator-precedence", "storage-classes"] }
+  },
+  "debugging": {
+    "logic-errors": { "priority": "P0", "subtopics": ["off-by-one", "inverted-condition", "wrong-variable", "missing-return", "bad-init", "wrong-operator"] },
+    "runtime-errors": { "priority": "P0", "subtopics": ["boundary-overflow", "null-deref", "division-by-zero", "infinite-loop", "stack-overflow", "uninitialised"] },
+    "syntax-errors": { "priority": "P1", "subtopics": ["missing-token", "wrong-type", "bad-signature", "format-specifier"] },
+    "language-traps": { "priority": "P0", "subtopics": ["java-string-equality", "integer-division", "array-length", "scanf-ampersand", "sizeof-decay", "strcmp-vs-equals", "unbraced-if", "int-overflow"] }
+  },
+  "aic": {
+    "framing": { "priority": "P0", "subtopics": ["inputs-outputs", "constraints", "edge-cases"] },
+    "planning": { "priority": "P0", "subtopics": ["approach", "complexity"] },
+    "prompting": { "priority": "P0", "subtopics": ["specificity", "constraints", "output-format", "edge-cases"] },
+    "reviewing": { "priority": "P0", "subtopics": ["correctness", "edge-cases", "complexity-claim", "compilability"] },
+    "refining": { "priority": "P0", "subtopics": ["targeted-followup", "verification"] },
+    "arrays": { "priority": "P0", "subtopics": ["scan", "in-place", "two-pass"] },
+    "strings": { "priority": "P0", "subtopics": ["frequency", "traversal", "parsing"] }
+  },
+  "cognitive": {
+    "grid": { "priority": "P0", "subtopics": ["working-memory", "spatial", "interference"] },
+    "switch": { "priority": "P0", "subtopics": ["deductive-logic", "operator-inference"] },
+    "digit": { "priority": "P0", "subtopics": ["mental-arithmetic", "constraint-search"] },
+    "motion": { "priority": "P1", "subtopics": ["planning", "optimisation"] }
+  },
+  "behavioural": {
+    "adept": { "priority": "P2", "subtopics": ["consistency"] }
+  }
+}

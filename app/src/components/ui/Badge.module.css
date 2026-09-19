@@ -1,0 +1,19 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  border-radius: var(--r-sm);
+  background: transparent;
+}
+.neutral { color: var(--ink-muted); }
+.stage   { color: var(--stage-current, var(--ink)); }
+.ok      { color: var(--ok); }
+.bad     { color: var(--bad); }
+.warn    { color: var(--warn); }
+.filled {
+  background: var(--stage-current, var(--ink));
+  color: var(--stage-current-ink, var(--paper));
+  border-color: var(--edge);
+}

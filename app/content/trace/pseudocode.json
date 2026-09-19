@@ -1,0 +1,209 @@
+[
+  {
+    "id": "trace-bitwise-003",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "bitwise",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "bitwise",
+      "loops",
+      "brian-kernighan"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Integer x = 13, count = 0\nWhile x != 0\n    x = x & (x - 1)\n    count = count + 1\nEnd While\nPrint count",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "3",
+    "explanation": "The expression x & (x - 1) clears the lowest set bit of x, so the loop runs exactly once per set bit. 13 is 1101 in binary, which has three set bits, so count ends at 3. Recognise this shape: any loop of the form while x != 0 { x = x & (x-1) } is counting set bits.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "x": 13,
+          "count": 0
+        },
+        "note": "13 = 1101b"
+      },
+      {
+        "step": 2,
+        "line": 3,
+        "vars": {
+          "x": 12,
+          "count": 1
+        },
+        "note": "13 & 12 = 1100b, lowest set bit cleared"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "x": 8,
+          "count": 2
+        },
+        "note": "12 & 11 = 1000b"
+      },
+      {
+        "step": 4,
+        "line": 3,
+        "vars": {
+          "x": 0,
+          "count": 3
+        },
+        "note": "8 & 7 = 0000b"
+      },
+      {
+        "step": 5,
+        "line": 6,
+        "vars": {
+          "x": 0,
+          "count": 3
+        },
+        "output": "3",
+        "note": "loop exits because x is now 0"
+      }
+    ]
+  },
+  {
+    "id": "trace-loop-offbyone-001",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "loops",
+      "accumulator"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "language": "pseudocode",
+    "sourceCode": "Integer sum = 0\nFor i = 1 to 5 Step 2\n    sum = sum + i\nEnd For\nPrint sum",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "9",
+    "explanation": "The loop variable takes the values 1, 3 and 5 because the step is 2 and the bound is inclusive. The accumulator therefore sums 1 + 3 + 5 = 9. The trap here is assuming Step 2 halves the iteration count of a 1-to-5 range; count the actual values instead.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "sum": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 3,
+        "vars": {
+          "i": 1,
+          "sum": 1
+        }
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "i": 3,
+          "sum": 4
+        }
+      },
+      {
+        "step": 4,
+        "line": 3,
+        "vars": {
+          "i": 5,
+          "sum": 9
+        }
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "sum": 9
+        },
+        "output": "9",
+        "note": "i would be 7, which exceeds the bound, so the loop ends"
+      }
+    ]
+  },
+  {
+    "id": "trace-intdiv-001",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "integer-arithmetic",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "integer-division",
+      "digits"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "language": "pseudocode",
+    "sourceCode": "Integer n = 1024, digits = 0\nWhile n > 0\n    n = n / 10\n    digits = digits + 1\nEnd While\nPrint digits",
+    "question": "What is printed, given that / is integer division?",
+    "answerMode": "exact",
+    "answer": "4",
+    "explanation": "Integer division truncates toward zero, so 1024 becomes 102, then 10, then 1, then 0. The loop runs once per digit and stops when n reaches 0, giving 4. Recognise this shape: repeatedly dividing by 10 and counting is the standard digit-count idiom.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "n": 1024,
+          "digits": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 3,
+        "vars": {
+          "n": 102,
+          "digits": 1
+        },
+        "note": "1024 / 10 truncates to 102"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "n": 10,
+          "digits": 2
+        }
+      },
+      {
+        "step": 4,
+        "line": 3,
+        "vars": {
+          "n": 1,
+          "digits": 3
+        }
+      },
+      {
+        "step": 5,
+        "line": 3,
+        "vars": {
+          "n": 0,
+          "digits": 4
+        },
+        "note": "1 / 10 truncates to 0"
+      },
+      {
+        "step": 6,
+        "line": 6,
+        "vars": {
+          "n": 0,
+          "digits": 4
+        },
+        "output": "4"
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-4) var(--s-4) var(--s-5);
+  background: var(--paper-raised);
+  border: var(--border-w) solid var(--edge);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+/* The stage hue as a thick left bar — identifiable from across the room. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 8px;
+  background: var(--stage-current, var(--ink));
+}
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); }
+.title { display: flex; align-items: center; gap: var(--s-2); color: var(--ink); }
+.status { display: flex; align-items: center; gap: var(--s-2); color: var(--ink-muted); }
+.readout { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-3); }
+.score { font-size: var(--t-3xl); font-weight: 700; line-height: 0.9; color: var(--ink); }
+.untested { font-size: var(--t-lg); color: var(--unknown); }
+.blurb { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.45; }
+.gate { color: var(--ink-faint); }

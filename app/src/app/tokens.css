@@ -1,0 +1,249 @@
+/* ============================================================================
+   Exceller Trainer — design tokens
+   The single source of truth for the "Arcade Brutalist" system.
+   See plan/08-DESIGN-GUIDE.md. Nothing in the app hardcodes a colour.
+   ========================================================================= */
+
+:root {
+  /* --- Neutrals: light ------------------------------------------------- */
+  --paper: #fbfaf7;          /* warm off-white, never pure white */
+  --paper-raised: #ffffff;
+  --paper-sunken: #f0eee8;
+  --ink: #12151a;
+  --ink-muted: #4e5866;
+  --ink-faint: #5f6875;   /* 5.6:1 on --paper-raised */
+  --edge: #12151a;           /* borders are INK in light mode — the brutalist tell */
+  --edge-soft: #d8d5cc;
+  --shadow-color: #12151a;   /* hard shadows are cast in ink */
+  --scrim: rgb(18 21 26 / 0.8);
+
+  /* --- Stage hues: light (deeper, so they read on white) --------------- */
+  --stage-english: #d93d14;
+  --stage-ai: #7c3aed;
+  --stage-technical: #0369a1;
+  --stage-debug: #b45309;
+  --stage-aic: #4d7c0f;
+  --stage-cognitive: #db2777;
+  --stage-ink: #ffffff;      /* text placed ON a stage hue */
+
+  /* --- Semantic: light ------------------------------------------------- */
+  --ok: #047857;
+  --bad: #dc2626;
+  --warn: #b45309;
+  --info: #0369a1;
+  --unknown: #5f6875;
+
+  /* --- Type ------------------------------------------------------------ */
+  --font-ui: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --t-xs: 0.75rem;    /* 12 */
+  --t-sm: 0.875rem;   /* 14 */
+  --t-base: 1rem;     /* 16 */
+  --t-lg: 1.25rem;    /* 20 */
+  --t-xl: 1.5625rem;  /* 25 */
+  --t-2xl: 1.9375rem; /* 31 */
+  --t-3xl: 2.4375rem; /* 39 */
+  --t-4xl: 3.0625rem; /* 49 */
+
+  --lh-tight: 1.15;
+  --lh-body: 1.7;     /* question stems live here */
+  --measure: 68ch;    /* max reading width */
+
+  /* --- Space: 4px grid ------------------------------------------------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+  /* --- Shape ----------------------------------------------------------- */
+  --r-none: 0;
+  --r-sm: 4px;
+  --r-full: 999px;
+  --border-w: 2px;
+
+  /* --- Depth: hard shadows, ZERO blur ---------------------------------- */
+  --shadow-flat: 0 0 0 0 var(--shadow-color);
+  --shadow-1: 3px 3px 0 0 var(--shadow-color);
+  --shadow-2: 5px 5px 0 0 var(--shadow-color);
+
+  /* --- Motion ---------------------------------------------------------- */
+  --dur-instant: 80ms;
+  --dur-fast: 140ms;
+  --dur-base: 200ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-snap: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  /* --- Layout ---------------------------------------------------------- */
+  --rail-w: 72px;
+  --rail-w-open: 208px;
+  --topbar-h: 56px;
+
+  /* Default stage context (overridden by [data-stage]) */
+  --stage-current: var(--ink);
+  --stage-current-ink: var(--paper);
+}
+
+/* --- Neutrals + hues: dark ------------------------------------------- */
+:root[data-theme='dark'] {
+  --paper: #0b0d10;
+  --paper-raised: #14181d;
+  --paper-sunken: #07090b;
+  --ink: #f2f5f7;
+  --ink-muted: #9aa6b2;
+  --ink-faint: #7b8794;   /* 4.9:1 on --paper-raised */
+  --edge: #3a444f;
+  --edge-soft: #222a32;
+  /* Pure black: an edge-coloured shadow is invisible on near-black paper. */
+  --shadow-color: #000000;
+  --scrim: rgb(3 5 7 / 0.82);
+
+  /* Brighter hues: on near-black they stay vivid and all clear AA with dark ink */
+  --stage-english: #ff6e4d;
+  --stage-ai: #b47cff;
+  --stage-technical: #22ccff;
+  --stage-debug: #ffb92e;
+  --stage-aic: #c4ff4d;
+  --stage-cognitive: #ff5c9d;
+  --stage-ink: #0b0d10;
+
+  --ok: #35e08a;
+  --bad: #ff5a66;
+  --warn: #ffb92e;
+  --info: #22ccff;
+  --unknown: #7b8794;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #0b0d10;
+    --paper-raised: #14181d;
+    --paper-sunken: #07090b;
+    --ink: #f2f5f7;
+    --ink-muted: #9aa6b2;
+    --ink-faint: #7b8794;   /* 4.9:1 on --paper-raised */
+    --edge: #3a444f;
+    --edge-soft: #222a32;
+    /* Pure black: an edge-coloured shadow is invisible on near-black paper. */
+    --shadow-color: #000000;
+    --scrim: rgb(3 5 7 / 0.82);
+
+    --stage-english: #ff6e4d;
+    --stage-ai: #b47cff;
+    --stage-technical: #22ccff;
+    --stage-debug: #ffb92e;
+    --stage-aic: #c4ff4d;
+    --stage-cognitive: #ff5c9d;
+    --stage-ink: #0b0d10;
+
+    --ok: #35e08a;
+    --bad: #ff5a66;
+    --warn: #ffb92e;
+    --info: #22ccff;
+    --unknown: #7b8794;
+  }
+}
+
+/* ============================================================================
+   Stage context — ADR-009
+   One attribute re-skins an entire screen. Components read --stage-current
+   and never know which stage they are in.
+   ========================================================================= */
+[data-stage='english']   { --stage-current: var(--stage-english); }
+[data-stage='ai-literacy'] { --stage-current: var(--stage-ai); }
+[data-stage='technical'] { --stage-current: var(--stage-technical); }
+[data-stage='debugging'] { --stage-current: var(--stage-debug); }
+[data-stage='aic']       { --stage-current: var(--stage-aic); }
+[data-stage='cognitive'] { --stage-current: var(--stage-cognitive); }
+[data-stage='behavioural'] { --stage-current: var(--ink-muted); }
+
+[data-stage] {
+  --stage-current-ink: var(--stage-ink);
+  --stage-current-soft: color-mix(in oklab, var(--stage-current) 14%, var(--paper));
+  --stage-current-edge: color-mix(in oklab, var(--stage-current) 45%, var(--paper));
+}
+
+/* ============================================================================
+   Shared interaction primitives — written ONCE, composed everywhere.
+   ========================================================================= */
+
+/* The press: an element sits on a hard shadow and translates into it. */
+.press {
+  box-shadow: var(--shadow-1);
+  transition:
+    transform var(--dur-instant) var(--ease-out),
+    box-shadow var(--dur-instant) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+.press:hover:not(:disabled):not([aria-disabled='true']) {
+  box-shadow: var(--shadow-2);
+  transform: translate(-1px, -1px);
+}
+.press:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translate(3px, 3px);
+  box-shadow: var(--shadow-flat);
+}
+.press:disabled,
+.press[aria-disabled='true'] {
+  box-shadow: var(--shadow-flat);
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* One focus ring for the whole app. Never remove an outline without one. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--stage-current, var(--ink));
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* Anything whose digits tick must not jitter. */
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* The signature micro-label. */
+.microlabel {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* The quiet zone: long-form reading surfaces. */
+.reading {
+  max-width: var(--measure);
+  font-size: var(--t-base);
+  line-height: var(--lh-body);
+  color: var(--ink);
+}
+
+/* Visually hidden but available to screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================================
+   Reduced motion — handled globally, not per component.
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .press:hover:not(:disabled),
+  .press:active:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,0 +1,73 @@
+# Exceller Trainer
+
+A local-first practice app for the Capgemini Exceller 2026 assessment.
+Design and rationale live in [`../plan/`](../plan/).
+
+## Run it
+
+```bash
+npm install
+cp .env.example .env.local     # every value is optional
+npm run db:migrate
+npm run db:seed
+npm run dev                    # http://localhost:3000
+```
+
+## Scripts
+
+| Command | Does |
+| --- | --- |
+| `npm run dev` | Dev server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run lint` | ESLint |
+| `npm test` | Vitest — content validation, timer, design tokens |
+| `npm run content:validate` | Runs the 15 content rules; exits non-zero on any violation |
+| `npm run db:generate` | Generate a Drizzle migration from the schema |
+| `npm run db:migrate` | Apply migrations |
+| `npm run db:seed` | Load `content/` into the database (idempotent) |
+| `npm run screenshot` | Visual smoke check across themes and phone width |
+
+## What exists today (Phase 00)
+
+- Design system: tokens, custom icon set, hand-built primitives, no UI library
+- SQLite schema (10 tables) via Drizzle
+- Content pipeline: Zod schemas, topic registry, 15 validation rules, idempotent seeder
+- `useExamTimer` — the shared, drift-free timer
+- App shell, readiness dashboard, settings
+
+Every other route is a stub naming the phase that builds it.
+
+## Requirements
+
+- Node 20.9+
+- Optional: `gcc`, `g++`, `javac` for the local code runner (Phase 02)
+- Chrome or Edge for the speaking module (Phase 05) — it uses the Web Speech API
+
+## Configuration
+
+All optional; see `.env.example`.
+
+- `ANTHROPIC_API_KEY` — enables AI-assisted coding scoring, essay grading and content
+  generation. **Without it the app still runs**: those features fall back to deterministic
+  rubric scoring.
+- `LLM_DAILY_CAP_USD` — when exceeded, assisted features degrade rather than bill you.
+- `CODE_RUNNER` — `auto` (default), `local`, or `piston`.
+- `DB_FILE` — the database file name. It always lives under `app/data/`.
+- `NEXT_PUBLIC_EXAM_DATE`, `NEXT_PUBLIC_EXAM_PROFILE`.
+
+## Security
+
+The local code runner compiles and executes code on this machine with a timeout and an
+output cap, and nothing else. That is acceptable for a single-user local tool where you
+write all the code it runs.
+
+**Do not expose this app to a network.** If you need isolation, set `CODE_RUNNER=piston`
+or run the app inside a container.
+
+## Known issues
+
+- `npm audit` reports a moderate advisory against `esbuild`, reached only through the
+  `drizzle-kit` CLI (a dev-time tool). The advisory concerns esbuild's dev server, which
+  this project never runs. `npm audit fix --force` would downgrade `drizzle-kit` to a
+  breaking major, so it is left as-is deliberately.

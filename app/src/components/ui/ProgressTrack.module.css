@@ -1,0 +1,28 @@
+.wrap { display: flex; align-items: center; gap: var(--s-3); width: 100%; }
+.track {
+  position: relative;
+  flex: 1;
+  height: 12px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-sunken);
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  background: var(--stage-current, var(--ink));
+  transition: width var(--dur-base) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+.warn { background: var(--warn); }
+.over { background: var(--bad); }
+.value { font-size: var(--t-sm); color: var(--ink-muted); }
+
+/* Segmented variant: one hard block per question. */
+.segments { display: flex; gap: 3px; flex: 1; }
+.seg {
+  flex: 1;
+  height: 12px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-sunken);
+}
+.segDone { background: var(--stage-current, var(--ink)); }
+.segCurrent { background: var(--paper); border-color: var(--stage-current, var(--ink)); }

@@ -1,0 +1,25 @@
+.panel {
+  background: var(--paper-raised);
+  border: var(--border-w) solid var(--edge);
+  border-radius: var(--r-none);
+}
+.raised { box-shadow: var(--shadow-2); }
+.flat { box-shadow: none; }
+
+/* A stage-tinted header strip — the main way a surface declares which stage it belongs to. */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-bottom: var(--border-w) solid var(--edge);
+  background: var(--stage-current, var(--ink));
+  color: var(--stage-current-ink, var(--paper));
+}
+.headerPlain {
+  background: var(--paper-sunken);
+  color: var(--ink);
+}
+.body { padding: var(--s-5); }
+.tinted { background: var(--stage-current-soft, var(--paper-raised)); }

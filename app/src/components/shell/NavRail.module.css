@@ -1,0 +1,87 @@
+.rail {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100dvh;
+  width: var(--rail-w);
+  flex: 0 0 var(--rail-w);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-3) var(--s-2);
+  background: var(--paper-sunken);
+  border-right: var(--border-w) solid var(--edge);
+  transition: width var(--dur-base) var(--ease-out), flex-basis var(--dur-base) var(--ease-out);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.open { width: var(--rail-w-open); flex-basis: var(--rail-w-open); }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2);
+  margin-bottom: var(--s-3);
+  color: var(--ink);
+}
+.mark {
+  flex: 0 0 auto;
+  width: 28px; height: 28px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--stage-current, var(--ink));
+  color: var(--stage-current-ink, var(--paper));
+  display: grid; place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+}
+.brandText { white-space: nowrap; overflow: hidden; }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 10px;
+  border: var(--border-w) solid transparent;
+  border-radius: var(--r-sm);
+  color: var(--ink-muted);
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  transition: background-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.item:hover { background: var(--paper-raised); color: var(--ink); border-color: var(--edge-soft); }
+.item span { white-space: nowrap; overflow: hidden; }
+
+/* The active item takes the stage hue — wayfinding from peripheral vision. */
+.active {
+  background: var(--stage-current, var(--ink));
+  color: var(--stage-current-ink, var(--paper));
+  border-color: var(--edge);
+  box-shadow: var(--shadow-1);
+}
+.active:hover { background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper)); }
+
+.spacer { flex: 1; }
+.collapsed span { display: none; }
+
+@media (max-width: 719px) {
+  .rail {
+    position: fixed;
+    bottom: 0; left: 0; right: 0; top: auto;
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: none;
+    border-top: var(--border-w) solid var(--edge);
+    z-index: 40;
+    padding: var(--s-2);
+  }
+  .brand, .spacer { display: none; }
+  .item span { display: none; }
+}

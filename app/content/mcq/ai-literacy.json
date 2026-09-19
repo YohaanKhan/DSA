@@ -1,0 +1,158 @@
+[
+  {
+    "id": "ail-hallucination-001",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "hallucination",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["hallucination", "validation"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "A developer asks a language model for research papers on a niche topic. The model returns three citations with plausible titles, authors and years, but none of the papers exist. Which limitation does this demonstrate?",
+    "options": [
+      { "id": "a", "text": "Context window overflow" },
+      { "id": "b", "text": "Hallucination" },
+      { "id": "c", "text": "Knowledge cutoff" },
+      { "id": "d", "text": "Prompt injection" }
+    ],
+    "answer": "b",
+    "explanation": "Hallucination is when a model produces output that is fluent and plausible but factually unsupported or fabricated. The citations are well-formed yet non-existent, which is the defining signature. Pattern: if the model INVENTED something, it is hallucination; if it merely does not KNOW something recent, it is knowledge cutoff.",
+    "distractorRationale": {
+      "a": "Context window overflow truncates or loses earlier input; it does not invent new facts.",
+      "c": "Knowledge cutoff explains not knowing recent events. Here the model invented papers that never existed at any time.",
+      "d": "Prompt injection requires untrusted input carrying instructions, and there is none in this scenario."
+    }
+  },
+  {
+    "id": "ail-cutoff-001",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "knowledge-cutoff",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["knowledge-cutoff"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "You ask an assistant about a framework release that shipped last week. It confidently describes an older version instead and does not mention the new release. With no tools or web access available to it, what best explains this?",
+    "options": [
+      { "id": "a", "text": "The model's training data ends before the release" },
+      { "id": "b", "text": "The prompt exceeded the context window" },
+      { "id": "c", "text": "The temperature setting was too low" },
+      { "id": "d", "text": "The model was fine-tuned on the wrong task" }
+    ],
+    "answer": "a",
+    "explanation": "A model only knows what was in its training data up to its cutoff date. Without retrieval or tool access it cannot learn about anything released afterwards, so it answers from the most recent version it saw. The fix is to supply the current information in the prompt or give the model a retrieval tool.",
+    "distractorRationale": {
+      "b": "A short question does not come close to filling a context window, and overflow would truncate input rather than substitute older facts.",
+      "c": "Temperature controls randomness of wording, not which facts the model holds.",
+      "d": "Fine-tuning changes task behaviour, not the calendar date its knowledge stops at."
+    }
+  },
+  {
+    "id": "ail-prompt-quality-001",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["prompt-quality"],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "You need a function that returns the second largest distinct value in an integer array. Which prompt is most likely to produce correct, usable code on the first attempt?",
+    "options": [
+      { "id": "a", "text": "Write code for second largest." },
+      { "id": "b", "text": "You are an expert programmer. Please write very high quality code for the second largest element problem." },
+      { "id": "c", "text": "Write a Java method int secondLargest(int[] nums) returning the second largest DISTINCT value. Return Integer.MIN_VALUE if fewer than two distinct values exist. Handle empty, single-element, all-equal and negative inputs. Target O(n) time, O(1) space, and state the complexity." },
+      { "id": "d", "text": "Can you help me with an array problem? It is about finding a large element. Thanks." }
+    ],
+    "answer": "c",
+    "explanation": "A strong prompt states the language, the exact signature and behaviour, the input and output contract, the edge cases and the complexity target. Option C supplies all of them, so the model has no ambiguity to guess at. Pattern: the better prompt is always the one with explicit task, explicit constraints and explicit output expectations, not the one with flattery or a persona.",
+    "distractorRationale": {
+      "a": "No language, no definition of distinct, no edge-case handling and no complexity target.",
+      "b": "A persona and the word quality add no information the model can act on; it still does not know the language or the contract.",
+      "d": "Vague to the point of being unanswerable; the model would have to invent the entire specification."
+    }
+  },
+  {
+    "id": "ail-responsible-privacy-001",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "privacy",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["privacy", "responsible-ai"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "A colleague wants to debug a production issue by pasting a log file containing customer names, email addresses and payment references into a public AI chat tool. What is the responsible course of action?",
+    "options": [
+      { "id": "a", "text": "Paste it, since the tool's provider promises not to train on inputs" },
+      { "id": "b", "text": "Paste only the first hundred lines to reduce exposure" },
+      { "id": "c", "text": "Redact or synthesise the personal and payment data before sharing anything" },
+      { "id": "d", "text": "Paste it but ask the model to ignore the personal data" }
+    ],
+    "answer": "c",
+    "explanation": "Sharing personal or payment data with a third-party service is a disclosure regardless of the provider's retention policy, and it may breach data-protection obligations. Removing or synthesising the sensitive fields preserves the debugging value without the disclosure. Heuristic for this question type: the safe answer is the one that validates, redacts, or keeps a human in control.",
+    "distractorRationale": {
+      "a": "A retention promise does not undo the transfer of personal data to a third party, nor satisfy your own obligations.",
+      "b": "Reducing volume does not change the nature of the disclosure; a hundred lines of real customer data is still a breach.",
+      "d": "Instructions to a model are not an access control. The data has already left your environment."
+    }
+  },
+  {
+    "id": "ail-rag-pipeline-001",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "pipeline",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": ["rag", "pipeline"],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In a retrieval-augmented generation system, what is the correct order of operations when answering a user's question?",
+    "options": [
+      { "id": "a", "text": "Generate an answer, then retrieve documents to verify it, then re-generate" },
+      { "id": "b", "text": "Embed the query, retrieve the most similar chunks, add them to the prompt, then generate" },
+      { "id": "c", "text": "Fine-tune the model on the documents, then generate directly from the query" },
+      { "id": "d", "text": "Retrieve every document in the store and place all of them in the prompt" }
+    ],
+    "answer": "b",
+    "explanation": "RAG works by turning the query into an embedding, finding the semantically nearest chunks in a vector store, injecting those chunks into the prompt as context, and only then generating. This grounds the answer in retrieved source material rather than the model's parameters, which is what reduces hallucination and lets the system use current or private data.",
+    "distractorRationale": {
+      "a": "Generating first defeats the purpose; the point of RAG is to ground the generation before it happens.",
+      "c": "That describes fine-tuning, which changes the weights rather than supplying documents at query time, and is a different technique with different trade-offs.",
+      "d": "Retrieval exists precisely because the context window cannot hold an entire corpus; top-k selection is the mechanism."
+    }
+  },
+  {
+    "id": "ail-agent-definition-001",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "agent-definition",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": ["agents", "tool-use"],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What distinguishes an agentic AI system from a single prompt-and-response call to a language model?",
+    "options": [
+      { "id": "a", "text": "It uses a larger model with a longer context window" },
+      { "id": "b", "text": "It always requires multiple cooperating models" },
+      { "id": "c", "text": "It can call tools and loop, observing each result before deciding the next step toward a goal" },
+      { "id": "d", "text": "It generates output without any human-written instructions" }
+    ],
+    "answer": "c",
+    "explanation": "An agent is a model plus tools plus a loop plus a goal. The defining property is that it acts, observes the result of that action, and uses the observation to decide what to do next, repeating until the goal is met. A single call has no observation step and therefore cannot adapt mid-task.",
+    "distractorRationale": {
+      "a": "Model size and context length are capacity, not architecture; a large model called once is still not an agent.",
+      "b": "Multi-agent systems are one pattern, but a single model with tools in a loop is already agentic.",
+      "d": "Agents still operate from human-specified goals and constraints; autonomy of execution is not absence of instruction."
+    }
+  }
+]

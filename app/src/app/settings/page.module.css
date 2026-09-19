@@ -1,0 +1,15 @@
+.page { display: flex; flex-direction: column; gap: var(--s-6); max-width: 760px; }
+.rows { display: flex; flex-direction: column; gap: var(--s-4); }
+.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--edge-soft);
+}
+.row:last-child { border-bottom: none; padding-bottom: 0; }
+.key { display: flex; flex-direction: column; gap: var(--s-1); }
+.hint { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.5; max-width: 46ch; }
+.val { color: var(--ink); text-align: right; white-space: nowrap; }
+.note { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.6; }
