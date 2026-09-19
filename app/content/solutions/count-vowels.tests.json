@@ -1,0 +1,12 @@
+{
+  "problem": "Read one line of text. Print how many vowels (a, e, i, o, u) it contains, counting upper and lower case alike.",
+  "language": "cpp",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "mixed case", "stdin": "Hello World\n", "expectedStdout": "3" },
+    { "name": "no vowels", "stdin": "rhythm\n", "expectedStdout": "0", "edgeCase": true },
+    { "name": "all vowels", "stdin": "aeiouAEIOU\n", "expectedStdout": "10", "edgeCase": true },
+    { "name": "empty line", "stdin": "\n", "expectedStdout": "0", "edgeCase": true, "hidden": true },
+    { "name": "digits and symbols", "stdin": "a1e2i3!?\n", "expectedStdout": "3", "hidden": true }
+  ]
+}

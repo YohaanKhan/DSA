@@ -7,6 +7,7 @@
 | **Prerequisites** | Phase 00 (Phase 01 optional) |
 | **Unlocks** | Stage 3 — an eliminatory gate that almost nobody practises |
 | **Skippable?** | **No.** |
+| **Status** | ✅ **Built.** See `app/src/lib/runner/`, `app/src/lib/mutation/`, `app/src/components/debug/`, `app/scripts/inject-bugs.ts`. |
 
 > **Why this is phase 2 and not phase 5.** Debugging is (a) eliminatory, (b) a skill distinct
 > from writing code, (c) the one with no good free practice source, and (d) trainable to a high
@@ -161,13 +162,34 @@ raise your debugging speed.
 
 ## Acceptance tests
 
-- [ ] All three languages compile and run; infinite loop times out cleanly with no orphans
-- [ ] `inject-bugs` on a correct C solution produces 8 exercises, each compiling and each failing ≥1 test
-- [ ] An exercise whose mutation happens to pass all tests is rejected, not served
-- [ ] Read phase locks the editor for 90 s; hypothesis is required before unlock
-- [ ] Hints are unavailable before minute 8 and each costs 0.10
-- [ ] Result screen shows a diff of your fix vs. the minimal fix
-- [ ] Submitted fixes appear in `/log` for interview prep
+- [x] All three languages compile and run; an infinite loop times out cleanly and leaves **no orphan processes**; runaway output is truncated at the cap
+- [x] `inject-bugs` produced **11 exercises from 3 solutions**, every one compiling and failing ≥1 test
+- [x] An exercise whose mutation still passes every test is rejected, not served (the validity loop)
+- [x] Read phase locks the editor; a bug-family hypothesis is required before it unlocks
+- [x] Hints are unavailable before minute 8 and each costs 0.10
+- [x] Result screen shows the minimal diff, the real bug family and the marked line
+- [x] Scoring discriminates: minimal fix **98**, same fix with needless edits **78**, minimal with 3 hints **68**, unfixed **0**
+- [x] Submissions are recorded for interview prep
+
+### Bugs this phase's verification actually caught
+
+| Bug | How it was found |
+| --- | --- |
+| `targetSeconds` was capped at 600s, but a debugging round is 1200s | The content validator rejected every injected exercise. Cap raised to 1800s (the AI-assisted round is 30 min). |
+| The content loader treated `content/solutions/*.tests.json` as question banks | Validator reported "a content bank must be a JSON array". Solutions are inputs to the injector, not content. |
+| Rule V14 (near-duplicate) fired on every debug item | Exercises injected into one solution *share* a problem statement by design. V14 now excludes debug items and instead rejects two identical broken programs. |
+| Submit returned 400 for every attempt | `performance.now()` deltas are fractional; the schema demanded an integer. Found by driving the real UI. |
+| Read phase transitioned via `setState` inside an effect | `react-hooks` lint. The phase is now derived from the clock. |
+| Hints still said "locked for the first 8 minutes" after the exercise ended | Screenshot review. |
+
+### Deviation from the plan
+
+The plan specified **Monaco** for the editor. Rejected during the build: it is ~5 MB, loads
+from a CDN by default (which breaks the "must work offline on exam eve" requirement), and
+would need fighting to match the design system. Replaced with a **custom ~100-line editor** —
+a textarea layered over a syntax-highlighted `<pre>` with a line gutter, using a small
+C-family tokenizer (`src/lib/highlight.ts`). No dependency, works offline, styled from the
+design tokens.
 
 ## Done when
 

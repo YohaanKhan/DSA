@@ -26,6 +26,7 @@ npm run dev                    # http://localhost:3000
 | `npm run db:generate` | Generate a Drizzle migration from the schema |
 | `npm run db:migrate` | Apply migrations |
 | `npm run db:seed` | Load `content/` into the database (idempotent) |
+| `npm run content:inject` | Turn `content/solutions/*` into debugging exercises (free — no LLM) |
 | `npm run screenshot` | Visual smoke check across themes and phone width |
 
 ## What exists today
@@ -45,6 +46,15 @@ npm run dev                    # http://localhost:3000
 - Trace Lab with a variable-table stepper that replays execution line by line
 - SM-2 spaced repetition, capped at a 3-day interval so nothing goes stale before the exam
 - Content generator using structured outputs, with validation and answer-key rebalancing
+
+**Phase 02 — debugging lab**
+- Pluggable code runner for C, C++ and Java: process-group kill, separate
+  compile/run timeouts, output caps, toolchain detection, remote Piston fallback
+- Bug-injection engine with a validity loop, so every generated exercise is
+  **provably broken** (fails a test) and **provably fixable** (the reference passes)
+- Read → hypothesise → fix → validate flow with a locked editor, scored hint
+  ladder, minimal-diff feedback and an edge-case checklist
+- Language-trap MCQ set for the classic C/C++/Java gotchas
 
 Every other route is a stub naming the phase that builds it.
 

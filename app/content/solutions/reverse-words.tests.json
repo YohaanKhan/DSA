@@ -1,0 +1,12 @@
+{
+  "problem": "Read one line of text. Print its words in reverse order, separated by single spaces, with leading, trailing and repeated spaces collapsed.",
+  "language": "java",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "simple", "stdin": "the quick brown fox\n", "expectedStdout": "fox brown quick the" },
+    { "name": "extra spaces", "stdin": "  hello   world  \n", "expectedStdout": "world hello", "edgeCase": true },
+    { "name": "single word", "stdin": "alone\n", "expectedStdout": "alone", "edgeCase": true },
+    { "name": "empty line", "stdin": "\n", "expectedStdout": "", "edgeCase": true, "hidden": true },
+    { "name": "two words", "stdin": "a b\n", "expectedStdout": "b a", "hidden": true }
+  ]
+}

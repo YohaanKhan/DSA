@@ -1,0 +1,736 @@
+[
+  {
+    "id": "dbg-count-vowels-off-by-one",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "off-by-one",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "off-by-one",
+      "cpp"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "cpp",
+    "problem": "Read one line of text. Print how many vowels (a, e, i, o, u) it contains, counting upper and lower case alike.",
+    "brokenSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c > 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "referenceSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "off-by-one",
+        "line": 14,
+        "description": "comparison narrowed from >= to >"
+      }
+    ],
+    "tests": [
+      {
+        "name": "mixed case",
+        "stdin": "Hello World\n",
+        "expectedStdout": "3"
+      },
+      {
+        "name": "no vowels",
+        "stdin": "rhythm\n",
+        "expectedStdout": "0",
+        "edgeCase": true
+      },
+      {
+        "name": "all vowels",
+        "stdin": "aeiouAEIOU\n",
+        "expectedStdout": "10",
+        "edgeCase": true
+      },
+      {
+        "name": "empty line",
+        "stdin": "\n",
+        "expectedStdout": "0",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "digits and symbols",
+        "stdin": "a1e2i3!?\n",
+        "expectedStdout": "3",
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: off by one.",
+      "It is in the code around line 12–16.",
+      "It is on line 14: comparison narrowed from >= to >.",
+      "The fix is:\n- if (c > 'A' && c <= 'Z') {\n+ if (c >= 'A' && c <= 'Z') {"
+    ]
+  },
+  {
+    "id": "dbg-count-vowels-inverted-condition",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "inverted-condition",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "inverted-condition",
+      "cpp"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "cpp",
+    "problem": "Read one line of text. Print how many vowels (a, e, i, o, u) it contains, counting upper and lower case alike.",
+    "brokenSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' && c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "referenceSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "inverted-condition",
+        "line": 17,
+        "description": "logical OR swapped for AND"
+      }
+    ],
+    "tests": [
+      {
+        "name": "mixed case",
+        "stdin": "Hello World\n",
+        "expectedStdout": "3"
+      },
+      {
+        "name": "no vowels",
+        "stdin": "rhythm\n",
+        "expectedStdout": "0",
+        "edgeCase": true
+      },
+      {
+        "name": "all vowels",
+        "stdin": "aeiouAEIOU\n",
+        "expectedStdout": "10",
+        "edgeCase": true
+      },
+      {
+        "name": "empty line",
+        "stdin": "\n",
+        "expectedStdout": "0",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "digits and symbols",
+        "stdin": "a1e2i3!?\n",
+        "expectedStdout": "3",
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: inverted condition.",
+      "It is in the code around line 15–19.",
+      "It is on line 17: logical OR swapped for AND.",
+      "The fix is:\n- if (c == 'a' || c == 'e' && c == 'i' || c == 'o' || c == 'u') {\n+ if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {"
+    ]
+  },
+  {
+    "id": "dbg-count-vowels-bad-init",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "bad-init",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "bad-init",
+      "cpp"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "cpp",
+    "problem": "Read one line of text. Print how many vowels (a, e, i, o, u) it contains, counting upper and lower case alike.",
+    "brokenSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 1;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "referenceSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "bad-init",
+        "line": 11,
+        "description": "accumulator count initialised to 1 instead of 0"
+      }
+    ],
+    "tests": [
+      {
+        "name": "mixed case",
+        "stdin": "Hello World\n",
+        "expectedStdout": "3"
+      },
+      {
+        "name": "no vowels",
+        "stdin": "rhythm\n",
+        "expectedStdout": "0",
+        "edgeCase": true
+      },
+      {
+        "name": "all vowels",
+        "stdin": "aeiouAEIOU\n",
+        "expectedStdout": "10",
+        "edgeCase": true
+      },
+      {
+        "name": "empty line",
+        "stdin": "\n",
+        "expectedStdout": "0",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "digits and symbols",
+        "stdin": "a1e2i3!?\n",
+        "expectedStdout": "3",
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: bad init.",
+      "It is in the code around line 9–13.",
+      "It is on line 11: accumulator count initialised to 1 instead of 0.",
+      "The fix is:\n- int count = 1;\n+ int count = 0;"
+    ]
+  },
+  {
+    "id": "dbg-count-vowels-assign-in-condition",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "assign-in-condition",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "assign-in-condition",
+      "cpp"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "cpp",
+    "problem": "Read one line of text. Print how many vowels (a, e, i, o, u) it contains, counting upper and lower case alike.",
+    "brokenSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c = 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "referenceSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "assign-in-condition",
+        "line": 17,
+        "description": "assignment used where comparison was meant"
+      }
+    ],
+    "tests": [
+      {
+        "name": "mixed case",
+        "stdin": "Hello World\n",
+        "expectedStdout": "3"
+      },
+      {
+        "name": "no vowels",
+        "stdin": "rhythm\n",
+        "expectedStdout": "0",
+        "edgeCase": true
+      },
+      {
+        "name": "all vowels",
+        "stdin": "aeiouAEIOU\n",
+        "expectedStdout": "10",
+        "edgeCase": true
+      },
+      {
+        "name": "empty line",
+        "stdin": "\n",
+        "expectedStdout": "0",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "digits and symbols",
+        "stdin": "a1e2i3!?\n",
+        "expectedStdout": "3",
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: assign in condition.",
+      "It is in the code around line 15–19.",
+      "It is on line 17: assignment used where comparison was meant.",
+      "The fix is:\n- if (c = 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n+ if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {"
+    ]
+  },
+  {
+    "id": "dbg-count-vowels-wrong-operator",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "wrong-operator",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "wrong-operator",
+      "cpp"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "cpp",
+    "problem": "Read one line of text. Print how many vowels (a, e, i, o, u) it contains, counting upper and lower case alike.",
+    "brokenSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c - 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "referenceSource": "#include <iostream>\n#include <string>\n\nint main() {\n    std::string line;\n    if (!std::getline(std::cin, line)) {\n        std::cout << 0 << std::endl;\n        return 0;\n    }\n\n    int count = 0;\n    for (size_t i = 0; i < line.size(); i++) {\n        char c = line[i];\n        if (c >= 'A' && c <= 'Z') {\n            c = c + 32;\n        }\n        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {\n            count = count + 1;\n        }\n    }\n\n    std::cout << count << std::endl;\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "wrong-operator",
+        "line": 15,
+        "description": "addition replaced with subtraction"
+      }
+    ],
+    "tests": [
+      {
+        "name": "mixed case",
+        "stdin": "Hello World\n",
+        "expectedStdout": "3"
+      },
+      {
+        "name": "no vowels",
+        "stdin": "rhythm\n",
+        "expectedStdout": "0",
+        "edgeCase": true
+      },
+      {
+        "name": "all vowels",
+        "stdin": "aeiouAEIOU\n",
+        "expectedStdout": "10",
+        "edgeCase": true
+      },
+      {
+        "name": "empty line",
+        "stdin": "\n",
+        "expectedStdout": "0",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "digits and symbols",
+        "stdin": "a1e2i3!?\n",
+        "expectedStdout": "3",
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: wrong operator.",
+      "It is in the code around line 13–17.",
+      "It is on line 15: addition replaced with subtraction.",
+      "The fix is:\n- c = c - 32;\n+ c = c + 32;"
+    ]
+  },
+  {
+    "id": "dbg-reverse-words-off-by-one",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "off-by-one",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "off-by-one",
+      "java"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "java",
+    "problem": "Read one line of text. Print its words in reverse order, separated by single spaces, with leading, trailing and repeated spaces collapsed.",
+    "brokenSource": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.hasNextLine() ? sc.nextLine() : \"\";\n\n        String[] parts = line.trim().split(\"\\\\s+\");\n        StringBuilder out = new StringBuilder();\n\n        for (int i = parts.length - 1; i > 0; i--) {\n            if (parts[i].isEmpty()) {\n                continue;\n            }\n            if (out.length() > 0) {\n                out.append(' ');\n            }\n            out.append(parts[i]);\n        }\n\n        System.out.println(out.toString());\n    }\n}\n",
+    "referenceSource": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.hasNextLine() ? sc.nextLine() : \"\";\n\n        String[] parts = line.trim().split(\"\\\\s+\");\n        StringBuilder out = new StringBuilder();\n\n        for (int i = parts.length - 1; i >= 0; i--) {\n            if (parts[i].isEmpty()) {\n                continue;\n            }\n            if (out.length() > 0) {\n                out.append(' ');\n            }\n            out.append(parts[i]);\n        }\n\n        System.out.println(out.toString());\n    }\n}\n",
+    "bugs": [
+      {
+        "family": "off-by-one",
+        "line": 11,
+        "description": "comparison narrowed from >= to >"
+      }
+    ],
+    "tests": [
+      {
+        "name": "simple",
+        "stdin": "the quick brown fox\n",
+        "expectedStdout": "fox brown quick the"
+      },
+      {
+        "name": "extra spaces",
+        "stdin": "  hello   world  \n",
+        "expectedStdout": "world hello",
+        "edgeCase": true
+      },
+      {
+        "name": "single word",
+        "stdin": "alone\n",
+        "expectedStdout": "alone",
+        "edgeCase": true
+      },
+      {
+        "name": "empty line",
+        "stdin": "\n",
+        "expectedStdout": "",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "two words",
+        "stdin": "a b\n",
+        "expectedStdout": "b a",
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: off by one.",
+      "It is in the code around line 9–13.",
+      "It is on line 11: comparison narrowed from >= to >.",
+      "The fix is:\n- for (int i = parts.length - 1; i > 0; i--) {\n+ for (int i = parts.length - 1; i >= 0; i--) {"
+    ]
+  },
+  {
+    "id": "dbg-second-largest-off-by-one",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "off-by-one",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "off-by-one",
+      "c"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "c",
+    "problem": "Read n, then n integers. Print the second largest DISTINCT value on its own line. If fewer than two distinct values exist, print -2147483648 (INT_MIN).",
+    "brokenSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] <= best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "referenceSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "off-by-one",
+        "line": 19,
+        "description": "comparison boundary widened from < to <="
+      }
+    ],
+    "tests": [
+      {
+        "name": "ascending",
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "all equal",
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true
+      },
+      {
+        "name": "empty",
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "negatives with duplicate max",
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5",
+        "edgeCase": true
+      },
+      {
+        "name": "unsorted",
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "single element",
+        "stdin": "1\n42",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: off by one.",
+      "It is in the code around line 17–21.",
+      "It is on line 19: comparison boundary widened from < to <=.",
+      "The fix is:\n- } else if (arr[i] <= best && arr[i] > second) {\n+ } else if (arr[i] < best && arr[i] > second) {"
+    ]
+  },
+  {
+    "id": "dbg-second-largest-inverted-condition",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "inverted-condition",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "inverted-condition",
+      "c"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "c",
+    "problem": "Read n, then n integers. Print the second largest DISTINCT value on its own line. If fewer than two distinct values exist, print -2147483648 (INT_MIN).",
+    "brokenSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best || arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "referenceSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "inverted-condition",
+        "line": 19,
+        "description": "logical AND swapped for OR"
+      }
+    ],
+    "tests": [
+      {
+        "name": "ascending",
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "all equal",
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true
+      },
+      {
+        "name": "empty",
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "negatives with duplicate max",
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5",
+        "edgeCase": true
+      },
+      {
+        "name": "unsorted",
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "single element",
+        "stdin": "1\n42",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: inverted condition.",
+      "It is in the code around line 17–21.",
+      "It is on line 19: logical AND swapped for OR.",
+      "The fix is:\n- } else if (arr[i] < best || arr[i] > second) {\n+ } else if (arr[i] < best && arr[i] > second) {"
+    ]
+  },
+  {
+    "id": "dbg-second-largest-bad-init",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "bad-init",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "bad-init",
+      "c"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "c",
+    "problem": "Read n, then n integers. Print the second largest DISTINCT value on its own line. If fewer than two distinct values exist, print -2147483648 (INT_MIN).",
+    "brokenSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = 0;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "referenceSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "bad-init",
+        "line": 14,
+        "description": "maximum tracker initialised to 0 instead of INT_MIN"
+      }
+    ],
+    "tests": [
+      {
+        "name": "ascending",
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "all equal",
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true
+      },
+      {
+        "name": "empty",
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "negatives with duplicate max",
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5",
+        "edgeCase": true
+      },
+      {
+        "name": "unsorted",
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "single element",
+        "stdin": "1\n42",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: bad init.",
+      "It is in the code around line 12–16.",
+      "It is on line 14: maximum tracker initialised to 0 instead of INT_MIN.",
+      "The fix is:\n- int second = 0;\n+ int second = INT_MIN;"
+    ]
+  },
+  {
+    "id": "dbg-second-largest-boundary-overflow",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "boundary-overflow",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "boundary-overflow",
+      "c"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "c",
+    "problem": "Read n, then n integers. Print the second largest DISTINCT value on its own line. If fewer than two distinct values exist, print -2147483648 (INT_MIN).",
+    "brokenSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i <= n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "referenceSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "boundary-overflow",
+        "line": 15,
+        "description": "loop runs one past the end of n"
+      }
+    ],
+    "tests": [
+      {
+        "name": "ascending",
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "all equal",
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true
+      },
+      {
+        "name": "empty",
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "negatives with duplicate max",
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5",
+        "edgeCase": true
+      },
+      {
+        "name": "unsorted",
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "single element",
+        "stdin": "1\n42",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: boundary overflow.",
+      "It is in the code around line 13–17.",
+      "It is on line 15: loop runs one past the end of n.",
+      "The fix is:\n- for (int i = 0; i <= n; i++) {\n+ for (int i = 0; i < n; i++) {"
+    ]
+  },
+  {
+    "id": "dbg-second-largest-wrong-operator",
+    "kind": "debug",
+    "stage": "debugging",
+    "topic": "logic-errors",
+    "subtopic": "wrong-operator",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "wrong-operator",
+      "c"
+    ],
+    "source": "generated",
+    "targetSeconds": 1200,
+    "language": "c",
+    "problem": "Read n, then n integers. Print the second largest DISTINCT value on its own line. If fewer than two distinct values exist, print -2147483648 (INT_MIN).",
+    "brokenSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i--) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "referenceSource": "#include <stdio.h>\n#include <limits.h>\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) { printf(\"%d\\n\", INT_MIN); return 0; }\n\n    int arr[1000];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int best = INT_MIN;\n    int second = INT_MIN;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] > best) {\n            second = best;\n            best = arr[i];\n        } else if (arr[i] < best && arr[i] > second) {\n            second = arr[i];\n        }\n    }\n\n    printf(\"%d\\n\", second);\n    return 0;\n}\n",
+    "bugs": [
+      {
+        "family": "wrong-operator",
+        "line": 15,
+        "description": "increment replaced with decrement"
+      }
+    ],
+    "tests": [
+      {
+        "name": "ascending",
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "all equal",
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true
+      },
+      {
+        "name": "empty",
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      },
+      {
+        "name": "negatives with duplicate max",
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5",
+        "edgeCase": true
+      },
+      {
+        "name": "unsorted",
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      },
+      {
+        "name": "single element",
+        "stdin": "1\n42",
+        "expectedStdout": "-2147483648",
+        "edgeCase": true,
+        "hidden": true
+      }
+    ],
+    "hints": [
+      "The bug family is: wrong operator.",
+      "It is in the code around line 13–17.",
+      "It is on line 15: increment replaced with decrement.",
+      "The fix is:\n- for (int i = 0; i < n; i--) {\n+ for (int i = 0; i < n; i++) {"
+    ]
+  }
+]

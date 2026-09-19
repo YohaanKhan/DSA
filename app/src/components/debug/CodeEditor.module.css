@@ -1,0 +1,70 @@
+.wrap {
+  position: relative;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-sunken);
+  overflow: auto;
+  max-height: 60vh;
+}
+.locked { border-color: var(--warn); }
+
+.grid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.gutter {
+  position: sticky;
+  left: 0;
+  padding: var(--s-3) var(--s-2) var(--s-3) var(--s-3);
+  text-align: right;
+  color: var(--ink-faint);
+  background: var(--paper-sunken);
+  user-select: none;
+  border-right: 1px solid var(--edge-soft);
+  white-space: pre;
+}
+
+.codeArea { position: relative; }
+
+/* The highlighted view and the textarea are stacked and must align exactly:
+   same font, size, line-height, padding and white-space handling. */
+.shared {
+  margin: 0;
+  padding: var(--s-3);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+  tab-size: 2;
+  border: 0;
+}
+
+.highlighted { pointer-events: none; color: var(--ink); min-height: 100%; }
+
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--stage-current, var(--ink));
+  outline-offset: -3px;
+  overflow: hidden;
+}
+.input::selection { background: color-mix(in oklab, var(--stage-current, var(--ink)) 35%, transparent); }
+.input:disabled { cursor: not-allowed; }
+
+/* Token colours drawn from the stage palette, so the editor is part of the system. */
+.keyword { color: var(--stage-cognitive); font-weight: 700; }
+.type    { color: var(--stage-technical); }
+.string  { color: var(--ok); }
+.comment { color: var(--ink-faint); font-style: italic; }
+.number  { color: var(--stage-debug); }
+.punct   { color: var(--ink-muted); }
+
+.lineMarked { background: color-mix(in oklab, var(--bad) 18%, transparent); }

@@ -5,6 +5,13 @@ import { validateItems, type Violation } from './validate';
 
 const CONTENT_ROOT = resolve(process.cwd(), 'content');
 
+/**
+ * Directories under content/ that are NOT banks.
+ * `solutions/` holds the correct programs the bug injector mutates, plus their
+ * test specs — inputs to content, not content.
+ */
+const NOT_BANKS = new Set(['solutions']);
+
 function walk(dir: string): string[] {
   const out: string[] = [];
   let entries: string[];
@@ -15,6 +22,7 @@ function walk(dir: string): string[] {
   }
   for (const entry of entries) {
     if (entry.startsWith('.')) continue; // skips .rejected/
+    if (NOT_BANKS.has(entry)) continue;
     const full = join(dir, entry);
     if (statSync(full).isDirectory()) out.push(...walk(full));
     else if (entry.endsWith('.json') && entry !== 'topics.json') out.push(full);

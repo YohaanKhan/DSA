@@ -19,7 +19,8 @@ export const Base = z.object({
   priority: z.enum(['P0', 'P1', 'P2']),
   tags: z.array(z.string()).default([]),
   source: z.enum(['authored', 'generated', 'adapted']),
-  targetSeconds: z.number().int().min(15).max(600),
+  // Up to 30 minutes: the debugging round is ~20 and AI-assisted coding ~30.
+  targetSeconds: z.number().int().min(15).max(1800),
 });
 
 const Option = z.object({

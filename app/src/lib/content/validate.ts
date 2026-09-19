@@ -218,13 +218,17 @@ function bankRules(items: ContentItem[]): Violation[] {
     }
   }
 
-  // V14 — near-duplicate stems within the same topic
+  // V14 — near-duplicate stems within the same topic.
+  //
+  // Debug items are deliberately excluded: several exercises injected into the
+  // same reference solution SHARE a problem statement by design, and differ by
+  // one edit. Their real duplicate condition is an identical broken program,
+  // checked separately below.
   const byTopic = new Map<string, { id: string; text: string }[]>();
   for (const it of items) {
     const text =
       it.kind === 'mcq' ? it.stem
       : it.kind === 'trace' ? `${it.question} ${it.sourceCode}`
-      : it.kind === 'debug' ? it.problem
       : it.kind === 'aic' ? it.problem
       : null;
     if (!text) continue;
@@ -243,6 +247,24 @@ function bankRules(items: ContentItem[]): Violation[] {
           });
         }
       }
+    }
+  }
+
+  // V14b — two debug exercises must not be the same broken program. Injection
+  // can land two families on the same site, and solving one would give the other away.
+  const seenBroken = new Map<string, string>();
+  for (const it of items) {
+    if (it.kind !== 'debug') continue;
+    const key = norm(it.brokenSource);
+    const first = seenBroken.get(key);
+    if (first) {
+      out.push({
+        rule: 'V14',
+        itemId: it.id,
+        message: `has the same broken program as "${first}" — solving one gives the other away`,
+      });
+    } else {
+      seenBroken.set(key, it.id);
     }
   }
 

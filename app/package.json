@@ -14,7 +14,8 @@
     "content:validate": "tsx scripts/validate-content.ts",
     "test": "vitest run",
     "screenshot": "node scripts/screenshot.mjs",
-    "content:generate": "tsx scripts/generate-content.ts"
+    "content:generate": "tsx scripts/generate-content.ts",
+    "content:inject": "tsx scripts/inject-bugs.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",
