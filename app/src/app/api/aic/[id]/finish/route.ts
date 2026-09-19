@@ -8,6 +8,7 @@ import { AICProblem } from '@/lib/content/schemas';
 import { runTests, type TestCase } from '@/lib/mutation/inject';
 import { aggregate, type StepId, type StepScore } from '@/lib/scoring/aic';
 import type { Language } from '@/lib/runner/types';
+import { snapshotReadiness } from '@/lib/scoring/snapshot';
 
 const Body = z.object({
   elapsedMs: z.number().min(0).transform((n) => Math.round(n)),
@@ -86,6 +87,8 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     },
     score: totals.total / 100, createdAt: now,
   }).run();
+
+  snapshotReadiness();
 
   return NextResponse.json({
     ...totals,

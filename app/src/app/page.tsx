@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import { clsx } from 'clsx';
+import { and, eq, isNotNull, lte, sql } from 'drizzle-orm';
 import { Badge } from '@/components/ui/Badge';
 import { Icon } from '@/components/ui/Icon';
 import { StageCard } from '@/components/dashboard/StageCard';
 import { STAGES, stageHref } from '@/lib/config/stages';
 import { computeReadiness, type StageReadiness } from '@/lib/scoring/readiness';
+import { db } from '@/lib/db/client';
+import { reviewCards, sessions } from '@/lib/db/schema';
 import styles from './page.module.css';
 
 export const dynamic = 'force-dynamic';
@@ -41,6 +44,21 @@ export default function Dashboard() {
   const totalAttempts = readings.reduce((sum, r) => sum + r.attempts, 0);
   const allUntested = tested.length === 0;
 
+  const mocksCompleted = db
+    .select({ n: sql<number>`count(*)` })
+    .from(sessions)
+    .where(and(eq(sessions.mode, 'mock'), isNotNull(sessions.finishedAt)))
+    .get()?.n ?? 0;
+
+  const dueNow = db
+    .select({ n: sql<number>`count(*)` })
+    .from(reviewCards)
+    .where(lte(reviewCards.dueAt, new Date()))
+    .get()?.n ?? 0;
+
+  const leadStage = top[0]?.stage;
+  const leadUntested = top[0]?.reading.readiness === null;
+
   return (
     <div className={styles.page}>
       <section className={styles.today}>
@@ -54,7 +72,9 @@ export default function Dashboard() {
         <p className={styles.lede}>
           {allUntested
             ? 'Nothing measured yet. Every stage is untested, so the fastest way to a useful plan is one short drill in the stage most likely to end your process.'
-            : `Your weakest gate is ${top[0].stage.label}. Work there first — a gate you fail cannot be rescued by a strong score anywhere else.`}
+            : leadUntested
+              ? `${leadStage?.label} is still untested, which makes it your biggest unknown. One timed set turns a guess into a number.`
+              : `${leadStage?.label} is your weakest ${leadStage?.eliminatory ? 'gate' : 'stage'}. Work there first — ${leadStage?.eliminatory ? 'a gate you fail cannot be rescued by a strong score anywhere else' : 'and it is the one that sets your package tier'}.`}
         </p>
 
         <div className={styles.recos}>
@@ -91,14 +111,14 @@ export default function Dashboard() {
             <span className={clsx('tabular', styles.statValue)}>{totalAttempts}</span>
             <span className={clsx('microlabel', styles.statLabel)}>Questions attempted</span>
           </span>
-          <span className={styles.stat}>
-            <span className={clsx('tabular', styles.statValue)}>0</span>
+          <Link href="/mock" className={styles.stat} style={{ textDecoration: 'none' }}>
+            <span className={clsx('tabular', styles.statValue)}>{mocksCompleted}</span>
             <span className={clsx('microlabel', styles.statLabel)}>Mocks completed</span>
-          </span>
-          <span className={styles.stat}>
-            <span className={clsx('tabular', styles.statValue)}>0</span>
+          </Link>
+          <Link href="/review" className={styles.stat} style={{ textDecoration: 'none' }}>
+            <span className={clsx('tabular', styles.statValue)}>{dueNow}</span>
             <span className={clsx('microlabel', styles.statLabel)}>Due for review</span>
-          </span>
+          </Link>
         </div>
         <p className={styles.note}>
           A stage shows <strong>Untested</strong> rather than zero until it has at least ten

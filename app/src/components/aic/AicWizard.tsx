@@ -89,7 +89,14 @@ const ASK: Record<StepId, { title: string; submitLabel: string; ask: string; why
   },
 };
 
-export function AicWizard({ problem, onExit }: { problem: AicProblem; onExit?: () => void }) {
+export function AicWizard({
+  problem,
+  onExit,
+}: {
+  problem: AicProblem;
+  /** Receives the final score (0..1) so a mock section can record the real one. */
+  onExit?: (score: number) => void;
+}) {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState('');
   const [busy, setBusy] = useState(false);
@@ -274,7 +281,7 @@ function AicResult({
   problem: AicProblem;
   final: FinalResult;
   history: { step: StepId; text: string }[];
-  onExit?: () => void;
+  onExit?: (score: number) => void;
 }) {
   const yourPrompt = history.find((h) => h.step === 'prompt')?.text ?? '';
 
@@ -326,7 +333,7 @@ function AicResult({
 
           {onExit ? (
             <div className={styles.actions}>
-              <Button variant="solid" size="lg" onClick={onExit} iconAfter="chevron">Another problem</Button>
+              <Button variant="solid" size="lg" onClick={() => onExit(final.total / 100)} iconAfter="chevron">Another problem</Button>
             </div>
           ) : null}
         </div>

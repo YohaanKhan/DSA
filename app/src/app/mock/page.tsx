@@ -1,13 +1,22 @@
-import { EmptyState } from '@/components/ui/EmptyState';
+import { PROFILES } from '@/lib/config/exam-profiles';
 import shell from '@/components/shell/Shell.module.css';
+import { MockShell } from './MockShell';
 
-export default function Page() {
+export const dynamic = 'force-dynamic';
+
+export default function MockPage() {
   return (
-    <div data-stage="technical" className={shell.stack}>
-      <h1>Full Mock</h1>
-      <EmptyState icon="mock" title="Not built yet" meta="Phase 06">
-        All stages back to back under exam conditions, with gate enforcement, crash-safe resume, and a report that names the three things to fix next.
-      </EmptyState>
+    <div className={shell.stack}>
+      <MockShell
+        profiles={PROFILES.map((p) => ({
+          id: p.id,
+          label: p.label,
+          note: p.note,
+          shape: p.sections.map((s) => `${s.label} ${s.minutes}m`).join(' · '),
+          minutes: p.sections.reduce((sum, s) => sum + s.minutes, 0),
+          stages: [...new Set(p.sections.map((s) => s.stage))],
+        }))}
+      />
     </div>
   );
 }

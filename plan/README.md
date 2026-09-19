@@ -29,7 +29,7 @@ a local web app for practising every stage of the Capgemini Exceller 2026 assess
 | 03 | [AI-Assisted Coding Simulator](phases/PHASE-03-ai-assisted-coding.md) ✅ built | 3 h | No |
 | 04 | [Cognitive Arcade](phases/PHASE-04-cognitive-arcade.md) | 3 h | Partly |
 | 05 | [Communication Studio](phases/PHASE-05-communication-studio.md) | 2.5 h | Partly |
-| 06 | [Full Mock + Readiness Dashboard](phases/PHASE-06-mock-and-dashboard.md) | 2.5 h | No |
+| 06 | [Full Mock + Readiness Dashboard](phases/PHASE-06-mock-and-dashboard.md) ✅ built | 2.5 h | No |
 | 07 | [Polish](phases/PHASE-07-polish-optional.md) | 0–3 h | **Yes, entirely** |
 
 ### And study

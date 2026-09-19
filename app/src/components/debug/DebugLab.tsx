@@ -56,7 +56,14 @@ const READ_PHASE_MS = 90_000;
 
 type Phase = 'read' | 'hypothesise' | 'fix' | 'done';
 
-export function DebugLab({ exercise, onNext }: { exercise: DebugExercise; onNext?: () => void }) {
+export function DebugLab({
+  exercise,
+  onNext,
+}: {
+  exercise: DebugExercise;
+  /** Receives the achieved score (0..1) so a mock section can record the real one. */
+  onNext?: (score: number) => void;
+}) {
   // The read phase ends on the clock, so it is DERIVED rather than flipped by an
   // effect; `manualPhase` only holds once you have moved on deliberately.
   const [manualPhase, setManualPhase] = useState<Phase | null>(null);
@@ -326,7 +333,7 @@ export function DebugLab({ exercise, onNext }: { exercise: DebugExercise; onNext
 
             {onNext ? (
               <div className={styles.actions}>
-                <Button variant="solid" size="lg" onClick={onNext} iconAfter="chevron">
+                <Button variant="solid" size="lg" onClick={() => onNext(result.score)} iconAfter="chevron">
                   Next exercise
                 </Button>
               </div>

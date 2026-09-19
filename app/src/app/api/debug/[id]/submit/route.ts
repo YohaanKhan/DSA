@@ -7,6 +7,7 @@ import { attempts, items, sessions, submissions } from '@/lib/db/schema';
 import { DebugItem } from '@/lib/content/schemas';
 import { runTests } from '@/lib/mutation/inject';
 import { changedLineCount, scoreDebug } from '@/lib/scoring/debug';
+import { snapshotReadiness } from '@/lib/scoring/snapshot';
 
 const Body = z.object({
   source: z.string().min(1).max(100_000),
@@ -78,6 +79,8 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     },
     score: score.score, createdAt: now,
   }).run();
+
+  snapshotReadiness();
 
   const refLine = item.referenceSource.split('\n')[bug.line - 1] ?? '';
   const badLine = item.brokenSource.split('\n')[bug.line - 1] ?? '';

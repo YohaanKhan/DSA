@@ -3,6 +3,7 @@ import { eq, inArray } from 'drizzle-orm';
 import { db } from '@/lib/db/client';
 import { attempts, items, sessions } from '@/lib/db/schema';
 import { summarise } from '@/lib/scoring/mcq';
+import { snapshotReadiness } from '@/lib/scoring/snapshot';
 
 export async function POST(_request: Request, ctx: { params: Promise<{ id: string }> }) {
   const { id } = await ctx.params;
@@ -35,6 +36,9 @@ export async function POST(_request: Request, ctx: { params: Promise<{ id: strin
     .set({ finishedAt: new Date(), score: stats.correct, maxScore: stats.attempted, meta: stats })
     .where(eq(sessions.id, id))
     .run();
+
+  // Trends need history, and history needs writing. Idempotent per day.
+  snapshotReadiness();
 
   return NextResponse.json(stats);
 }

@@ -66,7 +66,19 @@ npm run dev                    # http://localhost:3000
 - Works with no API key: all five steps still score, and a scripted flawed reply gives the
   review step something real to catch
 
-Every other route is a stub naming the phase that builds it.
+**Phase 06 — mock, dashboard, review and log**
+- Drive profiles as data in `src/lib/config/exam-profiles.ts` — **the one file to edit** when
+  you learn your own drive's pattern
+- Sequential mock with per-section clocks, no going back, and gate verdicts shown without
+  stopping the run
+- Crash-safe: remaining time is recomputed from wall-clock timestamps, so resuming gives
+  nothing back
+- Report at `/mock/[id]/report`: verdict, per-section bars, rushed / over-dwelt analysis,
+  topic heatmap and the three things to fix next
+- Interleaved SM-2 review queue, and a submission log that exports to Markdown for the
+  technical interview
+
+Only the cognitive games (Phase 04) and communication studio (Phase 05) remain as stubs.
 
 ## Keyboard shortcuts (drill runner)
 

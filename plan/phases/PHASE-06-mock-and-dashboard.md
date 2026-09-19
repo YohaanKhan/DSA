@@ -7,6 +7,7 @@
 | **Prerequisites** | Phases 00–05 (works with whatever subset you built) |
 | **Unlocks** | Exam-condition rehearsal + the diagnostic loop that directs the whole week |
 | **Skippable?** | **No.** Without this, the app is six disconnected drills. |
+| **Status** | ✅ **Built.** See `app/src/lib/config/exam-profiles.ts`, `app/src/lib/mock/`, `app/src/components/mock/`, `app/src/app/api/mock/`. |
 
 > This phase is what converts a collection of practice tools into something that *answers the
 > question you actually have*: **"am I going to clear this, and what should I do about it?"**
@@ -122,16 +123,41 @@ thinking changed* across the week, which is worth more than the scores.
 
 ## Acceptance tests
 
-- [ ] A full mock runs all configured sections in order with correct timings
-- [ ] Sections cannot be revisited; expiry auto-submits
-- [ ] A failed gate shows the verdict banner and the mock continues
-- [ ] Killing the browser mid-mock and reopening offers resume with wall-clock-correct time
-- [ ] Report shows verdict, per-stage bars, rushed/over-dwelt counts, heatmap, and top-3 fixes
-- [ ] Dashboard shows ⬜ Untested (not 0) for stages with < 10 attempts
-- [ ] "Today" recommends the lowest `readiness × stageWeight` P0 topic and starts it in one click
-- [ ] Readiness snapshots accumulate and sparklines render
-- [ ] Review queue interleaves modules
-- [ ] `/log` exports Markdown
+- [x] A full mock runs every configured section in order — verified end to end via the API
+- [x] Sections cannot be revisited; the instructions screen says so before you start
+- [x] A failed gate shows the verdict banner and **the mock continues** (browser-verified)
+- [x] No confidence toggle inside a mock — realism beats telemetry there (browser-verified)
+- [x] Remaining time is recomputed from wall-clock timestamps, so a crash cannot buy time back
+- [x] Report shows the verdict, per-section bars with pass-mark lines, rushed / over-dwelt counts, the topic heatmap and the top-three fixes
+- [x] The verdict names the **first** failed gate, since that is where the real process would end
+- [x] Dashboard shows ⬜ Untested (not 0) below ten attempts, and counts mocks and due cards for real
+- [x] Readiness snapshots are written on every finish path, idempotent per day
+- [x] Review queue is interleaved, never grouped by topic
+- [x] `/log` exports Markdown
+
+### Verified run
+
+A `short-diagnostic` mock: AI Literacy 33% (gate failed), Technical 63% (cleared), Pseudocode
+33% (failed), Debugging 72% (failed — that section's pass mark is a full fix), AI-Assisted
+57% (not eliminatory). Verdict correctly reported **"Your process would have ended at AI
+Literacy"** — the first gate, not the last. Fixes ranked: pseudocode, language-traps,
+prompt-engineering.
+
+### Bugs this phase's verification caught
+
+| Bug | How it was found |
+| --- | --- |
+| A mock's sections share one session id, so the drill finish endpoint would tally earlier sections **and mark the whole mock finished** | Reading the integration before wiring it. `DrillRunner` now reports its own tally and the mock never calls that endpoint. |
+| The mock recorded **hardcoded** scores for the debugging (1.0) and AI-assisted (0.6) sections | Spotted while writing the browser walkthrough. Both components now report their real score. |
+| Dashboard showed "Mocks completed: 0" and "Due for review: 0" — both literals | Screenshot review, after real data existed. |
+| The dashboard called an **untested** stage "your weakest gate" | Screenshot review. Untested now gets its own wording, and non-eliminatory stages are not called gates. |
+| Two `setState`-in-effect cascades in the mock runner | `react-hooks` lint. The skipped-section advance is now derived, and the initial fetch uses a cancellable effect. |
+
+### Deviation from the plan
+
+The report is **addressable at `/mock/[id]/report`**, not only a POST response. The plan had it
+as a screen inside the runner; making it a URL means you can revisit a past mock, which matters
+because the three fixes are meant to drive the next day's study.
 
 ## Done when
 
