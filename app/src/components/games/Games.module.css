@@ -1,0 +1,316 @@
+/* ============================================================================
+   Cognitive Arcade. Loud chrome, quiet content — the boards themselves stay
+   plain so nothing competes with the thing you are supposed to be reading.
+   ========================================================================= */
+
+.page { display: flex; flex-direction: column; gap: var(--s-6); }
+
+/* ---- Arcade index -------------------------------------------------------- */
+
+.cabinets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-4);
+}
+
+.cabinet {
+  display: flex; flex-direction: column; gap: var(--s-3);
+  padding: var(--s-5);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  color: inherit; text-decoration: none;
+  position: relative; overflow: hidden;
+}
+.cabinet::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 8px;
+  background: var(--stage-current, var(--ink));
+}
+.cabinetHead { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-2); }
+.cabinetTitle { font-size: var(--t-lg); font-weight: 700; letter-spacing: -0.01em; }
+.cabinetBlurb { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.55; }
+.cabinetStats { display: flex; gap: var(--s-5); margin-top: auto; padding-top: var(--s-3); border-top: 1px dashed var(--edge-soft); }
+.cabinetStat { display: flex; flex-direction: column; gap: var(--s-1); }
+.cabinetValue { font-size: var(--t-lg); font-weight: 700; }
+.cabinetLabel { color: var(--ink-faint); }
+
+/* ---- Rules screen -------------------------------------------------------- */
+
+.rules { display: flex; flex-direction: column; gap: var(--s-5); max-width: var(--measure); }
+.gameTitle { font-size: var(--t-3xl); font-weight: 700; letter-spacing: -0.02em; line-height: var(--lh-tight); }
+.measures {
+  padding: var(--s-4);
+  border-left: 8px solid var(--stage-current, var(--ink));
+  background: var(--stage-current-soft, var(--paper-sunken));
+  font-size: var(--t-sm); line-height: 1.6;
+}
+.ruleList { display: flex; flex-direction: column; gap: var(--s-3); counter-reset: rule; list-style: none; padding: 0; margin: 0; }
+.rule {
+  display: grid; grid-template-columns: 28px 1fr; gap: var(--s-3);
+  align-items: start; font-size: var(--t-sm); line-height: 1.6;
+}
+.rule::before {
+  counter-increment: rule; content: counter(rule);
+  display: grid; place-items: center;
+  width: 28px; height: 28px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  font-family: var(--font-mono); font-size: var(--t-xs); font-weight: 700;
+}
+.strategyList { display: flex; flex-direction: column; gap: var(--s-3); list-style: none; padding: 0; margin: 0; }
+.strategy {
+  display: grid; grid-template-columns: 14px 1fr; gap: var(--s-3);
+  font-size: var(--t-sm); line-height: 1.6;
+}
+.strategy::before {
+  content: ''; margin-top: 7px;
+  width: 10px; height: 10px;
+  background: var(--stage-current, var(--ink));
+}
+.sectionLabel { color: var(--ink-faint); }
+
+/* ---- HUD ----------------------------------------------------------------- */
+
+.hud {
+  display: flex; align-items: center; gap: var(--s-5); flex-wrap: wrap;
+  padding: var(--s-3) var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
+}
+.hudCell { display: flex; flex-direction: column; gap: var(--s-1); }
+.hudValue { font-size: var(--t-lg); font-weight: 700; line-height: 1; }
+.hudLabel { color: var(--ink-faint); }
+.hudSpacer { flex: 1 1 auto; }
+.hudLevel {
+  display: grid; place-items: center;
+  min-width: 46px; height: 46px; padding: 0 var(--s-2);
+  border: var(--border-w) solid var(--edge);
+  background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper));
+  font-size: var(--t-xl); font-weight: 700;
+}
+
+/* ---- Level clock --------------------------------------------------------- */
+
+.clock { display: flex; flex-direction: column; gap: var(--s-2); min-width: 210px; }
+.clockRow { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-3); }
+.clockTime { font-size: var(--t-xl); font-weight: 700; line-height: 1; }
+.clockLow { color: var(--bad); }
+.clockWorth { color: var(--ink-faint); }
+.clockWorthValue { color: var(--ink); font-weight: 700; }
+
+/* ---- Stage, shared by every board --------------------------------------- */
+
+.board {
+  display: flex; flex-direction: column; gap: var(--s-5); align-items: center;
+  padding: var(--s-6) var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+}
+.boardPrompt { font-size: var(--t-lg); font-weight: 700; text-align: center; max-width: 46ch; line-height: 1.35; }
+.boardNote { font-size: var(--t-sm); color: var(--ink-muted); text-align: center; max-width: 52ch; line-height: 1.6; }
+.actions { display: flex; gap: var(--s-3); flex-wrap: wrap; justify-content: center; align-items: center; }
+
+/* ---- Grid board ---------------------------------------------------------- */
+
+.dotGrid { display: grid; gap: 6px; }
+.cell {
+  width: 100%; aspect-ratio: 1;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper);
+  padding: 0; cursor: pointer;
+  position: relative;
+}
+.cellStatic { cursor: default; }
+.cellLit { background: var(--stage-current, var(--ink)); }
+.cellPicked { background: var(--stage-current, var(--ink)); }
+.cellPicked::after {
+  content: ''; position: absolute; inset: 22%;
+  border: 3px solid var(--stage-current-ink, var(--paper));
+}
+.cellRight { background: var(--ok); }
+.cellMissed { background: var(--paper); box-shadow: inset 0 0 0 4px var(--bad); }
+.cellWrong { background: var(--bad); }
+.phaseBar { display: flex; gap: var(--s-2); align-items: center; }
+.phaseChip {
+  padding: 5px 10px;
+  border: var(--border-w) solid var(--edge-soft);
+  color: var(--ink-faint);
+}
+.phaseChipOn { background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper)); border-color: var(--edge); }
+.phaseChipDone { border-color: var(--edge); color: var(--ink-muted); }
+.shapePair { display: flex; gap: var(--s-6); align-items: center; flex-wrap: wrap; justify-content: center; }
+
+/* ---- Switch board -------------------------------------------------------- */
+
+.sequence { display: flex; gap: var(--s-3); align-items: center; flex-wrap: wrap; justify-content: center; }
+.slotBox {
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper);
+  color: var(--stage-current, var(--ink));
+}
+.slotIndex { color: var(--ink-faint); text-align: center; margin-top: var(--s-1); }
+.arrowDown { color: var(--ink-faint); }
+.opTable {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--s-2); width: 100%;
+}
+.opRow {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  border: var(--border-w) solid var(--edge-soft);
+  background: var(--paper);
+  text-align: left; color: inherit; cursor: pointer; font: inherit;
+}
+.opRow:disabled { opacity: 0.35; cursor: not-allowed; }
+.opCode {
+  display: grid; place-items: center;
+  width: 26px; height: 26px; flex: 0 0 auto;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  font-family: var(--font-mono); font-weight: 700; font-size: var(--t-xs);
+}
+.opLabel { font-size: var(--t-sm); }
+.answerStrip { display: flex; gap: var(--s-2); align-items: center; flex-wrap: wrap; justify-content: center; min-height: 40px; }
+.answerChip {
+  display: flex; align-items: center; gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border: var(--border-w) solid var(--edge);
+  background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper));
+  font-family: var(--font-mono); font-weight: 700; font-size: var(--t-sm);
+  cursor: pointer;
+}
+.answerEmpty {
+  padding: var(--s-2) var(--s-3);
+  border: var(--border-w) dashed var(--edge-soft);
+  color: var(--ink-faint);
+}
+
+/* ---- Digit board --------------------------------------------------------- */
+
+.equations { display: flex; flex-direction: column; gap: var(--s-4); align-items: center; }
+.equation { display: flex; gap: var(--s-3); align-items: center; flex-wrap: wrap; justify-content: center; }
+.token { font-family: var(--font-mono); font-size: var(--t-2xl); font-weight: 700; line-height: 1; }
+.tokenMuted { color: var(--ink-muted); }
+.blank {
+  display: grid; place-items: center;
+  min-width: 56px; height: 56px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper);
+  font-family: var(--font-mono); font-size: var(--t-xl); font-weight: 700;
+  cursor: pointer; padding: 0 var(--s-2); color: inherit;
+}
+.blankActive { background: var(--stage-current-soft, var(--paper-sunken)); box-shadow: inset 0 0 0 3px var(--stage-current, var(--ink)); }
+.blankFilled { background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper)); }
+.bank { display: flex; gap: var(--s-2); flex-wrap: wrap; justify-content: center; max-width: 460px; }
+.tile {
+  display: grid; place-items: center;
+  width: 52px; height: 52px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  font-family: var(--font-mono); font-size: var(--t-lg); font-weight: 700;
+  cursor: pointer; color: inherit;
+}
+.tileSpent { opacity: 0.28; cursor: not-allowed; text-decoration: line-through; }
+
+/* ---- Motion board -------------------------------------------------------- */
+
+.motionWrap { display: flex; gap: var(--s-5); align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+.motionBoard {
+  --cell: 46px;
+  --cellgap: 4px;
+  --cellpad: 6px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  gap: var(--cellgap); padding: var(--cellpad);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-sunken);
+}
+.motionCell {
+  aspect-ratio: 1; width: var(--cell);
+  border: 1px dashed var(--edge-soft);
+  background: transparent;
+  padding: 0; cursor: pointer;
+}
+.motionCell:disabled { cursor: default; }
+.motionExitRow { background: var(--stage-current-soft, transparent); }
+.motionCar {
+  position: absolute;
+  border: var(--border-w) solid var(--edge);
+  background: var(--ink-muted);
+  cursor: pointer; padding: 0;
+  box-shadow: var(--shadow-1);
+  transition: left var(--dur-fast) var(--ease-out), top var(--dur-fast) var(--ease-out);
+}
+.motionCarTarget { background: var(--stage-current, var(--ink)); }
+.motionCarSelected { box-shadow: var(--shadow-2); outline: 3px solid var(--ok); outline-offset: 2px; }
+.motionExit {
+  position: absolute;
+  display: grid; place-items: center;
+  width: 26px;
+  border: var(--border-w) dashed var(--stage-current, var(--ink));
+  color: var(--stage-current, var(--ink));
+}
+.motionSide { display: flex; flex-direction: column; gap: var(--s-3); min-width: 180px; }
+.moveCount { display: flex; align-items: baseline; gap: var(--s-2); }
+.moveCountValue { font-size: var(--t-3xl); font-weight: 700; line-height: 1; }
+.moveCountOver { color: var(--bad); }
+
+/* ---- Between levels and the report -------------------------------------- */
+
+.card {
+  display: flex; flex-direction: column; gap: var(--s-4);
+  padding: var(--s-5);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-2);
+  max-width: var(--measure);
+}
+.cardPass { border-color: var(--ok); }
+.cardFail { border-color: var(--bad); }
+.cardTitle { font-size: var(--t-2xl); font-weight: 700; letter-spacing: -0.02em; line-height: var(--lh-tight); }
+.cardNote { font-size: var(--t-sm); line-height: 1.6; color: var(--ink-muted); }
+.rewardRow {
+  display: flex; gap: var(--s-5); flex-wrap: wrap;
+  padding: var(--s-4);
+  background: var(--paper-sunken);
+  border: 1px dashed var(--edge-soft);
+}
+.reward { display: flex; flex-direction: column; gap: var(--s-1); }
+.rewardValue { font-size: var(--t-xl); font-weight: 700; line-height: 1; }
+.rewardLabel { color: var(--ink-faint); }
+
+.statRow { display: flex; gap: var(--s-6); flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: var(--s-2); }
+.statValue { font-size: var(--t-3xl); font-weight: 700; line-height: 1; }
+.statLabel { color: var(--ink-faint); }
+
+.timings { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }
+.timings th, .timings td { padding: var(--s-2) var(--s-3); text-align: left; border-bottom: 1px solid var(--edge-soft); }
+.timings th { color: var(--ink-faint); font-weight: 500; }
+.timings td:not(:first-child) { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.rowFailed { color: var(--ink-muted); }
+
+.verdict {
+  display: flex; gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-sunken);
+  font-size: var(--t-sm); line-height: 1.6;
+}
+.verdictStop { border-color: var(--warn); background: color-mix(in oklab, var(--warn) 12%, var(--paper-raised)); }
+.verdictGo { border-color: var(--ok); background: color-mix(in oklab, var(--ok) 10%, var(--paper-raised)); }
+
+.spark { display: flex; align-items: flex-end; gap: 3px; height: 44px; }
+.sparkBar { width: 10px; background: var(--stage-current, var(--ink)); border: 1px solid var(--edge); min-height: 3px; }
+.sparkBarLast { background: var(--ok); }
+
+.seed { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-faint); }
+.note { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.6; max-width: var(--measure); }
+
+@media (max-width: 640px) {
+  .motionBoard { --cell: 38px; }
+  .hud { gap: var(--s-4); }
+}

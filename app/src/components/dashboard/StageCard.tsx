@@ -10,10 +10,13 @@ export function StageCard({
   stage,
   readiness,
   history = [],
+  note,
 }: {
   stage: Stage;
   readiness: number | null;
   history?: (number | null)[];
+  /** Replaces the gate line when a stage has something more useful to say. */
+  note?: string;
 }) {
   const band = bandFor(readiness);
 
@@ -41,7 +44,7 @@ export function StageCard({
 
       <p className={styles.blurb}>{stage.blurb}</p>
       <span className={clsx('microlabel', styles.gate)}>
-        {stage.eliminatory ? 'Elimination gate' : 'Tier-deciding'}
+        {note ?? (stage.eliminatory ? 'Elimination gate' : 'Tier-deciding')}
       </span>
     </Link>
   );
