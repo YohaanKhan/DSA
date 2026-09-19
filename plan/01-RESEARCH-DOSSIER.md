@@ -132,13 +132,30 @@ Question styles reported:
 > recursion, bitwise operators, and nested conditions combine**. This is the section freshers
 > most under-prepare. `High` confidence.
 
+> ### 🔴 If you write Python, read this first
+>
+> **Python is not accepted in the code-writing rounds.** Multiple independent sources report
+> C, C++ and Java as the only options for the debugging round, and one states plainly that
+> Python is prohibited in the coding benchmark. `High` confidence.
+>
+> This is not a minor inconvenience. Two stages — debugging (an elimination gate) and the
+> coding problems (which set your package tier, worth ₹3.25 LPA) — require you to **read and
+> write a language you may not use daily**. For a Python-first candidate this is the single
+> largest risk to the outcome, and it is invisible until exam day.
+>
+> The syntax gap is small and learnable in a few hours; the *reflexes* take longer. See
+> [`plan/09-PYTHON-BRIDGE.md`](09-PYTHON-BRIDGE.md).
+>
+> **Verify against your own drive's rules before exam day** — the language list is one of the
+> things that varies by campus.
+
 ### Stage 3 — Debugging Assessment
 
 | Aspect | Reported detail | Confidence |
 | --- | --- | --- |
 | Format | Problem statement + code containing one or more defects; fix so it runs correctly | High |
 | Volume/time | ~**1 question / ~20 minutes** | Medium |
-| Languages | **C, C++, Java** (Python restricted in several 2025–26 drives) | Medium |
+| Languages | **C, C++, Java only** | High |
 | Bug families | **Logic**, **syntax**, **runtime** | High |
 
 Common defect types reported: off-by-one, wrong loop/branch condition, missing return,
@@ -154,6 +171,10 @@ wrong variable used, array boundary violation, simple runtime faults.
 a different muscle from authoring. Practise by fixing broken snippets, not writing new ones.
 If you write fast and skim, start with **logic-error drills** — that's the family this round
 leans on most.
+
+**If you write Python:** you will be handed C, C++ or Java. You need to *read* those fluently
+under a 20-minute clock, which is a different and lower bar than writing them — but it is not
+zero, and it is the bar this gate actually sets.
 
 ### Stage 4 — AI-Assisted Coding ⭐ *unique to Exceller*
 

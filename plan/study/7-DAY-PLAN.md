@@ -26,6 +26,17 @@ the whole week, because it removes the #1 avoidable loss for free.
 
 ---
 
+> ### 🔴 If you write Python, insert this before Day 1
+>
+> **Python is not accepted in the code-writing rounds.** Add the four-hour bridge from
+> [`../09-PYTHON-BRIDGE.md`](../09-PYTHON-BRIDGE.md) to the start of Day 1, and cut the
+> Cognitive Arcade build (Phase 04) to pay for it — use public practice sites for the games
+> instead. The games plateau and get down-weighted anyway; the language gap does not.
+>
+> Then add to every daily block: **one solution translated to Java (20 min) + two debugging
+> exercises in C/C++/Java (30 min)**. By exam day that is ~7 translations and ~15 exercises in
+> the languages that actually count.
+
 ## Day 1 — Foundation + the highest-ROI content · 10 hours
 
 | Block | Time | What |

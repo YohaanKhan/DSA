@@ -12,6 +12,7 @@ This repository holds two things:
 
 | If you want to… | Read |
 | --- | --- |
+| **Write Python? Start here** | [`plan/09-PYTHON-BRIDGE.md`](plan/09-PYTHON-BRIDGE.md) |
 | Understand the whole thing in 5 minutes | [`plan/README.md`](plan/README.md) |
 | See the refined scope & success criteria | [`plan/00-BRIEF.md`](plan/00-BRIEF.md) |
 | Know what the exam actually is | [`plan/01-RESEARCH-DOSSIER.md`](plan/01-RESEARCH-DOSSIER.md) |

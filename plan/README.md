@@ -18,6 +18,7 @@ a local web app for practising every stage of the Capgemini Exceller 2026 assess
 | 06 | [**Data Model**](06-DATA-MODEL.md) | Content JSON schemas with worked exemplars + full SQLite schema | 12 min |
 | 07 | [**Scoring & Analytics**](07-SCORING-AND-ANALYTICS.md) | Every number the app shows, defined precisely | 10 min |
 | 08 | [**Design Guide**](08-DESIGN-GUIDE.md) | The Arcade Brutalist system: colour, type, motion, custom icons, full component inventory | 12 min |
+| 09 | [**The Python Bridge**](09-PYTHON-BRIDGE.md) 🔴 | **Read first if you write Python.** Python is not accepted in the code-writing rounds; this is the four-hour fix. | 8 min |
 
 ### Then build
 | Phase | Guide | Time | Skippable |
@@ -41,6 +42,10 @@ a local web app for practising every stage of the Capgemini Exceller 2026 assess
 ## The five things that matter most
 
 If you read nothing else in this folder:
+
+0. **If you write Python: it is not accepted in the code-writing rounds.** C, C++ and Java only.
+   That gates an elimination round *and* the tier-deciding one. Start at
+   [`09-PYTHON-BRIDGE.md`](09-PYTHON-BRIDGE.md).
 
 1. **Gates vs. multiplier.** Stages 1, 2, 3 and 5 are elimination gates — you need *adequate*.
    Stage 4 and the coding problems are the **multiplier**: ₹4.25 → ₹7.50 LPA. Clear every gate,

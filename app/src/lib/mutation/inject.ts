@@ -126,6 +126,10 @@ export async function inject(options: InjectOptions): Promise<InjectionResult[]>
   }
 
   const results: InjectionResult[] = [];
+  // Two families can land on the same site and produce the identical program
+  // (off-by-one and boundary-overflow both rewrite `i < n`). Solving one would
+  // give the other away, so the loop also guarantees distinctness.
+  const producedPrograms = new Set<string>();
 
   for (const family of families) {
     const sites = shuffle(findSites(source, family, language), seed + family.length);
@@ -134,6 +138,7 @@ export async function inject(options: InjectOptions): Promise<InjectionResult[]>
     for (const site of sites.slice(0, maxSitesPerFamily)) {
       const mutated = applySite(source, site);
       if (mutated === source) continue;
+      if (producedPrograms.has(mutated)) continue;
 
       const outcome = await runTests(language, mutated, tests);
 
@@ -145,6 +150,7 @@ export async function inject(options: InjectOptions): Promise<InjectionResult[]>
       // this is the check that hand-authored exercise sets usually lack.
       if (outcome.allPassed) continue;
 
+      producedPrograms.add(mutated);
       results.push({
         mutated,
         site,

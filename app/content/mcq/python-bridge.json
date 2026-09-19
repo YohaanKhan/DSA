@@ -1,0 +1,262 @@
+[
+  {
+    "id": "pyb-integer-division-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "integer-division",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["python-bridge", "arithmetic"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "In Python, 7 / 2 gives 3.5 and 7 // 2 gives 3. In C and Java, what does 7 / 2 give when both operands are int?",
+    "options": [
+      { "id": "a", "text": "3.5, the same as Python's /" },
+      { "id": "b", "text": "3, because / on two ints is integer division" },
+      { "id": "c", "text": "A compile error; you must write 7 // 2" },
+      { "id": "d", "text": "4, because the result is rounded to nearest" }
+    ],
+    "answer": "b",
+    "explanation": "C and Java choose the operation from the OPERAND types, not the result you want. Two ints means integer division, truncating toward zero — so 7 / 2 is 3. Python 3 went the other way and made / always true division. There is no // operator in C or Java. To get 3.5 you must make an operand floating point: 7 / 2.0, or (double) a / b. Pattern: coming from Python, assume every / between two ints silently truncates.",
+    "distractorRationale": {
+      "a": "That is Python 3's behaviour specifically; C and Java predate it and kept the C convention.",
+      "c": "// is a comment in C and Java, so 7 // 2 would comment out the rest of the line.",
+      "d": "Neither language rounds; the fractional part is discarded, not rounded."
+    }
+  },
+  {
+    "id": "pyb-modulo-negatives-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "modulo-negatives",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": ["python-bridge", "arithmetic"],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In Python, -7 % 3 evaluates to 2. What does -7 % 3 evaluate to in C and Java?",
+    "options": [
+      { "id": "a", "text": "2, the same as Python" },
+      { "id": "b", "text": "-1, because the result takes the sign of the dividend" },
+      { "id": "c", "text": "1, because the sign is discarded" },
+      { "id": "d", "text": "It is undefined behaviour" }
+    ],
+    "answer": "b",
+    "explanation": "Python's % returns a result with the sign of the DIVISOR, so -7 % 3 is 2. C and Java return a result with the sign of the DIVIDEND, so -7 % 3 is -1. This is the nastiest difference in this set because nothing crashes: any code that assumes a non-negative remainder — hashing into a bucket, wrapping a circular index — silently produces a negative index. The fix is ((a % n) + n) % n.",
+    "distractorRationale": {
+      "a": "This is exactly the wrong assumption to carry over, and it fails silently rather than loudly.",
+      "c": "Neither language takes an absolute value; the sign is meaningful.",
+      "d": "It is fully specified in both languages (C99 onwards); only the convention differs from Python."
+    }
+  },
+  {
+    "id": "pyb-negative-index-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "negative-index",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["python-bridge", "arrays"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "You want the last element of an array of length n. In Python you would write arr[-1]. What happens in C if you write arr[-1]?",
+    "options": [
+      { "id": "a", "text": "It returns the last element, as in Python" },
+      { "id": "b", "text": "It reads the memory just before the array — undefined behaviour, often garbage" },
+      { "id": "c", "text": "It raises an IndexError at runtime" },
+      { "id": "d", "text": "It returns 0, the default value" }
+    ],
+    "answer": "b",
+    "explanation": "C computes arr[i] as *(arr + i) with no bounds check at all, so arr[-1] reads the word before the array. That is undefined behaviour: it may print garbage, may appear to work, and may crash — and it will often behave differently under a debugger than in the test harness. Write arr[n - 1]. Java at least throws ArrayIndexOutOfBoundsException, so the failure is loud there; in C it is silent.",
+    "distractorRationale": {
+      "a": "Negative indexing is a Python convenience; C has no concept of it.",
+      "c": "That is Java's behaviour (an exception) and Python's; C performs no check whatsoever.",
+      "d": "C never zero-fills on an out-of-bounds read; it reads whatever is there."
+    }
+  },
+  {
+    "id": "pyb-string-mutation-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "string-mutation",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["python-bridge", "strings"],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "You need to build a string character by character inside a loop in Java. Which approach is correct and efficient?",
+    "options": [
+      { "id": "a", "text": "result += c inside the loop, as you would in Python" },
+      { "id": "b", "text": "result.charAt(i) = c, assigning into the string" },
+      { "id": "c", "text": "Use a StringBuilder and call append(c), then toString() at the end" },
+      { "id": "d", "text": "Declare the String with a fixed length and index into it" }
+    ],
+    "answer": "c",
+    "explanation": "Java Strings are immutable, so += builds a brand new String on every iteration — quadratic time, and a classic timeout on a large input. StringBuilder mutates one buffer and converts once at the end. Python's str is also immutable, but CPython optimises += in some cases and problem sizes rarely expose it, so the habit survives until it meets Java.",
+    "distractorRationale": {
+      "a": "It compiles and is correct, but it is O(n squared) and will time out on a large input.",
+      "b": "charAt returns a value; it is not assignable. Strings cannot be modified in place at all.",
+      "d": "A String has no pre-allocated, writable buffer — that is what StringBuilder provides."
+    }
+  },
+  {
+    "id": "pyb-truthiness-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "truthiness",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["python-bridge", "control-flow"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "In Python, if arr: tests whether a list is non-empty. In Java, what does if (arr) do for an int[] named arr?",
+    "options": [
+      { "id": "a", "text": "It tests whether the array has any elements" },
+      { "id": "b", "text": "It tests whether the reference is non-null" },
+      { "id": "c", "text": "It fails to compile, because the condition must be a boolean" },
+      { "id": "d", "text": "It tests whether the first element is non-zero" }
+    ],
+    "answer": "c",
+    "explanation": "Java requires the condition of an if to be a boolean; there is no truthiness. if (arr) is a compile error, and so is if (n) for an int. You must write an explicit comparison: arr.length > 0, or arr != null. C is the opposite trap — it accepts any scalar, so if (arr) compiles and is almost always true (a non-null pointer), which silently does the wrong thing.",
+    "distractorRationale": {
+      "a": "That is Python's semantics; Java has no implicit emptiness test.",
+      "b": "A null check is what you often MEAN, but you must write it explicitly as arr != null.",
+      "d": "No language in this family does that; it is not a plausible semantics, only a plausible guess."
+    }
+  },
+  {
+    "id": "pyb-swap-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "swap",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["python-bridge", "arrays"],
+    "source": "authored",
+    "targetSeconds": 40,
+    "stem": "Python lets you swap with a, b = b, a. What is the correct equivalent in C or Java?",
+    "options": [
+      { "id": "a", "text": "a = b; b = a;" },
+      { "id": "b", "text": "int tmp = a; a = b; b = tmp;" },
+      { "id": "c", "text": "swap(a, b);" },
+      { "id": "d", "text": "a, b = b, a;" }
+    ],
+    "answer": "b",
+    "explanation": "Neither language has tuple assignment, so a swap needs a temporary. Option A is the bug this question exists for: it compiles, runs, and leaves both variables holding b — the original value of a is destroyed by the first statement. Pattern: any two-statement swap without a temporary has already lost one of the values.",
+    "distractorRationale": {
+      "a": "This is the classic broken swap. It compiles and silently loses a's original value.",
+      "c": "C++ has std::swap, but plain C does not, and Java has no such function for primitives.",
+      "d": "The comma here is the comma operator in C, not tuple assignment; it does not swap."
+    }
+  },
+  {
+    "id": "pyb-char-arithmetic-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "char-arithmetic",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["python-bridge", "strings"],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "You want the 0-25 alphabet position of a lowercase character c. In Python you would write ord(c) - ord('a'). What is the C equivalent?",
+    "options": [
+      { "id": "a", "text": "ord(c) - ord('a')" },
+      { "id": "b", "text": "c - 'a', because a char is already an integer type" },
+      { "id": "c", "text": "(int) c - (int) \"a\"" },
+      { "id": "d", "text": "atoi(c) - atoi('a')" }
+    ],
+    "answer": "b",
+    "explanation": "In C and Java, char IS an integer type, so arithmetic works directly: c - 'a' gives the offset with no conversion function. Python needs ord() because its str has no numeric value. Note the quotes carefully: 'a' is a character literal, \"a\" is a string (a pointer in C) — mixing them is a common error for someone used to Python, where both quote styles mean the same thing.",
+    "distractorRationale": {
+      "a": "ord() is a Python builtin; it does not exist in C.",
+      "c": "\"a\" is a string literal, so this subtracts a pointer value, not a character code.",
+      "d": "atoi parses a numeric string like \"42\"; it is unrelated to character codes."
+    }
+  },
+  {
+    "id": "pyb-fixed-arrays-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "fixed-arrays",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["python-bridge", "arrays"],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "Python lets you write result = [] then result.append(x) as many times as you like. What is the closest correct approach in C?",
+    "options": [
+      { "id": "a", "text": "Declare int result[]; and append with result[i++] = x" },
+      { "id": "b", "text": "Declare an array large enough for the worst case and track the count yourself" },
+      { "id": "c", "text": "Use result.append(x) after including <stdlib.h>" },
+      { "id": "d", "text": "Arrays in C grow automatically when you write past the end" }
+    ],
+    "answer": "b",
+    "explanation": "C arrays have a fixed size fixed at declaration, and there is no length field and no append. The standard competitive-programming approach is to declare the worst case (int result[1000];) and keep your own int count. The alternatives are malloc/realloc, or C++'s std::vector. Pattern: in C, every array needs a companion variable holding how many elements are actually in use, because the array itself does not know.",
+    "distractorRationale": {
+      "a": "int result[]; without a size is not a valid declaration for a local array, and i++ does not allocate space.",
+      "c": "C has no methods on arrays; stdlib.h provides malloc, not append.",
+      "d": "Writing past the end is undefined behaviour — it corrupts adjacent memory rather than growing anything."
+    }
+  },
+  {
+    "id": "pyb-slicing-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "slicing",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["python-bridge", "strings"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Python's s[1:4] gives characters at indices 1, 2 and 3. What is the Java equivalent?",
+    "options": [
+      { "id": "a", "text": "s.substring(1, 4), which is also end-exclusive" },
+      { "id": "b", "text": "s.substring(1, 3), because Java's end index is inclusive" },
+      { "id": "c", "text": "s.slice(1, 4)" },
+      { "id": "d", "text": "s[1:4], which Java also supports" }
+    ],
+    "answer": "a",
+    "explanation": "Java's substring(begin, end) uses the same half-open convention as Python: begin is included, end is excluded, so substring(1, 4) returns indices 1, 2 and 3. The trap is assuming it is inclusive and passing 3, which silently returns one character too few. C has no slicing at all — you copy a range manually and terminate it yourself.",
+    "distractorRationale": {
+      "b": "This is the off-by-one the question exists for; Java's end index is exclusive, like Python's.",
+      "c": "slice is a JavaScript method; Java uses substring.",
+      "d": "Java has no slice syntax; brackets on a String are a compile error."
+    }
+  },
+  {
+    "id": "pyb-uninitialised-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "python-bridge",
+    "subtopic": "uninitialised",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["python-bridge", "variables"],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "A C function declares int count; inside a loop body and then does count++ without assigning it first. What happens?",
+    "options": [
+      { "id": "a", "text": "count starts at 0, as an unassigned integer would in Python" },
+      { "id": "b", "text": "count holds whatever was in that memory — undefined behaviour, and it may appear to work" },
+      { "id": "c", "text": "The compiler refuses to build it" },
+      { "id": "d", "text": "count is automatically None until assigned" }
+    ],
+    "answer": "b",
+    "explanation": "A local variable in C is not initialised; it contains whatever bytes were already on the stack. It often happens to be 0 in a simple test and non-zero once the surrounding code changes, which is why this bug passes locally and fails in the grader. Always initialise: int count = 0;. Java is stricter — it refuses to compile a read of an uninitialised local — and Python has no declaration step at all, so the habit never forms.",
+    "distractorRationale": {
+      "a": "Python has no uninitialised state; a name either exists or raises NameError. C makes no such guarantee.",
+      "c": "Most compilers only warn (with -Wall), and the default build often says nothing at all.",
+      "d": "There is no None in C, and no null for a primitive int."
+    }
+  }
+]

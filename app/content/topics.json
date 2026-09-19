@@ -345,6 +345,23 @@
         "strcmp-vs-equals",
         "unbraced-if"
       ]
+    },
+    "python-bridge": {
+      "priority": "P0",
+      "subtopics": [
+        "integer-division",
+        "modulo-negatives",
+        "negative-index",
+        "slicing",
+        "length-syntax",
+        "string-mutation",
+        "string-equality",
+        "truthiness",
+        "swap",
+        "char-arithmetic",
+        "fixed-arrays",
+        "uninitialised"
+      ]
     }
   },
   "aic": {
