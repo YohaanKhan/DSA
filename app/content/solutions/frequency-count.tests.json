@@ -1,0 +1,12 @@
+{
+  "problem": "Read one line. Print the most frequent character and its count, separated by a space. On a tie print the one with the smallest character code. Print none for an empty line.",
+  "language": "cpp",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "clear winner", "stdin": "abracadabra\n", "expectedStdout": "a 5" },
+    { "name": "tie picks lowest code", "stdin": "abab\n", "expectedStdout": "a 2", "edgeCase": true },
+    { "name": "single character", "stdin": "z\n", "expectedStdout": "z 1", "edgeCase": true },
+    { "name": "empty line", "stdin": "\n", "expectedStdout": "none", "edgeCase": true, "hidden": true },
+    { "name": "spaces count too", "stdin": "a b  c\n", "expectedStdout": "  3", "hidden": true }
+  ]
+}

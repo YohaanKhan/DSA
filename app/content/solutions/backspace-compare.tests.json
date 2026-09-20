@@ -1,0 +1,12 @@
+{
+  "problem": "Read two lines of text. Each '#' means a backspace that deletes the preceding character (and does nothing if there is none). Print 'true' if the two lines are equal once the backspaces are applied, otherwise 'false'.",
+  "language": "java",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "equal after backspaces", "stdin": "ab#c\nad#c\n", "expectedStdout": "true" },
+    { "name": "different", "stdin": "a#c\nb\n", "expectedStdout": "false" },
+    { "name": "both empty out", "stdin": "a##\nb##\n", "expectedStdout": "true", "edgeCase": true },
+    { "name": "backspace with nothing to delete", "stdin": "###a\na\n", "expectedStdout": "true", "edgeCase": true, "hidden": true },
+    { "name": "trailing backspace differs", "stdin": "abc\nabc#\n", "expectedStdout": "false", "hidden": true }
+  ]
+}

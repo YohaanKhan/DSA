@@ -1,0 +1,113 @@
+/* ---- Runner frame ---------------------------------------------------- */
+.runner { display: flex; flex-direction: column; gap: var(--s-5); }
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+.counter { font-size: var(--t-lg); font-weight: 700; color: var(--ink); }
+.barSpacer { flex: 1; min-width: var(--s-4); }
+
+/* ---- Question -------------------------------------------------------- */
+.stem {
+  max-width: var(--measure);
+  font-size: var(--t-base);
+  line-height: var(--lh-body);
+  color: var(--ink);
+}
+.code {
+  margin: var(--s-4) 0 0;
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-sunken);
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+
+/* ---- Options --------------------------------------------------------- */
+.options { display: flex; flex-direction: column; gap: var(--s-3); max-width: var(--measure); }
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  width: 100%;
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--t-base);
+  line-height: 1.5;
+}
+.optionText { flex: 1; min-width: 0; }
+
+.selected {
+  border-color: var(--stage-current, var(--ink));
+  border-width: 3px;
+  background: var(--stage-current-soft, var(--paper-raised));
+  padding: calc(var(--s-4) - 1px);
+}
+
+/* Answer states carry a glyph and a word, never colour alone. */
+.correct { border-color: var(--ok); background: color-mix(in oklab, var(--ok) 12%, var(--paper-raised)); }
+.wrong   { border-color: var(--bad); background: color-mix(in oklab, var(--bad) 12%, var(--paper-raised)); }
+.verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  margin-left: auto;
+  padding-left: var(--s-3);
+  white-space: nowrap;
+}
+.verdictOk { color: var(--ok); }
+.verdictBad { color: var(--bad); }
+
+/* ---- Confidence ------------------------------------------------------ */
+.confidence {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+  padding: var(--s-3) 0;
+}
+.confidenceLabel { color: var(--ink-muted); }
+
+/* ---- Explanation ----------------------------------------------------- */
+.explain { max-width: var(--measure); }
+.explainBody { font-size: var(--t-base); line-height: var(--lh-body); color: var(--ink); }
+.rationale { margin-top: var(--s-4); }
+.rationaleItem {
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-2) 0;
+  border-top: 1px solid var(--edge-soft);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+.rationaleKey { color: var(--ink); flex: 0 0 auto; }
+.summary { cursor: pointer; color: var(--ink-muted); padding: var(--s-2) 0; }
+
+.actions { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.hintRow { display: flex; align-items: center; gap: var(--s-2); color: var(--ink-faint); }
+
+/* ---- Free-text answer (Trace Lab) ------------------------------------ */
+.answerField {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--s-3);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--t-lg);
+}
+.answerField:disabled { opacity: 0.6; }

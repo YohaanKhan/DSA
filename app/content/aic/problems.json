@@ -1,0 +1,1900 @@
+[
+  {
+    "id": "aic-second-largest",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "arrays",
+    "subtopic": "scan",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "arrays",
+      "edge-cases"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Second largest distinct value",
+    "language": "java",
+    "problem": "Given an integer array, return the second largest DISTINCT value. If fewer than two distinct values exist, return Integer.MIN_VALUE.",
+    "expectedComplexity": "O(n)",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "Says the input is an integer array",
+          "patterns": [
+            "int array",
+            "integer array",
+            "int[]",
+            "array of int"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "Says the output is a single integer",
+          "patterns": [
+            "return an int",
+            "returns an int",
+            "single integer",
+            "one integer",
+            "an int value"
+          ]
+        },
+        {
+          "id": "distinct",
+          "requirement": "Notes that duplicates collapse — 'distinct' is doing work here",
+          "patterns": [
+            "distinct",
+            "unique",
+            "duplicate"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "States what happens with fewer than two distinct values",
+          "patterns": [
+            "min_value",
+            "fewer than two",
+            "less than two",
+            "minimum value",
+            "sentinel"
+          ]
+        },
+        {
+          "id": "empty",
+          "requirement": "Considers an empty array",
+          "patterns": [
+            "empty",
+            "zero elements",
+            "no elements",
+            "length 0"
+          ]
+        },
+        {
+          "id": "negatives",
+          "requirement": "Considers negative values",
+          "patterns": [
+            "negative",
+            "below zero",
+            "minus"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "single-pass",
+          "requirement": "Proposes a single pass rather than sorting",
+          "patterns": [
+            "single pass",
+            "one pass",
+            "single scan",
+            "one scan",
+            "single traversal"
+          ]
+        },
+        {
+          "id": "two-trackers",
+          "requirement": "Keeps two running values",
+          "patterns": [
+            "two variables",
+            "largest and second",
+            "top two",
+            "two trackers",
+            "best and second"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time and constant space",
+          "patterns": [
+            "o(n)",
+            "linear time",
+            "o(1) space",
+            "constant space"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names the language explicitly",
+          "patterns": [
+            "java"
+          ]
+        },
+        {
+          "id": "behaviour",
+          "requirement": "States the exact behaviour wanted",
+          "patterns": [
+            "second largest",
+            "second-largest",
+            "second highest"
+          ]
+        },
+        {
+          "id": "distinct",
+          "requirement": "Says distinct, not just second largest",
+          "patterns": [
+            "distinct",
+            "unique"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "Specifies the fewer-than-two-distinct return",
+          "patterns": [
+            "min_value",
+            "minimum value",
+            "fewer than two",
+            "less than two"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names the edge cases to handle",
+          "patterns": [
+            "empty",
+            "single element",
+            "one element",
+            "all equal",
+            "duplicate"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "Asks for or states the complexity",
+          "patterns": [
+            "o(n)",
+            "complexity",
+            "linear time",
+            "constant space"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "dup-max",
+          "requirement": "Spots that a duplicated maximum must not count as the runner-up",
+          "patterns": [
+            "duplicate",
+            "repeated max",
+            "same value twice",
+            "twice"
+          ]
+        },
+        {
+          "id": "all-equal",
+          "requirement": "Spots the all-equal-values case",
+          "patterns": [
+            "all equal",
+            "all the same",
+            "identical"
+          ]
+        },
+        {
+          "id": "short-array",
+          "requirement": "Spots empty or single-element input",
+          "patterns": [
+            "empty",
+            "single element",
+            "one element",
+            "length 0",
+            "length 1"
+          ]
+        },
+        {
+          "id": "init",
+          "requirement": "Spots that initialising trackers to 0 breaks all-negative input",
+          "patterns": [
+            "initialis",
+            "initializ",
+            "min_value",
+            "starting value",
+            "negative"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "thread-safety",
+        "requirement": "Claims a thread-safety problem",
+        "patterns": [
+          "thread safe",
+          "thread-safety",
+          "concurren",
+          "race condition"
+        ]
+      },
+      {
+        "id": "sql",
+        "requirement": "Claims an injection problem",
+        "patterns": [
+          "sql injection",
+          "injection attack"
+        ]
+      },
+      {
+        "id": "memory-leak",
+        "requirement": "Claims a memory leak, in a garbage-collected language",
+        "patterns": [
+          "memory leak",
+          "free the memory",
+          "dealloc"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a Java method `int secondLargest(int[] nums)` that returns the second largest DISTINCT value in the array.\n\nInput: an int array, length 0 to 100000. Values may be negative and may repeat.\nOutput: the second largest distinct value, or Integer.MIN_VALUE when there are fewer than two distinct values.\n\nRequirements:\n- Handle these edge cases: empty array, single element, all elements equal, a duplicated maximum, and all-negative values.\n- Target O(n) time and O(1) extra space. Do not sort.\n\nAlso state the time and space complexity.\n\nRead n from stdin, then n integers, and print the result.",
+    "fallbackAssistantOutput": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    static int secondLargest(int[] nums) {\n        int largest = 0;\n        int second = 0;\n        for (int i = 0; i < nums.length; i++) {\n            if (nums[i] > largest) {\n                second = largest;\n                largest = nums[i];\n            } else if (nums[i] > second) {\n                second = nums[i];\n            }\n        }\n        return second;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] nums = new int[n];\n        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();\n        System.out.println(secondLargest(nums));\n    }\n}\n```\n\nThis scans the array once and keeps the two largest values it has seen.",
+    "referenceSolution": "import java.util.Scanner;\n\npublic class Main {\n    static int secondLargest(int[] nums) {\n        int largest = Integer.MIN_VALUE;\n        int second = Integer.MIN_VALUE;\n        for (int v : nums) {\n            if (v > largest) {\n                second = largest;\n                largest = v;\n            } else if (v < largest && v > second) {\n                second = v;\n            }\n        }\n        return second;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.hasNextInt() ? sc.nextInt() : 0;\n        int[] nums = new int[n];\n        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();\n        System.out.println(secondLargest(nums));\n    }\n}",
+    "tests": [
+      {
+        "stdin": "5\n1 2 3 4 5",
+        "expectedStdout": "4"
+      },
+      {
+        "stdin": "4\n7 7 7 7",
+        "expectedStdout": "-2147483648"
+      },
+      {
+        "stdin": "0\n",
+        "expectedStdout": "-2147483648"
+      },
+      {
+        "stdin": "3\n-5 -2 -2",
+        "expectedStdout": "-5"
+      },
+      {
+        "stdin": "6\n3 9 1 9 4 2",
+        "expectedStdout": "4"
+      }
+    ]
+  },
+  {
+    "id": "aic-first-non-repeating",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "strings",
+    "subtopic": "frequency",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "strings",
+      "hashing"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "First non-repeating character",
+    "language": "java",
+    "problem": "Given a line of lowercase text, print the first character that appears exactly once. If every character repeats, print the word none.",
+    "expectedComplexity": "O(n)",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "Says the input is a line of text",
+          "patterns": [
+            "string",
+            "line of text",
+            "text"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "Says the output is one character or a word",
+          "patterns": [
+            "one character",
+            "single character",
+            "a char",
+            "print the character"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "States what to print when nothing is unique",
+          "patterns": [
+            "none",
+            "no unique",
+            "every character repeats"
+          ]
+        },
+        {
+          "id": "order",
+          "requirement": "Notes that FIRST means original order, not alphabetical",
+          "patterns": [
+            "first",
+            "order",
+            "earliest",
+            "leftmost"
+          ]
+        },
+        {
+          "id": "empty",
+          "requirement": "Considers an empty line",
+          "patterns": [
+            "empty",
+            "blank",
+            "no characters",
+            "length 0"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "two-pass",
+          "requirement": "Counts first, then scans in order",
+          "patterns": [
+            "two pass",
+            "count then",
+            "first pass",
+            "frequency",
+            "count each"
+          ]
+        },
+        {
+          "id": "storage",
+          "requirement": "Uses a frequency map or a 26-slot array",
+          "patterns": [
+            "map",
+            "array of 26",
+            "hashmap",
+            "counts array",
+            "frequency table"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time",
+          "patterns": [
+            "o(n)",
+            "linear time"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names the language explicitly",
+          "patterns": [
+            "java"
+          ]
+        },
+        {
+          "id": "behaviour",
+          "requirement": "States the exact behaviour wanted",
+          "patterns": [
+            "first",
+            "non-repeating",
+            "appears exactly once",
+            "appears once"
+          ]
+        },
+        {
+          "id": "fallback",
+          "requirement": "Specifies the no-unique-character output",
+          "patterns": [
+            "none",
+            "no unique"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names the edge cases",
+          "patterns": [
+            "empty",
+            "all repeat",
+            "every character repeats",
+            "single character"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "Asks for or states the complexity",
+          "patterns": [
+            "o(n)",
+            "complexity",
+            "linear time"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "order-bug",
+          "requirement": "Checks it returns the FIRST such character, not any",
+          "patterns": [
+            "first",
+            "order",
+            "earliest"
+          ]
+        },
+        {
+          "id": "none-case",
+          "requirement": "Checks the all-repeating case prints none",
+          "patterns": [
+            "none",
+            "all repeat",
+            "every character"
+          ]
+        },
+        {
+          "id": "empty",
+          "requirement": "Checks empty input",
+          "patterns": [
+            "empty",
+            "blank",
+            "no input"
+          ]
+        },
+        {
+          "id": "charset",
+          "requirement": "Checks how non-letters or spaces are treated",
+          "patterns": [
+            "space",
+            "non-letter",
+            "punctuation",
+            "digit",
+            "character set"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "thread-safety",
+        "requirement": "Claims a thread-safety problem",
+        "patterns": [
+          "thread safe",
+          "thread-safety",
+          "concurren"
+        ]
+      },
+      {
+        "id": "recursion-depth",
+        "requirement": "Claims a stack overflow in an iterative solution",
+        "patterns": [
+          "stack overflow",
+          "recursion depth",
+          "too deep"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a Java program that reads one line from stdin and prints the first character that appears exactly once in it.\n\nInput: a single line, lowercase letters, possibly empty, up to 100000 characters.\nOutput: that one character on its own line, or the word none if every character repeats.\n\nRequirements:\n- First means earliest in the original order, not alphabetically smallest.\n- Handle these edge cases: an empty line, a line where all characters repeat, and a single-character line.\n- Target O(n) time using a frequency count.\n\nAlso state the complexity.",
+    "fallbackAssistantOutput": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.nextLine();\n        Map<Character, Integer> counts = new HashMap<>();\n        for (char c : line.toCharArray()) {\n            counts.put(c, counts.getOrDefault(c, 0) + 1);\n        }\n        for (Map.Entry<Character, Integer> e : counts.entrySet()) {\n            if (e.getValue() == 1) {\n                System.out.println(e.getKey());\n                return;\n            }\n        }\n        System.out.println(\"none\");\n    }\n}\n```\n\nThis counts each character and then returns one that occurred a single time.",
+    "referenceSolution": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String line = sc.hasNextLine() ? sc.nextLine() : \"\";\n        int[] counts = new int[128];\n        for (int i = 0; i < line.length(); i++) counts[line.charAt(i)]++;\n        for (int i = 0; i < line.length(); i++) {\n            if (counts[line.charAt(i)] == 1) {\n                System.out.println(line.charAt(i));\n                return;\n            }\n        }\n        System.out.println(\"none\");\n    }\n}",
+    "tests": [
+      {
+        "stdin": "leetcode\n",
+        "expectedStdout": "l"
+      },
+      {
+        "stdin": "aabb\n",
+        "expectedStdout": "none"
+      },
+      {
+        "stdin": "\n",
+        "expectedStdout": "none"
+      },
+      {
+        "stdin": "z\n",
+        "expectedStdout": "z"
+      },
+      {
+        "stdin": "aabbc\n",
+        "expectedStdout": "c"
+      }
+    ]
+  },
+  {
+    "id": "aic-move-zeroes",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "arrays",
+    "subtopic": "in-place",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "arrays",
+      "in-place"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Move zeroes to the end, in place",
+    "language": "c",
+    "problem": "Given an integer array, move every zero to the end while keeping the relative order of the non-zero elements. Do it in place with O(1) extra space. Input is n on one line and n integers on the next; print the resulting array space-separated.",
+    "expectedComplexity": "O(n) time, O(1) extra space",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States the input is an integer array with its length",
+          "patterns": [
+            "int array",
+            "integer array",
+            "int *",
+            "array of int",
+            "length n"
+          ]
+        },
+        {
+          "id": "in-place",
+          "requirement": "States the array must be modified in place, not copied",
+          "patterns": [
+            "in place",
+            "in-place",
+            "without a new array",
+            "o(1) space",
+            "constant space"
+          ]
+        },
+        {
+          "id": "order",
+          "requirement": "States the non-zero elements keep their relative order",
+          "patterns": [
+            "relative order",
+            "preserve the order",
+            "keep the order",
+            "stable",
+            "same order"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names at least one edge case such as all zeroes, no zeroes or a single element",
+          "patterns": [
+            "all zero",
+            "no zero",
+            "empty",
+            "single element",
+            "length 1",
+            "n = 0"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "two-pointer",
+          "requirement": "Describes a read pointer and a write pointer",
+          "patterns": [
+            "write pointer",
+            "read pointer",
+            "two pointer",
+            "two-pointer",
+            "slow and fast"
+          ]
+        },
+        {
+          "id": "second-pass",
+          "requirement": "Says the tail must be filled with zeroes after the compaction pass",
+          "patterns": [
+            "fill the rest",
+            "fill the tail",
+            "remaining with zero",
+            "pad with zero",
+            "second pass"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time and constant extra space",
+          "patterns": [
+            "o(n)",
+            "linear time",
+            "o(1) space",
+            "constant space"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C explicitly",
+          "patterns": [
+            "a c function",
+            "c function",
+            "in c",
+            "c program",
+            "language: c"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "void movezeroes",
+            "int *nums",
+            "int n",
+            "(int",
+            "nums, n"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "Repeats the in-place and order constraints as constraints, not hopes",
+          "patterns": [
+            "in place",
+            "in-place",
+            "preserve",
+            "relative order",
+            "o(1)"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format the program must use",
+          "patterns": [
+            "read n",
+            "print",
+            "space-separated",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "tail-not-cleared",
+          "requirement": "Notices the tail is never overwritten with zeroes, so old values remain",
+          "patterns": [
+            "tail",
+            "not cleared",
+            "never zero",
+            "leftover",
+            "stale",
+            "remaining elements",
+            "does not fill"
+          ]
+        },
+        {
+          "id": "wrong-output",
+          "requirement": "Notices the output is wrong for an input containing zeroes before non-zeroes",
+          "patterns": [
+            "wrong output",
+            "incorrect result",
+            "duplicates",
+            "12 3",
+            "repeats the"
+          ]
+        },
+        {
+          "id": "test-it",
+          "requirement": "Says the code should be run against the failing case rather than assumed",
+          "patterns": [
+            "run the test",
+            "test it",
+            "try the example",
+            "verify"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "thread-safety",
+        "requirement": "Claims a thread-safety problem",
+        "patterns": [
+          "thread safe",
+          "thread-safety",
+          "concurren",
+          "race condition"
+        ]
+      },
+      {
+        "id": "malloc",
+        "requirement": "Claims a memory leak where nothing is allocated",
+        "patterns": [
+          "memory leak",
+          "free(",
+          "leak"
+        ]
+      },
+      {
+        "id": "recursion",
+        "requirement": "Claims the code should be recursive",
+        "patterns": [
+          "should be recursive",
+          "use recursion"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C function `void moveZeroes(int *nums, int n)` that moves every zero to the end of the array while preserving the relative order of the non-zero elements.\n\nConstraints: modify the array in place, O(1) extra space, O(n) time. Do not allocate a second array.\nEdge cases: all zeroes, no zeroes, n = 1.\n\nAlso give a complete main() that reads n then n integers from stdin, calls the function, and prints the array space-separated on one line.",
+    "fallbackAssistantOutput": "```c\n#include <stdio.h>\n\nvoid moveZeroes(int *nums, int n) {\n    int write = 0;\n    for (int read = 0; read < n; read++) {\n        if (nums[read] != 0) {\n            nums[write] = nums[read];\n            write++;\n        }\n    }\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    int a[100000];\n    for (int i = 0; i < n; i++) { if (scanf(\"%d\", &a[i]) != 1) return 0; }\n    moveZeroes(a, n);\n    for (int i = 0; i < n; i++) printf(\"%d%s\", a[i], i + 1 < n ? \" \" : \"\");\n    printf(\"\\n\");\n    return 0;\n}\n```",
+    "referenceSolution": "#include <stdio.h>\n\nvoid moveZeroes(int *nums, int n) {\n    int write = 0;\n    for (int read = 0; read < n; read++) {\n        if (nums[read] != 0) {\n            nums[write] = nums[read];\n            write++;\n        }\n    }\n    while (write < n) {\n        nums[write] = 0;\n        write++;\n    }\n}\n\nint main(void) {\n    int n;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    int a[100000];\n    for (int i = 0; i < n; i++) { if (scanf(\"%d\", &a[i]) != 1) return 0; }\n    moveZeroes(a, n);\n    for (int i = 0; i < n; i++) printf(\"%d%s\", a[i], i + 1 < n ? \" \" : \"\");\n    printf(\"\\n\");\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "5\n0 1 0 3 12",
+        "expectedStdout": "1 3 12 0 0"
+      },
+      {
+        "stdin": "4\n0 0 0 0",
+        "expectedStdout": "0 0 0 0"
+      },
+      {
+        "stdin": "3\n1 2 3",
+        "expectedStdout": "1 2 3"
+      },
+      {
+        "stdin": "1\n0",
+        "expectedStdout": "0"
+      },
+      {
+        "stdin": "6\n4 0 5 0 0 9",
+        "expectedStdout": "4 5 9 0 0 0"
+      }
+    ]
+  },
+  {
+    "id": "aic-longest-unique",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "strings",
+    "subtopic": "traversal",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "strings",
+      "traversal"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Longest substring without repeating characters",
+    "language": "cpp",
+    "problem": "Given a string, return the length of the longest substring containing no repeated character. Read one line from stdin and print a single integer. The substring must be contiguous.",
+    "expectedComplexity": "O(n) time, O(k) space for the alphabet",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States the input is a single string",
+          "patterns": [
+            "a string",
+            "one line",
+            "std::string",
+            "input string"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "States the output is a single integer length",
+          "patterns": [
+            "an integer",
+            "the length",
+            "a number",
+            "single int"
+          ]
+        },
+        {
+          "id": "contiguous",
+          "requirement": "States the substring must be contiguous, not a subsequence",
+          "patterns": [
+            "contiguous",
+            "substring not subsequence",
+            "adjacent",
+            "consecutive"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as an empty string or all-identical characters",
+          "patterns": [
+            "empty string",
+            "all same",
+            "single char",
+            "length 0",
+            "one character"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "sliding-window",
+          "requirement": "Describes a sliding window with two indices",
+          "patterns": [
+            "sliding window",
+            "window",
+            "two pointer",
+            "start and end",
+            "left and right"
+          ]
+        },
+        {
+          "id": "last-seen",
+          "requirement": "Says the window start jumps past the previous occurrence rather than resetting",
+          "patterns": [
+            "last seen",
+            "last index",
+            "jump",
+            "move start past",
+            "previous occurrence"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time",
+          "patterns": [
+            "o(n)",
+            "linear time",
+            "single pass",
+            "one pass"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C++ explicitly",
+          "patterns": [
+            "c++",
+            "cpp",
+            "in c++"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "int longestunique",
+            "const string",
+            "std::string",
+            "(string"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "States the linear-time requirement",
+          "patterns": [
+            "o(n)",
+            "linear",
+            "single pass"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read a line",
+            "getline",
+            "print",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "reset-bug",
+          "requirement": "Notices the window is reset entirely on a repeat instead of moving the start past the previous occurrence",
+          "patterns": [
+            "resets",
+            "reset the window",
+            "clears",
+            "starts over",
+            "should move the start",
+            "past the previous"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input where the reset gives too small an answer",
+          "patterns": [
+            "dvdf",
+            "undercount",
+            "too small",
+            "returns 2",
+            "misses"
+          ]
+        },
+        {
+          "id": "test-it",
+          "requirement": "Says to run it on the case rather than assume",
+          "patterns": [
+            "run the test",
+            "test it",
+            "verify",
+            "try dvdf"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "unicode",
+        "requirement": "Claims a Unicode problem the specification does not raise",
+        "patterns": [
+          "unicode",
+          "utf-8",
+          "multibyte"
+        ]
+      },
+      {
+        "id": "overflow",
+        "requirement": "Claims an integer overflow that cannot occur here",
+        "patterns": [
+          "overflow",
+          "int overflow"
+        ]
+      },
+      {
+        "id": "sorting",
+        "requirement": "Claims the string should be sorted first",
+        "patterns": [
+          "sort the string",
+          "should sort"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C++ function `int longestUnique(const std::string &s)` returning the length of the longest contiguous substring of s with no repeated character.\n\nConstraints: O(n) time, single pass. Use a sliding window; when a repeat is found, move the window start to just after the previous occurrence rather than resetting it.\nEdge cases: empty string, all identical characters, a repeat that appears before the window start.\n\nAlso give a complete main() that reads one line from stdin and prints the integer.",
+    "fallbackAssistantOutput": "```cpp\n#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;\n\nint longestUnique(const string &s) {\n    vector<bool> seen(256, false);\n    int best = 0, run = 0;\n    for (int i = 0; i < (int)s.size(); i++) {\n        unsigned char c = s[i];\n        if (seen[c]) { run = 0; for (int k = 0; k < 256; k++) seen[k] = false; }\n        seen[c] = true;\n        run++;\n        if (run > best) best = run;\n    }\n    return best;\n}\n\nint main() {\n    string s;\n    getline(cin, s);\n    cout << longestUnique(s) << endl;\n    return 0;\n}\n```",
+    "referenceSolution": "#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;\n\nint longestUnique(const string &s) {\n    vector<int> last(256, -1);\n    int best = 0, start = 0;\n    for (int i = 0; i < (int)s.size(); i++) {\n        unsigned char c = s[i];\n        if (last[c] >= start) start = last[c] + 1;\n        last[c] = i;\n        if (i - start + 1 > best) best = i - start + 1;\n    }\n    return best;\n}\n\nint main() {\n    string s;\n    getline(cin, s);\n    cout << longestUnique(s) << endl;\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "abcabcbb\n",
+        "expectedStdout": "3"
+      },
+      {
+        "stdin": "bbbbb\n",
+        "expectedStdout": "1"
+      },
+      {
+        "stdin": "pwwkew\n",
+        "expectedStdout": "3"
+      },
+      {
+        "stdin": "dvdf\n",
+        "expectedStdout": "3"
+      },
+      {
+        "stdin": "abba\n",
+        "expectedStdout": "2"
+      }
+    ]
+  },
+  {
+    "id": "aic-balanced-brackets",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "strings",
+    "subtopic": "parsing",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "strings",
+      "parsing"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Balanced brackets",
+    "language": "java",
+    "problem": "Given a line of text, decide whether its brackets are balanced. Round, square and curly brackets must each close in the right order and match in type; any other character is ignored. Print YES or NO.",
+    "expectedComplexity": "O(n) time, O(n) space in the worst case",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States the input is one line of text that may contain non-bracket characters",
+          "patterns": [
+            "a line",
+            "one line",
+            "string",
+            "other characters",
+            "ignored"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "States the output is a yes or no decision",
+          "patterns": [
+            "yes or no",
+            "print yes",
+            "boolean",
+            "true or false"
+          ]
+        },
+        {
+          "id": "matching-rule",
+          "requirement": "States that brackets must match in TYPE as well as in order",
+          "patterns": [
+            "match in type",
+            "same type",
+            "type must match",
+            "correct type",
+            "matching type"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as an empty line, a closing bracket first, or an unclosed opener",
+          "patterns": [
+            "empty",
+            "closing first",
+            "unclosed",
+            "leftover",
+            "nothing left"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "stack",
+          "requirement": "Describes pushing openers and popping on a closer",
+          "patterns": [
+            "stack",
+            "push",
+            "pop",
+            "lifo",
+            "last in"
+          ]
+        },
+        {
+          "id": "empty-pop",
+          "requirement": "Says a closing bracket with an empty stack means the answer is no",
+          "patterns": [
+            "empty stack",
+            "nothing to pop",
+            "stack is empty",
+            "closer with no opener"
+          ]
+        },
+        {
+          "id": "end-check",
+          "requirement": "Says the stack must be empty at the end",
+          "patterns": [
+            "stack empty at the end",
+            "must be empty",
+            "leftover openers",
+            "nothing left on the stack"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names Java explicitly",
+          "patterns": [
+            "in java",
+            "java method",
+            "java program",
+            "a java"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the method signature or its parameters",
+          "patterns": [
+            "static boolean balanced",
+            "boolean balanced",
+            "string s",
+            "(string"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "Rules out counting and requires order and type matching",
+          "patterns": [
+            "not a counter",
+            "do not count",
+            "counting is not",
+            "order and type",
+            "must match in type"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read a line",
+            "scanner",
+            "print yes",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "counter-not-stack",
+          "requirement": "Notices a counter cannot tell which bracket closed which, so type and order go unchecked",
+          "patterns": [
+            "counter",
+            "counting",
+            "does not track type",
+            "no stack",
+            "which bracket",
+            "type is not checked"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input the counter accepts wrongly",
+          "patterns": [
+            "(]",
+            "([)]",
+            ")(",
+            "wrongly accepts",
+            "says yes"
+          ]
+        },
+        {
+          "id": "order-bug",
+          "requirement": "Notices a closer appearing before any opener is not rejected",
+          "patterns": [
+            "closes before",
+            "negative",
+            "closer first",
+            "order is not checked"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "performance",
+        "requirement": "Claims a performance problem in a single linear pass",
+        "patterns": [
+          "too slow",
+          "performance issue",
+          "inefficient loop"
+        ]
+      },
+      {
+        "id": "recursion",
+        "requirement": "Claims the solution must be recursive",
+        "patterns": [
+          "must be recursive",
+          "should use recursion"
+        ]
+      },
+      {
+        "id": "regex",
+        "requirement": "Claims a regular expression is required",
+        "patterns": [
+          "regular expression",
+          "regex is needed"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a Java method `static boolean balanced(String s)` that returns whether the brackets in s are balanced. Round, square and curly brackets must close in the right order and match in type; ignore every other character.\n\nConstraints: use a stack, not a counter — counting is not enough because it cannot tell which bracket closed which, so order and type go unchecked. O(n) time.\nEdge cases: empty line, a closing bracket before any opener, an unclosed opener left at the end.\n\nAlso give a complete class Main whose main() reads a line from stdin using a Scanner and prints YES or NO.",
+    "fallbackAssistantOutput": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    static boolean balanced(String s) {\n        int open = 0;\n        for (int i = 0; i < s.length(); i++) {\n            char c = s.charAt(i);\n            if (c == '(' || c == '[' || c == '{') open++;\n            else if (c == ')' || c == ']' || c == '}') open--;\n        }\n        return open == 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.hasNextLine() ? sc.nextLine() : \"\";\n        System.out.println(balanced(s) ? \"YES\" : \"NO\");\n    }\n}\n```",
+    "referenceSolution": "import java.util.Scanner;\nimport java.util.Deque;\nimport java.util.ArrayDeque;\n\npublic class Main {\n    static boolean balanced(String s) {\n        Deque<Character> stack = new ArrayDeque<>();\n        for (int i = 0; i < s.length(); i++) {\n            char c = s.charAt(i);\n            if (c == '(' || c == '[' || c == '{') {\n                stack.push(c);\n            } else if (c == ')' || c == ']' || c == '}') {\n                if (stack.isEmpty()) return false;\n                char open = stack.pop();\n                if ((c == ')' && open != '(') || (c == ']' && open != '[') || (c == '}' && open != '{')) {\n                    return false;\n                }\n            }\n        }\n        return stack.isEmpty();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.hasNextLine() ? sc.nextLine() : \"\";\n        System.out.println(balanced(s) ? \"YES\" : \"NO\");\n    }\n}",
+    "tests": [
+      {
+        "stdin": "({[]})\n",
+        "expectedStdout": "YES"
+      },
+      {
+        "stdin": "(]\n",
+        "expectedStdout": "NO"
+      },
+      {
+        "stdin": "([)]\n",
+        "expectedStdout": "NO"
+      },
+      {
+        "stdin": "(()\n",
+        "expectedStdout": "NO"
+      },
+      {
+        "stdin": ")(\n",
+        "expectedStdout": "NO"
+      },
+      {
+        "stdin": "a(b)c[d]e\n",
+        "expectedStdout": "YES"
+      }
+    ]
+  },
+  {
+    "id": "aic-merge-sorted",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "arrays",
+    "subtopic": "two-pass",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "arrays",
+      "two-pass"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Merge two sorted arrays",
+    "language": "cpp",
+    "problem": "Given two arrays that are each already sorted in non-decreasing order, produce a single sorted array containing all their elements, including duplicates. Input is n, then n integers, then m, then m integers. Print the merged array space-separated.",
+    "expectedComplexity": "O(n + m) time",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States both inputs are sorted integer arrays with their lengths",
+          "patterns": [
+            "sorted array",
+            "two arrays",
+            "non-decreasing",
+            "already sorted"
+          ]
+        },
+        {
+          "id": "duplicates",
+          "requirement": "States duplicates are kept rather than removed",
+          "patterns": [
+            "keep duplicates",
+            "duplicates",
+            "not deduplicate",
+            "including repeats"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "States the output is one sorted array of all elements",
+          "patterns": [
+            "merged array",
+            "single sorted",
+            "all elements",
+            "combined"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as one array being empty or one running out first",
+          "patterns": [
+            "empty array",
+            "one is empty",
+            "n = 0",
+            "runs out",
+            "exhausted"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "two-index",
+          "requirement": "Describes one index per array, advancing the one with the smaller value",
+          "patterns": [
+            "two index",
+            "two pointer",
+            "one index each",
+            "compare and advance",
+            "i and j"
+          ]
+        },
+        {
+          "id": "drain",
+          "requirement": "Says the remainder of whichever array is left must be appended",
+          "patterns": [
+            "append the rest",
+            "drain",
+            "remaining elements",
+            "leftover",
+            "copy the rest"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time in the total length, not re-sorting",
+          "patterns": [
+            "o(n + m)",
+            "o(n+m)",
+            "linear",
+            "without sorting",
+            "no sort"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C++ explicitly",
+          "patterns": [
+            "c++",
+            "cpp",
+            "in c++"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "mergesorted",
+            "vector<int>",
+            "const vector",
+            "(vector"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "States linear time and that concatenate-then-sort is not acceptable",
+          "patterns": [
+            "o(n + m)",
+            "o(n+m)",
+            "linear",
+            "do not sort",
+            "without sorting"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read n",
+            "read m",
+            "print",
+            "space-separated",
+            "stdin"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "missing-drain",
+          "requirement": "Notices only one array's remainder is appended, so the other's tail is lost",
+          "patterns": [
+            "second array",
+            "only drains",
+            "misses the rest",
+            "tail is lost",
+            "b is never",
+            "one remainder"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input where elements go missing",
+          "patterns": [
+            "1 3 5",
+            "missing",
+            "loses",
+            "6 is dropped",
+            "fewer elements"
+          ]
+        },
+        {
+          "id": "count-check",
+          "requirement": "Notices the output length should equal n + m",
+          "patterns": [
+            "n + m",
+            "length should",
+            "count of elements",
+            "total length"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "stability",
+        "requirement": "Claims a stability problem that does not apply to merging values",
+        "patterns": [
+          "stable",
+          "stability"
+        ]
+      },
+      {
+        "id": "reserve",
+        "requirement": "Claims the missing reserve call is a correctness bug",
+        "patterns": [
+          "reserve",
+          "capacity",
+          "reallocation bug"
+        ]
+      },
+      {
+        "id": "inplace",
+        "requirement": "Claims the merge must be done in place when the specification does not ask",
+        "patterns": [
+          "must be in place",
+          "in-place required"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C++ function `std::vector<int> mergeSorted(const std::vector<int> &a, const std::vector<int> &b)` that merges two already-sorted arrays into one sorted array, keeping duplicates.\n\nConstraints: O(n + m) time. Walk both with one index each and append the remainder of whichever array is left over — do not concatenate and sort.\nEdge cases: either array empty, one array entirely smaller than the other, repeated values.\n\nAlso give a complete main() that reads n, n integers, m, then m integers from stdin and prints the merged array space-separated.",
+    "fallbackAssistantOutput": "```cpp\n#include <iostream>\n#include <vector>\nusing namespace std;\n\nvector<int> mergeSorted(const vector<int> &a, const vector<int> &b) {\n    vector<int> out;\n    size_t i = 0, j = 0;\n    while (i < a.size() && j < b.size()) {\n        if (a[i] <= b[j]) out.push_back(a[i++]);\n        else out.push_back(b[j++]);\n    }\n    while (i < a.size()) out.push_back(a[i++]);\n    return out;\n}\n\nint main() {\n    int n, m;\n    if (!(cin >> n)) return 0;\n    vector<int> a(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    cin >> m;\n    vector<int> b(m);\n    for (int i = 0; i < m; i++) cin >> b[i];\n    vector<int> out = mergeSorted(a, b);\n    for (size_t i = 0; i < out.size(); i++) cout << out[i] << (i + 1 < out.size() ? \" \" : \"\");\n    cout << endl;\n    return 0;\n}\n```",
+    "referenceSolution": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nvector<int> mergeSorted(const vector<int> &a, const vector<int> &b) {\n    vector<int> out;\n    out.reserve(a.size() + b.size());\n    size_t i = 0, j = 0;\n    while (i < a.size() && j < b.size()) {\n        if (a[i] <= b[j]) out.push_back(a[i++]);\n        else out.push_back(b[j++]);\n    }\n    while (i < a.size()) out.push_back(a[i++]);\n    while (j < b.size()) out.push_back(b[j++]);\n    return out;\n}\n\nint main() {\n    int n, m;\n    if (!(cin >> n)) return 0;\n    vector<int> a(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    cin >> m;\n    vector<int> b(m);\n    for (int i = 0; i < m; i++) cin >> b[i];\n    vector<int> out = mergeSorted(a, b);\n    for (size_t i = 0; i < out.size(); i++) cout << out[i] << (i + 1 < out.size() ? \" \" : \"\");\n    cout << endl;\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "3\n1 3 5\n3\n2 4 6",
+        "expectedStdout": "1 2 3 4 5 6"
+      },
+      {
+        "stdin": "2\n1 2\n0\n",
+        "expectedStdout": "1 2"
+      },
+      {
+        "stdin": "0\n\n3\n7 8 9",
+        "expectedStdout": "7 8 9"
+      },
+      {
+        "stdin": "3\n1 1 1\n2\n1 1",
+        "expectedStdout": "1 1 1 1 1"
+      },
+      {
+        "stdin": "4\n1 2 3 9\n2\n4 5",
+        "expectedStdout": "1 2 3 4 5 9"
+      }
+    ]
+  },
+  {
+    "id": "aic-rotate-array",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "arrays",
+    "subtopic": "in-place",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "arrays",
+      "in-place"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Rotate an array left by k",
+    "language": "c",
+    "problem": "Given an integer array and a count k, rotate it left by k positions in place with O(1) extra space. k may be zero, or larger than the array length. Input is n, then n integers, then k; print the rotated array space-separated.",
+    "expectedComplexity": "O(n) time, O(1) extra space",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States the input is an integer array plus a rotation count",
+          "patterns": [
+            "int array",
+            "integer array",
+            "array and k",
+            "count k",
+            "int *"
+          ]
+        },
+        {
+          "id": "k-range",
+          "requirement": "Notices k may exceed the array length, or be zero",
+          "patterns": [
+            "k larger than",
+            "k > n",
+            "modulo",
+            "k mod n",
+            "k may be zero",
+            "wrap"
+          ]
+        },
+        {
+          "id": "in-place",
+          "requirement": "States the rotation must happen in place with constant extra space",
+          "patterns": [
+            "in place",
+            "in-place",
+            "o(1) space",
+            "constant space",
+            "without a second array"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as k equal to n, k zero, or a single element",
+          "patterns": [
+            "k = 0",
+            "k equals n",
+            "single element",
+            "length 1",
+            "n = 1"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "reversal",
+          "requirement": "Describes the three-reversal method, or an equivalent O(1)-space approach",
+          "patterns": [
+            "reverse",
+            "three reversal",
+            "triple reverse",
+            "juggling",
+            "cyclic replacement"
+          ]
+        },
+        {
+          "id": "normalise",
+          "requirement": "Says k must be reduced modulo n before use",
+          "patterns": [
+            "k mod n",
+            "k %= n",
+            "modulo",
+            "reduce k",
+            "normalise k"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time and constant extra space",
+          "patterns": [
+            "o(n)",
+            "linear",
+            "o(1) space",
+            "constant space"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C explicitly",
+          "patterns": [
+            "a c function",
+            "c function",
+            "in c",
+            "c program"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "void rotateleft",
+            "int *a",
+            "int n",
+            "int k",
+            "(int"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "Requires in-place rotation and handling of k beyond n",
+          "patterns": [
+            "in place",
+            "in-place",
+            "o(1)",
+            "k mod n",
+            "k larger than n",
+            "modulo"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read n",
+            "print",
+            "space-separated",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "missing-modulo",
+          "requirement": "Notices k is used without being reduced modulo n, so a large k reads out of bounds",
+          "patterns": [
+            "modulo",
+            "k mod n",
+            "k %= n",
+            "not reduced",
+            "larger than n",
+            "out of bounds",
+            "out of range"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input with k greater than the length that goes wrong",
+          "patterns": [
+            "k = 7",
+            "k greater",
+            "k > n",
+            "large k",
+            "seven"
+          ]
+        },
+        {
+          "id": "undefined-behaviour",
+          "requirement": "Notices that reading past the array is undefined rather than merely wrong",
+          "patterns": [
+            "undefined behaviour",
+            "undefined behavior",
+            "out of bounds",
+            "past the end",
+            "memory"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "negative-values",
+        "requirement": "Claims negative array values are a problem",
+        "patterns": [
+          "negative values",
+          "negative numbers in the array"
+        ]
+      },
+      {
+        "id": "overflow",
+        "requirement": "Claims an integer overflow that cannot occur here",
+        "patterns": [
+          "overflow",
+          "int overflow"
+        ]
+      },
+      {
+        "id": "sorting",
+        "requirement": "Claims the array must be sorted first",
+        "patterns": [
+          "sort the array",
+          "should sort"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C function `void rotateLeft(int *a, int n, int k)` that rotates the array left by k positions in place.\\n\\nConstraints: O(1) extra space and O(n) time — use the three-reversal method. Reduce k modulo n first, because k may be zero or larger than n.\\nEdge cases: k = 0, k equal to n, k larger than n, and n = 1.\\n\\nAlso give a complete main() that reads n, then n integers, then k from stdin, and prints the rotated array space-separated on one line.",
+    "fallbackAssistantOutput": "```c\n#include <stdio.h>\n\nstatic void reverse(int *a, int lo, int hi) {\n    while (lo < hi) {\n        int t = a[lo]; a[lo] = a[hi]; a[hi] = t;\n        lo++; hi--;\n    }\n}\n\nvoid rotateLeft(int *a, int n, int k) {\n    if (n <= 1) return;\n    reverse(a, 0, k - 1);\n    reverse(a, k, n - 1);\n    reverse(a, 0, n - 1);\n}\n\nint main(void) {\n    int n, k;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    int a[100000];\n    for (int i = 0; i < n; i++) { if (scanf(\"%d\", &a[i]) != 1) return 0; }\n    if (scanf(\"%d\", &k) != 1) return 0;\n    rotateLeft(a, n, k);\n    for (int i = 0; i < n; i++) printf(\"%d%s\", a[i], i + 1 < n ? \" \" : \"\");\n    printf(\"\\n\");\n    return 0;\n}\n```",
+    "referenceSolution": "#include <stdio.h>\n\nstatic void reverse(int *a, int lo, int hi) {\n    while (lo < hi) {\n        int t = a[lo]; a[lo] = a[hi]; a[hi] = t;\n        lo++; hi--;\n    }\n}\n\nvoid rotateLeft(int *a, int n, int k) {\n    if (n <= 1) return;\n    k %= n;\n    if (k < 0) k += n;\n    reverse(a, 0, k - 1);\n    reverse(a, k, n - 1);\n    reverse(a, 0, n - 1);\n}\n\nint main(void) {\n    int n, k;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    int a[100000];\n    for (int i = 0; i < n; i++) { if (scanf(\"%d\", &a[i]) != 1) return 0; }\n    if (scanf(\"%d\", &k) != 1) return 0;\n    rotateLeft(a, n, k);\n    for (int i = 0; i < n; i++) printf(\"%d%s\", a[i], i + 1 < n ? \" \" : \"\");\n    printf(\"\\n\");\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "5\n1 2 3 4 5\n2",
+        "expectedStdout": "3 4 5 1 2"
+      },
+      {
+        "stdin": "4\n1 2 3 4\n4",
+        "expectedStdout": "1 2 3 4"
+      },
+      {
+        "stdin": "3\n7 8 9\n0",
+        "expectedStdout": "7 8 9"
+      },
+      {
+        "stdin": "5\n1 2 3 4 5\n7",
+        "expectedStdout": "3 4 5 1 2"
+      },
+      {
+        "stdin": "1\n9\n3",
+        "expectedStdout": "9"
+      }
+    ]
+  },
+  {
+    "id": "aic-add-big-numbers",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "strings",
+    "subtopic": "parsing",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "strings",
+      "parsing"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Add two numbers given as digit strings",
+    "language": "cpp",
+    "problem": "Two non-negative integers are given as strings of digits, each possibly far too long for any built-in integer type. Print their sum, also as a string. Do not convert to a numeric type.",
+    "expectedComplexity": "O(n) time in the length of the longer input",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States both inputs are digit strings of arbitrary length",
+          "patterns": [
+            "digit string",
+            "as strings",
+            "arbitrary length",
+            "very long",
+            "string of digits"
+          ]
+        },
+        {
+          "id": "no-conversion",
+          "requirement": "States the values must not be converted to int or long",
+          "patterns": [
+            "do not convert",
+            "without converting",
+            "too large for",
+            "no integer type",
+            "cannot fit"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "States the output is a digit string, not a number",
+          "patterns": [
+            "as a string",
+            "string output",
+            "print the sum",
+            "digit string"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as different lengths, a final carry, or zero",
+          "patterns": [
+            "different length",
+            "carry",
+            "final carry",
+            "leading zero",
+            "zero"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "right-to-left",
+          "requirement": "Describes adding from the least significant digit with a carry",
+          "patterns": [
+            "right to left",
+            "from the end",
+            "least significant",
+            "carry"
+          ]
+        },
+        {
+          "id": "final-carry",
+          "requirement": "Says a carry remaining after both strings are exhausted must still be emitted",
+          "patterns": [
+            "final carry",
+            "remaining carry",
+            "carry after",
+            "extra digit",
+            "carry out"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time in the longer input",
+          "patterns": [
+            "o(n)",
+            "linear",
+            "single pass",
+            "one pass"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C++ explicitly",
+          "patterns": [
+            "c++",
+            "cpp",
+            "in c++"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "addstrings",
+            "std::string",
+            "const string",
+            "(string"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "Forbids converting to a numeric type and requires the trailing carry",
+          "patterns": [
+            "do not convert",
+            "without converting",
+            "carry",
+            "no integer type"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read two",
+            "cin",
+            "print",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "dropped-carry",
+          "requirement": "Notices the loop ends before emitting a carry left over after both strings run out",
+          "patterns": [
+            "carry",
+            "final carry",
+            "drops the carry",
+            "loop condition",
+            "while i >= 0 || j >= 0",
+            "missing digit"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input where the answer is one digit too short",
+          "patterns": [
+            "999",
+            "1000",
+            "carry over",
+            "one digit short",
+            "000"
+          ]
+        },
+        {
+          "id": "leading-zero",
+          "requirement": "Notices the result can come out with a wrong leading digit or length",
+          "patterns": [
+            "leading",
+            "length",
+            "digit count",
+            "shorter"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "unicode",
+        "requirement": "Claims a character-encoding problem the specification does not raise",
+        "patterns": [
+          "unicode",
+          "utf-8",
+          "encoding"
+        ]
+      },
+      {
+        "id": "performance",
+        "requirement": "Claims a performance problem in a single linear pass",
+        "patterns": [
+          "too slow",
+          "inefficient",
+          "performance issue"
+        ]
+      },
+      {
+        "id": "negatives",
+        "requirement": "Claims negative inputs must be handled when the specification says non-negative",
+        "patterns": [
+          "negative number",
+          "minus sign",
+          "handle negatives"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C++ function `std::string addStrings(const std::string &a, const std::string &b)` that adds two non-negative integers given as digit strings.\\n\\nConstraints: do not convert to int, long or any numeric type — the values may be hundreds of digits. Add right to left with a carry, and emit the final carry after both strings are exhausted. O(n) time.\\nEdge cases: inputs of different length, a carry out of the most significant digit, and both inputs zero.\\n\\nAlso give a complete main() that reads two whitespace-separated tokens from stdin and prints the sum on one line.",
+    "fallbackAssistantOutput": "```cpp\n#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nstring addStrings(const string &a, const string &b) {\n    string out;\n    int i = (int)a.size() - 1, j = (int)b.size() - 1, carry = 0;\n    while (i >= 0 || j >= 0) {\n        int sum = carry;\n        if (i >= 0) sum += a[i--] - '0';\n        if (j >= 0) sum += b[j--] - '0';\n        out.push_back((char)('0' + sum % 10));\n        carry = sum / 10;\n    }\n    reverse(out.begin(), out.end());\n    return out;\n}\n\nint main() {\n    string a, b;\n    if (!(cin >> a >> b)) return 0;\n    cout << addStrings(a, b) << endl;\n    return 0;\n}\n```",
+    "referenceSolution": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nstring addStrings(const string &a, const string &b) {\n    string out;\n    int i = (int)a.size() - 1, j = (int)b.size() - 1, carry = 0;\n    while (i >= 0 || j >= 0 || carry) {\n        int sum = carry;\n        if (i >= 0) sum += a[i--] - '0';\n        if (j >= 0) sum += b[j--] - '0';\n        out.push_back((char)('0' + sum % 10));\n        carry = sum / 10;\n    }\n    reverse(out.begin(), out.end());\n    return out;\n}\n\nint main() {\n    string a, b;\n    if (!(cin >> a >> b)) return 0;\n    cout << addStrings(a, b) << endl;\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "123 456",
+        "expectedStdout": "579"
+      },
+      {
+        "stdin": "999 1",
+        "expectedStdout": "1000"
+      },
+      {
+        "stdin": "1 9999",
+        "expectedStdout": "10000"
+      },
+      {
+        "stdin": "0 0",
+        "expectedStdout": "0"
+      },
+      {
+        "stdin": "5000 5000",
+        "expectedStdout": "10000"
+      }
+    ]
+  }
+]

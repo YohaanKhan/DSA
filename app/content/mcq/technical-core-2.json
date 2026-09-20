@@ -1,0 +1,2594 @@
+[
+  {
+    "id": "tech2-array-vs-list",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "arrays",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An array and a linked list differ most importantly in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lists use less memory"
+      },
+      {
+        "id": "b",
+        "text": "Arrays cannot be resized"
+      },
+      {
+        "id": "c",
+        "text": "Arrays are faster to create"
+      },
+      {
+        "id": "d",
+        "text": "Arrays give O(1) access by index; linked lists give O(1) insertion once you hold the node"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The trade is random access against cheap structural change. Picking between them is a question of which operation dominates your workload, not of which is generally better."
+  },
+  {
+    "id": "tech2-dynamic-array",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "arrays",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Appending to a dynamic array is described as amortised O(1) because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Occasional doubling costs O(n), but spread across the appends it averages out to constant"
+      },
+      {
+        "id": "b",
+        "text": "The array never grows"
+      },
+      {
+        "id": "c",
+        "text": "Memory is preallocated"
+      },
+      {
+        "id": "d",
+        "text": "Appends are always constant"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Doubling means a resize happens rarely enough that the total copying across n appends is O(n). Amortised analysis counts the total over a sequence rather than the worst single operation."
+  },
+  {
+    "id": "tech2-binary-search-duplicates",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "searching",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "searching"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "To find the FIRST occurrence of a value in a sorted array with duplicates, binary search must",
+    "options": [
+      {
+        "id": "a",
+        "text": "Scan linearly after finding any match"
+      },
+      {
+        "id": "b",
+        "text": "Continue searching the left half after a match instead of returning immediately"
+      },
+      {
+        "id": "c",
+        "text": "Sort the array again"
+      },
+      {
+        "id": "d",
+        "text": "Use a hash set"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Returning on the first match gives an arbitrary occurrence. Recording the match and continuing left preserves the logarithmic bound, whereas scanning back linearly degrades it to O(n) on heavy duplication."
+  },
+  {
+    "id": "tech2-rotated-search",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "searching",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "searching"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Binary search still works on a sorted array that has been rotated because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Duplicates are excluded"
+      },
+      {
+        "id": "b",
+        "text": "Rotation preserves sorting"
+      },
+      {
+        "id": "c",
+        "text": "At every split at least one half is still sorted, which is enough to decide where the target can be"
+      },
+      {
+        "id": "d",
+        "text": "The array is short"
+      }
+    ],
+    "answer": "c",
+    "explanation": "You check which half is ordered, test whether the target lies within its range, and discard the other half. The halving argument survives even though the array as a whole is not sorted."
+  },
+  {
+    "id": "tech2-two-pointer-triplet",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "two-pointers",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "two-pointers"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Finding triplets summing to zero in a sorted array is O(n²) because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Three loops are needed"
+      },
+      {
+        "id": "b",
+        "text": "Hashing is required"
+      },
+      {
+        "id": "c",
+        "text": "Sorting dominates"
+      },
+      {
+        "id": "d",
+        "text": "Each of the n choices of first element costs a linear two-pointer scan"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Fixing one element reduces the problem to two-sum on the remainder, which the two-pointer scan solves in linear time. The n outer choices multiply that to quadratic, beating the naive cubic search."
+  },
+  {
+    "id": "tech2-partition",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "two-pointers",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "two-pointers"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Partitioning an array around a pivot in place uses",
+    "options": [
+      {
+        "id": "a",
+        "text": "Two indices moving toward each other, swapping elements on the wrong side"
+      },
+      {
+        "id": "b",
+        "text": "A hash map"
+      },
+      {
+        "id": "c",
+        "text": "Recursion only"
+      },
+      {
+        "id": "d",
+        "text": "A second array"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The same in-place two-index pattern underlies quicksort and quickselect. Recognising it makes a large family of partition problems one technique rather than many."
+  },
+  {
+    "id": "tech2-sliding-window-fixed",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "sliding-window",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sliding-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "For a window of FIXED size k, the sum of each window is maintained by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Recomputing the sum each time"
+      },
+      {
+        "id": "b",
+        "text": "Adding the entering element and subtracting the leaving one"
+      },
+      {
+        "id": "c",
+        "text": "Sorting the window"
+      },
+      {
+        "id": "d",
+        "text": "Using a heap"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The incremental update is what turns an O(nk) recomputation into O(n). Fixed-size windows are the simplest case because the window never has to shrink conditionally."
+  },
+  {
+    "id": "tech2-kadane",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "arrays",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Kadane's algorithm finds the maximum subarray sum by, at each element,",
+    "options": [
+      {
+        "id": "a",
+        "text": "Building a prefix table"
+      },
+      {
+        "id": "b",
+        "text": "Sorting the prefix"
+      },
+      {
+        "id": "c",
+        "text": "Choosing between extending the previous best-ending-here and starting fresh at this element"
+      },
+      {
+        "id": "d",
+        "text": "Using binary search"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The local decision is whether the running sum helps or hurts, which is a one-line recurrence. It is the standard first example of dynamic programming on arrays."
+  },
+  {
+    "id": "tech2-hash-load-factor",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "hashing",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "hashing"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A hash table's load factor is",
+    "options": [
+      {
+        "id": "a",
+        "text": "The hash function's cost"
+      },
+      {
+        "id": "b",
+        "text": "The number of collisions"
+      },
+      {
+        "id": "c",
+        "text": "The size of the largest bucket"
+      },
+      {
+        "id": "d",
+        "text": "The ratio of stored entries to buckets, which triggers a resize when exceeded"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Keeping the ratio bounded keeps the average bucket short, which is what preserves the constant-time claim. Resizing rehashes everything, which is why a single insert can occasionally be expensive."
+  },
+  {
+    "id": "tech2-hash-vs-tree",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "hashing",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "hashing"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose a balanced tree map over a hash map when you need",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ordered iteration or range queries"
+      },
+      {
+        "id": "b",
+        "text": "Less memory"
+      },
+      {
+        "id": "c",
+        "text": "Simpler code"
+      },
+      {
+        "id": "d",
+        "text": "Faster average lookup"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Hashing destroys order by design, so anything requiring 'all keys between x and y' or sorted traversal needs the tree, at the cost of logarithmic rather than constant lookup."
+  },
+  {
+    "id": "tech2-counting-sort",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "sorting",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sorting"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Counting sort beats comparison sorts when",
+    "options": [
+      {
+        "id": "a",
+        "text": "The array is large"
+      },
+      {
+        "id": "b",
+        "text": "The range of key values is small and known"
+      },
+      {
+        "id": "c",
+        "text": "The data is random"
+      },
+      {
+        "id": "d",
+        "text": "Memory is scarce"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It sidesteps the n log n comparison lower bound by not comparing at all, at the price of space proportional to the key range. A wide range makes that space prohibitive."
+  },
+  {
+    "id": "tech2-merge-sort-space",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "sorting",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sorting"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Mergesort's main disadvantage against quicksort in practice is",
+    "options": [
+      {
+        "id": "a",
+        "text": "It cannot sort objects"
+      },
+      {
+        "id": "b",
+        "text": "Worse time complexity"
+      },
+      {
+        "id": "c",
+        "text": "It needs O(n) auxiliary space, and its memory access pattern is less cache-friendly"
+      },
+      {
+        "id": "d",
+        "text": "It is unstable"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Mergesort has the better worst case and is stable, yet quicksort usually wins on wall-clock time for in-memory arrays because it sorts in place with better locality."
+  },
+  {
+    "id": "tech2-heap-property",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "stacks-queues",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "stacks-queues"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A binary min-heap guarantees that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lookup by value is O(1)"
+      },
+      {
+        "id": "b",
+        "text": "It is balanced by value"
+      },
+      {
+        "id": "c",
+        "text": "The array is sorted"
+      },
+      {
+        "id": "d",
+        "text": "Every parent is no greater than its children, so the minimum is at the root"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The invariant is local, which is why insertion and extraction are logarithmic while the whole structure is never fully sorted. Finding an arbitrary value still costs a linear scan."
+  },
+  {
+    "id": "tech2-priority-queue",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "stacks-queues",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "stacks-queues"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A priority queue is the right structure when you repeatedly need",
+    "options": [
+      {
+        "id": "a",
+        "text": "The smallest or largest item among a changing set"
+      },
+      {
+        "id": "b",
+        "text": "Random access"
+      },
+      {
+        "id": "c",
+        "text": "Sorted iteration"
+      },
+      {
+        "id": "d",
+        "text": "The most recently added item"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It gives the extreme element in logarithmic time under insertions and removals. If the set never changes, sorting once is simpler and faster."
+  },
+  {
+    "id": "tech2-queue-two-stacks",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "stacks-queues",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "stacks-queues"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Implementing a queue with two stacks gives amortised O(1) dequeue because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Stacks are fast"
+      },
+      {
+        "id": "b",
+        "text": "Each element is moved between the stacks at most once"
+      },
+      {
+        "id": "c",
+        "text": "One stack is unused"
+      },
+      {
+        "id": "d",
+        "text": "It uses recursion"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Elements transfer only when the output stack empties, so the expensive transfer is paid once per element across the whole sequence. This is the same amortised argument as the dynamic array."
+  },
+  {
+    "id": "tech2-linked-reverse",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "linked-lists",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "linked-lists"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Reversing a singly linked list iteratively requires tracking",
+    "options": [
+      {
+        "id": "a",
+        "text": "The length"
+      },
+      {
+        "id": "b",
+        "text": "Only the head"
+      },
+      {
+        "id": "c",
+        "text": "The previous, current and next nodes"
+      },
+      {
+        "id": "d",
+        "text": "The tail only"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Losing the next pointer before reassigning it severs the remainder of the list, which is why three references are needed. It is the canonical pointer-manipulation exercise."
+  },
+  {
+    "id": "tech2-middle-node",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "linked-lists",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "linked-lists"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Finding the middle of a linked list in one pass uses",
+    "options": [
+      {
+        "id": "a",
+        "text": "Recursion"
+      },
+      {
+        "id": "b",
+        "text": "A hash set"
+      },
+      {
+        "id": "c",
+        "text": "A length count then a second pass"
+      },
+      {
+        "id": "d",
+        "text": "A slow pointer advancing one node and a fast pointer advancing two"
+      }
+    ],
+    "answer": "d",
+    "explanation": "When the fast pointer reaches the end the slow pointer is halfway. The same two-speed idea also detects cycles, which is why it is worth holding as a pattern rather than as a trick."
+  },
+  {
+    "id": "tech2-tree-traversal-order",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "trees",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "trees"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An in-order traversal of a binary SEARCH tree yields the values",
+    "options": [
+      {
+        "id": "a",
+        "text": "In ascending sorted order"
+      },
+      {
+        "id": "b",
+        "text": "In level order"
+      },
+      {
+        "id": "c",
+        "text": "In random order"
+      },
+      {
+        "id": "d",
+        "text": "In insertion order"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The search property guarantees it, which makes in-order traversal the standard way to test whether a tree is a valid BST. Pre-order and post-order carry structure rather than order."
+  },
+  {
+    "id": "tech2-bst-worst",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "trees",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "trees"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "An unbalanced binary search tree degrades lookup to",
+    "options": [
+      {
+        "id": "a",
+        "text": "O(1)"
+      },
+      {
+        "id": "b",
+        "text": "O(n), because it becomes effectively a linked list"
+      },
+      {
+        "id": "c",
+        "text": "O(log n) still"
+      },
+      {
+        "id": "d",
+        "text": "O(n log n)"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Inserting sorted data into a naive BST produces exactly that chain, which is why self-balancing variants exist. Quoting O(log n) without the balance caveat is an incomplete answer."
+  },
+  {
+    "id": "tech2-bfs-dfs",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "trees",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "trees"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "To find the SHORTEST path in an unweighted graph you should use",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sorting"
+      },
+      {
+        "id": "b",
+        "text": "Depth-first search"
+      },
+      {
+        "id": "c",
+        "text": "Breadth-first search"
+      },
+      {
+        "id": "d",
+        "text": "Either, they are equivalent"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Breadth-first reaches every node by a minimum number of edges because it explores in layers. Depth-first finds a path but gives no minimality guarantee."
+  },
+  {
+    "id": "tech2-memoisation",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "recursion",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "recursion"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Memoisation converts exponential recursion to polynomial by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sorting the inputs"
+      },
+      {
+        "id": "b",
+        "text": "Using less memory"
+      },
+      {
+        "id": "c",
+        "text": "Removing recursion"
+      },
+      {
+        "id": "d",
+        "text": "Caching each subproblem's result so it is computed once"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The saving depends on subproblems overlapping. Recursion with no repeated subproblems, such as mergesort, gains nothing from a cache."
+  },
+  {
+    "id": "tech2-tail-recursion",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "recursion",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "recursion"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Tail recursion can be optimised into a loop because",
+    "options": [
+      {
+        "id": "a",
+        "text": "The recursive call is the last action, so the current frame is not needed afterwards"
+      },
+      {
+        "id": "b",
+        "text": "It uses no variables"
+      },
+      {
+        "id": "c",
+        "text": "It has no base case"
+      },
+      {
+        "id": "d",
+        "text": "It is shorter"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Languages that guarantee the optimisation reuse the frame, keeping stack usage constant. C, C++ and Java do not guarantee it, so deep recursion can still overflow even in tail position."
+  },
+  {
+    "id": "tech2-amortised-vs-average",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "complexity",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "complexity"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Amortised complexity differs from average-case complexity in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are the same"
+      },
+      {
+        "id": "b",
+        "text": "Amortised is a worst-case guarantee over a sequence of operations; average-case is a probabilistic claim about inputs"
+      },
+      {
+        "id": "c",
+        "text": "Amortised is always smaller"
+      },
+      {
+        "id": "d",
+        "text": "Average-case applies only to sorting"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Amortised analysis makes no assumption about input distribution — it bounds the total cost of any sequence. Conflating the two overstates what a hash table's O(1) actually promises."
+  },
+  {
+    "id": "tech2-best-worst",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "complexity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "complexity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Insertion sort is O(n) in the best case because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It sorts in place"
+      },
+      {
+        "id": "b",
+        "text": "It uses binary search"
+      },
+      {
+        "id": "c",
+        "text": "On already-sorted input the inner loop exits immediately on every pass"
+      },
+      {
+        "id": "d",
+        "text": "It skips comparisons"
+      }
+    ],
+    "answer": "c",
+    "explanation": "This is why it is used as the base case inside faster sorts: on nearly-sorted data it beats the asymptotically better algorithms. Best-case behaviour is a real selection criterion, not trivia."
+  },
+  {
+    "id": "tech2-space-time",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "complexity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "complexity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choosing a hash set over sorting to detect duplicates is an example of",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reducing space"
+      },
+      {
+        "id": "b",
+        "text": "Premature optimisation"
+      },
+      {
+        "id": "c",
+        "text": "Reducing both time and space"
+      },
+      {
+        "id": "d",
+        "text": "Trading extra space for lower time complexity"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Linear time and linear space against n log n time and constant space. Stating the trade explicitly is what an interviewer is listening for, rather than the algorithm alone."
+  },
+  {
+    "id": "tech2-stable-multikey",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "sorting",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sorting"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "To sort records by department then by name within a department using stable sorts, you should sort by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Name first, then department"
+      },
+      {
+        "id": "b",
+        "text": "Both at once"
+      },
+      {
+        "id": "c",
+        "text": "Either order"
+      },
+      {
+        "id": "d",
+        "text": "Department first, then name"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The LAST sort is the primary key, and stability preserves the earlier ordering within ties. Getting the order backwards is the classic multi-key mistake."
+  },
+  {
+    "id": "tech2-binary-search-answer",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "searching",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "searching"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Binary searching over the ANSWER space rather than an array works when",
+    "options": [
+      {
+        "id": "a",
+        "text": "The array is sorted"
+      },
+      {
+        "id": "b",
+        "text": "A predicate on the candidate answer is monotonic — false up to a point, true thereafter"
+      },
+      {
+        "id": "c",
+        "text": "Values are integers"
+      },
+      {
+        "id": "d",
+        "text": "The range is small"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Monotonicity is the only requirement, and it is what lets you halve a range of possible answers. This unlocks problems such as minimum capacity or maximum minimum distance."
+  },
+  {
+    "id": "tech2-string-builder",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "strings",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Concatenating n strings in a loop is O(n²) because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Comparison is expensive"
+      },
+      {
+        "id": "b",
+        "text": "Strings are slow"
+      },
+      {
+        "id": "c",
+        "text": "Each concatenation copies everything accumulated so far"
+      },
+      {
+        "id": "d",
+        "text": "Memory is fragmented"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The copies sum to a quadratic total. A growable buffer copies amortised-linearly, which is what StringBuilder in Java, ostringstream in C++ and join in Python all provide."
+  },
+  {
+    "id": "tech2-substring-search",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "strings",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Naive substring search is O(n·m) in the worst case because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It sorts the text"
+      },
+      {
+        "id": "b",
+        "text": "It uses recursion"
+      },
+      {
+        "id": "c",
+        "text": "Strings are immutable"
+      },
+      {
+        "id": "d",
+        "text": "Each of n starting positions may compare up to m characters before mismatching"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Pathological inputs such as a long run of one character with a differing final character force the full comparison at every offset. KMP avoids the re-comparison by reusing what the mismatch already proved."
+  },
+  {
+    "id": "tech2-char-frequency",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "strings",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "For counting characters over a known small alphabet, the cheapest structure is",
+    "options": [
+      {
+        "id": "a",
+        "text": "A fixed-size integer array indexed by the character code"
+      },
+      {
+        "id": "b",
+        "text": "A balanced tree"
+      },
+      {
+        "id": "c",
+        "text": "A sorted list"
+      },
+      {
+        "id": "d",
+        "text": "A hash map"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Direct indexing has no hashing cost and perfect locality. A hash map is only needed when the key space is large or unknown, such as full Unicode."
+  },
+  {
+    "id": "tech2-matrix-transpose",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "matrices",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "matrices"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Transposing a square matrix in place requires iterating",
+    "options": [
+      {
+        "id": "a",
+        "text": "Every cell"
+      },
+      {
+        "id": "b",
+        "text": "Only the cells above the diagonal, swapping each with its mirror"
+      },
+      {
+        "id": "c",
+        "text": "Only the first row"
+      },
+      {
+        "id": "d",
+        "text": "The diagonal"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Visiting every cell swaps each pair twice and returns the original matrix. Restricting to one triangle is the correctness fix, not an optimisation."
+  },
+  {
+    "id": "tech2-spiral",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "matrices",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "matrices"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Traversing a matrix in spiral order is managed most cleanly by",
+    "options": [
+      {
+        "id": "a",
+        "text": "A visited set"
+      },
+      {
+        "id": "b",
+        "text": "Recursion on submatrices only"
+      },
+      {
+        "id": "c",
+        "text": "Maintaining four boundaries and shrinking each after its pass"
+      },
+      {
+        "id": "d",
+        "text": "Sorting the rows"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The boundary approach needs no extra space and makes the termination condition explicit. A visited set works but costs O(n·m) space for something the geometry already determines."
+  },
+  {
+    "id": "tech2-greedy-interval",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "greedy",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "greedy"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "To select the maximum number of non-overlapping intervals, sort by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Duration ascending"
+      },
+      {
+        "id": "b",
+        "text": "Start time descending"
+      },
+      {
+        "id": "c",
+        "text": "Start time ascending"
+      },
+      {
+        "id": "d",
+        "text": "End time ascending, then take each interval that starts after the last one taken"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Finishing earliest leaves the most room for what follows, and this greedy choice is provably optimal. Sorting by start or by duration produces plausible but incorrect answers, which is why the proof matters."
+  },
+  {
+    "id": "tech2-coin-change",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "greedy",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "greedy"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Greedy coin change fails for some denomination sets because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Taking the largest coin first can leave a remainder that needs more coins than an alternative"
+      },
+      {
+        "id": "b",
+        "text": "It is too slow"
+      },
+      {
+        "id": "c",
+        "text": "Sorting is required"
+      },
+      {
+        "id": "d",
+        "text": "Coins may be negative"
+      }
+    ],
+    "answer": "a",
+    "explanation": "With coins of 1, 3 and 4, making 6 greedily gives 4+1+1 while 3+3 is better. It is the standard demonstration that a greedy algorithm needs justification against its specific problem."
+  },
+  {
+    "id": "tech2-bit-check",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "math",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "math"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "To test whether an integer is a power of two, the idiomatic check is",
+    "options": [
+      {
+        "id": "a",
+        "text": "n % 2 == 0"
+      },
+      {
+        "id": "b",
+        "text": "n > 0 and (n & (n - 1)) == 0"
+      },
+      {
+        "id": "c",
+        "text": "n / 2 == 0"
+      },
+      {
+        "id": "d",
+        "text": "n ^ 1 == 0"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A power of two has exactly one set bit, and subtracting one flips it and sets everything below, so the AND is zero. The positivity guard is needed because zero would otherwise pass."
+  },
+  {
+    "id": "tech2-liskov",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "pillars",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "pillars"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A Square class extending Rectangle and overriding setWidth to keep the sides equal violates",
+    "options": [
+      {
+        "id": "a",
+        "text": "Open-closed"
+      },
+      {
+        "id": "b",
+        "text": "Encapsulation"
+      },
+      {
+        "id": "c",
+        "text": "the Liskov substitution principle, because code written for Rectangle breaks when given a Square"
+      },
+      {
+        "id": "d",
+        "text": "Single responsibility"
+      }
+    ],
+    "answer": "c",
+    "explanation": "A subtype must be usable wherever the supertype is expected. Code that sets width and height independently and asserts the area silently fails, which shows the 'is a' relation does not hold behaviourally."
+  },
+  {
+    "id": "tech2-interface-segregation",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "abstract-interface",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "abstract-interface"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Forcing a class to implement methods it does not need violates",
+    "options": [
+      {
+        "id": "a",
+        "text": "Encapsulation"
+      },
+      {
+        "id": "b",
+        "text": "Dependency inversion"
+      },
+      {
+        "id": "c",
+        "text": "Liskov substitution"
+      },
+      {
+        "id": "d",
+        "text": "the interface segregation principle"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Fat interfaces push empty or throwing implementations into classes that do not need them. Splitting into focused interfaces lets each implementer promise only what it can deliver."
+  },
+  {
+    "id": "tech2-dependency-inversion",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "inheritance-composition",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "inheritance-composition"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Depending on an interface rather than a concrete class mainly buys",
+    "options": [
+      {
+        "id": "a",
+        "text": "The ability to substitute implementations, including test doubles, without changing the caller"
+      },
+      {
+        "id": "b",
+        "text": "Less memory"
+      },
+      {
+        "id": "c",
+        "text": "Shorter code"
+      },
+      {
+        "id": "d",
+        "text": "Faster execution"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The caller stops being coupled to a particular implementation, which is what makes both testing and later replacement cheap. It costs an extra indirection, which is almost always worth it at module boundaries."
+  },
+  {
+    "id": "tech2-constructor-overridable",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "constructors",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "constructors"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Calling an overridable method from a constructor is dangerous because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is slower"
+      },
+      {
+        "id": "b",
+        "text": "The subclass override runs before the subclass's own fields are initialised"
+      },
+      {
+        "id": "c",
+        "text": "Constructors cannot call methods"
+      },
+      {
+        "id": "d",
+        "text": "It causes recursion"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Base construction completes before derived construction, so the override sees uninitialised subclass state. The fix is to make such methods final, private or static."
+  },
+  {
+    "id": "tech2-shallow-deep",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "java-specifics",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "java-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A shallow copy of an object differs from a deep copy in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "It copies only primitives"
+      },
+      {
+        "id": "b",
+        "text": "It is faster to write"
+      },
+      {
+        "id": "c",
+        "text": "It copies references to nested objects, so both copies share them"
+      },
+      {
+        "id": "d",
+        "text": "It cannot be modified"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Mutating a nested object through one copy is visible through the other, which is the source of a great many aliasing bugs. Deep copying duplicates the whole object graph at proportionate cost."
+  },
+  {
+    "id": "tech2-immutability",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "java-specifics",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "java-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Making a class immutable primarily buys",
+    "options": [
+      {
+        "id": "a",
+        "text": "Faster construction"
+      },
+      {
+        "id": "b",
+        "text": "Simpler inheritance"
+      },
+      {
+        "id": "c",
+        "text": "Lower memory use"
+      },
+      {
+        "id": "d",
+        "text": "Freedom from aliasing and concurrency bugs, since nothing can change after construction"
+      }
+    ],
+    "answer": "d",
+    "explanation": "If state never changes, sharing is always safe and no synchronisation is needed. The cost is allocating a new object for every modification, which is usually cheaper than the bugs it prevents."
+  },
+  {
+    "id": "tech2-static-factory",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "constructors",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "constructors"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A static factory method has an advantage over a constructor in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Can have a meaningful name, return a cached instance, or return a subtype"
+      },
+      {
+        "id": "b",
+        "text": "Cannot be overloaded"
+      },
+      {
+        "id": "c",
+        "text": "Is required for inheritance"
+      },
+      {
+        "id": "d",
+        "text": "Is faster"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Constructors must share the class name and must return a new instance of exactly that class. A factory is free of both constraints, which is why the pattern appears throughout the standard libraries."
+  },
+  {
+    "id": "tech2-singleton-risk",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "static-instance",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "static-instance"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The main practical objection to the singleton pattern is that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Uses too much memory"
+      },
+      {
+        "id": "b",
+        "text": "Introduces global mutable state and hidden dependencies that make testing hard"
+      },
+      {
+        "id": "c",
+        "text": "Cannot be thread safe"
+      },
+      {
+        "id": "d",
+        "text": "Is slow"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Every consumer depends on it without declaring so, and a test cannot substitute it. Passing one shared instance explicitly gives the same single object without the hidden coupling."
+  },
+  {
+    "id": "tech2-polymorphism-dispatch",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "overloading-overriding",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "overloading-overriding"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Given Animal a = new Dog(); a.speak(); which implementation runs if both classes define speak?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It depends on the compiler"
+      },
+      {
+        "id": "b",
+        "text": "Animal's, from the reference type"
+      },
+      {
+        "id": "c",
+        "text": "Dog's, because instance methods dispatch on the runtime type"
+      },
+      {
+        "id": "d",
+        "text": "Neither, it fails to compile"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Instance methods use the object's actual type at run time. This is the mechanism that makes polymorphism useful, and it is also why static and final methods behave differently."
+  },
+  {
+    "id": "tech2-abstract-instantiate",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "abstract-interface",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "abstract-interface"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "An abstract class cannot be instantiated because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is private"
+      },
+      {
+        "id": "b",
+        "text": "It has no fields"
+      },
+      {
+        "id": "c",
+        "text": "It has no constructor"
+      },
+      {
+        "id": "d",
+        "text": "It may declare methods with no implementation, so an instance could not answer them"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It does have constructors, which subclasses invoke during their own construction. What it lacks is a complete implementation, which is exactly what makes a direct instance meaningless."
+  },
+  {
+    "id": "tech2-final-keyword",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "java-specifics",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "java-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In Java, marking a class final means it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cannot be extended"
+      },
+      {
+        "id": "b",
+        "text": "Cannot be modified"
+      },
+      {
+        "id": "c",
+        "text": "Has no constructor"
+      },
+      {
+        "id": "d",
+        "text": "Cannot be instantiated"
+      }
+    ],
+    "answer": "a",
+    "explanation": "On a class it forbids inheritance, on a method it forbids overriding, and on a variable it forbids reassignment. The same keyword means three related but distinct things depending on where it sits."
+  },
+  {
+    "id": "tech2-this-super",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "constructors",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "constructors"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In a Java constructor, this(...) and super(...) share the restriction that",
+    "options": [
+      {
+        "id": "a",
+        "text": "They cannot take arguments"
+      },
+      {
+        "id": "b",
+        "text": "Either must be the first statement, and only one may appear"
+      },
+      {
+        "id": "c",
+        "text": "They must be last"
+      },
+      {
+        "id": "d",
+        "text": "They cannot be used together"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The base must be initialised before anything else runs, which is what forces the position. Chaining to another constructor in the same class with this(...) eventually reaches one that calls super."
+  },
+  {
+    "id": "tech2-cohesion-coupling",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "pillars",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "pillars"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Good design aims for",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both low"
+      },
+      {
+        "id": "b",
+        "text": "High coupling and low cohesion"
+      },
+      {
+        "id": "c",
+        "text": "High cohesion within a module and low coupling between modules"
+      },
+      {
+        "id": "d",
+        "text": "Both high"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Cohesion means a module's parts belong together; coupling means how much modules depend on one another. The pair is the most useful vocabulary for arguing about a design in an interview."
+  },
+  {
+    "id": "tech2-composition-over-inherit",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "inheritance-composition",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "inheritance-composition"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Wrapping an object and forwarding calls to it, rather than extending it, is called",
+    "options": [
+      {
+        "id": "a",
+        "text": "Overloading"
+      },
+      {
+        "id": "b",
+        "text": "Casting"
+      },
+      {
+        "id": "c",
+        "text": "Overriding"
+      },
+      {
+        "id": "d",
+        "text": "Delegation"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Delegation gives reuse without inheriting the parent's implementation details, and lets the wrapped object be swapped at run time. It costs boilerplate forwarding, which is the usual objection."
+  },
+  {
+    "id": "tech2-cpp-virtual-destructor",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "cpp-specifics",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "cpp-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "In C++, deleting a derived object through a base pointer without a virtual destructor causes",
+    "options": [
+      {
+        "id": "a",
+        "text": "Undefined behaviour, typically the derived destructor not running"
+      },
+      {
+        "id": "b",
+        "text": "A memory leak only"
+      },
+      {
+        "id": "c",
+        "text": "Nothing"
+      },
+      {
+        "id": "d",
+        "text": "A compile error"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The rule is that any class intended for polymorphic deletion needs a virtual destructor. It is one of the most common sources of quiet resource leaks in C++."
+  },
+  {
+    "id": "tech2-cpp-slicing",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "cpp-specifics",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "cpp-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Assigning a derived object to a base object BY VALUE in C++ causes",
+    "options": [
+      {
+        "id": "a",
+        "text": "A compile error"
+      },
+      {
+        "id": "b",
+        "text": "Object slicing — the derived part is discarded"
+      },
+      {
+        "id": "c",
+        "text": "A deep copy"
+      },
+      {
+        "id": "d",
+        "text": "Polymorphic behaviour"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Only the base sub-object is copied, so the derived state and the virtual behaviour are lost. Passing by reference or pointer is what preserves polymorphism."
+  },
+  {
+    "id": "tech2-java-interface-default",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "abstract-interface",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "abstract-interface"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Default methods were added to Java interfaces mainly to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Allow fields"
+      },
+      {
+        "id": "b",
+        "text": "Replace abstract classes"
+      },
+      {
+        "id": "c",
+        "text": "Let interfaces gain methods without breaking every existing implementation"
+      },
+      {
+        "id": "d",
+        "text": "Improve performance"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It is a binary-compatibility mechanism, which is how Collection acquired stream() without breaking the ecosystem. It narrows the gap with abstract classes but does not add instance state."
+  },
+  {
+    "id": "tech2-encapsulation-getter",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "access-modifiers",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "access-modifiers"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Making every field private and adding a getter and setter for each",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is required by the JVM"
+      },
+      {
+        "id": "b",
+        "text": "Prevents inheritance"
+      },
+      {
+        "id": "c",
+        "text": "Achieves encapsulation fully"
+      },
+      {
+        "id": "d",
+        "text": "Preserves the syntax of encapsulation while exposing the same mutable state"
+      }
+    ],
+    "answer": "d",
+    "explanation": "If every field can be read and written from outside, the class still cannot enforce any invariant. Real encapsulation means exposing operations that preserve the invariants, not accessors for each field."
+  },
+  {
+    "id": "tech2-record-dto",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "java-specifics",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "java-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A Java record is most appropriate for",
+    "options": [
+      {
+        "id": "a",
+        "text": "A transparent, immutable carrier of data"
+      },
+      {
+        "id": "b",
+        "text": "A base class"
+      },
+      {
+        "id": "c",
+        "text": "A thread"
+      },
+      {
+        "id": "d",
+        "text": "A service with behaviour"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It generates the constructor, accessors, equals, hashCode and toString from the component list, and the type is final and immutable. Using one where behaviour belongs pushes logic into the caller."
+  },
+  {
+    "id": "tech2-c-uninit",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-fundamentals",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-fundamentals"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Reading an uninitialised local variable in C gives",
+    "options": [
+      {
+        "id": "a",
+        "text": "A run-time exception"
+      },
+      {
+        "id": "b",
+        "text": "Zero"
+      },
+      {
+        "id": "c",
+        "text": "An indeterminate value, and the behaviour is undefined"
+      },
+      {
+        "id": "d",
+        "text": "A compile error"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Only static and global variables are zero-initialised. Locals hold whatever was on the stack, which is why such bugs appear to work in debug builds and fail in release."
+  },
+  {
+    "id": "tech2-c-sizeof-ptr",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-pointers",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-pointers"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "On a 64-bit system, sizeof(char *) is",
+    "options": [
+      {
+        "id": "a",
+        "text": "4"
+      },
+      {
+        "id": "b",
+        "text": "Equal to the string length"
+      },
+      {
+        "id": "c",
+        "text": "1"
+      },
+      {
+        "id": "d",
+        "text": "8"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The size of a pointer depends on the address width, not on the pointed-to type. Confusing it with the length of the string it points to is a common cause of wrong allocation sizes."
+  },
+  {
+    "id": "tech2-c-malloc",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-pointers",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-pointers"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "After char *p = malloc(10); writing p[10] = 'x' is",
+    "options": [
+      {
+        "id": "a",
+        "text": "A buffer overflow, because valid indices are 0 to 9"
+      },
+      {
+        "id": "b",
+        "text": "A compile error"
+      },
+      {
+        "id": "c",
+        "text": "Automatically bounds-checked"
+      },
+      {
+        "id": "d",
+        "text": "Fine, since arrays are zero-based"
+      }
+    ],
+    "answer": "a",
+    "explanation": "C performs no bounds checking, so the write corrupts adjacent memory and may not fail immediately. The delayed and unpredictable symptom is what makes overflows hard to diagnose."
+  },
+  {
+    "id": "tech2-c-const-ptr",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-pointers",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-pointers"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "In C, const char *p means",
+    "options": [
+      {
+        "id": "a",
+        "text": "p cannot be reassigned"
+      },
+      {
+        "id": "b",
+        "text": "The characters p points to cannot be modified through p"
+      },
+      {
+        "id": "c",
+        "text": "Both are fixed"
+      },
+      {
+        "id": "d",
+        "text": "Neither is fixed"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Read the declaration right to left: p is a pointer to a const char. Putting const after the star — char * const p — fixes the pointer instead, and the two are frequently swapped."
+  },
+  {
+    "id": "tech2-c-struct-pad",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-fundamentals",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-fundamentals"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "sizeof a struct can exceed the sum of its members because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Names are stored"
+      },
+      {
+        "id": "b",
+        "text": "Structs store a header"
+      },
+      {
+        "id": "c",
+        "text": "The compiler inserts padding so members meet their alignment requirements"
+      },
+      {
+        "id": "d",
+        "text": "Members are boxed"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Reordering members from largest to smallest often shrinks the struct. This matters for memory-bound code and for anything serialised byte by byte."
+  },
+  {
+    "id": "tech2-cpp-raii",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "cpp-stl",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "cpp-stl"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "RAII in C++ means",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using raw pointers"
+      },
+      {
+        "id": "b",
+        "text": "Avoiding classes"
+      },
+      {
+        "id": "c",
+        "text": "Manual memory management"
+      },
+      {
+        "id": "d",
+        "text": "Tying a resource's lifetime to an object's scope, so the destructor releases it"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Acquisition in the constructor and release in the destructor makes leaks impossible along any exit path, including exceptions. It is why smart pointers and lock guards exist."
+  },
+  {
+    "id": "tech2-cpp-unique-shared",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "cpp-stl",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "cpp-stl"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "std::unique_ptr differs from std::shared_ptr in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Has exclusive ownership and no reference-count overhead"
+      },
+      {
+        "id": "b",
+        "text": "Cannot be moved"
+      },
+      {
+        "id": "c",
+        "text": "Never frees memory"
+      },
+      {
+        "id": "d",
+        "text": "Is slower"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Reach for unique_ptr by default and shared_ptr only when ownership genuinely is shared, since the atomic reference count costs something and shared cycles leak."
+  },
+  {
+    "id": "tech2-cpp-map-operator",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "cpp-stl",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "cpp-stl"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Accessing a missing key with operator[] on a std::map",
+    "options": [
+      {
+        "id": "a",
+        "text": "Throws"
+      },
+      {
+        "id": "b",
+        "text": "Default-constructs and inserts a value for that key"
+      },
+      {
+        "id": "c",
+        "text": "Returns null"
+      },
+      {
+        "id": "d",
+        "text": "Is a compile error"
+      }
+    ],
+    "answer": "b",
+    "explanation": "This silently grows the map and is a classic bug inside a read-only lookup. Use find or at when you do not intend to insert."
+  },
+  {
+    "id": "tech2-cpp-emplace",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "cpp-stl",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "cpp-stl"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "emplace_back differs from push_back in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reserves capacity"
+      },
+      {
+        "id": "b",
+        "text": "Is always faster"
+      },
+      {
+        "id": "c",
+        "text": "Constructs the element in place from its arguments, avoiding a temporary"
+      },
+      {
+        "id": "d",
+        "text": "Sorts the vector"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The saving is one construction plus a move or copy, which matters for expensive types and is negligible for trivial ones. Measuring before assuming is the right posture."
+  },
+  {
+    "id": "tech2-java-autoboxing",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-basics",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Comparing two Integer objects holding 1000 with == gives false because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Integers are immutable"
+      },
+      {
+        "id": "b",
+        "text": "The values differ"
+      },
+      {
+        "id": "c",
+        "text": "1000 is too large"
+      },
+      {
+        "id": "d",
+        "text": "Autoboxing creates distinct objects outside the small-value cache, and == compares references"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Values from -128 to 127 are cached, so small numbers appear to compare correctly and larger ones do not. The intermittent correctness is what makes this trap dangerous."
+  },
+  {
+    "id": "tech2-java-checked",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-basics",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A checked exception in Java must be",
+    "options": [
+      {
+        "id": "a",
+        "text": "Either caught or declared in the method's throws clause"
+      },
+      {
+        "id": "b",
+        "text": "Ignored"
+      },
+      {
+        "id": "c",
+        "text": "Converted to a runtime exception"
+      },
+      {
+        "id": "d",
+        "text": "Caught only"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The compiler enforces the choice, which is what distinguishes checked from unchecked. Catching and silently swallowing satisfies the compiler while defeating the purpose."
+  },
+  {
+    "id": "tech2-java-finally",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-basics",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A finally block runs",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only when no exception is thrown"
+      },
+      {
+        "id": "b",
+        "text": "Whether or not an exception is thrown, including after a return in try"
+      },
+      {
+        "id": "c",
+        "text": "Only on exception"
+      },
+      {
+        "id": "d",
+        "text": "Never after return"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It is the language's guarantee of cleanup, and a return inside finally will even override one in try. Try-with-resources is the modern form for anything closeable."
+  },
+  {
+    "id": "tech2-java-string-pool",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-strings",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Two identical String literals in Java refer to the same object because",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are final"
+      },
+      {
+        "id": "b",
+        "text": "Strings are cached by the OS"
+      },
+      {
+        "id": "c",
+        "text": "Literals are interned in a shared pool"
+      },
+      {
+        "id": "d",
+        "text": "The compiler merges them randomly"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Interning is why == often appears to work on literals. Strings built at run time are not pooled unless intern() is called explicitly, which is what makes the behaviour inconsistent."
+  },
+  {
+    "id": "tech2-java-arraylist-linked",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-collections",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-collections"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "ArrayList beats LinkedList for most real workloads because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is immutable"
+      },
+      {
+        "id": "b",
+        "text": "It is thread safe"
+      },
+      {
+        "id": "c",
+        "text": "It has more methods"
+      },
+      {
+        "id": "d",
+        "text": "Contiguous storage gives O(1) indexing and far better cache locality"
+      }
+    ],
+    "answer": "d",
+    "explanation": "LinkedList's O(1) insertion assumes you already hold the node; reaching it costs a traversal. The constant factors from cache behaviour usually dominate the asymptotic argument."
+  },
+  {
+    "id": "tech2-java-hashmap-key",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-collections",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-collections"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Using a mutable object as a HashMap key and then mutating it causes",
+    "options": [
+      {
+        "id": "a",
+        "text": "The entry to become unreachable, because its hash no longer matches its bucket"
+      },
+      {
+        "id": "b",
+        "text": "Automatic rehashing"
+      },
+      {
+        "id": "c",
+        "text": "No effect"
+      },
+      {
+        "id": "d",
+        "text": "A compile error"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The map placed it by the hash at insertion time and does not re-examine it. This is why keys should be immutable, and why equals and hashCode must be consistent."
+  },
+  {
+    "id": "tech2-java-stream-lazy",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-collections",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-collections"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A Java stream pipeline with no terminal operation",
+    "options": [
+      {
+        "id": "a",
+        "text": "Throws"
+      },
+      {
+        "id": "b",
+        "text": "Does nothing, because intermediate operations are lazy"
+      },
+      {
+        "id": "c",
+        "text": "Runs immediately"
+      },
+      {
+        "id": "d",
+        "text": "Runs twice"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Laziness is what allows fusion and short-circuiting, and it is also why a pipeline assigned to a variable and never consumed has no effect at all."
+  },
+  {
+    "id": "tech2-operator-short-circuit",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "operator-precedence",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "operator-precedence"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In C, C++ and Java, && evaluates its right operand",
+    "options": [
+      {
+        "id": "a",
+        "text": "In parallel"
+      },
+      {
+        "id": "b",
+        "text": "Always"
+      },
+      {
+        "id": "c",
+        "text": "Only when the left operand is true"
+      },
+      {
+        "id": "d",
+        "text": "Never"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Short-circuiting is what makes the null-check-then-dereference idiom safe. Bitwise & does not short-circuit, so substituting it changes behaviour as well as type."
+  },
+  {
+    "id": "tech2-ternary-type",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "operator-precedence",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "operator-precedence"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The ternary conditional operator requires that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only the true branch be typed"
+      },
+      {
+        "id": "b",
+        "text": "It be used as a statement"
+      },
+      {
+        "id": "c",
+        "text": "Both branches be the same statement"
+      },
+      {
+        "id": "d",
+        "text": "Both branches be expressions of compatible types"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It is an expression producing a value, not a statement, which is why it cannot contain a return or a loop. Mixing types forces a promotion that is sometimes surprising."
+  }
+]

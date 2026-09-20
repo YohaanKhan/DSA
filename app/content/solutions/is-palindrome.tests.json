@@ -1,0 +1,12 @@
+{
+  "problem": "Read one line. Print YES if it reads the same forwards and backwards, otherwise NO. Compare characters exactly, including case.",
+  "language": "java",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "odd length palindrome", "stdin": "RACECAR\n", "expectedStdout": "YES" },
+    { "name": "even length palindrome", "stdin": "ABBA\n", "expectedStdout": "YES", "edgeCase": true },
+    { "name": "not a palindrome", "stdin": "HELLO\n", "expectedStdout": "NO" },
+    { "name": "single character", "stdin": "X\n", "expectedStdout": "YES", "edgeCase": true, "hidden": true },
+    { "name": "differs at the ends only", "stdin": "ABCBX\n", "expectedStdout": "NO", "hidden": true }
+  ]
+}

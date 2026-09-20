@@ -1,0 +1,220 @@
+/* ============================================================================
+   Communication Studio. The composition surface is the quietest screen in the
+   app on purpose — everything loud lives in the chrome above and below it.
+   ========================================================================= */
+
+.page { display: flex; flex-direction: column; gap: var(--s-6); }
+
+/* ---- Index --------------------------------------------------------------- */
+
+.doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.door {
+  display: flex; flex-direction: column; gap: var(--s-3);
+  padding: var(--s-5);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  color: inherit; text-decoration: none;
+  position: relative; overflow: hidden;
+}
+.door::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 8px;
+  background: var(--stage-current, var(--ink));
+}
+.doorTitle { font-size: var(--t-lg); font-weight: 700; margin-top: var(--s-2); }
+.doorBody { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.6; }
+.doorMeta { margin-top: auto; padding-top: var(--s-3); border-top: 1px dashed var(--edge-soft); }
+
+/* ---- Brief --------------------------------------------------------------- */
+
+.brief { display: flex; flex-direction: column; gap: var(--s-5); max-width: var(--measure); }
+.promptBox {
+  padding: var(--s-5);
+  border: var(--border-w) solid var(--edge);
+  border-left-width: 8px;
+  border-left-color: var(--stage-current, var(--ink));
+  background: var(--paper-raised);
+  font-size: var(--t-lg); line-height: 1.5; font-weight: 500;
+}
+.facts { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+.fact { display: flex; flex-direction: column; gap: var(--s-1); }
+.factValue { font-size: var(--t-xl); font-weight: 700; line-height: 1; }
+.factLabel { color: var(--ink-faint); }
+.sectionLabel { color: var(--ink-faint); }
+.note { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.6; max-width: var(--measure); }
+.actions { display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; }
+
+.rubricList { display: flex; flex-direction: column; gap: var(--s-3); list-style: none; margin: 0; padding: 0; }
+.rubricRow { display: grid; grid-template-columns: 130px 1fr; gap: var(--s-3); font-size: var(--t-sm); line-height: 1.6; }
+.rubricName { color: var(--ink); font-weight: 700; }
+
+/* ---- Composer ------------------------------------------------------------ */
+
+.composerBar {
+  position: sticky; top: 0; z-index: 3;
+  display: flex; align-items: center; gap: var(--s-5); flex-wrap: wrap;
+  padding: var(--s-3) var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-1);
+}
+.barCell { display: flex; flex-direction: column; gap: var(--s-1); }
+.barValue { font-size: var(--t-lg); font-weight: 700; line-height: 1; }
+.barLabel { color: var(--ink-faint); }
+.barSpacer { flex: 1 1 auto; }
+.wordsLow { color: var(--warn); }
+.wordsOk { color: var(--ok); }
+.wordsOver { color: var(--bad); }
+.saved { color: var(--ink-faint); }
+
+.promptStrip {
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--edge-soft);
+  background: var(--paper-sunken);
+  font-size: var(--t-base); line-height: 1.55;
+}
+
+.editor {
+  width: 100%;
+  min-height: 60vh;
+  padding: var(--s-5);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--t-base);
+  line-height: var(--lh-body);
+  resize: vertical;
+}
+.editor:focus { outline-offset: 0; }
+
+.nudge {
+  display: flex; align-items: flex-start; gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--info);
+  background: color-mix(in oklab, var(--info) 12%, var(--paper-raised));
+  font-size: var(--t-sm); line-height: 1.6;
+}
+.nudgeProof { border-color: var(--warn); background: color-mix(in oklab, var(--warn) 14%, var(--paper-raised)); }
+.nudgeDismiss { margin-left: auto; }
+
+/* ---- Report -------------------------------------------------------------- */
+
+.card {
+  display: flex; flex-direction: column; gap: var(--s-4);
+  padding: var(--s-5);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-2);
+}
+.cardTitle { font-size: var(--t-2xl); font-weight: 700; letter-spacing: -0.02em; line-height: var(--lh-tight); }
+.cardNote { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.6; }
+
+.bands { display: flex; flex-direction: column; gap: var(--s-3); }
+.band { display: grid; grid-template-columns: 130px 64px 1fr; gap: var(--s-3); align-items: start; }
+.bandName { font-weight: 700; font-size: var(--t-sm); }
+.bandScore {
+  display: grid; place-items: center;
+  padding: var(--s-1) 0;
+  border: var(--border-w) solid var(--edge);
+  background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper));
+  font-family: var(--font-mono); font-weight: 700;
+}
+.bandUnscored { background: var(--paper-sunken); color: var(--ink-faint); border-style: dashed; }
+/* On the speaking report the chip carries a verdict, so it is coloured by the
+   verdict rather than by the stage — a loud stage hue reads as an alarm. */
+.bandPass { background: var(--ok); color: #ffffff; }
+.bandFail { background: var(--paper-sunken); color: var(--bad); border-color: var(--bad); }
+/* Essay bands are coloured by the band, so a 2 and a 5 are not the same chip. */
+.bandStrong { background: var(--ok); color: #ffffff; }
+.bandWeak { background: var(--paper-sunken); color: var(--bad); border-color: var(--bad); }
+.bandWhy { font-size: var(--t-sm); color: var(--ink-muted); line-height: 1.55; }
+
+.metricGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s-4); }
+.metric { display: flex; flex-direction: column; gap: var(--s-1); }
+.metricValue { font-size: var(--t-xl); font-weight: 700; line-height: 1; }
+.metricLabel { color: var(--ink-faint); }
+.metricOk { color: var(--ok); }
+.metricBad { color: var(--bad); }
+
+.fixes { display: flex; flex-direction: column; gap: var(--s-3); list-style: none; margin: 0; padding: 0; }
+.fix { display: grid; grid-template-columns: 26px 1fr; gap: var(--s-3); font-size: var(--t-sm); line-height: 1.6; }
+.fixNum {
+  display: grid; place-items: center;
+  width: 26px; height: 26px;
+  border: var(--border-w) solid var(--edge);
+  background: var(--stage-current, var(--ink)); color: var(--stage-current-ink, var(--paper));
+  font-family: var(--font-mono); font-size: var(--t-xs); font-weight: 700;
+}
+
+.rewrite { display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-4); border: 1px dashed var(--edge-soft); background: var(--paper-sunken); }
+.rewriteOld { font-size: var(--t-sm); color: var(--ink-muted); text-decoration: line-through; }
+.rewriteNew { font-size: var(--t-sm); color: var(--ink); }
+
+/* ---- Speaking ------------------------------------------------------------ */
+
+.stage {
+  display: flex; flex-direction: column; gap: var(--s-5); align-items: center;
+  padding: var(--s-7) var(--s-4);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  text-align: center;
+}
+.bigClock { font-size: var(--t-4xl); font-weight: 700; line-height: 1; }
+.bigClockLow { color: var(--bad); }
+.phaseName { color: var(--ink-faint); }
+.thinkPrompt { font-size: var(--t-xl); font-weight: 500; line-height: 1.4; max-width: 46ch; }
+
+.recDot {
+  display: inline-grid; place-items: center;
+  width: 14px; height: 14px;
+  background: var(--bad);
+  animation: pulse 1.4s var(--ease-out) infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+.transcript {
+  width: 100%; max-width: var(--measure);
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--edge-soft);
+  background: var(--paper-sunken);
+  font-size: var(--t-base); line-height: 1.8; text-align: left;
+  min-height: 110px;
+}
+.interim { color: var(--ink-faint); font-style: italic; }
+.filler {
+  background: color-mix(in oklab, var(--warn) 45%, transparent);
+  padding: 0 3px; font-weight: 700;
+}
+.pauseMark {
+  display: inline-block;
+  margin: 0 4px; padding: 0 6px;
+  border: 1px dashed var(--bad);
+  color: var(--bad);
+  font-family: var(--font-mono); font-size: var(--t-xs);
+}
+.points { display: flex; flex-direction: column; gap: var(--s-2); list-style: none; margin: 0; padding: 0; }
+.point { display: grid; grid-template-columns: 20px 1fr; gap: var(--s-3); font-size: var(--t-sm); line-height: 1.5; text-align: left; }
+.pointHit { color: var(--ink); }
+.pointMiss { color: var(--ink-muted); }
+
+.warnBox {
+  display: flex; gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--warn);
+  background: color-mix(in oklab, var(--warn) 12%, var(--paper-raised));
+  font-size: var(--t-sm); line-height: 1.6; text-align: left;
+}
+.infoBox {
+  display: flex; gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--border-w) solid var(--edge-soft);
+  background: var(--paper-sunken);
+  font-size: var(--t-sm); line-height: 1.6; text-align: left;
+}
+.player { width: 100%; max-width: var(--measure); }
+.error { color: var(--bad); font-size: var(--t-sm); }
+
+@media (max-width: 640px) {
+  .band { grid-template-columns: 1fr; gap: var(--s-2); }
+  .rubricRow { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,190 @@
+# Seed Plan — filling the banks
+
+Where ~870 practice items come from, in what order, and how your existing `dsa-notes/`
+multiply into four modules.
+
+---
+
+## Priority order (build the banks in this sequence)
+
+| Order | Bank | Items | Why first |
+| --- | --- | --- | --- |
+| 1 | `mcq/ai-literacy.json` | 150 | Highest ROI in the exam: new, small, closed syllabus, weak field |
+| 2 | `trace/pseudocode.json` | 120 | Most under-prepared eliminatory section |
+| 3 | `debug/` (injected) | ∞ | Generated from correct solutions; no authoring needed |
+| 4 | `aic/problems.json` | 20 | Package-tier multiplier |
+| 5 | `mcq/technical-dbms.json` | 80 | Heaviest of the CS-fundamentals topics |
+| 6 | `mcq/technical-dsa.json` | 120 | Broad, and feeds the coding round |
+| 7 | `mcq/english.json` | 120 | Eliminatory gate |
+| 8 | `mcq/technical-oop.json` | 60 | |
+| 9 | `mcq/technical-os.json` | 60 | |
+| 10 | `mcq/technical-networks.json` | 60 | |
+| 11 | `mcq/technical-git-se.json` | 40 | |
+| 12 | `comm/{essay,speak,read,listen}.json` | 30/30/15/15 | |
+| 13 | `behavioural/adept.json` | 60 | Cheapest, least important |
+
+**Stop rule:** if generation is eating your study time, ship banks 1–4 and drill. Those four
+cover the two highest-ROI stages and the one that decides your package. Everything after is
+depth you may not need.
+
+---
+
+## Current state — 926 items, all hand-authored
+
+Every bank below was written by hand and passes all sixteen validation rules.
+
+| Stage | Items | Detail |
+| --- | --- | --- |
+| **technical** | 400 | 320 MCQ (dsa 70 · oop 45 · dbms 37 · sql 37 · languages 40 · networks 32 · os 32 · git-se 27) plus 80 pseudocode traces |
+| **english** | 298 | 244 MCQ (grammar · vocabulary · reading) plus 30 essay and 24 speaking prompts |
+| **ai-literacy** | 162 | across all seven topics |
+| **debugging** | 58 | 40 injected from verified solutions, 18 authored language and Python traps |
+| **aic** | 8 | four array problems, four string problems, in C, C++ and Java |
+
+### Eight clean papers
+
+Both realistic mock profiles now serve **eight numbered papers with no question
+appearing in two of them** — verified by generating all nine and checking every
+pair. English Communication is still the binding bank at exactly eight; going to
+twelve would need 360 English questions.
+
+`short-diagnostic` remains at two papers, limited by its eight-question draw
+from the 18 language-trap and Python-bridge items. That profile exists to give
+one quick baseline rather than to be sat repeatedly, so the low count is by
+design rather than a gap.
+
+### What is verified rather than asserted
+
+- Every **trace** answer is produced by executing an equivalent program, and the
+  emitter asserts the hand-written `executionTrace` ends in that output AND that
+  no step references a line beyond the source. Both checks caught real errors.
+- Every **debug** exercise is mutated from a solution that compiled and passed
+  its own tests first, so each is provably broken and provably fixable.
+- Every **AIC** reference compiles and passes; every offline fallback compiles
+  and fails at least one test; every worked prompt example is asserted to satisfy
+  its own prompt rubric before emission.
+- Every **MCQ** bank has its answer key rotated to a quarter per letter per
+  topic, and no explanation names an option by letter (V16).
+
+Still at zero: `behavioural/adept.json`, `comm/read.json`, `comm/listen.json`.
+None has a module in the app to run in, so a bank for them would be dead weight.
+
+---
+
+## Your `dsa-notes/` as seed material ⭐
+
+You already have 19 files of correct, well-commented DSA work. Each one multiplies:
+
+| Source file | Produces |
+| --- | --- |
+| `TwoPointers/PartitionLabels.py` | 1 trace item (the last-occurrence scan) · 1 complexity MCQ · 8 debug exercises (bug injection on a C/Java translation) · 1 AIC problem |
+| `TwoPointers/MoveZeroes.py` | 1 trace · 1 in-place-vs-copy MCQ · 8 debug · 1 AIC |
+| `TwoPointers/BackspaceStringCompare.py` | 1 trace (reverse traversal) · 1 MCQ on the O(1)-space insight · 8 debug |
+| `TwoPointers/CompareVersions.py` | 1 trace (string→int parsing) · 8 debug (off-by-one heaven) |
+| `TwoPointers/NextPermutation.py` | 1 hard trace · 1 algorithm-steps MCQ · 8 debug |
+| `TwoPointers/RotateArray.py` | 1 trace (reversal algorithm) · 1 MCQ comparing the three approaches · 8 debug |
+| `TwoPointers/StringCompression.py` | 1 trace · 8 debug (boundary bugs abound) |
+| `TwoPointers/MergeStringsAlternatively.py` | 1 trace · 8 debug · 1 AIC |
+| `TwoPointers/IntersectionOfTwoLinkedList.py` | 1 trace · 1 MCQ on the two-pointer trick · 8 debug |
+| `BinarySearch/Introduction.md` + 9 variations | **10 trace items** (each template) · **20 MCQs** (invariants, mid overflow, when each variation applies) · **80 debug exercises** — binary search is the richest off-by-one source in all of DSA |
+
+**Total from material you already own: ~30 trace items, ~25 MCQs, ~150 debug exercises,
+5 AIC problems.** That's roughly a fifth of the whole bank, from files already in the repo,
+and it has a property generated content doesn't: **you already understand it**, so when a
+generated variant disagrees with you, you'll notice.
+
+### The pipeline
+```bash
+# 1. Translate each Python solution to C / C++ / Java (LLM-assisted, then compile to verify)
+tsx scripts/translate-solutions.ts --in ../dsa-notes/TwoPointers --out content/solutions
+
+# 2. Every verified solution becomes debug exercises
+tsx scripts/inject-bugs.ts --dir content/solutions --families all --count 8
+
+# 3. And trace items + MCQs
+tsx scripts/generate-content.ts --from-solutions content/solutions --kinds trace,mcq
+```
+
+Step 1's compile check matters: a translation that doesn't compile poisons every exercise
+derived from it.
+
+---
+
+## Coverage targets per subtopic
+
+Don't generate 150 AI Literacy questions in a lump — distribute against the syllabus map's
+priorities, or you'll end up with 90 hallucination questions and nothing on RAG:
+
+| Subtopic | Items | Priority |
+| --- | --- | --- |
+| `llm-limitations` | 30 | P0 — hallucination alone deserves 10 |
+| `prompt-engineering` | 30 | P0 |
+| `responsible-ai` | 25 | P0 |
+| `genai-foundations` | 25 | P0 |
+| `rag` | 18 | P1 |
+| `agentic-ai` | 14 | P1 |
+| `ai-assisted-dev` | 8 | P1 |
+
+Same principle everywhere: **items ∝ priority × exam frequency**, not ∝ how easy the topic is
+to generate questions about. The generator will happily give you a hundred easy definition
+questions; that's the failure mode to guard against.
+
+Difficulty mix per bank: **30% easy / 50% medium / 20% hard**. Too many easy items inflate your
+readiness score and you'll walk in over-confident.
+
+---
+
+## Quality gates before a bank is "done"
+
+- [ ] All items pass V1–V15
+- [ ] Answer-letter distribution 15–35% per letter
+- [ ] Every P0 subtopic in the registry has ≥ 10 items
+- [ ] You have personally read 3 random items per 50 and they meet the authoring bar
+- [ ] No two stems exceed 85% trigram similarity
+- [ ] Difficulty mix within ±10% of 30/50/20
+
+---
+
+## Budget estimate
+
+Generation uses **`claude-opus-5`** (quality matters most here, and it runs once).
+At its published rate of **$5 per million input tokens and $25 per million output tokens**,
+and roughly 350-450 output tokens per item once explanations and distractor rationales are
+included:
+
+| Bank set | Items | Approx. cost |
+| --- | --- | --- |
+| AI Literacy | 150 | ~$1.60 |
+| Pseudocode traces | 120 | ~$2.40 (traces are verbose — a step per loop iteration) |
+| Technical MCQs | 420 | ~$4.50 |
+| English | 120 | ~$1.20 |
+| AIC problems | 20 | ~$0.50 (long, rubric-heavy) |
+| Communication prompts | 90 | ~$0.40 |
+| Behavioural | 60 | ~$0.15 |
+| **Total** | **~980** | **~$11**, one-time |
+
+Debug exercises cost **nothing** — bug injection is mechanical. That is a large part of why
+the injection engine is worth its build hour.
+
+Set `LLM_DAILY_CAP_USD=15` for generation day, then drop it back to 2 for practice days. The
+only recurring cost after that is AIC assistant calls and essay grading, roughly $0.10-0.30/day.
+
+> **The cap is enforced, not advisory.** `parseStructured` refuses to spend once the day's
+> total is reached and throws `LlmUnavailableError`, which every caller catches and degrades
+> from rather than failing. You cannot accidentally run up a bill overnight.
+
+## If you have no API key
+
+Everything still works; you author less. In priority order:
+
+1. **Author the 20 AIC problems by hand** — highest value per item, and writing the rubric
+   *is* the learning. Two hours well spent.
+2. **Bug injection needs no LLM at all** — translate your `dsa-notes` solutions by hand and
+   generate hundreds of debug exercises mechanically.
+3. **Trace items:** write the code, hand-trace it, record the trace. Slow, but hand-tracing is
+   literally the skill the section tests, so the authoring *is* the practice.
+4. **MCQs:** work through the public banks in [`../03-RESOURCE-LIBRARY.md`](../03-RESOURCE-LIBRARY.md)
+   directly, and use the app only for trace, debug, AIC, games and communication.
+
+The app degrades to "four excellent modules instead of six", which is still far more than you'd
+have otherwise.

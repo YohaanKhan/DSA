@@ -1,0 +1,29 @@
+.wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  align-items: flex-end;
+}
+.clock {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border: var(--border-w) solid var(--edge);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-size: var(--t-4xl);
+  font-weight: 700;
+  line-height: 1;
+}
+.sm { font-size: var(--t-xl); padding: var(--s-1) var(--s-2); }
+.warn { border-color: var(--warn); color: var(--warn); }
+.danger { border-color: var(--bad); color: var(--bad); }
+
+/* Last ten seconds: the BORDER pulses, not the digits — digits must stay readable. */
+.pulse { animation: pulseEdge 1s steps(2, end) infinite; }
+@keyframes pulseEdge {
+  0%, 49% { border-color: var(--bad); }
+  50%, 100% { border-color: var(--edge); }
+}
+.label { color: var(--ink-faint); }

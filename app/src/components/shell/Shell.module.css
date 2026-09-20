@@ -1,0 +1,47 @@
+.frame {
+  display: flex;
+  min-height: 100dvh;
+}
+.column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: var(--s-6);
+}
+
+@media (max-width: 719px) {
+  .frame { flex-direction: column; }
+  .main {
+    padding: var(--s-4);
+    /* Clear the fixed bottom nav rail so the last card is never hidden behind it. */
+    padding-bottom: calc(var(--s-8) + var(--s-5) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Visible only when focused — the standard skip-link pattern. */
+.skip {
+  position: absolute;
+  left: var(--s-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--s-3) var(--s-4);
+  background: var(--paper-raised);
+  border: var(--border-w) solid var(--edge);
+  color: var(--ink);
+  text-decoration: none;
+  transition: top var(--dur-fast) var(--ease-out);
+}
+.skip:focus { top: var(--s-4); }
+
+/* Standard vertical rhythm for a simple page. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}

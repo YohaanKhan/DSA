@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "tech3-quickselect",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "searching",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "searching"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Finding the kth smallest element without fully sorting is done by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Quickselect, which partitions and recurses into only the side containing k"
+      },
+      {
+        "id": "b",
+        "text": "Heapsort"
+      },
+      {
+        "id": "c",
+        "text": "Counting sort"
+      },
+      {
+        "id": "d",
+        "text": "Binary search"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Discarding the other partition gives average linear time rather than n log n. It is quicksort with one branch pruned, which is why the same pivot problems apply."
+  },
+  {
+    "id": "tech3-binary-search-boundary",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "searching",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "searching"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Searching for the insertion point of a value not present in a sorted array returns",
+    "options": [
+      {
+        "id": "a",
+        "text": "-1"
+      },
+      {
+        "id": "b",
+        "text": "lo, the index where it would be inserted to keep the order"
+      },
+      {
+        "id": "c",
+        "text": "hi"
+      },
+      {
+        "id": "d",
+        "text": "The nearest index"
+      }
+    ],
+    "answer": "b",
+    "explanation": "When the loop ends, lo has passed hi and sits exactly at the first element greater than the target. Returning lo rather than -1 is what turns a search into a lower-bound query."
+  },
+  {
+    "id": "tech3-two-pointer-merge",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "two-pointers",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "two-pointers"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Merging two sorted arrays with two pointers is O(n + m) because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It sorts in place"
+      },
+      {
+        "id": "b",
+        "text": "Both arrays are sorted"
+      },
+      {
+        "id": "c",
+        "text": "Each comparison consumes exactly one element, and every element is consumed once"
+      },
+      {
+        "id": "d",
+        "text": "It uses recursion"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Total work is bounded by the number of elements, not by their product. Concatenating and sorting instead would cost (n+m) log (n+m), throwing away the sortedness you were given."
+  },
+  {
+    "id": "tech3-cycle-start",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "linked-lists",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "linked-lists"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "After the fast and slow pointers meet inside a cycle, the START of the cycle is found by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reversing the list"
+      },
+      {
+        "id": "b",
+        "text": "Using a hash set"
+      },
+      {
+        "id": "c",
+        "text": "Counting the cycle length"
+      },
+      {
+        "id": "d",
+        "text": "Moving one pointer to the head and advancing both one step at a time until they meet"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The distances work out so the second meeting is exactly at the cycle entry. It is a result worth memorising, because deriving it under time pressure is not realistic."
+  },
+  {
+    "id": "tech3-stack-min",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "stacks-queues",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "stacks-queues"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Supporting getMin on a stack in O(1) requires",
+    "options": [
+      {
+        "id": "a",
+        "text": "An auxiliary stack of minima, pushed alongside each element"
+      },
+      {
+        "id": "b",
+        "text": "A heap"
+      },
+      {
+        "id": "c",
+        "text": "Scanning on each call"
+      },
+      {
+        "id": "d",
+        "text": "Sorting the stack"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Each entry records the minimum at or below it, so the top always answers the query. Scanning would be linear, and a heap cannot respect the stack's ordering."
+  },
+  {
+    "id": "tech3-dp-vs-greedy",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "greedy",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "greedy"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Dynamic programming differs from a greedy approach in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is always faster"
+      },
+      {
+        "id": "b",
+        "text": "Considers all relevant subproblem choices rather than committing to the locally best one"
+      },
+      {
+        "id": "c",
+        "text": "Uses less memory"
+      },
+      {
+        "id": "d",
+        "text": "Needs sorted input"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Greedy commits immediately and needs a proof that doing so is safe; DP keeps the alternatives and is therefore correct wherever optimal substructure holds, at greater cost."
+  },
+  {
+    "id": "tech3-hashmap-iteration",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "hashing",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "hashing"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Relying on a hash map's iteration order in your logic is unsafe because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It uses too much memory"
+      },
+      {
+        "id": "b",
+        "text": "Iteration is slow"
+      },
+      {
+        "id": "c",
+        "text": "The order is unspecified and can change with capacity or implementation"
+      },
+      {
+        "id": "d",
+        "text": "Keys may be null"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Code that happens to work today can break on a resize or a library upgrade. If order matters, use an ordered map or sort the keys explicitly."
+  },
+  {
+    "id": "tech3-string-builder-capacity",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "strings",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Pre-sizing a growable buffer before a long append loop helps because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It reduces the string length"
+      },
+      {
+        "id": "b",
+        "text": "It prevents overflow"
+      },
+      {
+        "id": "c",
+        "text": "Appends become O(1)"
+      },
+      {
+        "id": "d",
+        "text": "It avoids repeated reallocation and copying as the buffer grows"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Appends are already amortised constant; pre-sizing removes the constant factor of the copies. It matters when the final size is known and the loop is long."
+  },
+  {
+    "id": "tech3-in-place-filter",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "arrays",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Removing all elements equal to a value, in place, is done with",
+    "options": [
+      {
+        "id": "a",
+        "text": "A write index that lags the read index"
+      },
+      {
+        "id": "b",
+        "text": "Sorting"
+      },
+      {
+        "id": "c",
+        "text": "A hash set"
+      },
+      {
+        "id": "d",
+        "text": "Two arrays"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Read scans everything and write records only survivors; the gap between them is the count removed. It is the same shape as moving zeroes and as deduplicating a sorted array."
+  },
+  {
+    "id": "tech3-complexity-nested-different",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dsa",
+    "subtopic": "complexity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "complexity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Two loops, the outer over n and the inner over m, give",
+    "options": [
+      {
+        "id": "a",
+        "text": "O(n²)"
+      },
+      {
+        "id": "b",
+        "text": "O(n·m)"
+      },
+      {
+        "id": "c",
+        "text": "O(n + m)"
+      },
+      {
+        "id": "d",
+        "text": "O(max(n, m))"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Writing it as O(n²) assumes the two bounds are the same, which is only true when they are. Naming the distinct sizes is what makes the analysis honest."
+  },
+  {
+    "id": "tech3-template-method",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "pillars",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "pillars"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A base class defining an algorithm's skeleton while subclasses fill in steps is",
+    "options": [
+      {
+        "id": "a",
+        "text": "The template method pattern"
+      },
+      {
+        "id": "b",
+        "text": "The factory pattern"
+      },
+      {
+        "id": "c",
+        "text": "The observer pattern"
+      },
+      {
+        "id": "d",
+        "text": "The strategy pattern"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The structure is fixed in the base and the variation is delegated to overridden steps. Strategy achieves a similar end by composition rather than inheritance."
+  },
+  {
+    "id": "tech3-strategy-pattern",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "inheritance-composition",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "inheritance-composition"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Injecting an interface so the behaviour can be swapped at run time is",
+    "options": [
+      {
+        "id": "a",
+        "text": "The singleton pattern"
+      },
+      {
+        "id": "b",
+        "text": "The strategy pattern"
+      },
+      {
+        "id": "c",
+        "text": "Inheritance"
+      },
+      {
+        "id": "d",
+        "text": "Encapsulation"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It moves the choice from compile time to run time and keeps each behaviour separately testable. Choosing it over inheritance is the usual application of 'favour composition'."
+  },
+  {
+    "id": "tech3-observer",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "pillars",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "pillars"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The observer pattern is appropriate when",
+    "options": [
+      {
+        "id": "a",
+        "text": "Construction is expensive"
+      },
+      {
+        "id": "b",
+        "text": "One object must be unique"
+      },
+      {
+        "id": "c",
+        "text": "Several objects must react to a change in another without it knowing who they are"
+      },
+      {
+        "id": "d",
+        "text": "A class has too many methods"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The subject depends only on an interface, so observers can be added without touching it. The cost is that the flow of control becomes harder to follow."
+  },
+  {
+    "id": "tech3-interface-default-conflict",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "abstract-interface",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "abstract-interface"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A Java class implementing two interfaces with the same default method must",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fail at run time"
+      },
+      {
+        "id": "b",
+        "text": "Extend a class instead"
+      },
+      {
+        "id": "c",
+        "text": "Pick one at random"
+      },
+      {
+        "id": "d",
+        "text": "Override the method explicitly to resolve the conflict"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The compiler refuses to guess, so the ambiguity becomes a compile error until you resolve it. Inside the override you can delegate with Interface.super.method()."
+  },
+  {
+    "id": "tech3-covariant-return",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "overloading-overriding",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "overloading-overriding"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "An overriding method in Java may return",
+    "options": [
+      {
+        "id": "a",
+        "text": "A subtype of the original return type"
+      },
+      {
+        "id": "b",
+        "text": "Any type"
+      },
+      {
+        "id": "c",
+        "text": "Only Object"
+      },
+      {
+        "id": "d",
+        "text": "Only the exact same type"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Covariant returns let a subclass narrow the promise, which is safe because any caller expecting the supertype still receives something valid. Widening it would break that guarantee."
+  },
+  {
+    "id": "tech3-checked-override",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "java-specifics",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "java-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "An overriding method may declare",
+    "options": [
+      {
+        "id": "a",
+        "text": "Any checked exception"
+      },
+      {
+        "id": "b",
+        "text": "Only the same checked exceptions or narrower ones"
+      },
+      {
+        "id": "c",
+        "text": "More exceptions than the parent"
+      },
+      {
+        "id": "d",
+        "text": "No exceptions at all"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Callers written against the base must not face new checked exceptions they never had to handle. Unchecked exceptions are unconstrained, which is part of why they are easier to abuse."
+  },
+  {
+    "id": "tech3-builder",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "constructors",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "constructors"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The builder pattern addresses",
+    "options": [
+      {
+        "id": "a",
+        "text": "Memory use"
+      },
+      {
+        "id": "b",
+        "text": "Slow construction"
+      },
+      {
+        "id": "c",
+        "text": "Constructors with many optional parameters, where the argument list becomes unreadable"
+      },
+      {
+        "id": "d",
+        "text": "Thread safety"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Named setters make each value's meaning obvious and let the object be validated once at build time. It is the standard answer to a telescoping constructor."
+  },
+  {
+    "id": "tech3-polymorphic-collection",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "abstract-interface",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "abstract-interface"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Declaring a variable as List rather than ArrayList mainly buys",
+    "options": [
+      {
+        "id": "a",
+        "text": "Immutability"
+      },
+      {
+        "id": "b",
+        "text": "Thread safety"
+      },
+      {
+        "id": "c",
+        "text": "Better performance"
+      },
+      {
+        "id": "d",
+        "text": "Freedom to change the implementation without touching the calling code"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Programming to the interface localises the choice of implementation to one line. It is the everyday form of the dependency inversion principle."
+  },
+  {
+    "id": "tech3-tostring",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "java-specifics",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "java-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Overriding toString is worth doing because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Logs and debuggers become readable instead of showing a class name and hash"
+      },
+      {
+        "id": "b",
+        "text": "It improves performance"
+      },
+      {
+        "id": "c",
+        "text": "It enables sorting"
+      },
+      {
+        "id": "d",
+        "text": "It is required"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The default output identifies the class and identity but says nothing about the state. A good toString pays for itself the first time you read a log at 2am."
+  },
+  {
+    "id": "tech3-cpp-const-method",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "oop",
+    "subtopic": "cpp-specifics",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "cpp-specifics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Marking a C++ member function const promises that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Returns a constant"
+      },
+      {
+        "id": "b",
+        "text": "Does not modify the object's observable state"
+      },
+      {
+        "id": "c",
+        "text": "Cannot be overridden"
+      },
+      {
+        "id": "d",
+        "text": "Is evaluated at compile time"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It also allows the function to be called on a const object, which is why const-correctness spreads through an API. Members marked mutable are the deliberate exception."
+  },
+  {
+    "id": "tech3-sql-transaction-isolation",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "concurrency",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "concurrency"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Read Committed prevents dirty reads but still allows",
+    "options": [
+      {
+        "id": "a",
+        "text": "Non-repeatable reads, because a row can change between two reads in one transaction"
+      },
+      {
+        "id": "b",
+        "text": "Deadlocks only"
+      },
+      {
+        "id": "c",
+        "text": "Phantom rows only"
+      },
+      {
+        "id": "d",
+        "text": "Nothing"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Each statement sees committed data as of when it started, so two reads in the same transaction can differ. Repeatable Read fixes that and still permits phantoms."
+  },
+  {
+    "id": "tech3-normal-form-choice",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "normalisation",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "normalisation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A reporting table deliberately kept denormalised is acceptable when",
+    "options": [
+      {
+        "id": "a",
+        "text": "Normalisation is impossible"
+      },
+      {
+        "id": "b",
+        "text": "The redundancy is documented and the refresh path is defined"
+      },
+      {
+        "id": "c",
+        "text": "The table is small"
+      },
+      {
+        "id": "d",
+        "text": "There are no joins"
+      }
+    ],
+    "answer": "b",
+    "explanation": "What makes denormalisation a decision rather than a defect is knowing how the copies stay in step and who owns that. Undocumented redundancy is how data quietly diverges."
+  },
+  {
+    "id": "tech3-sql-explain",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "select-where",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "select-where"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Reading a query plan is the right first step when a query is slow because it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Shows whether indexes are used and where the row estimates go wrong"
+      },
+      {
+        "id": "b",
+        "text": "Adds indexes"
+      },
+      {
+        "id": "c",
+        "text": "Caches the result"
+      },
+      {
+        "id": "d",
+        "text": "Rewrites the query"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Guessing at indexes without the plan usually adds the wrong ones. Estimated versus actual row counts is the single most informative pair of numbers in it."
+  },
+  {
+    "id": "tech3-sql-n-plus-one",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "joins",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "joins"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The N+1 query problem is",
+    "options": [
+      {
+        "id": "a",
+        "text": "A syntax error"
+      },
+      {
+        "id": "b",
+        "text": "One query to fetch a list, then one more per row, instead of a single join or batch"
+      },
+      {
+        "id": "c",
+        "text": "Too many indexes"
+      },
+      {
+        "id": "d",
+        "text": "A deadlock"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It is invisible in code that reads naturally through an ORM and devastating at scale. The fix is eager loading or an explicit join."
+  },
+  {
+    "id": "tech3-os-mmap",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "memory",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "memory"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Memory-mapping a file lets a process",
+    "options": [
+      {
+        "id": "a",
+        "text": "Access its contents through ordinary memory reads, with paging handled by the kernel"
+      },
+      {
+        "id": "b",
+        "text": "Lock it"
+      },
+      {
+        "id": "c",
+        "text": "Encrypt it"
+      },
+      {
+        "id": "d",
+        "text": "Compress it"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It avoids explicit read calls and lets the page cache do the work, which is why it suits large read-mostly files. Write semantics and error handling become subtler in exchange."
+  },
+  {
+    "id": "tech3-os-copy-on-write",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "memory",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "memory"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "After fork(), the child's memory is usually",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fully copied immediately"
+      },
+      {
+        "id": "b",
+        "text": "Shared copy-on-write, with pages duplicated only when written"
+      },
+      {
+        "id": "c",
+        "text": "Empty"
+      },
+      {
+        "id": "d",
+        "text": "Read-only forever"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Copying a large address space eagerly would make fork prohibitive, and most children immediately exec something else. The copy is deferred to the first write to each page."
+  },
+  {
+    "id": "tech3-net-keepalive",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "tcp-udp",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "tcp-udp"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "HTTP keep-alive improves performance by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reusing one TCP connection for several requests, avoiding repeated handshakes"
+      },
+      {
+        "id": "b",
+        "text": "Caching responses"
+      },
+      {
+        "id": "c",
+        "text": "Encrypting once"
+      },
+      {
+        "id": "d",
+        "text": "Compressing responses"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Each new connection costs a round trip for the TCP handshake and more for TLS. Reuse removes that per-request latency, which dominates on short responses."
+  },
+  {
+    "id": "tech3-net-cdn",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "http-https",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "http-https"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A CDN reduces latency chiefly by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compressing content"
+      },
+      {
+        "id": "b",
+        "text": "Serving cached copies from a location near the user"
+      },
+      {
+        "id": "c",
+        "text": "Using UDP"
+      },
+      {
+        "id": "d",
+        "text": "Reducing image size"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Physical distance sets a floor on round-trip time that no protocol tuning can beat. Caching at the edge shortens the distance itself."
+  },
+  {
+    "id": "tech3-git-reflog",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-basics",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "git reflog is useful because it records",
+    "options": [
+      {
+        "id": "a",
+        "text": "Where HEAD has pointed locally, so commits lost by a reset can be recovered"
+      },
+      {
+        "id": "b",
+        "text": "Merge conflicts"
+      },
+      {
+        "id": "c",
+        "text": "File contents"
+      },
+      {
+        "id": "d",
+        "text": "Remote changes"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Commits orphaned by a reset or a bad rebase remain reachable through the reflog until garbage collection. It is the first thing to reach for after 'I have lost my work'."
+  },
+  {
+    "id": "tech3-ci-cache",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "ci-cd",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ci-cd"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Caching dependencies in CI is worth doing but risks",
+    "options": [
+      {
+        "id": "a",
+        "text": "Longer builds"
+      },
+      {
+        "id": "b",
+        "text": "A stale cache masking a broken dependency declaration"
+      },
+      {
+        "id": "c",
+        "text": "Security issues only"
+      },
+      {
+        "id": "d",
+        "text": "Nothing"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A build that only passes because the cache holds something the manifest no longer specifies will fail on a clean machine. Periodically building without the cache is the check."
+  },
+  {
+    "id": "tech3-java-varargs",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-basics",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A Java varargs parameter is received by the method as",
+    "options": [
+      {
+        "id": "a",
+        "text": "An array"
+      },
+      {
+        "id": "b",
+        "text": "A stream"
+      },
+      {
+        "id": "c",
+        "text": "A separate parameter each"
+      },
+      {
+        "id": "d",
+        "text": "A List"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Because it is an array, it can be null when called with an explicit null, and it must be the last parameter. Both facts surprise people who think of it as a list."
+  },
+  {
+    "id": "tech3-java-static-init",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-basics",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A static initialiser block in Java runs",
+    "options": [
+      {
+        "id": "a",
+        "text": "On every instantiation"
+      },
+      {
+        "id": "b",
+        "text": "Once, when the class is first loaded"
+      },
+      {
+        "id": "c",
+        "text": "Before main only"
+      },
+      {
+        "id": "d",
+        "text": "On garbage collection"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Class loading is lazy, so the block may run later than you expect or not at all if the class is never used. Relying on it for side effects is fragile for that reason."
+  },
+  {
+    "id": "tech3-java-try-resources",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-basics",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "try-with-resources closes the declared resources",
+    "options": [
+      {
+        "id": "a",
+        "text": "When the object is collected"
+      },
+      {
+        "id": "b",
+        "text": "Only on success"
+      },
+      {
+        "id": "c",
+        "text": "Automatically at the end of the block, in reverse order of declaration"
+      },
+      {
+        "id": "d",
+        "text": "Only on exception"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It replaces the nested finally blocks that everyone got wrong, and suppressed exceptions from close are attached to the primary one rather than hiding it."
+  },
+  {
+    "id": "tech3-cpp-move",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "cpp-stl",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "cpp-stl"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "std::move does",
+    "options": [
+      {
+        "id": "a",
+        "text": "Free the memory"
+      },
+      {
+        "id": "b",
+        "text": "Copy then delete"
+      },
+      {
+        "id": "c",
+        "text": "Move the object"
+      },
+      {
+        "id": "d",
+        "text": "Cast to an rvalue reference, allowing a move constructor to be selected"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It performs no work itself; it only changes overload resolution. The moved-from object is left valid but unspecified, which is why reading it afterwards is a bug."
+  },
+  {
+    "id": "tech3-cpp-auto",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "cpp-stl",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "cpp-stl"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Writing `for (auto x : v)` over a vector of large objects",
+    "options": [
+      {
+        "id": "a",
+        "text": "Copies each element; `const auto &x` avoids the copy"
+      },
+      {
+        "id": "b",
+        "text": "Modifies the vector"
+      },
+      {
+        "id": "c",
+        "text": "Fails to compile"
+      },
+      {
+        "id": "d",
+        "text": "Is always best"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Plain auto deduces a value type, so each iteration constructs a copy. For read-only traversal the const reference form is the default worth reaching for."
+  },
+  {
+    "id": "tech3-c-static-function",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "storage-classes",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "storage-classes"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Declaring a C function static gives it",
+    "options": [
+      {
+        "id": "a",
+        "text": "A persistent local variable"
+      },
+      {
+        "id": "b",
+        "text": "Internal linkage, so it is visible only within its translation unit"
+      },
+      {
+        "id": "c",
+        "text": "Faster calls"
+      },
+      {
+        "id": "d",
+        "text": "Thread safety"
+      }
+    ],
+    "answer": "b",
+    "explanation": "On a function the keyword controls visibility, not lifetime. It is the C equivalent of marking something private to a file, and it lets the compiler inline more freely."
+  },
+  {
+    "id": "tech3-c-header-guard",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-fundamentals",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-fundamentals"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An include guard in a C header prevents",
+    "options": [
+      {
+        "id": "a",
+        "text": "Macro expansion"
+      },
+      {
+        "id": "b",
+        "text": "Slow compilation"
+      },
+      {
+        "id": "c",
+        "text": "The header's contents being expanded more than once in a translation unit"
+      },
+      {
+        "id": "d",
+        "text": "Linker errors only"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Double inclusion causes redefinition errors for types and inline functions. The pragma once directive does the same job with less boilerplate but is not standard."
+  },
+  {
+    "id": "tech3-c-undefined",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "c-fundamentals",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "c-fundamentals"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Undefined behaviour in C is dangerous chiefly because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is slow"
+      },
+      {
+        "id": "b",
+        "text": "It is a warning"
+      },
+      {
+        "id": "c",
+        "text": "It always crashes"
+      },
+      {
+        "id": "d",
+        "text": "The compiler may assume it never happens and optimise accordingly, producing surprising code"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Optimisers reason from the assumption that UB is absent, so the effect can appear far from the offending line. That non-locality is what makes it worse than a plain bug."
+  },
+  {
+    "id": "tech3-java-string-switch",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "java-strings",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "java-strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A switch on a String in Java compiles to",
+    "options": [
+      {
+        "id": "a",
+        "text": "A hash-based dispatch followed by an equals check"
+      },
+      {
+        "id": "b",
+        "text": "A jump table on characters"
+      },
+      {
+        "id": "c",
+        "text": "A regular expression"
+      },
+      {
+        "id": "d",
+        "text": "A linear chain of equals calls only"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Hashing narrows the candidates and equals confirms, which is why it outperforms a long if-else chain. The equals check is essential because hashes collide."
+  },
+  {
+    "id": "tech3-operator-assoc",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "languages",
+    "subtopic": "operator-precedence",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "operator-precedence"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "In C, C++ and Java, the assignment operator associates",
+    "options": [
+      {
+        "id": "a",
+        "text": "Left to right"
+      },
+      {
+        "id": "b",
+        "text": "Right to left, so a = b = c assigns c to b and then to a"
+      },
+      {
+        "id": "c",
+        "text": "Not at all"
+      },
+      {
+        "id": "d",
+        "text": "By precedence only"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Right associativity is what makes chained assignment work. Chained comparison does not work the same way: a < b < c parses as (a < b) < c, comparing a boolean against c."
+  }
+]

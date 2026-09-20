@@ -1,0 +1,842 @@
+[
+  {
+    "id": "essay-ai-entry-level-jobs",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Generative AI now performs much of what used to be entry-level knowledge work. Should companies keep hiring graduates into those roles, or restructure them? Argue for one position and address the strongest objection to it.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-retrain-or-hire",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Automation is reshaping the work of existing teams. Should a company retrain the staff it already has, or hire specialists who already have the new skills? Take a position and justify it with concrete trade-offs.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-ai-in-the-classroom",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Some universities have banned AI writing assistants; others require students to use them. Which policy serves students better, and why?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-remote-work-productivity",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Five years after remote work became normal, employers disagree about whether it helps or harms productivity. What does the evidence you find convincing suggest, and what should a company do about it?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-four-day-week",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Should organisations move to a four-day working week? Consider the effect on output, on employee wellbeing and on customers before you decide.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-ai-accountability",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "When an AI system used by a company causes harm, who should be accountable: the engineers who built it, the managers who deployed it, or the company as a whole? Defend a clear answer.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-data-privacy-convenience",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "People say they value privacy but consistently trade it for convenience. Is this a failure of individuals, of regulation, or of product design? Argue for one.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-automation-inequality",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Does automation widen or narrow economic inequality? Set out the mechanism you think dominates and defend it against the opposite case.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-social-media-discourse",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Has social media improved or degraded public discussion? Support your answer with specific mechanisms rather than general impressions.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-open-source-ai",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Should powerful AI models be released openly, or kept behind controlled APIs? Weigh the safety argument against the concentration-of-power argument and decide.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-learning-vs-credentials",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Employers increasingly say they hire for skills rather than degrees, yet degree requirements persist in job adverts. What explains the gap, and what should change?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-continuous-learning",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "paragraphing",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Technology careers now expect continuous learning. Whose responsibility is it to make that time available: the individual, the employer, or the education system?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-exam-vs-project-assessment",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Should computer science students be assessed by timed examinations or by projects? Argue for one, acknowledging what it loses.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-english-as-lingua-franca",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "English dominates technical work worldwide. Is that an advantage or a barrier for the profession? Take a position.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-sustainable-computing",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Training large models consumes significant energy. Should the industry constrain model size for environmental reasons, or is that the wrong lever? Argue clearly.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-work-life-boundaries",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "paragraphing",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Messaging tools have made it normal to be reachable outside working hours. Should companies set enforced boundaries, and what would they cost?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-gig-economy-protection",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Should gig workers receive the same protections as employees, given that many say they value the flexibility? Decide and defend it.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-technology-and-loneliness",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Technology connects people more than ever, yet reported loneliness has risen. Explain the most plausible reason and what, if anything, should be done.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-automation-in-healthcare",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Where should the line sit between decisions an algorithm may make in healthcare and decisions that must remain human? Argue for a specific principle, not a list of examples.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-code-review-culture",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "paragraphing",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Some teams review every line of code; others trust engineers and review selectively. Which produces better software, and under what conditions?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-failure-and-learning",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Organisations say they learn from failure but rarely do. What stops them, and what would a company that genuinely learned from failure look like?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-digital-literacy-schools",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Should digital literacy be taught as a separate school subject, or embedded across every subject? Argue for one approach.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-ai-and-creativity",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Does generative AI expand human creativity or crowd it out? Define what you mean by creativity before you answer.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-urban-transport",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Cities must choose between investing in public transport and accommodating private vehicles. Which should take priority, and what would you tell the losing side?",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-attention-economy",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Products competing for attention have become extremely good at holding it. Is that a problem for regulators, for designers, or for users? Argue for one locus of responsibility.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-mentorship-at-work",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "paragraphing",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Does formal mentorship help early-career employees more than informal support from peers? Take a position and justify it.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-technology-and-jobs-history",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Every wave of technology has been predicted to destroy jobs, and every wave so far has not. Is the current wave different? Give your reasons.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-ethical-refusal",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Should an engineer refuse to build a system they believe is harmful, even when it is legal and their employer has decided to proceed? Argue a clear position.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-measuring-productivity",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "structure",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "How should the productivity of software engineers be measured, if at all? Propose an approach and defend it against the obvious objections.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  },
+  {
+    "id": "essay-career-specialise-or-broaden",
+    "kind": "essay",
+    "stage": "english",
+    "topic": "writing",
+    "subtopic": "thesis",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "essay",
+      "timed"
+    ],
+    "source": "authored",
+    "targetSeconds": 1500,
+    "prompt": "Early in a technology career, is it better to specialise deeply or to build breadth across areas? Take a side and say what it costs.",
+    "minutes": 25,
+    "targetWords": [
+      250,
+      350
+    ],
+    "rubric": {
+      "taskResponse": "5 — answers the exact question asked, takes a clear position and sustains it. 3 — addresses the topic but drifts or hedges. 1 — writes about the general subject area rather than the question.",
+      "structure": "5 — four or five paragraphs, a thesis in the introduction, one idea per body paragraph, a conclusion that does more than repeat. 3 — recognisable shape, weak signposting. 1 — a single block or a list.",
+      "grammar": "5 — errors are rare and never obscure meaning. 3 — regular slips in tense, agreement or articles that a reader notices but works past. 1 — errors that force re-reading.",
+      "vocabulary": "5 — precise and varied, topic vocabulary used correctly. 3 — adequate but repetitive, reaching for the same three words. 1 — vague, or ambitious words used wrongly.",
+      "mechanics": "5 — punctuation, capitalisation and sentence boundaries are controlled; sentence length varies deliberately. 3 — occasional run-ons or comma splices. 1 — sentence boundaries unreliable."
+    }
+  }
+]

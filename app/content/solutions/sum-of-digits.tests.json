@@ -1,0 +1,12 @@
+{
+  "problem": "Read one integer, which may be negative. Print the sum of its decimal digits, ignoring the sign.",
+  "language": "c",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "three digits", "stdin": "987\n", "expectedStdout": "24" },
+    { "name": "single digit", "stdin": "7\n", "expectedStdout": "7", "edgeCase": true },
+    { "name": "zero", "stdin": "0\n", "expectedStdout": "0", "edgeCase": true },
+    { "name": "negative", "stdin": "-451\n", "expectedStdout": "10", "edgeCase": true, "hidden": true },
+    { "name": "trailing zeroes", "stdin": "1000\n", "expectedStdout": "1", "hidden": true }
+  ]
+}

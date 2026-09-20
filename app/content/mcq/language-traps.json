@@ -1,0 +1,234 @@
+[
+  {
+    "id": "trap-java-string-equality-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "java-string-equality",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["java", "strings"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "This Java method is supposed to return true when the user typed \"yes\". It returns false even when they did. What is wrong?",
+    "code": {
+      "language": "java",
+      "source": "boolean isYes(String input) {\n    String answer = input.trim();\n    if (answer == \"yes\") {\n        return true;\n    }\n    return false;\n}"
+    },
+    "options": [
+      { "id": "a", "text": "trim() returns a new object, so the comparison should use .equals()" },
+      { "id": "b", "text": "The method should return Boolean rather than boolean" },
+      { "id": "c", "text": "String comparison in Java requires compareTo() and a check against 0" },
+      { "id": "d", "text": "The literal should be written as new String(\"yes\")" }
+    ],
+    "answer": "a",
+    "explanation": "In Java, == on reference types compares identity, not contents. A literal like \"yes\" is interned, but the result of trim() is a fresh object, so the references differ and == is false even when the text matches. Use answer.equals(\"yes\"). Pattern: any == between two Strings in Java is a bug unless you are deliberately testing identity.",
+    "distractorRationale": {
+      "b": "The return type is irrelevant to how the comparison behaves; boolean is correct here.",
+      "c": "compareTo() works but is the wrong tool for an equality test, and it is not what is broken.",
+      "d": "new String() would make the problem worse by guaranteeing a distinct object."
+    }
+  },
+  {
+    "id": "trap-integer-division-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "integer-division",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["c", "arithmetic"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "This C function should return the average of three integers, but average(1, 2, 2) returns 1.0 instead of 1.666… . Why?",
+    "code": {
+      "language": "c",
+      "source": "double average(int a, int b, int c) {\n    return (a + b + c) / 3;\n}"
+    },
+    "options": [
+      { "id": "a", "text": "The sum overflows before the division happens" },
+      { "id": "b", "text": "The division is integer division; the result is truncated before it is widened to double" },
+      { "id": "c", "text": "The return type should be float rather than double" },
+      { "id": "d", "text": "The parameters must be passed by pointer for the arithmetic to work" }
+    ],
+    "answer": "b",
+    "explanation": "Both operands of / are int, so C performs integer division and truncates 5/3 to 1. The conversion to double happens afterwards, on the already-truncated value. Divide by 3.0, or cast one operand. Pattern: when a division is meant to be fractional, at least one operand must be floating point BEFORE the division.",
+    "distractorRationale": {
+      "a": "1 + 2 + 2 is nowhere near the range of int; no overflow occurs.",
+      "c": "float would lose precision, not fix truncation — the division is still integer.",
+      "d": "Pass-by-value is fine here; pointers would change nothing about the arithmetic."
+    }
+  },
+  {
+    "id": "trap-array-length-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "array-length",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["java", "collections"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Which line correctly gets the number of elements or characters, for a Java array, a String and an ArrayList respectively?",
+    "options": [
+      { "id": "a", "text": "arr.length() · str.length · list.size" },
+      { "id": "b", "text": "arr.length · str.length() · list.size()" },
+      { "id": "c", "text": "arr.size() · str.size() · list.length()" },
+      { "id": "d", "text": "arr.length · str.length · list.length" }
+    ],
+    "answer": "b",
+    "explanation": "Java is inconsistent here and it is examined for exactly that reason: an array has a length FIELD (no parentheses), String has a length() METHOD, and the collections framework uses size(). Mixing them is a compile error, so the cost is time rather than a wrong answer — but under a 20-minute clock that still hurts.",
+    "distractorRationale": {
+      "a": "Every one of the three is inverted from the real API.",
+      "c": "size() belongs to collections only; arrays and String do not have it.",
+      "d": "length as a bare field is correct only for the array."
+    }
+  },
+  {
+    "id": "trap-scanf-ampersand-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "scanf-ampersand",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["c", "io"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "This C program crashes or prints garbage instead of echoing the number. What is the defect?",
+    "code": {
+      "language": "c",
+      "source": "#include <stdio.h>\nint main(void) {\n    int n;\n    scanf(\"%d\", n);\n    printf(\"%d\\n\", n);\n    return 0;\n}"
+    },
+    "options": [
+      { "id": "a", "text": "printf needs a newline flush before the program exits" },
+      { "id": "b", "text": "n must be initialised before scanf can write to it" },
+      { "id": "c", "text": "scanf needs the address of n, so it must be &n" },
+      { "id": "d", "text": "The format specifier should be %i for a signed integer" }
+    ],
+    "answer": "c",
+    "explanation": "scanf writes through a pointer, so it needs the ADDRESS of the variable. Passing n passes its (uninitialised) value, which scanf then treats as an address and writes to — undefined behaviour, usually a crash. Write scanf(\"%d\", &n). Pattern: every scanf argument except the format string is an address; the missing & is the single most common C input bug.",
+    "distractorRationale": {
+      "a": "The newline is already in the format string, and buffering would not produce garbage values.",
+      "b": "scanf is supposed to write the value; initialising n first would not make the call correct.",
+      "d": "%i and %d are both valid for reading a signed int; the specifier is not the problem."
+    }
+  },
+  {
+    "id": "trap-sizeof-decay-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "sizeof-decay",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": ["c", "pointers"],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "count() is called as count(arr, 10) where arr is int arr[10]. On a 64-bit machine with 4-byte ints, what does it return?",
+    "code": {
+      "language": "c",
+      "source": "int count(int values[], int n) {\n    return sizeof(values) / sizeof(values[0]);\n}"
+    },
+    "options": [
+      { "id": "a", "text": "10, because sizeof sees the full array" },
+      { "id": "b", "text": "2, because the parameter is really a pointer and 8 / 4 is 2" },
+      { "id": "c", "text": "40, the total size in bytes" },
+      { "id": "d", "text": "It fails to compile, because sizeof cannot be applied to a parameter" }
+    ],
+    "answer": "b",
+    "explanation": "An array parameter decays to a pointer: int values[] is exactly int *values. So sizeof(values) is the size of a pointer (8 bytes here), not of the array, and 8 / 4 gives 2. The sizeof trick for array length works only in the scope where the array was DECLARED — which is why n is passed separately, and why ignoring it is the bug.",
+    "distractorRationale": {
+      "a": "The array size is lost at the call boundary; the callee cannot recover it.",
+      "c": "40 would be the whole array's size, which is precisely what sizeof no longer sees here.",
+      "d": "sizeof on a parameter compiles fine; it simply measures the pointer."
+    }
+  },
+  {
+    "id": "trap-unbraced-if-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "unbraced-if",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["c", "control-flow"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "This C code should print both lines only for negative values. What actually happens?",
+    "code": {
+      "language": "c",
+      "source": "if (x < 0)\n    printf(\"negative\\n\");\n    printf(\"handling it\\n\");"
+    },
+    "options": [
+      { "id": "a", "text": "Both lines print only when x is negative, as intended" },
+      { "id": "b", "text": "\"handling it\" prints every time, because only the first statement is inside the if" },
+      { "id": "c", "text": "Neither line prints, because the if body is empty" },
+      { "id": "d", "text": "It fails to compile because the if body needs braces" }
+    ],
+    "answer": "b",
+    "explanation": "An unbraced if governs exactly one statement. The indentation suggests both printf calls are conditional, but only the first is; the second runs unconditionally. C ignores indentation entirely. Pattern: whenever an if body looks multi-line but has no braces, the second line onwards is outside the condition.",
+    "distractorRationale": {
+      "a": "That is what the indentation implies, and precisely why the bug is hard to see.",
+      "c": "The body is the first printf, not empty; an empty body would need a bare semicolon.",
+      "d": "Braces are optional in C for a single statement, so this compiles cleanly."
+    }
+  },
+  {
+    "id": "trap-int-overflow-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "int-overflow",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": ["java", "arithmetic"],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "This binary-search midpoint calculation works for small arrays but misbehaves on very large ones. Why?",
+    "code": {
+      "language": "java",
+      "source": "int mid = (low + high) / 2;"
+    },
+    "options": [
+      { "id": "a", "text": "Integer division rounds the midpoint down, skipping an element" },
+      { "id": "b", "text": "low + high can overflow int and become negative, producing an invalid index" },
+      { "id": "c", "text": "mid should be declared long for any array larger than 1000 elements" },
+      { "id": "d", "text": "The operands must be swapped to (high + low) / 2 for correct associativity" }
+    ],
+    "answer": "b",
+    "explanation": "When low and high are both large, their sum can exceed Integer.MAX_VALUE and wrap to a negative number, so mid becomes negative and the index is invalid. The standard fix is low + (high - low) / 2, which never forms the large intermediate sum. Pattern: adding two values that are each near the type's maximum is an overflow risk even when the final result would fit.",
+    "distractorRationale": {
+      "a": "Rounding down is correct and intended behaviour for a midpoint; it skips nothing.",
+      "c": "The index itself fits in int comfortably; only the intermediate SUM overflows.",
+      "d": "Addition is commutative here, so swapping the operands changes nothing."
+    }
+  },
+  {
+    "id": "trap-strcmp-001",
+    "kind": "mcq",
+    "stage": "debugging",
+    "topic": "language-traps",
+    "subtopic": "strcmp-vs-equals",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": ["c", "strings"],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "In C, what does strcmp(a, b) return when the two strings are equal?",
+    "options": [
+      { "id": "a", "text": "1" },
+      { "id": "b", "text": "0" },
+      { "id": "c", "text": "The length of the common prefix" },
+      { "id": "d", "text": "A non-zero value whose sign indicates which is larger" }
+    ],
+    "answer": "b",
+    "explanation": "strcmp returns 0 for equal strings, a negative value when a sorts before b, and a positive value otherwise. This inverts the usual truthiness of C conditions, so if (strcmp(a, b)) is true when the strings DIFFER. Write if (strcmp(a, b) == 0) for equality. Pattern: a comparison function returning 0 for a match is the opposite of a boolean, and reading it as one is the bug.",
+    "distractorRationale": {
+      "a": "1 is a possible return for unequal strings, never for equal ones.",
+      "c": "strcmp reports ordering, not how much of the strings matched.",
+      "d": "That describes the unequal case; equal strings return exactly 0."
+    }
+  }
+]

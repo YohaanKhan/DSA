@@ -1,0 +1,530 @@
+[
+  {
+    "id": "speak-intro-yourself",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "self-introduction",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Introduce yourself to an interviewer: who you are, what you have built, and what you want to work on next.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "Your background and current stage of study",
+      "A specific project you built and what it does",
+      "What you want to work on next and why"
+    ]
+  },
+  {
+    "id": "speak-describe-a-project",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "describe",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Describe a technical project you built. Say what problem it solved, how you built it, and what you would do differently.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "The problem the project solved",
+      "The approach and tools used",
+      "One thing you would change with hindsight"
+    ]
+  },
+  {
+    "id": "speak-explain-recursion",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain recursion to someone who has never programmed, in ninety seconds.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A definition without jargon",
+      "A concrete everyday analogy",
+      "Why a base case is necessary"
+    ]
+  },
+  {
+    "id": "speak-explain-api",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain what an API is to a non-technical colleague.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A plain definition of the interface idea",
+      "A concrete example of two systems talking",
+      "Why it matters that the contract is stable"
+    ]
+  },
+  {
+    "id": "speak-opinion-remote-work",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Should new graduates start their careers in an office rather than remotely? Give your opinion and your reasons.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position either way",
+      "A reason based on learning or mentorship",
+      "Acknowledgement of the strongest counter-argument"
+    ]
+  },
+  {
+    "id": "speak-opinion-ai-coding",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Should companies allow AI coding assistants for production code? State your view and defend it.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position",
+      "A specific benefit or risk with an example",
+      "A condition or safeguard you would attach"
+    ]
+  },
+  {
+    "id": "speak-describe-a-failure",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "describe",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Describe a time something you built failed. What went wrong, and what did you change afterwards?",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What was being built and what failed",
+      "The root cause, stated specifically",
+      "The change you made as a result"
+    ]
+  },
+  {
+    "id": "speak-explain-database-index",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain what a database index is and when it does not help.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What an index does to lookup cost",
+      "The write and storage cost it adds",
+      "A case where it does not help"
+    ]
+  },
+  {
+    "id": "speak-retell-news",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "retell",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Retell a technology news story you read recently, and say why it matters.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What happened, factually",
+      "Who is affected",
+      "Why it matters beyond the immediate story"
+    ]
+  },
+  {
+    "id": "speak-opinion-degree-value",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Is a computer science degree still worth it? Give your view.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position",
+      "A reason grounded in what a degree actually provides",
+      "What you would tell someone the answer does not fit"
+    ]
+  },
+  {
+    "id": "speak-explain-version-control",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain version control and why a team needs it, to someone who saves files as final-v3.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What version control records",
+      "The team problem it solves",
+      "A concrete example of recovery or review"
+    ]
+  },
+  {
+    "id": "speak-describe-teamwork",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "describe",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Describe working in a team where someone disagreed with your approach. How did it resolve?",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "The context and the disagreement",
+      "What you did specifically",
+      "The outcome and what you learned"
+    ]
+  },
+  {
+    "id": "speak-opinion-automation-jobs",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Will automation create more jobs than it removes? Give your view in ninety seconds.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position",
+      "A mechanism, not just an assertion",
+      "One historical or current example"
+    ]
+  },
+  {
+    "id": "speak-explain-testing",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain why automated tests are worth writing, to a manager who thinks they slow delivery.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What tests protect against",
+      "Why speed improves rather than falls over time",
+      "An honest limit of testing"
+    ]
+  },
+  {
+    "id": "speak-describe-learning",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "describe",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Describe how you taught yourself something technical. What worked and what did not?",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What you learned and why",
+      "The method you used",
+      "What you would change about the method"
+    ]
+  },
+  {
+    "id": "speak-opinion-open-office",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Do open-plan offices help or harm software teams? Give your opinion.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position",
+      "A reason about focus or collaboration",
+      "A condition under which the opposite holds"
+    ]
+  },
+  {
+    "id": "speak-explain-cloud",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain cloud computing to a small business owner deciding whether to move.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "What they would stop owning",
+      "The cost and flexibility trade-off",
+      "One risk they should think about"
+    ]
+  },
+  {
+    "id": "speak-describe-pressure",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "describe",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Describe a time you had to deliver under time pressure. How did you decide what to cut?",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "The situation and the deadline",
+      "How you prioritised",
+      "The result and what it cost"
+    ]
+  },
+  {
+    "id": "speak-opinion-ai-regulation",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Should AI development be regulated more tightly? State and defend a position.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position",
+      "A specific harm or benefit being regulated",
+      "Who you think should enforce it"
+    ]
+  },
+  {
+    "id": "speak-explain-oop",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain object-oriented programming and one situation where it is the wrong choice.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "The core idea of objects and state",
+      "A benefit with an example",
+      "A case where it fits badly"
+    ]
+  },
+  {
+    "id": "speak-retell-process",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "retell",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Walk through how a web page reaches a user's screen after they type a URL.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "Name resolution and the request",
+      "The server and the response",
+      "Rendering in the browser"
+    ]
+  },
+  {
+    "id": "speak-describe-strength",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "describe",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "What is your strongest technical skill, and what evidence supports that claim?",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "The skill named specifically",
+      "Concrete evidence rather than assertion",
+      "How you are still improving it"
+    ]
+  },
+  {
+    "id": "speak-opinion-side-projects",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "opinion",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Should employers expect candidates to have side projects? Give your view.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "A clear position",
+      "A reason about access or fairness",
+      "What you think should count instead"
+    ]
+  },
+  {
+    "id": "speak-explain-debugging",
+    "kind": "speak",
+    "stage": "english",
+    "topic": "speaking",
+    "subtopic": "explain-process",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "speaking"
+    ],
+    "source": "authored",
+    "targetSeconds": 135,
+    "prompt": "Explain how you debug something you do not understand, step by step.",
+    "thinkSeconds": 45,
+    "speakSeconds": 90,
+    "expectedPoints": [
+      "Reproducing the problem first",
+      "Narrowing the search space systematically",
+      "Confirming the fix rather than assuming"
+    ]
+  }
+]
