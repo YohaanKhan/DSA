@@ -2366,5 +2366,3065 @@
     ],
     "answer": "b",
     "explanation": "Naming the specific defect and the required behaviour preserves everything already correct and produces a minimal change you can review. In the assessment's AI-assisted round this is the scored behaviour: targeted refinement counts, a restart does not."
+  },
+  {
+    "id": "ail2-transformer",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What does the attention mechanism in a transformer let the model do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Weigh the relevance of every other token when representing a given token"
+      },
+      {
+        "id": "b",
+        "text": "Store more parameters"
+      },
+      {
+        "id": "c",
+        "text": "Skip tokenisation"
+      },
+      {
+        "id": "d",
+        "text": "Run faster on a GPU"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Attention computes, for each position, how much every other position should contribute to its representation. That is what lets a word's meaning depend on distant context rather than on a fixed window, which is the architectural change that made scaling worthwhile."
+  },
+  {
+    "id": "ail2-pretrain-finetune",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "finetune-vs-prompt",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "finetune-vs-prompt"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Pre-training and fine-tuning differ in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Fine-tuning uses more data"
+      },
+      {
+        "id": "b",
+        "text": "Pre-training learns general structure from a broad corpus; fine-tuning adapts that to a narrow task on far less data"
+      },
+      {
+        "id": "c",
+        "text": "Pre-training is optional"
+      },
+      {
+        "id": "d",
+        "text": "Fine-tuning changes the architecture"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The split is between breadth and specialisation, and the data volumes differ by orders of magnitude. Fine-tuning does not add general capability — it reshapes what is already there toward a task or a style."
+  },
+  {
+    "id": "ail2-rlhf",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "What does reinforcement learning from human feedback change about a base model?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Its tokeniser"
+      },
+      {
+        "id": "b",
+        "text": "Its factual knowledge"
+      },
+      {
+        "id": "c",
+        "text": "Which of the many plausible continuations it prefers to produce"
+      },
+      {
+        "id": "d",
+        "text": "Its context window"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The base model can continue text in countless plausible ways; preference training shifts the distribution toward the ones people rated as helpful and harmless. It aligns behaviour, not knowledge, which is why a tuned model can still be confidently wrong."
+  },
+  {
+    "id": "ail2-distillation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Model distillation produces",
+    "options": [
+      {
+        "id": "a",
+        "text": "An encrypted model"
+      },
+      {
+        "id": "b",
+        "text": "A model with a longer context"
+      },
+      {
+        "id": "c",
+        "text": "A larger model from a smaller one"
+      },
+      {
+        "id": "d",
+        "text": "A smaller model trained to imitate a larger one's outputs"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The small model learns from the large one's behaviour rather than from raw data, which transfers much of the capability at a fraction of the serving cost. It is the main reason small recent models outperform large older ones."
+  },
+  {
+    "id": "ail2-quantisation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Quantising a model means",
+    "options": [
+      {
+        "id": "a",
+        "text": "Storing its weights at lower numerical precision to cut memory and speed inference"
+      },
+      {
+        "id": "b",
+        "text": "Splitting it across machines"
+      },
+      {
+        "id": "c",
+        "text": "Retraining it on less data"
+      },
+      {
+        "id": "d",
+        "text": "Reducing its parameter count"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The number of parameters is unchanged; each one simply takes fewer bits. There is usually a small quality cost, which is why the trade is measured on the target task rather than assumed."
+  },
+  {
+    "id": "ail2-encoder-decoder",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "modalities",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "modalities"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "An encoder-only model such as BERT is typically used for",
+    "options": [
+      {
+        "id": "a",
+        "text": "Generating long text"
+      },
+      {
+        "id": "b",
+        "text": "Understanding tasks such as classification and retrieval"
+      },
+      {
+        "id": "c",
+        "text": "Image synthesis"
+      },
+      {
+        "id": "d",
+        "text": "Speech generation"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Encoders produce a representation of the whole input at once and suit judging or comparing it. Decoders generate token by token and suit producing new content; the choice follows from the task, not from model size."
+  },
+  {
+    "id": "ail2-prompt-vs-context",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "training-vs-inference",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "training-vs-inference"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Information you paste into a prompt becomes part of",
+    "options": [
+      {
+        "id": "a",
+        "text": "A permanent cache"
+      },
+      {
+        "id": "b",
+        "text": "The model's training data"
+      },
+      {
+        "id": "c",
+        "text": "The context for that one request, and nothing beyond it"
+      },
+      {
+        "id": "d",
+        "text": "The model's weights"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It influences only the current inference. Whether a provider separately retains it for training is a policy question about the service, not a property of the model, and the two are often confused."
+  },
+  {
+    "id": "ail2-closed-open",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An 'open-weights' model means",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is free of copyright"
+      },
+      {
+        "id": "b",
+        "text": "It has no safety training"
+      },
+      {
+        "id": "c",
+        "text": "Its training data is public"
+      },
+      {
+        "id": "d",
+        "text": "Its parameters can be downloaded and run yourself"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Open weights concerns access to the parameters. Training data, licence terms and safety tuning are separate questions, and a model can be open on one and closed on the others."
+  },
+  {
+    "id": "ail2-latency-cost",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "training-vs-inference",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "training-vs-inference"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Output tokens usually cost more than input tokens because",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are generated one at a time, so each requires a full forward pass"
+      },
+      {
+        "id": "b",
+        "text": "They are stored"
+      },
+      {
+        "id": "c",
+        "text": "They are encrypted"
+      },
+      {
+        "id": "d",
+        "text": "They are longer"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Input can be processed in parallel in a single pass; output is sequential by construction. That asymmetry is why asking for a shorter answer saves more than trimming the prompt."
+  },
+  {
+    "id": "ail2-caching",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "training-vs-inference",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "training-vs-inference"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Prompt caching reduces cost by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Storing the model's answers"
+      },
+      {
+        "id": "b",
+        "text": "Reusing the computed state for an unchanged prompt prefix across requests"
+      },
+      {
+        "id": "c",
+        "text": "Compressing the prompt"
+      },
+      {
+        "id": "d",
+        "text": "Skipping tokens"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The saving comes from not recomputing a long shared prefix, which is why the stable part of a prompt should come first and the varying part last. It caches computation, not answers, so output still varies."
+  },
+  {
+    "id": "ail2-modality-gap",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "modalities",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "modalities"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A vision-language model asked to read a blurred screenshot may",
+    "options": [
+      {
+        "id": "a",
+        "text": "Always ask for a better image"
+      },
+      {
+        "id": "b",
+        "text": "Refuse automatically"
+      },
+      {
+        "id": "c",
+        "text": "Produce a confident but incorrect transcription"
+      },
+      {
+        "id": "d",
+        "text": "Return the raw pixels"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Degraded input does not reliably produce an expressed uncertainty; it produces a plausible reading. This is the same failure mode as textual hallucination, arriving through a different modality."
+  },
+  {
+    "id": "ail2-classification-task",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "discriminative-vs-generative",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "discriminative-vs-generative"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "Which task would a small fine-tuned classifier usually serve better than a large general model?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Explaining a codebase"
+      },
+      {
+        "id": "b",
+        "text": "Writing tests"
+      },
+      {
+        "id": "c",
+        "text": "Drafting a proposal"
+      },
+      {
+        "id": "d",
+        "text": "Routing millions of tickets into six fixed categories"
+      }
+    ],
+    "answer": "d",
+    "explanation": "High volume, a fixed label set and a narrow domain favour a specialised model on cost, latency and consistency. Reaching for the largest available model regardless of the task is a common and expensive default."
+  },
+  {
+    "id": "ail2-lost-middle",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "context-window",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "context-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "In a long context, information placed in the middle is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Attended to most strongly"
+      },
+      {
+        "id": "b",
+        "text": "Often attended to less reliably than material at the beginning or end"
+      },
+      {
+        "id": "c",
+        "text": "Ignored entirely"
+      },
+      {
+        "id": "d",
+        "text": "Cached separately"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Measured retrieval accuracy tends to dip for material in the middle of a long context. The practical response is to put instructions at the edges and to retrieve a small relevant set rather than pasting everything."
+  },
+  {
+    "id": "ail2-context-cost",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "context-window",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "context-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Filling a large context window with everything you have is a poor default because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It causes hallucination directly"
+      },
+      {
+        "id": "b",
+        "text": "The model will refuse"
+      },
+      {
+        "id": "c",
+        "text": "It costs more, adds latency, and dilutes attention across irrelevant material"
+      },
+      {
+        "id": "d",
+        "text": "Context windows are unreliable"
+      }
+    ],
+    "answer": "c",
+    "explanation": "More context is not more signal. Cost and latency rise with length and the relevant passage competes with everything else you supplied, which is the argument for retrieving selectively rather than pasting wholesale."
+  },
+  {
+    "id": "ail2-token-cost-code",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "tokens",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "tokens"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Code usually consumes more tokens per character than prose because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is compiled"
+      },
+      {
+        "id": "b",
+        "text": "It uses Unicode"
+      },
+      {
+        "id": "c",
+        "text": "It is longer"
+      },
+      {
+        "id": "d",
+        "text": "Identifiers, punctuation and indentation fragment into many small tokens"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Tokenisers are fit to natural language, so camelCase names, braces and whitespace split more finely. Budgeting code by the four-characters-per-token rule of thumb consistently underestimates."
+  },
+  {
+    "id": "ail2-sycophancy",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "bias",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "bias"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A model that changes its answer when you push back, without new evidence, is showing",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sycophancy — agreeing with the user's apparent preference"
+      },
+      {
+        "id": "b",
+        "text": "A bug"
+      },
+      {
+        "id": "c",
+        "text": "Better calibration"
+      },
+      {
+        "id": "d",
+        "text": "Improved reasoning"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Preference training rewards being agreeable, which can outweigh being right. The practical consequence is that arguing with a model is a poor way to test an answer; checking the source is the way."
+  },
+  {
+    "id": "ail2-jailbreak",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "prompt-injection",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "prompt-injection"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A jailbreak differs from a prompt injection in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are the same"
+      },
+      {
+        "id": "b",
+        "text": "A jailbreak is the user subverting the model's own constraints; an injection is a third party's text doing so"
+      },
+      {
+        "id": "c",
+        "text": "A jailbreak needs code"
+      },
+      {
+        "id": "d",
+        "text": "An injection needs an account"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The distinction is who supplies the hostile text and who is harmed. Injection matters far more in applications, because the attacker is not the user and the user may never see what was inserted."
+  },
+  {
+    "id": "ail2-math-tools",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The most reliable way to get arithmetic right from a model-based system is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Raise the temperature"
+      },
+      {
+        "id": "b",
+        "text": "Ask it to be careful"
+      },
+      {
+        "id": "c",
+        "text": "Have it emit a calculation for a tool to execute"
+      },
+      {
+        "id": "d",
+        "text": "Use a larger model"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Delegate computation to something that computes. Asking for care changes the phrasing more than the reliability, and larger models reduce the error rate without removing it."
+  },
+  {
+    "id": "ail2-counting",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Models are unreliable at counting characters in a word because",
+    "options": [
+      {
+        "id": "a",
+        "text": "They lack memory"
+      },
+      {
+        "id": "b",
+        "text": "The prompt is too short"
+      },
+      {
+        "id": "c",
+        "text": "Counting is hard"
+      },
+      {
+        "id": "d",
+        "text": "They see tokens rather than individual characters"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The unit the model operates on is the token, so character-level structure is not directly visible. This is why letter-counting and reversal tasks fail in ways that look absurd next to the model's other abilities."
+  },
+  {
+    "id": "ail2-cutoff-selfreport",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "knowledge-cutoff",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "knowledge-cutoff"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Asking a model for its own knowledge cutoff gives",
+    "options": [
+      {
+        "id": "a",
+        "text": "A generated answer that is often wrong, since the date is not something it can observe"
+      },
+      {
+        "id": "b",
+        "text": "The current date"
+      },
+      {
+        "id": "c",
+        "text": "An error"
+      },
+      {
+        "id": "d",
+        "text": "A reliable date"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The cutoff is a property of the training process, not a fact the weights record reliably. Treat a self-reported date as a guess and get it from the provider's documentation."
+  },
+  {
+    "id": "ail2-repetition",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "non-determinism",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "non-determinism"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A model that starts repeating the same phrase is usually showing",
+    "options": [
+      {
+        "id": "a",
+        "text": "A hardware fault"
+      },
+      {
+        "id": "b",
+        "text": "A degenerate sampling loop, often at very low temperature or with a long output"
+      },
+      {
+        "id": "c",
+        "text": "Training data corruption"
+      },
+      {
+        "id": "d",
+        "text": "Prompt injection"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Greedy or near-greedy decoding can settle into a high-probability cycle. Raising temperature slightly, adding a repetition penalty or shortening the requested output are the usual fixes."
+  },
+  {
+    "id": "ail2-bias-amplify",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "bias",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "bias"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Models can amplify rather than merely reflect bias because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Temperature is too high"
+      },
+      {
+        "id": "b",
+        "text": "They invent new prejudices"
+      },
+      {
+        "id": "c",
+        "text": "Selecting the most probable continuation sharpens a skewed distribution toward its mode"
+      },
+      {
+        "id": "d",
+        "text": "They are trained on the internet"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Picking the likeliest option repeatedly concentrates mass on the majority pattern, so a mild imbalance in the data can become a strong one in the output. Measuring output distributions, not just input data, is what detects it."
+  },
+  {
+    "id": "ail2-context-privacy",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "context-window",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "context-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Two users of the same application see each other's data in responses. The most likely cause is",
+    "options": [
+      {
+        "id": "a",
+        "text": "A tokeniser bug"
+      },
+      {
+        "id": "b",
+        "text": "Temperature"
+      },
+      {
+        "id": "c",
+        "text": "The model was trained on it"
+      },
+      {
+        "id": "d",
+        "text": "Application code sharing one conversation context across users"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Models are stateless between requests; context is assembled by your code. Cross-user leakage is almost always a session or cache-key defect on your side rather than anything the model did."
+  },
+  {
+    "id": "ail2-overconfidence",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "hallucination",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "hallucination"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which prompt change most reduces confident fabrication?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Giving it the source material and instructing it to answer only from that, and to say so when it cannot"
+      },
+      {
+        "id": "b",
+        "text": "Raising temperature"
+      },
+      {
+        "id": "c",
+        "text": "Asking for a longer answer"
+      },
+      {
+        "id": "d",
+        "text": "Asking it to be accurate"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Grounding plus an explicit licence to abstain removes the pressure to produce something. Instructions to be accurate do not supply the missing facts, so they change tone rather than content."
+  },
+  {
+    "id": "ail2-units",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A model converts units incorrectly in a long calculation. The best mitigation is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask it to redo the calculation"
+      },
+      {
+        "id": "b",
+        "text": "Have it state the units at each step, or compute the conversion in code"
+      },
+      {
+        "id": "c",
+        "text": "Use a system prompt"
+      },
+      {
+        "id": "d",
+        "text": "Lower the temperature"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Making each step explicit turns an invisible error into a checkable one, and moving the arithmetic to code removes it. Re-asking gives another sample from the same distribution."
+  },
+  {
+    "id": "ail2-multi-turn-drift",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "context-window",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "context-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Over a very long conversation a model begins contradicting its earlier answers because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It was retrained"
+      },
+      {
+        "id": "b",
+        "text": "It is learning"
+      },
+      {
+        "id": "c",
+        "text": "Earlier turns have fallen out of the context window"
+      },
+      {
+        "id": "d",
+        "text": "The temperature rose"
+      }
+    ],
+    "answer": "c",
+    "explanation": "What is no longer in context does not exist for the model, and it has no way to know something was dropped. Summarising the conversation back into the prompt is the standard mitigation."
+  },
+  {
+    "id": "ail2-stochastic-parrot",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "The 'stochastic parrot' criticism argues that a language model",
+    "options": [
+      {
+        "id": "a",
+        "text": "Repeats its training data verbatim"
+      },
+      {
+        "id": "b",
+        "text": "Is too small"
+      },
+      {
+        "id": "c",
+        "text": "Cannot produce grammatical text"
+      },
+      {
+        "id": "d",
+        "text": "May reproduce statistical patterns without grounded understanding of what the words refer to"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The claim is about the absence of grounding rather than about fluency. Whether it holds for current systems is genuinely contested; the exam-relevant point is being able to state the argument rather than to settle it."
+  },
+  {
+    "id": "ail2-emergent",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "'Emergent abilities' in large models refers to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Capabilities that appear only past a certain scale and were not present in smaller models"
+      },
+      {
+        "id": "b",
+        "text": "Bugs that appear in production"
+      },
+      {
+        "id": "c",
+        "text": "Abilities the model claims to have"
+      },
+      {
+        "id": "d",
+        "text": "Abilities added by fine-tuning"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The observation is that some capabilities improve discontinuously with scale. It is also contested, since the appearance of a jump can depend on how the metric is chosen, which is worth knowing as a caveat."
+  },
+  {
+    "id": "ail2-eval",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The most reliable way to compare two models for your use case is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Public leaderboard rank"
+      },
+      {
+        "id": "b",
+        "text": "An evaluation set drawn from your own task, with your own success criteria"
+      },
+      {
+        "id": "c",
+        "text": "Parameter count"
+      },
+      {
+        "id": "d",
+        "text": "The provider's marketing"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Benchmarks measure average performance on someone else's distribution. Your traffic, your edge cases and your definition of a good answer are what decide, and building even a small eval set changes the conversation."
+  },
+  {
+    "id": "ail2-determinism",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "non-determinism",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "non-determinism"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "To make a model's output as reproducible as possible you should",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a larger model"
+      },
+      {
+        "id": "b",
+        "text": "Increase temperature"
+      },
+      {
+        "id": "c",
+        "text": "Set temperature to zero and fix any seed the provider exposes"
+      },
+      {
+        "id": "d",
+        "text": "Shorten the prompt"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Greedy decoding removes the sampling variation, which is the dominant source. Even then, batching and hardware differences can leave small variations, so reproducibility is a matter of degree rather than a guarantee."
+  },
+  {
+    "id": "ail2-zero-shot",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "few-shot",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "few-shot"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "Zero-shot prompting means",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asking for the task with no worked examples"
+      },
+      {
+        "id": "b",
+        "text": "Setting temperature to zero"
+      },
+      {
+        "id": "c",
+        "text": "Using the smallest model"
+      },
+      {
+        "id": "d",
+        "text": "Using no system prompt"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The term counts examples in the prompt, not settings or model size. Modern instruction-tuned models handle many tasks zero-shot, so examples are worth spending context on only when the task resists description."
+  },
+  {
+    "id": "ail2-example-quality",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "few-shot",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "few-shot"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Two few-shot examples both show the answer in the same position. The risk is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Higher cost"
+      },
+      {
+        "id": "b",
+        "text": "The model copies that superficial pattern instead of the intended rule"
+      },
+      {
+        "id": "c",
+        "text": "Slower inference"
+      },
+      {
+        "id": "d",
+        "text": "A refusal"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Examples teach by pattern, including patterns you did not intend such as order, length or formatting. Varying the incidental features while keeping the rule constant is what makes a demonstration set useful."
+  },
+  {
+    "id": "ail2-decompose",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "anti-patterns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "anti-patterns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A long task keeps producing partly-wrong output. The most effective structural fix is",
+    "options": [
+      {
+        "id": "a",
+        "text": "More examples"
+      },
+      {
+        "id": "b",
+        "text": "A longer prompt"
+      },
+      {
+        "id": "c",
+        "text": "Splitting it into steps whose intermediate outputs you can check"
+      },
+      {
+        "id": "d",
+        "text": "A larger model"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Decomposition converts one unverifiable result into several verifiable ones, and localises which step failed. It also lets you fix one step without disturbing the others."
+  },
+  {
+    "id": "ail2-schema-first",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "output-format",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-format"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "When you need structured output, the most reliable approach is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Setting temperature to zero"
+      },
+      {
+        "id": "b",
+        "text": "Asking for markdown"
+      },
+      {
+        "id": "c",
+        "text": "Asking politely for JSON"
+      },
+      {
+        "id": "d",
+        "text": "Supplying the schema and validating the response against it in code, retrying on failure"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A prompt makes valid output likely; a validator makes invalid output impossible to pass downstream. The combination of instruction, schema and programmatic check is what makes a parser safe."
+  },
+  {
+    "id": "ail2-delimiters-injection",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "delimiters",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "delimiters"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Delimiters around untrusted text reduce but do not eliminate injection risk because",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model can still be persuaded by instructions inside the delimited span"
+      },
+      {
+        "id": "b",
+        "text": "They cost tokens"
+      },
+      {
+        "id": "c",
+        "text": "They break JSON"
+      },
+      {
+        "id": "d",
+        "text": "They are too short"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Delimiters are a hint about structure, not an enforced boundary. Real protection comes from limiting what the system is permitted to do with the result, not from how the text is fenced."
+  },
+  {
+    "id": "ail2-temperature-task",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "output-format",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-format"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "For extracting fields from a document you should generally use",
+    "options": [
+      {
+        "id": "a",
+        "text": "High temperature for creativity"
+      },
+      {
+        "id": "b",
+        "text": "Low temperature, because there is one correct extraction"
+      },
+      {
+        "id": "c",
+        "text": "Default temperature"
+      },
+      {
+        "id": "d",
+        "text": "Maximum temperature"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Match the sampling to the task: extraction has a right answer and wants determinism, while ideation benefits from variety. Using one setting for both is a common default that costs accuracy."
+  },
+  {
+    "id": "ail2-self-consistency",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "chain-of-thought",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "chain-of-thought"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Sampling several reasoning paths and taking the most common answer is called",
+    "options": [
+      {
+        "id": "a",
+        "text": "Distillation"
+      },
+      {
+        "id": "b",
+        "text": "Few-shot prompting"
+      },
+      {
+        "id": "c",
+        "text": "Self-consistency"
+      },
+      {
+        "id": "d",
+        "text": "Fine-tuning"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Independent samples make an isolated reasoning slip less likely to survive a majority vote. It costs several times the tokens, so it suits high-value questions rather than routine ones."
+  },
+  {
+    "id": "ail2-prefill",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "output-format",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-format"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Starting the model's reply for it — for example with an opening brace — helps because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It raises accuracy generally"
+      },
+      {
+        "id": "b",
+        "text": "It disables sampling"
+      },
+      {
+        "id": "c",
+        "text": "It saves tokens"
+      },
+      {
+        "id": "d",
+        "text": "It constrains the continuation into the intended format from the first token"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Generation continues from what is already there, so the opening commits the shape before the model has a chance to add a preamble. It is a formatting tool, not a correctness one."
+  },
+  {
+    "id": "ail2-negative-example",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "anti-patterns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "anti-patterns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Including an example of the WRONG output in a prompt is risky because",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model may imitate it, since examples teach by pattern rather than by label"
+      },
+      {
+        "id": "b",
+        "text": "It confuses the tokeniser"
+      },
+      {
+        "id": "c",
+        "text": "It is not supported"
+      },
+      {
+        "id": "d",
+        "text": "It doubles the cost"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Anything demonstrated is a candidate to copy, and the label marking it as wrong is weaker than the pattern itself. Describe what to avoid in words, and demonstrate only what you want."
+  },
+  {
+    "id": "ail2-prompt-versioning",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "iteration",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "iteration"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Prompts in a production system should be",
+    "options": [
+      {
+        "id": "a",
+        "text": "Edited directly in production"
+      },
+      {
+        "id": "b",
+        "text": "Versioned and evaluated like code, because a change alters behaviour everywhere"
+      },
+      {
+        "id": "c",
+        "text": "Kept secret from the team"
+      },
+      {
+        "id": "d",
+        "text": "Regenerated daily"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A prompt is configuration that determines output, so it deserves review, version history and a regression set. Editing it live is the equivalent of an unreviewed deploy."
+  },
+  {
+    "id": "ail2-context-injection-order",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "When a prompt mixes instructions and retrieved documents, instructions should be",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the first document"
+      },
+      {
+        "id": "b",
+        "text": "Between the documents"
+      },
+      {
+        "id": "c",
+        "text": "Clearly separated and repeated after the documents"
+      },
+      {
+        "id": "d",
+        "text": "Omitted"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Separation reduces confusion between instruction and data, and restating after a long block counters the attention dip in the middle. Both cost a handful of tokens and reliably help."
+  },
+  {
+    "id": "ail2-ask-for-uncertainty",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "anti-patterns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "anti-patterns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Asking a model to 'say if you are unsure' helps mainly because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It lowers temperature"
+      },
+      {
+        "id": "b",
+        "text": "It shortens the answer"
+      },
+      {
+        "id": "c",
+        "text": "It calibrates the model"
+      },
+      {
+        "id": "d",
+        "text": "It makes abstention an allowed output, which it otherwise treats as failure"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Without permission to abstain, the likeliest continuation is always an answer. Granting that permission changes the available outputs; it does not give the model an accurate sense of its own reliability."
+  },
+  {
+    "id": "ail2-role-limits",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "role-prompting",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "role-prompting"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Assigning the role of 'a security expert' does NOT",
+    "options": [
+      {
+        "id": "a",
+        "text": "Make the model's security claims reliable"
+      },
+      {
+        "id": "b",
+        "text": "Shift what it emphasises"
+      },
+      {
+        "id": "c",
+        "text": "Affect tone"
+      },
+      {
+        "id": "d",
+        "text": "Change vocabulary"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Framing changes emphasis and register, not correctness. A confidently worded security review from a role-prompted model still needs the same verification as one without the role."
+  },
+  {
+    "id": "ail2-multilingual",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Asking for an answer in a language other than the prompt's is best done by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Translating the prompt yourself"
+      },
+      {
+        "id": "b",
+        "text": "Stating the required output language explicitly as part of the output contract"
+      },
+      {
+        "id": "c",
+        "text": "Using a different model"
+      },
+      {
+        "id": "d",
+        "text": "Setting a locale"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Output language is part of the format contract and should be stated like any other constraint. Left implicit, the model usually mirrors the prompt's language, which may not be what you want."
+  },
+  {
+    "id": "ail2-token-budget",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "output-format",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-format"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Asking for 'a brief answer' is less reliable than",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using a smaller model"
+      },
+      {
+        "id": "b",
+        "text": "Asking twice"
+      },
+      {
+        "id": "c",
+        "text": "Giving a concrete limit such as three sentences or fifty words"
+      },
+      {
+        "id": "d",
+        "text": "Lowering temperature"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Vague quantifiers are interpreted inconsistently; a number is checkable by you and actionable by the model. The same applies to 'detailed', which produces length rather than depth."
+  },
+  {
+    "id": "ail2-edge-case-prompt",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Naming edge cases in a coding prompt matters because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It reduces tokens"
+      },
+      {
+        "id": "b",
+        "text": "It prevents hallucination"
+      },
+      {
+        "id": "c",
+        "text": "It makes the code longer"
+      },
+      {
+        "id": "d",
+        "text": "Unstated cases are usually unhandled, and the omission is invisible in the happy path"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A model produces what the prompt implies, and an unmentioned empty input or overflow simply will not appear. Listing them is also what the assessment's framing step scores."
+  },
+  {
+    "id": "ail2-system-prompt",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A system prompt differs from a user message in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "It sets persistent instructions and framing for the whole conversation"
+      },
+      {
+        "id": "b",
+        "text": "It is free"
+      },
+      {
+        "id": "c",
+        "text": "The model cannot see it"
+      },
+      {
+        "id": "d",
+        "text": "It is encrypted"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It is given higher standing and is not repeated each turn, which makes it the right place for role, constraints and output contract. It is still text in the same context, so it is not a security boundary."
+  },
+  {
+    "id": "ail2-explainability",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "transparency",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "transparency"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Why is explainability harder for a large neural model than for a decision tree?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is larger on disk"
+      },
+      {
+        "id": "b",
+        "text": "It runs on different hardware"
+      },
+      {
+        "id": "c",
+        "text": "Its behaviour arises from billions of interacting weights with no human-readable rule to inspect"
+      },
+      {
+        "id": "d",
+        "text": "It is proprietary"
+      }
+    ],
+    "answer": "c",
+    "explanation": "A tree's path is the explanation; a network has no equivalent artefact, so explanations are reconstructed after the fact and may not reflect the actual computation. That gap matters most where a decision must be justified."
+  },
+  {
+    "id": "ail2-consent",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "privacy",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "privacy"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Using customer support transcripts to fine-tune a model requires attention to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Model size"
+      },
+      {
+        "id": "b",
+        "text": "Latency"
+      },
+      {
+        "id": "c",
+        "text": "Token cost"
+      },
+      {
+        "id": "d",
+        "text": "Whether the customers' consent and the stated purpose of collection cover this use"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Data collected for one purpose is not automatically available for another; purpose limitation is a core principle of most data-protection regimes. The technical feasibility of the training run says nothing about its lawfulness."
+  },
+  {
+    "id": "ail2-right-erasure",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "privacy",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "privacy"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A person exercises their right to erasure over data used in training. The difficulty is that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Weights do not store records, so removing one person's contribution generally means retraining"
+      },
+      {
+        "id": "b",
+        "text": "Models are read-only"
+      },
+      {
+        "id": "c",
+        "text": "The data was anonymous"
+      },
+      {
+        "id": "d",
+        "text": "Training data is encrypted"
+      }
+    ],
+    "answer": "a",
+    "explanation": "There is no row to delete. Approaches such as machine unlearning exist but are immature, which is a strong argument for retrieval over fine-tuning when personal data is involved."
+  },
+  {
+    "id": "ail2-dual-use",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "safety",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "safety"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A capability that is beneficial in one context and harmful in another is described as",
+    "options": [
+      {
+        "id": "a",
+        "text": "Multi-modal"
+      },
+      {
+        "id": "b",
+        "text": "Dual-use"
+      },
+      {
+        "id": "c",
+        "text": "Emergent"
+      },
+      {
+        "id": "d",
+        "text": "Non-deterministic"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The same summarisation that helps a researcher helps someone producing targeted disinformation. Dual-use framing shifts the question from whether to build a capability to how access and use are governed."
+  },
+  {
+    "id": "ail2-audit-trail",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "accountability",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "accountability"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An AI-assisted decision system should log",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only errors"
+      },
+      {
+        "id": "b",
+        "text": "Only the final decision"
+      },
+      {
+        "id": "c",
+        "text": "The inputs, the model version, the prompt and the output, so a decision can be reconstructed"
+      },
+      {
+        "id": "d",
+        "text": "Nothing, for privacy"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Reconstructability is what makes review, appeal and incident analysis possible. A decision you cannot reproduce is one you cannot defend or correct."
+  },
+  {
+    "id": "ail2-disparate-impact",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "bias-fairness",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "bias-fairness"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A policy that is neutral on its face but produces markedly worse outcomes for a protected group is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only a technical problem"
+      },
+      {
+        "id": "b",
+        "text": "Unmeasurable"
+      },
+      {
+        "id": "c",
+        "text": "Acceptable if unintentional"
+      },
+      {
+        "id": "d",
+        "text": "Disparate impact, which is actionable regardless of intent in many jurisdictions"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Intent is not the test; effect is. This is why fairness work measures outcomes across groups rather than auditing the code for explicit references to protected attributes."
+  },
+  {
+    "id": "ail2-red-team",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "safety",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "safety"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Red-teaming a model means",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deliberately trying to make it behave badly, to find failures before users do"
+      },
+      {
+        "id": "b",
+        "text": "Fine-tuning it"
+      },
+      {
+        "id": "c",
+        "text": "Benchmarking it"
+      },
+      {
+        "id": "d",
+        "text": "Load testing it"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It is adversarial evaluation, and its value depends on the testers being genuinely motivated to break the system. Findings feed guardrails and policy rather than proving safety."
+  },
+  {
+    "id": "ail2-content-provenance",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "ip",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "ip"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Watermarking or provenance metadata on generated media aims to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Prevent generation"
+      },
+      {
+        "id": "b",
+        "text": "Make the origin of a piece of content checkable downstream"
+      },
+      {
+        "id": "c",
+        "text": "Improve quality"
+      },
+      {
+        "id": "d",
+        "text": "Reduce cost"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It addresses attribution rather than creation, and is most useful when a verification step exists at the point of consumption. Robustness against deliberate stripping remains an open problem."
+  },
+  {
+    "id": "ail2-environmental",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "regulation",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "regulation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The largest environmental cost of a widely deployed model is usually",
+    "options": [
+      {
+        "id": "a",
+        "text": "Data collection"
+      },
+      {
+        "id": "b",
+        "text": "The single training run"
+      },
+      {
+        "id": "c",
+        "text": "Cumulative inference across millions of requests over its lifetime"
+      },
+      {
+        "id": "d",
+        "text": "Storage"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Training is a large one-off; serving is a small cost repeated constantly. This is why efficiency work on inference, and choosing a right-sized model, matter more than the headline training figure."
+  },
+  {
+    "id": "ail2-vendor-lock",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "accountability",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "accountability"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Depending on one provider's model for a core feature creates risk because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Open models are always better"
+      },
+      {
+        "id": "b",
+        "text": "It is illegal"
+      },
+      {
+        "id": "c",
+        "text": "Models are always deprecated"
+      },
+      {
+        "id": "d",
+        "text": "Behaviour, pricing and availability can change outside your control, and prompts do not transfer cleanly"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A model upgrade can silently change behaviour your product relied on. Keeping an evaluation set and an abstraction over the provider is what makes a switch or a version change survivable."
+  },
+  {
+    "id": "ail2-human-oversight-eu",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "regulation",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "regulation"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Under risk-based AI regulation, a high-risk system typically must provide",
+    "options": [
+      {
+        "id": "a",
+        "text": "Documentation, logging, risk management and effective human oversight"
+      },
+      {
+        "id": "b",
+        "text": "A free tier"
+      },
+      {
+        "id": "c",
+        "text": "A public API"
+      },
+      {
+        "id": "d",
+        "text": "Open weights"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The obligations are process and governance obligations rather than technical ones about the model. Being able to show how the system was assessed and monitored is what compliance looks like in practice."
+  },
+  {
+    "id": "ail2-children",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "safety",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "safety"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Products used by minors require additional care mainly because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Children type faster"
+      },
+      {
+        "id": "b",
+        "text": "Age affects the ability to assess reliability and consent, raising the duty of care"
+      },
+      {
+        "id": "c",
+        "text": "Models perform worse"
+      },
+      {
+        "id": "d",
+        "text": "It is a technical limitation"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Vulnerability of the audience changes what counts as adequate safeguarding, in regulation and in practice. Default settings and disclosure standards are usually stricter as a result."
+  },
+  {
+    "id": "ail2-misuse-report",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "accountability",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "accountability"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Discovering that an internal AI tool is being used for a purpose it was never assessed for should lead to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deleting the logs"
+      },
+      {
+        "id": "b",
+        "text": "Ignoring it if no harm occurred"
+      },
+      {
+        "id": "c",
+        "text": "Pausing that use and assessing it, since the original risk assessment does not cover it"
+      },
+      {
+        "id": "d",
+        "text": "Expanding access"
+      }
+    ],
+    "answer": "c",
+    "explanation": "A risk assessment is bounded by the use case it examined. Unassessed use is unassessed risk, and the absence of harm so far is not evidence that the assessment would pass."
+  },
+  {
+    "id": "ail2-bias-eval",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "bias-fairness",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "bias-fairness"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "To measure whether a model treats groups differently you must",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a larger model"
+      },
+      {
+        "id": "b",
+        "text": "Increase the training set"
+      },
+      {
+        "id": "c",
+        "text": "Remove group attributes from the data"
+      },
+      {
+        "id": "d",
+        "text": "Retain group labels for evaluation, even if they are excluded from the model's inputs"
+      }
+    ],
+    "answer": "d",
+    "explanation": "You cannot measure a gap you refuse to record. The standard arrangement is to exclude the attribute from the features while keeping it for outcome analysis — blindness in the model, sight in the evaluation."
+  },
+  {
+    "id": "ail2-incident",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "safety",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "safety"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An AI incident response plan differs from a normal one mainly in needing",
+    "options": [
+      {
+        "id": "a",
+        "text": "A way to roll back model or prompt versions and to identify affected outputs after the fact"
+      },
+      {
+        "id": "b",
+        "text": "More staff"
+      },
+      {
+        "id": "c",
+        "text": "A different language"
+      },
+      {
+        "id": "d",
+        "text": "Faster paging"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The failure may be a silent quality regression rather than an outage, and the blast radius is a set of outputs rather than a downtime window. Versioning and output logging are what make both tractable."
+  },
+  {
+    "id": "ail2-data-leakage",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "privacy",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "privacy"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The main privacy risk of pasting internal documents into a third-party model is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Slower responses"
+      },
+      {
+        "id": "b",
+        "text": "Disclosure to that provider, regardless of what it subsequently does with the text"
+      },
+      {
+        "id": "c",
+        "text": "Token cost"
+      },
+      {
+        "id": "d",
+        "text": "Hallucination"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Disclosure happens on transmission. Retention and training policies decide what follows, but they cannot undo the fact that the data left your control, which is why approval belongs before the paste."
+  },
+  {
+    "id": "ail2-hybrid",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "pipeline",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "pipeline"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Hybrid retrieval combines",
+    "options": [
+      {
+        "id": "a",
+        "text": "Two models"
+      },
+      {
+        "id": "b",
+        "text": "Keyword search with vector similarity, covering each other's weaknesses"
+      },
+      {
+        "id": "c",
+        "text": "Two databases"
+      },
+      {
+        "id": "d",
+        "text": "Training and inference"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Lexical search excels at exact identifiers and rare terms that embeddings blur; vector search handles paraphrase. Combining them and re-ranking is the standard production answer."
+  },
+  {
+    "id": "ail2-reranking",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "pipeline",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "pipeline"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A re-ranker is applied",
+    "options": [
+      {
+        "id": "a",
+        "text": "During training"
+      },
+      {
+        "id": "b",
+        "text": "Before retrieval"
+      },
+      {
+        "id": "c",
+        "text": "After a cheap retrieval step, to order a small candidate set more accurately"
+      },
+      {
+        "id": "d",
+        "text": "Instead of embedding"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Cheap retrieval casts a wide net; an expensive model then orders the handful that survive. The two-stage shape exists because the accurate model is too costly to run over the whole corpus."
+  },
+  {
+    "id": "ail2-metadata-filter",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "vector-db",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "vector-db"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Filtering by metadata such as date or department before similarity search",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is impossible"
+      },
+      {
+        "id": "b",
+        "text": "Replaces embeddings"
+      },
+      {
+        "id": "c",
+        "text": "Makes results worse"
+      },
+      {
+        "id": "d",
+        "text": "Narrows the candidate set to what is permissible and relevant, improving precision"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It also carries the access-control story: filtering by permission before retrieval is how you stop a user's question surfacing documents they may not see."
+  },
+  {
+    "id": "ail2-overlap",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "pipeline",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "pipeline"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Overlapping adjacent chunks helps because",
+    "options": [
+      {
+        "id": "a",
+        "text": "A passage split across a boundary would otherwise be retrievable from neither chunk"
+      },
+      {
+        "id": "b",
+        "text": "It speeds search"
+      },
+      {
+        "id": "c",
+        "text": "It removes duplicates"
+      },
+      {
+        "id": "d",
+        "text": "It reduces storage"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Overlap costs index size and some redundancy in results, and buys robustness at boundaries. It is a tuning parameter, decided by measuring retrieval quality rather than by rule."
+  },
+  {
+    "id": "ail2-citation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "grounding",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "grounding"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Returning citations alongside a RAG answer matters because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It looks professional"
+      },
+      {
+        "id": "b",
+        "text": "It lets the reader verify the claim against the source rather than trusting the summary"
+      },
+      {
+        "id": "c",
+        "text": "It reduces cost"
+      },
+      {
+        "id": "d",
+        "text": "It improves retrieval"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Verifiability is the main safeguard against an ungrounded answer reaching a decision. Citations that do not actually support the sentence are worse than none, so they need checking too."
+  },
+  {
+    "id": "ail2-stale-index",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "failure-modes",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "failure-modes"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A RAG system confidently returns information that was corrected last week. The likeliest cause is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Chunk size"
+      },
+      {
+        "id": "b",
+        "text": "Model hallucination"
+      },
+      {
+        "id": "c",
+        "text": "A stale index that has not been rebuilt since the source changed"
+      },
+      {
+        "id": "d",
+        "text": "Temperature"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Retrieval is only as current as the index. Indexing pipelines need the same monitoring as any other data pipeline, because their failure is silent and looks like a model problem."
+  },
+  {
+    "id": "ail2-embedding-model",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "embeddings",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "embeddings"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Changing the embedding model requires",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retraining the LLM"
+      },
+      {
+        "id": "b",
+        "text": "A larger context window"
+      },
+      {
+        "id": "c",
+        "text": "Nothing"
+      },
+      {
+        "id": "d",
+        "text": "Re-embedding the whole corpus, because vectors from different models are not comparable"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Each model defines its own space, so mixing vectors produces meaningless distances. This is why the embedding model is a sticky choice and why migrations are planned rather than incidental."
+  },
+  {
+    "id": "ail2-no-answer",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "failure-modes",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "failure-modes"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Evaluating a RAG system should include cases where",
+    "options": [
+      {
+        "id": "a",
+        "text": "The answer is genuinely absent from the corpus, to test whether it abstains"
+      },
+      {
+        "id": "b",
+        "text": "The corpus is empty"
+      },
+      {
+        "id": "c",
+        "text": "Retrieval is disabled"
+      },
+      {
+        "id": "d",
+        "text": "Every question is answerable"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A system that never abstains scores perfectly on answerable questions and fails silently on the rest. Including unanswerable cases is what makes the abstention behaviour measurable."
+  },
+  {
+    "id": "ail2-graph-rag",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "why-rag",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "why-rag"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Retrieval over a knowledge graph rather than flat text suits questions that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Are shorter"
+      },
+      {
+        "id": "b",
+        "text": "Require traversing relationships between entities rather than matching a passage"
+      },
+      {
+        "id": "c",
+        "text": "Need lower latency"
+      },
+      {
+        "id": "d",
+        "text": "Have one keyword"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Chunk similarity finds passages; it does not follow multi-hop relationships. Where the answer requires joining facts across documents, structure in the index does work that similarity alone cannot."
+  },
+  {
+    "id": "ail2-react",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "planning",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "planning"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The reason-then-act loop interleaves",
+    "options": [
+      {
+        "id": "a",
+        "text": "Two models"
+      },
+      {
+        "id": "b",
+        "text": "Prompt and response"
+      },
+      {
+        "id": "c",
+        "text": "Training and inference"
+      },
+      {
+        "id": "d",
+        "text": "A reasoning step with a tool action and the observation of its result"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Making the reasoning explicit before each action gives both the model and the reader something to inspect, and the observation grounds the next step in what actually happened rather than in what was expected."
+  },
+  {
+    "id": "ail2-idempotent",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "tool-calling",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "tool-calling"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Agent tools should be designed to be idempotent where possible because",
+    "options": [
+      {
+        "id": "a",
+        "text": "A retried or duplicated call must not cause the effect twice"
+      },
+      {
+        "id": "b",
+        "text": "It uses fewer tokens"
+      },
+      {
+        "id": "c",
+        "text": "Models prefer it"
+      },
+      {
+        "id": "d",
+        "text": "It is faster"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Loops retry, and a duplicated payment or duplicated email is a real consequence. Idempotency keys turn an at-least-once system into a safely repeatable one."
+  },
+  {
+    "id": "ail2-tool-description",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "tool-calling",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "tool-calling"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A tool's description in the schema matters because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is shown to users"
+      },
+      {
+        "id": "b",
+        "text": "It is the only thing the model has to decide when and how to call it"
+      },
+      {
+        "id": "c",
+        "text": "It affects latency"
+      },
+      {
+        "id": "d",
+        "text": "It is logged"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Selection and argument construction are driven entirely by the name, description and parameter docs. A vague description produces wrong calls as reliably as a vague prompt produces wrong prose."
+  },
+  {
+    "id": "ail2-budget",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "planning",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "planning"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Bounding an agent with a maximum number of steps protects against",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bad output format"
+      },
+      {
+        "id": "b",
+        "text": "Slow tools"
+      },
+      {
+        "id": "c",
+        "text": "Unbounded loops and runaway cost when the agent cannot make progress"
+      },
+      {
+        "id": "d",
+        "text": "Injection"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Without a ceiling, a failure to converge becomes an open-ended bill. The bound also forces an explicit failure path, which is more useful than an agent that spins."
+  },
+  {
+    "id": "ail2-least-privilege",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "guardrails",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "guardrails"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An agent's credentials should be scoped to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Read-only always"
+      },
+      {
+        "id": "b",
+        "text": "The user's own account"
+      },
+      {
+        "id": "c",
+        "text": "The whole system, for flexibility"
+      },
+      {
+        "id": "d",
+        "text": "The minimum needed for its task, so a mistake or an injection has a small blast radius"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Least privilege limits the damage from both bugs and hostile input. Broad credentials mean any successful manipulation of the model inherits everything the agent can reach."
+  },
+  {
+    "id": "ail2-observability",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "planning",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "planning"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The most useful thing to log from an agent run is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Each step's reasoning, tool call, arguments and observation"
+      },
+      {
+        "id": "b",
+        "text": "Token counts"
+      },
+      {
+        "id": "c",
+        "text": "The system prompt"
+      },
+      {
+        "id": "d",
+        "text": "The final answer only"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Failures are almost always mid-loop, and a final answer gives no way to find where the chain went wrong. The step trace is the equivalent of a stack trace for agent systems."
+  },
+  {
+    "id": "ail2-delegation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "multi-agent",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "multi-agent"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A supervisor agent delegating to specialists mainly risks",
+    "options": [
+      {
+        "id": "a",
+        "text": "Higher accuracy"
+      },
+      {
+        "id": "b",
+        "text": "Information loss at each hand-off, since context is summarised between agents"
+      },
+      {
+        "id": "c",
+        "text": "Lower cost"
+      },
+      {
+        "id": "d",
+        "text": "Faster completion"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Every boundary is a lossy interface, and errors introduced in a summary are invisible to the receiving agent. Keeping hand-offs few and their contracts explicit is what makes the pattern work."
+  },
+  {
+    "id": "ail2-evaluation-agent",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "human-in-loop",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "human-in-loop"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Evaluating an agent is harder than evaluating a single call because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tokens cost more"
+      },
+      {
+        "id": "b",
+        "text": "Agents are slower"
+      },
+      {
+        "id": "c",
+        "text": "Success depends on a trajectory, and many different valid paths may reach the same outcome"
+      },
+      {
+        "id": "d",
+        "text": "Tools are unreliable"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Scoring only the final state misses expensive or unsafe routes to it, while scoring the exact path punishes valid alternatives. Useful evaluation usually measures outcome plus a few trajectory constraints."
+  },
+  {
+    "id": "ail2-context-repo",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "assistant-strengths",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "assistant-strengths"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An assistant suggests code using a function that does not exist in your codebase. This is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Expected behaviour to accept"
+      },
+      {
+        "id": "b",
+        "text": "A compiler bug"
+      },
+      {
+        "id": "c",
+        "text": "A hallucinated API, produced because the model pattern-matched a plausible name"
+      },
+      {
+        "id": "d",
+        "text": "A version mismatch"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Plausible-sounding names for functions that were never written are a standard failure. It is caught immediately by compiling, which is one reason a build step belongs between suggestion and review."
+  },
+  {
+    "id": "ail2-diff-review",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "review-discipline",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "review-discipline"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Reviewing a large AI-generated change is best done by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Running it once"
+      },
+      {
+        "id": "b",
+        "text": "Accepting if it compiles"
+      },
+      {
+        "id": "c",
+        "text": "Skimming for style"
+      },
+      {
+        "id": "d",
+        "text": "Reading it as an unfamiliar contributor's work, checking each claim against the requirement"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The posture that works is the one you would apply to a new colleague's first pull request. Compiling and running prove far less than they appear to when the failure mode is plausible-but-wrong."
+  },
+  {
+    "id": "ail2-secrets",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "security",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "security"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Before pasting a stack trace into an assistant you should",
+    "options": [
+      {
+        "id": "a",
+        "text": "Check it for tokens, internal hostnames and customer identifiers"
+      },
+      {
+        "id": "b",
+        "text": "Translate it"
+      },
+      {
+        "id": "c",
+        "text": "Format it"
+      },
+      {
+        "id": "d",
+        "text": "Shorten it"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Traces routinely carry connection strings, headers and identifiers. Scrubbing them is a habit worth building, because the disclosure cannot be undone once the request is sent."
+  },
+  {
+    "id": "ail2-regenerate",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "review-discipline",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "review-discipline"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Regenerating an answer until one looks right is risky because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It costs money"
+      },
+      {
+        "id": "b",
+        "text": "Selection by appearance is not verification, and you may simply pick the most convincing wrong one"
+      },
+      {
+        "id": "c",
+        "text": "It is slow"
+      },
+      {
+        "id": "d",
+        "text": "It causes rate limits"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Sampling repeatedly explores the distribution; it does not improve the truth of any sample. Without an independent check, the criterion applied is plausibility, which is exactly the failure mode."
+  },
+  {
+    "id": "ail2-docs",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "assistant-strengths",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "assistant-strengths"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "A good use of an assistant on an unfamiliar codebase is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Disabling tests"
+      },
+      {
+        "id": "b",
+        "text": "Committing its refactors unreviewed"
+      },
+      {
+        "id": "c",
+        "text": "Asking it to explain what a function does, then verifying against the code"
+      },
+      {
+        "id": "d",
+        "text": "Letting it choose the architecture"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Explanation is cheap to check against the source in front of you, which makes it a high-value, low-risk use. The check is the part that makes it safe rather than merely fast."
   }
 ]

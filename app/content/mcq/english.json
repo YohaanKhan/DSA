@@ -625,7 +625,7 @@
     ],
     "source": "authored",
     "targetSeconds": 45,
-    "stem": "Which sentence has no dangling modifier?",
+    "stem": "Which sentence has no dangling modifier after its opening phrase?",
     "options": [
       {
         "id": "a",
@@ -697,7 +697,7 @@
     ],
     "source": "authored",
     "targetSeconds": 45,
-    "stem": "Which sentence is parallel? ",
+    "stem": "Which sentence keeps its list of duties grammatically parallel?",
     "options": [
       {
         "id": "a",
@@ -733,7 +733,7 @@
     ],
     "source": "authored",
     "targetSeconds": 45,
-    "stem": "Which sentence uses the correlative pair correctly?",
+    "stem": "Which sentence balances 'not only ... but also' correctly?",
     "options": [
       {
         "id": "a",
@@ -841,7 +841,7 @@
     ],
     "source": "authored",
     "targetSeconds": 45,
-    "stem": "Which sentence is correct?",
+    "stem": "Which sentence forms its comparative correctly?",
     "options": [
       {
         "id": "a",
@@ -1294,5 +1294,3173 @@
     ],
     "answer": "d",
     "explanation": "The second clause is the RESULT of the first, so a consequence connector is required. 'Consequently', 'therefore' and 'as a result' all work; the other three signal contrast or simultaneity."
+  },
+  {
+    "id": "eng2-sv-one-of",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "subject-verb",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "subject-verb"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct verb: \"One of the servers that ___ in the rack has failed.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "sit"
+      },
+      {
+        "id": "b",
+        "text": "sits"
+      },
+      {
+        "id": "c",
+        "text": "sitting"
+      },
+      {
+        "id": "d",
+        "text": "have sat"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The relative clause modifies 'the servers', not 'one', so the verb inside it is plural. Compare the outer clause, which takes the singular 'has failed' because its subject is 'one'. Find what the relative pronoun actually refers to before choosing."
+  },
+  {
+    "id": "eng2-sv-gerund",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "subject-verb",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "subject-verb"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct verb: \"Writing tests and reviewing pull requests ___ most of the morning.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "has taken"
+      },
+      {
+        "id": "b",
+        "text": "take"
+      },
+      {
+        "id": "c",
+        "text": "takes"
+      },
+      {
+        "id": "d",
+        "text": "taking"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Two gerund phrases joined by 'and' form a compound subject, which is plural. A single gerund subject would take a singular verb, so the conjunction is what decides it."
+  },
+  {
+    "id": "eng2-sv-quantity",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "subject-verb",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "subject-verb"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct verb: \"Two-thirds of the data ___ been migrated.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "were"
+      },
+      {
+        "id": "b",
+        "text": "have"
+      },
+      {
+        "id": "c",
+        "text": "has"
+      },
+      {
+        "id": "d",
+        "text": "are"
+      }
+    ],
+    "answer": "c",
+    "explanation": "With a fraction or percentage, the verb agrees with the noun after 'of'. 'Data' here is treated as a mass noun taking a singular verb, which is standard in technical usage; had it been 'two-thirds of the records', the plural would be required."
+  },
+  {
+    "id": "eng2-sv-titles",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "subject-verb",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "subject-verb"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct verb: \"'Design Patterns' ___ still the most cited book on the shelf.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "were"
+      },
+      {
+        "id": "b",
+        "text": "have been"
+      },
+      {
+        "id": "c",
+        "text": "are"
+      },
+      {
+        "id": "d",
+        "text": "is"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A title is a single thing however plural it looks, so it takes a singular verb. The same applies to company names and to quoted phrases used as nouns."
+  },
+  {
+    "id": "eng2-sv-there-were",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "subject-verb",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "subject-verb"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct verb: \"There ___ a bug and three failing tests in that commit.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "was"
+      },
+      {
+        "id": "b",
+        "text": "have been"
+      },
+      {
+        "id": "c",
+        "text": "are"
+      },
+      {
+        "id": "d",
+        "text": "were"
+      }
+    ],
+    "answer": "a",
+    "explanation": "In 'there is/are' the verb agrees with the nearest following noun, which here is the singular 'a bug'. Reordering the list to put the plural first would change the correct verb, which is why careful writers often recast the sentence."
+  },
+  {
+    "id": "eng2-tense-past-simple",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct form: \"We ___ the release yesterday.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "have shipped"
+      },
+      {
+        "id": "b",
+        "text": "shipped"
+      },
+      {
+        "id": "c",
+        "text": "had shipped"
+      },
+      {
+        "id": "d",
+        "text": "were shipping"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A finished action at a stated past time takes the simple past. The present perfect cannot appear with a definite past time marker such as 'yesterday' — that pairing is one of the most frequently marked errors."
+  },
+  {
+    "id": "eng2-tense-perfect-continuous",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"The build ___ for forty minutes and is still not done.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "runs"
+      },
+      {
+        "id": "b",
+        "text": "ran"
+      },
+      {
+        "id": "c",
+        "text": "has been running"
+      },
+      {
+        "id": "d",
+        "text": "had run"
+      }
+    ],
+    "answer": "c",
+    "explanation": "An action that began in the past, continues now, and whose duration is the point takes the present perfect continuous. The simple past would close the action off, contradicting 'still'."
+  },
+  {
+    "id": "eng2-tense-sequence",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct form: \"She said she ___ the report before the meeting started.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "has finished"
+      },
+      {
+        "id": "b",
+        "text": "will finish"
+      },
+      {
+        "id": "c",
+        "text": "finishes"
+      },
+      {
+        "id": "d",
+        "text": "had finished"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Reported speech shifts the tense back one step, and the action was already complete relative to another past event, so the past perfect is required. This backshift is the rule being tested whenever a reporting verb is in the past."
+  },
+  {
+    "id": "eng2-tense-future-continuous",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"This time tomorrow we ___ the results.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "will be presenting"
+      },
+      {
+        "id": "b",
+        "text": "present"
+      },
+      {
+        "id": "c",
+        "text": "have presented"
+      },
+      {
+        "id": "d",
+        "text": "will present"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The future continuous describes an action in progress at a specific future moment, which is what 'this time tomorrow' names. The simple future would state the event without placing it in progress."
+  },
+  {
+    "id": "eng2-tense-since-for",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct word: \"He has worked here ___ three years.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "since"
+      },
+      {
+        "id": "b",
+        "text": "for"
+      },
+      {
+        "id": "c",
+        "text": "from"
+      },
+      {
+        "id": "d",
+        "text": "during"
+      }
+    ],
+    "answer": "b",
+    "explanation": "'For' introduces a duration; 'since' introduces a starting point. 'Since 2023' and 'for three years' express the same span in the two different forms, and swapping them is a very common slip."
+  },
+  {
+    "id": "eng2-article-the-unique",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "articles",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "articles"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct article: \"___ sun sets earlier in winter.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "No article"
+      },
+      {
+        "id": "b",
+        "text": "A"
+      },
+      {
+        "id": "c",
+        "text": "The"
+      },
+      {
+        "id": "d",
+        "text": "An"
+      }
+    ],
+    "answer": "c",
+    "explanation": "A noun that is unique in context takes the definite article. The same applies to superlatives and ordinals, which single something out and therefore cannot take 'a'."
+  },
+  {
+    "id": "eng2-article-generic",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "articles",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "articles"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct form: \"___ are essential to modern software.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "A database"
+      },
+      {
+        "id": "b",
+        "text": "An database"
+      },
+      {
+        "id": "c",
+        "text": "The databases"
+      },
+      {
+        "id": "d",
+        "text": "Databases"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A plural countable noun used in a general sense takes no article. Adding 'the' would narrow it to a particular set of databases already known to the reader."
+  },
+  {
+    "id": "eng2-article-university",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "articles",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "articles"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct article: \"She holds ___ MBA and works at ___ university.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "an, a"
+      },
+      {
+        "id": "b",
+        "text": "an, an"
+      },
+      {
+        "id": "c",
+        "text": "a, an"
+      },
+      {
+        "id": "d",
+        "text": "a, a"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Sound decides, not spelling. 'MBA' begins with the vowel sound of 'em', so it takes 'an'; 'university' begins with a consonant 'y' sound, so it takes 'a'."
+  },
+  {
+    "id": "eng2-prep-depend-on",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "prepositions",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "prepositions"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct preposition: \"The result depends ___ the input size.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "of"
+      },
+      {
+        "id": "b",
+        "text": "on"
+      },
+      {
+        "id": "c",
+        "text": "from"
+      },
+      {
+        "id": "d",
+        "text": "with"
+      }
+    ],
+    "answer": "b",
+    "explanation": "'Depend' collocates with 'on'. The noun form keeps it too — 'dependent on' — while the negative adjective takes a different one: 'independent of'."
+  },
+  {
+    "id": "eng2-prep-married-to",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "prepositions",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "prepositions"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct preposition: \"The team is committed ___ shipping weekly.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "with"
+      },
+      {
+        "id": "b",
+        "text": "for"
+      },
+      {
+        "id": "c",
+        "text": "to"
+      },
+      {
+        "id": "d",
+        "text": "on"
+      }
+    ],
+    "answer": "c",
+    "explanation": "'Committed to' takes a gerund after it, not an infinitive. The trap is that 'to' here is a preposition rather than part of an infinitive, which is why 'committed to ship' is wrong."
+  },
+  {
+    "id": "eng2-prep-discuss",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "prepositions",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "prepositions"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"Let us discuss ___ the schedule.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "on"
+      },
+      {
+        "id": "b",
+        "text": "over"
+      },
+      {
+        "id": "c",
+        "text": "about"
+      },
+      {
+        "id": "d",
+        "text": "(no preposition)"
+      }
+    ],
+    "answer": "d",
+    "explanation": "'Discuss' is transitive and takes a direct object, so no preposition follows. 'Talk about' needs one; 'discuss about' blends the two and is a standard error-spotting target."
+  },
+  {
+    "id": "eng2-prep-superior",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "prepositions",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "prepositions"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct word: \"This approach is superior ___ the previous one.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "to"
+      },
+      {
+        "id": "b",
+        "text": "from"
+      },
+      {
+        "id": "c",
+        "text": "over"
+      },
+      {
+        "id": "d",
+        "text": "than"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Comparatives borrowed from Latin — superior, inferior, senior, junior, prior — take 'to' rather than 'than'. Using 'than' with them is a frequent error precisely because every English comparative does take it."
+  },
+  {
+    "id": "eng2-prep-in-on-at",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "prepositions",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "prepositions"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct preposition: \"The demo is ___ Monday ___ 3 p.m.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "in, in"
+      },
+      {
+        "id": "b",
+        "text": "on, at"
+      },
+      {
+        "id": "c",
+        "text": "at, on"
+      },
+      {
+        "id": "d",
+        "text": "on, in"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Days take 'on', clock times take 'at', and months or years take 'in'. The three narrow in scope from 'in' through 'on' to 'at', which is a useful way to remember the order."
+  },
+  {
+    "id": "eng2-pronoun-case-than",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "pronouns",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "pronouns"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct pronoun: \"She has shipped more features than ___.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "mine"
+      },
+      {
+        "id": "b",
+        "text": "me"
+      },
+      {
+        "id": "c",
+        "text": "I"
+      },
+      {
+        "id": "d",
+        "text": "myself"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The comparison is elliptical: the full clause is 'than I have shipped'. Because the pronoun is the subject of that implied verb, it takes the subject form. Completing the sentence mentally settles every 'than I / than me' question."
+  },
+  {
+    "id": "eng2-pronoun-reflexive",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "pronouns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "pronouns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct pronoun: \"Please send the report to Priya and ___.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "I"
+      },
+      {
+        "id": "b",
+        "text": "mine"
+      },
+      {
+        "id": "c",
+        "text": "myself"
+      },
+      {
+        "id": "d",
+        "text": "me"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The pronoun is the object of a preposition, so the object form is required. A reflexive is only correct when the subject and object are the same person, which is not the case here — using 'myself' to sound formal is a common overcorrection."
+  },
+  {
+    "id": "eng2-pronoun-everyone",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "pronouns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "pronouns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct completion: \"Everyone must submit ___ timesheet by Friday.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "their"
+      },
+      {
+        "id": "b",
+        "text": "his or her"
+      },
+      {
+        "id": "c",
+        "text": "its"
+      },
+      {
+        "id": "d",
+        "text": "there"
+      }
+    ],
+    "answer": "a",
+    "explanation": "'Everyone' is grammatically singular, and singular 'they' is now accepted in every major style guide for an unspecified person. It is also the only option that does not assume gender, which matters in professional writing."
+  },
+  {
+    "id": "eng2-pronoun-who-that",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "pronouns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "pronouns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct word: \"The engineer ___ wrote the parser has left.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "which"
+      },
+      {
+        "id": "b",
+        "text": "who"
+      },
+      {
+        "id": "c",
+        "text": "whom"
+      },
+      {
+        "id": "d",
+        "text": "what"
+      }
+    ],
+    "answer": "b",
+    "explanation": "'Who' is the subject form and is used for people. 'Whom' would be wrong here because the pronoun performs the verb rather than receiving it — substitute 'he wrote' to confirm."
+  },
+  {
+    "id": "eng2-conditional-first",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "conditionals",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "conditionals"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct completion: \"If the tests pass, we ___ this afternoon.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "had deployed"
+      },
+      {
+        "id": "b",
+        "text": "would deploy"
+      },
+      {
+        "id": "c",
+        "text": "will deploy"
+      },
+      {
+        "id": "d",
+        "text": "deployed"
+      }
+    ],
+    "answer": "c",
+    "explanation": "A real and likely present or future condition takes the first conditional: present simple in the if-clause, 'will' in the main clause. 'Would' belongs to the unreal second conditional."
+  },
+  {
+    "id": "eng2-conditional-second",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "conditionals",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "conditionals"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct completion: \"If I ___ the lead, I would rewrite the scheduler.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "will be"
+      },
+      {
+        "id": "b",
+        "text": "had been"
+      },
+      {
+        "id": "c",
+        "text": "am"
+      },
+      {
+        "id": "d",
+        "text": "were"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The second conditional uses the past subjunctive 'were' for all persons to mark the situation as hypothetical. 'Was' appears in speech but is marked wrong in formal assessment."
+  },
+  {
+    "id": "eng2-conditional-mixed",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "conditionals",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "conditionals"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct completion: \"If we had added monitoring last year, we ___ the outage now.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "would not be having"
+      },
+      {
+        "id": "b",
+        "text": "will not have"
+      },
+      {
+        "id": "c",
+        "text": "did not have"
+      },
+      {
+        "id": "d",
+        "text": "would not have"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A mixed conditional pairs a past condition with a present result, so the if-clause is past perfect and the main clause uses 'would' with a present form. Using 'would not have' would place the result in the past, contradicting 'now'."
+  },
+  {
+    "id": "eng2-voice-passive-when",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "voice",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "voice"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Passive voice is the better choice when",
+    "options": [
+      {
+        "id": "a",
+        "text": "You want shorter sentences"
+      },
+      {
+        "id": "b",
+        "text": "The actor is unknown, irrelevant, or deliberately not named"
+      },
+      {
+        "id": "c",
+        "text": "You want to sound formal"
+      },
+      {
+        "id": "d",
+        "text": "The sentence is long"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Passive earns its place when the receiver of the action is the real subject of interest, or when nobody knows who acted. Using it to sound impersonal or to avoid naming responsibility is what gives it a bad reputation."
+  },
+  {
+    "id": "eng2-voice-convert",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "voice",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "voice"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Convert to passive: \"The compiler optimises the inner loop.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "Optimising the inner loop by the compiler"
+      },
+      {
+        "id": "b",
+        "text": "The inner loop optimises the compiler"
+      },
+      {
+        "id": "c",
+        "text": "The inner loop is optimised by the compiler"
+      },
+      {
+        "id": "d",
+        "text": "The compiler is optimised by the inner loop"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The object of the active sentence becomes the subject, the verb takes a form of 'be' plus the past participle, and the original subject moves into a 'by' phrase. Getting the direction wrong reverses the meaning entirely."
+  },
+  {
+    "id": "eng2-speech-reported",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "speech",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "speech"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Report this correctly: He said, \"I am reviewing the code now.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "He said I was reviewing the code now"
+      },
+      {
+        "id": "b",
+        "text": "He says he was reviewing the code"
+      },
+      {
+        "id": "c",
+        "text": "He said he is reviewing the code now"
+      },
+      {
+        "id": "d",
+        "text": "He said he was reviewing the code then"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Reported speech backshifts the tense and adjusts the time and person words: 'am' becomes 'was', 'now' becomes 'then', and the first person becomes the third. All three shifts have to happen together."
+  },
+  {
+    "id": "eng2-speech-question",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "speech",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "speech"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Report this correctly: She asked, \"Where is the config file?\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "She asked where the config file was"
+      },
+      {
+        "id": "b",
+        "text": "She asked where was the config file"
+      },
+      {
+        "id": "c",
+        "text": "She asked where the config file is"
+      },
+      {
+        "id": "d",
+        "text": "She asked where is the config file"
+      }
+    ],
+    "answer": "a",
+    "explanation": "An indirect question takes statement word order, so the subject comes before the verb and the auxiliary inversion disappears. The tense also backshifts because the reporting verb is past."
+  },
+  {
+    "id": "eng2-modifier-misplaced",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "modifiers",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "modifiers"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "You mean that most regions received the deployment. Which sentence says that?",
+    "options": [
+      {
+        "id": "a",
+        "text": "We nearly deployed to every region"
+      },
+      {
+        "id": "b",
+        "text": "We deployed to nearly every region"
+      },
+      {
+        "id": "c",
+        "text": "Nearly we deployed to every region"
+      },
+      {
+        "id": "d",
+        "text": "We deployed nearly to every region"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A limiting modifier attaches to whatever follows it. Before the verb it says the deployment almost did not happen; before 'every region' it says most regions received it. Only the second matches the intended meaning."
+  },
+  {
+    "id": "eng2-modifier-squinting",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "modifiers",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "modifiers"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Which sentence leaves no doubt about what the adverb modifies?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Code reviewing quickly improves"
+      },
+      {
+        "id": "b",
+        "text": "Reviewing code quickly improves quality"
+      },
+      {
+        "id": "c",
+        "text": "Quickly reviewing code improves quality"
+      },
+      {
+        "id": "d",
+        "text": "Reviewing code improves quality quickly"
+      }
+    ],
+    "answer": "c",
+    "explanation": "In the first the adverb could modify either the reviewing or the improving, which is a squinting modifier. Moving it so only one reading is available resolves it — position is the fix, not punctuation."
+  },
+  {
+    "id": "eng2-parallel-verbs",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "parallelism",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "parallelism"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which sentence keeps the three items in the list grammatically parallel?",
+    "options": [
+      {
+        "id": "a",
+        "text": "She designs, reviewing, and deploys"
+      },
+      {
+        "id": "b",
+        "text": "She designs, to review, and deployment"
+      },
+      {
+        "id": "c",
+        "text": "She is responsible for design, to review changes, and deployment"
+      },
+      {
+        "id": "d",
+        "text": "She is responsible for design, review and deployment"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Coordinated items must share a grammatical form. Three nouns work; mixing a noun, an infinitive and a gerund does not. Reading the sentence with each item in turn attached to the stem exposes the mismatch."
+  },
+  {
+    "id": "eng2-parallel-either",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "parallelism",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "parallelism"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Which sentence balances 'either ... or' correctly?",
+    "options": [
+      {
+        "id": "a",
+        "text": "We can either fix it now or postpone it to the next sprint"
+      },
+      {
+        "id": "b",
+        "text": "Either we can fix it now or postponing it"
+      },
+      {
+        "id": "c",
+        "text": "We either can fix it now or to postpone it"
+      },
+      {
+        "id": "d",
+        "text": "We can either fix it now or postponing to the next sprint"
+      }
+    ],
+    "answer": "a",
+    "explanation": "What follows 'either' must match what follows 'or' in form. Two bare infinitives balance; an infinitive paired with a gerund does not. The same balance rule governs 'neither/nor' and 'not only/but also'."
+  },
+  {
+    "id": "eng2-connector-concession",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "connectors",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "connectors"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the connector: \"___ the coverage is high, the tests rarely catch real defects.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "Because"
+      },
+      {
+        "id": "b",
+        "text": "Although"
+      },
+      {
+        "id": "c",
+        "text": "Therefore"
+      },
+      {
+        "id": "d",
+        "text": "Moreover"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The clause concedes a point that runs against the main claim, which calls for a concessive connector. 'Because' would assert cause, reversing the logic of the sentence."
+  },
+  {
+    "id": "eng2-connector-despite",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "connectors",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "connectors"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct form: \"___ the delay, the launch went well.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "Because of"
+      },
+      {
+        "id": "b",
+        "text": "Although"
+      },
+      {
+        "id": "c",
+        "text": "Despite"
+      },
+      {
+        "id": "d",
+        "text": "However"
+      }
+    ],
+    "answer": "c",
+    "explanation": "'Despite' and 'in spite of' take a noun phrase; 'although' takes a full clause. The error to avoid is 'despite of', which merges the two constructions."
+  },
+  {
+    "id": "eng2-connector-result",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "connectors",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "connectors"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the connector: \"The spec changed twice; ___, the estimate doubled.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "nevertheless"
+      },
+      {
+        "id": "b",
+        "text": "meanwhile"
+      },
+      {
+        "id": "c",
+        "text": "however"
+      },
+      {
+        "id": "d",
+        "text": "consequently"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The second clause is the outcome of the first, which needs a consequence connector. Contrast and simultaneity connectors would both misdescribe the relationship."
+  },
+  {
+    "id": "eng2-error-spot-double-negative",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "error-spotting",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "error-spotting"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which sentence avoids a double negative?",
+    "options": [
+      {
+        "id": "a",
+        "text": "We did not find any errors"
+      },
+      {
+        "id": "b",
+        "text": "We did not find none of the errors"
+      },
+      {
+        "id": "c",
+        "text": "We didn't find nothing"
+      },
+      {
+        "id": "d",
+        "text": "We did not find no errors"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Standard English uses a single negative, so 'not' pairs with 'any' rather than with a second negative word. Double negatives are common in speech and are always marked wrong in assessment."
+  },
+  {
+    "id": "eng2-error-spot-agreement",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "error-spotting",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "error-spotting"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which sentence contains an error?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The list of dependencies is long"
+      },
+      {
+        "id": "b",
+        "text": "The list of dependencies are long"
+      },
+      {
+        "id": "c",
+        "text": "Dependencies are listed in the file"
+      },
+      {
+        "id": "d",
+        "text": "The file lists the dependencies"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The subject is 'the list', which is singular; 'of dependencies' is a prepositional phrase that cannot change the number of the subject. Removing the phrase mentally is the quickest check."
+  },
+  {
+    "id": "eng2-error-spot-comparative",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "error-spotting",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "error-spotting"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Two options are being compared. Which sentence forms the comparison correctly?",
+    "options": [
+      {
+        "id": "a",
+        "text": "This is the most fastest option"
+      },
+      {
+        "id": "b",
+        "text": "This is the fastest of the two options"
+      },
+      {
+        "id": "c",
+        "text": "This is the faster of the two options"
+      },
+      {
+        "id": "d",
+        "text": "This is more faster than the other"
+      }
+    ],
+    "answer": "c",
+    "explanation": "With exactly two things the comparative is required and the superlative is wrong. A comparative also never combines '-er' with 'more', which rules out the other two."
+  },
+  {
+    "id": "eng2-error-spot-dangling",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "error-spotting",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "error-spotting"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Which sentence attaches its opening phrase to the right subject?",
+    "options": [
+      {
+        "id": "a",
+        "text": "After deploying, checking the logs happened"
+      },
+      {
+        "id": "b",
+        "text": "After deploying the logs, it was checked"
+      },
+      {
+        "id": "c",
+        "text": "After deploying, the logs were checked"
+      },
+      {
+        "id": "d",
+        "text": "After deploying, we checked the logs"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The introductory phrase must describe the subject of the main clause. Only in the second does the subject perform the deploying; elsewhere the logs appear to deploy themselves."
+  },
+  {
+    "id": "eng2-sentence-correction-redundant",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "sentence-correction",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "sentence-correction"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which version is correct and concise?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Every test passed"
+      },
+      {
+        "id": "b",
+        "text": "Every single test passed successfully without failing"
+      },
+      {
+        "id": "c",
+        "text": "All of the tests were successful in passing"
+      },
+      {
+        "id": "d",
+        "text": "Each and every one of the tests passed successfully"
+      }
+    ],
+    "answer": "a",
+    "explanation": "'Each and every' is a doubled quantifier and 'passed successfully' repeats itself, since passing is already success. Concision is scored under mechanics in every band rubric."
+  },
+  {
+    "id": "eng2-sentence-correction-modifier",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "sentence-correction",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "sentence-correction"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which version is clearest?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The engineer told the manager that she was wrong"
+      },
+      {
+        "id": "b",
+        "text": "The engineer told the manager, \"You are wrong\""
+      },
+      {
+        "id": "c",
+        "text": "She was wrong, the engineer told the manager"
+      },
+      {
+        "id": "d",
+        "text": "The manager was told by the engineer she was wrong"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The pronoun 'she' has two possible antecedents, so the sentence has two readings. Direct quotation removes the ambiguity; so would naming the person. Pronoun ambiguity is a clarity fault rather than a grammar one."
+  },
+  {
+    "id": "eng2-sentence-correction-split",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "sentence-correction",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "sentence-correction"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which version fixes the run-on? \"The API returned 500 we rolled back.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "The API returned 500; we rolled back, and then."
+      },
+      {
+        "id": "b",
+        "text": "The API returned 500, we rolled back"
+      },
+      {
+        "id": "c",
+        "text": "The API returned 500, so we rolled back"
+      },
+      {
+        "id": "d",
+        "text": "The API returned 500 we rolled back immediately"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Two independent clauses need a conjunction, a semicolon or a full stop between them. A bare comma produces a comma splice, which is the same fault in a milder form."
+  },
+  {
+    "id": "eng2-sentence-correction-nominal",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "sentence-correction",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "sentence-correction"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Which version is stronger?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The fix's implementation was done"
+      },
+      {
+        "id": "b",
+        "text": "There was an implementation of the fix"
+      },
+      {
+        "id": "c",
+        "text": "The implementation of the fix was performed by the team"
+      },
+      {
+        "id": "d",
+        "text": "The team implemented the fix"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The first buries the verb inside a noun — a nominalisation — and then needs a passive to reattach an actor. Recovering the verb shortens the sentence and names who acted, which rubrics reward under both vocabulary and mechanics."
+  },
+  {
+    "id": "eng2-tense-consistency",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which sentence keeps tense consistent?",
+    "options": [
+      {
+        "id": "a",
+        "text": "He opened the file and read the contents"
+      },
+      {
+        "id": "b",
+        "text": "He opens the file and had read the contents"
+      },
+      {
+        "id": "c",
+        "text": "He opened the file and reads the contents"
+      },
+      {
+        "id": "d",
+        "text": "He opens the file and read the contents"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Verbs in a single sequence of events should share a tense unless a shift is meaningful. An unmotivated shift reads as carelessness and is a standard error-spotting target."
+  },
+  {
+    "id": "eng2-sv-collective-plural",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "subject-verb",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "subject-verb"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct verb: \"The jury ___ unable to agree, and have gone home.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "was"
+      },
+      {
+        "id": "b",
+        "text": "were"
+      },
+      {
+        "id": "c",
+        "text": "is"
+      },
+      {
+        "id": "d",
+        "text": "has been"
+      }
+    ],
+    "answer": "b",
+    "explanation": "When a collective noun's members act individually rather than as a unit, the plural is used, and the rest of the sentence must follow suit. The later 'have gone' fixes the choice here — consistency within the sentence is what is being tested."
+  },
+  {
+    "id": "eng2-gerund-infinitive",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "tenses",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "tenses"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct form: \"We stopped ___ the logs because the disk filled up.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "to writing"
+      },
+      {
+        "id": "b",
+        "text": "to write"
+      },
+      {
+        "id": "c",
+        "text": "writing"
+      },
+      {
+        "id": "d",
+        "text": "written"
+      }
+    ],
+    "answer": "c",
+    "explanation": "'Stop' plus a gerund means ceasing the activity; 'stop' plus an infinitive means pausing in order to do something else. The two readings are opposite, which is why the choice changes the meaning rather than just the form."
+  },
+  {
+    "id": "eng2-subjunctive",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "conditionals",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "conditionals"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct form: \"The reviewer insisted that the migration ___ reversible.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "was"
+      },
+      {
+        "id": "b",
+        "text": "will be"
+      },
+      {
+        "id": "c",
+        "text": "is"
+      },
+      {
+        "id": "d",
+        "text": "be"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Verbs of demand, request and recommendation take the subjunctive in the that-clause, which uses the bare infinitive regardless of person or tense. 'Insist that it be' is correct where 'insist that it is' would merely report a belief."
+  },
+  {
+    "id": "eng2-relative-restrictive",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "connectors",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "connectors"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct punctuation: which version means only SOME servers were restarted?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The servers which were unresponsive were restarted"
+      },
+      {
+        "id": "b",
+        "text": "The servers; which were unresponsive, were restarted"
+      },
+      {
+        "id": "c",
+        "text": "The servers which, were unresponsive, were restarted"
+      },
+      {
+        "id": "d",
+        "text": "The servers, which were unresponsive, were restarted"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A restrictive clause identifies which ones and takes no commas; a non-restrictive clause merely adds information about all of them and is fenced by commas. The punctuation carries the meaning, so it is not optional."
+  },
+  {
+    "id": "eng2-preposition-end",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "prepositions",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "prepositions"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which sentence is acceptable in modern formal English?",
+    "options": [
+      {
+        "id": "a",
+        "text": "This is the file to which I referred"
+      },
+      {
+        "id": "b",
+        "text": "Both are acceptable"
+      },
+      {
+        "id": "c",
+        "text": "Neither is acceptable"
+      },
+      {
+        "id": "d",
+        "text": "This is the file which I referred to"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The prohibition on ending a sentence with a preposition was never a rule of English. Both are correct; the fronted form is more formal, and forcing it can produce awkward sentences."
+  },
+  {
+    "id": "eng2-comparative-parallel",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "parallelism",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "parallelism"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Which comparison is complete?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Our latency is more better"
+      },
+      {
+        "id": "b",
+        "text": "Our latency is better than the old system"
+      },
+      {
+        "id": "c",
+        "text": "Our latency is better than that of the old system"
+      },
+      {
+        "id": "d",
+        "text": "Our latency is better than the old system's latency was better"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The comparison must put like against like. The first compares a latency with a system, which is a category error; inserting 'that of' restores the match. Incomplete comparisons are a frequent sentence-correction target."
+  },
+  {
+    "id": "eng2-countable",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "grammar",
+    "subtopic": "articles",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "english",
+      "articles"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"We have ___ information and ___ open tickets.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "a lot, many"
+      },
+      {
+        "id": "b",
+        "text": "much, much"
+      },
+      {
+        "id": "c",
+        "text": "many, much"
+      },
+      {
+        "id": "d",
+        "text": "much, many"
+      }
+    ],
+    "answer": "d",
+    "explanation": "'Information' is uncountable and takes 'much'; 'tickets' are countable and take 'many'. The same split governs 'less' against 'fewer', which is the version most often marked."
+  },
+  {
+    "id": "eng2-syn-ambiguous",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word closest in meaning to 'ambiguous':",
+    "options": [
+      {
+        "id": "a",
+        "text": "equivocal"
+      },
+      {
+        "id": "b",
+        "text": "lengthy"
+      },
+      {
+        "id": "c",
+        "text": "incorrect"
+      },
+      {
+        "id": "d",
+        "text": "obvious"
+      }
+    ],
+    "answer": "a",
+    "explanation": "'Ambiguous' means open to more than one interpretation, which is what 'equivocal' names. Note that it does not mean wrong or unclear through sloppiness — a precisely worded sentence can still be ambiguous."
+  },
+  {
+    "id": "eng2-syn-robust",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the word closest in meaning to 'concise':",
+    "options": [
+      {
+        "id": "a",
+        "text": "complex"
+      },
+      {
+        "id": "b",
+        "text": "succinct"
+      },
+      {
+        "id": "c",
+        "text": "complete"
+      },
+      {
+        "id": "d",
+        "text": "confusing"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Both mean saying much in few words. Concision is not the same as brevity: a short text that omits necessary information is brief but not concise."
+  },
+  {
+    "id": "eng2-syn-meticulous",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word closest in meaning to 'meticulous':",
+    "options": [
+      {
+        "id": "a",
+        "text": "uncertain"
+      },
+      {
+        "id": "b",
+        "text": "careless"
+      },
+      {
+        "id": "c",
+        "text": "painstaking"
+      },
+      {
+        "id": "d",
+        "text": "hurried"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It describes very careful attention to detail. The shade it carries is positive effort rather than mere slowness, which is why 'painstaking' matches better than 'slow'."
+  },
+  {
+    "id": "eng2-syn-pragmatic",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word closest in meaning to 'pragmatic':",
+    "options": [
+      {
+        "id": "a",
+        "text": "pessimistic"
+      },
+      {
+        "id": "b",
+        "text": "theoretical"
+      },
+      {
+        "id": "c",
+        "text": "idealistic"
+      },
+      {
+        "id": "d",
+        "text": "practical"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A pragmatic choice is judged by whether it works rather than by whether it is elegant or principled. It is the opposite pole from 'theoretical', not from 'optimistic'."
+  },
+  {
+    "id": "eng2-syn-mitigate2",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the word closest in meaning to 'exacerbate':",
+    "options": [
+      {
+        "id": "a",
+        "text": "worsen"
+      },
+      {
+        "id": "b",
+        "text": "explain"
+      },
+      {
+        "id": "c",
+        "text": "postpone"
+      },
+      {
+        "id": "d",
+        "text": "relieve"
+      }
+    ],
+    "answer": "a",
+    "explanation": "To exacerbate is to make an existing problem more severe. It pairs as the direct opposite of 'mitigate', and the two are a favourite antonym pairing in aptitude tests."
+  },
+  {
+    "id": "eng2-syn-lucid",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word closest in meaning to 'lucid':",
+    "options": [
+      {
+        "id": "a",
+        "text": "dense"
+      },
+      {
+        "id": "b",
+        "text": "clear"
+      },
+      {
+        "id": "c",
+        "text": "lengthy"
+      },
+      {
+        "id": "d",
+        "text": "technical"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Lucid writing is easy to follow. The word describes the reader's experience rather than the subject's simplicity — a lucid explanation of a hard topic is entirely possible."
+  },
+  {
+    "id": "eng2-syn-tenacious",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word closest in meaning to 'tenacious':",
+    "options": [
+      {
+        "id": "a",
+        "text": "talented"
+      },
+      {
+        "id": "b",
+        "text": "aggressive"
+      },
+      {
+        "id": "c",
+        "text": "persistent"
+      },
+      {
+        "id": "d",
+        "text": "flexible"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Tenacity is holding on despite difficulty. It describes persistence rather than ability or force, which is what separates it from the near-miss options."
+  },
+  {
+    "id": "eng2-syn-viable",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "synonyms",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "synonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the word closest in meaning to 'viable':",
+    "options": [
+      {
+        "id": "a",
+        "text": "valuable"
+      },
+      {
+        "id": "b",
+        "text": "variable"
+      },
+      {
+        "id": "c",
+        "text": "visible"
+      },
+      {
+        "id": "d",
+        "text": "workable"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A viable option is one that can actually succeed in practice. The distractors are near-homophones, which is exactly the trap such questions set."
+  },
+  {
+    "id": "eng2-ant-scarce2",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "antonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "antonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word most nearly OPPOSITE to 'transparent':",
+    "options": [
+      {
+        "id": "a",
+        "text": "opaque"
+      },
+      {
+        "id": "b",
+        "text": "honest"
+      },
+      {
+        "id": "c",
+        "text": "fragile"
+      },
+      {
+        "id": "d",
+        "text": "clear"
+      }
+    ],
+    "answer": "a",
+    "explanation": "In both the literal and the figurative sense the opposite of transparent is opaque. 'Clear' and 'honest' are synonyms rather than opposites, which makes them the intended traps."
+  },
+  {
+    "id": "eng2-ant-expand",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "antonyms",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "antonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the word most nearly OPPOSITE to 'expedite':",
+    "options": [
+      {
+        "id": "a",
+        "text": "accelerate"
+      },
+      {
+        "id": "b",
+        "text": "delay"
+      },
+      {
+        "id": "c",
+        "text": "organise"
+      },
+      {
+        "id": "d",
+        "text": "simplify"
+      }
+    ],
+    "answer": "b",
+    "explanation": "To expedite is to speed something up, so its opposite is to slow it down. 'Accelerate' is a synonym placed first deliberately."
+  },
+  {
+    "id": "eng2-ant-verbose",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "antonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "antonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word most nearly OPPOSITE to 'verbose':",
+    "options": [
+      {
+        "id": "a",
+        "text": "formal"
+      },
+      {
+        "id": "b",
+        "text": "wordy"
+      },
+      {
+        "id": "c",
+        "text": "terse"
+      },
+      {
+        "id": "d",
+        "text": "fluent"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Verbose means using more words than necessary; terse means using very few, sometimes bluntly. Fluency and formality describe different dimensions entirely."
+  },
+  {
+    "id": "eng2-ant-rigid",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "antonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "antonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word most nearly OPPOSITE to 'obsolete':",
+    "options": [
+      {
+        "id": "a",
+        "text": "broken"
+      },
+      {
+        "id": "b",
+        "text": "rare"
+      },
+      {
+        "id": "c",
+        "text": "outdated"
+      },
+      {
+        "id": "d",
+        "text": "current"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Obsolete means no longer in use because something has superseded it, so its opposite is being in current use. Being broken or rare is a different property altogether."
+  },
+  {
+    "id": "eng2-ant-trivial",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "antonyms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "antonyms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the word most nearly OPPOSITE to 'trivial':",
+    "options": [
+      {
+        "id": "a",
+        "text": "significant"
+      },
+      {
+        "id": "b",
+        "text": "simple"
+      },
+      {
+        "id": "c",
+        "text": "common"
+      },
+      {
+        "id": "d",
+        "text": "minor"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Trivial means of little importance, so the opposite turns on importance rather than on difficulty. 'Simple' is about complexity and is the distractor most often chosen."
+  },
+  {
+    "id": "eng2-ows-redundant",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "one-word-substitution",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "one-word-substitution"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "One word for 'a person who is new to an activity':",
+    "options": [
+      {
+        "id": "a",
+        "text": "apprentice"
+      },
+      {
+        "id": "b",
+        "text": "novice"
+      },
+      {
+        "id": "c",
+        "text": "veteran"
+      },
+      {
+        "id": "d",
+        "text": "amateur"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A novice is new; an amateur is unpaid, which is a different distinction; an apprentice is formally learning under someone. Precision between these near-synonyms is what the question tests."
+  },
+  {
+    "id": "eng2-ows-postpone",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "one-word-substitution",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "one-word-substitution"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "One word for 'to put off to a later time':",
+    "options": [
+      {
+        "id": "a",
+        "text": "differ"
+      },
+      {
+        "id": "b",
+        "text": "defray"
+      },
+      {
+        "id": "c",
+        "text": "defer"
+      },
+      {
+        "id": "d",
+        "text": "deter"
+      }
+    ],
+    "answer": "c",
+    "explanation": "'Defer' means to postpone. The distractors are near-homophones with unrelated meanings: to deter is to discourage, to differ is to be unlike, and to defray is to pay costs."
+  },
+  {
+    "id": "eng2-ows-unbiased",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "one-word-substitution",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "one-word-substitution"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "One word for 'free from bias or favouritism':",
+    "options": [
+      {
+        "id": "a",
+        "text": "indefinite"
+      },
+      {
+        "id": "b",
+        "text": "impassive"
+      },
+      {
+        "id": "c",
+        "text": "indifferent"
+      },
+      {
+        "id": "d",
+        "text": "impartial"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Impartial means not favouring a side. Indifferent means not caring, and impassive means showing no emotion — a judge should be impartial without being either of the others."
+  },
+  {
+    "id": "eng2-ows-necessary",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "one-word-substitution",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "one-word-substitution"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "One word for 'absolutely necessary':",
+    "options": [
+      {
+        "id": "a",
+        "text": "indispensable"
+      },
+      {
+        "id": "b",
+        "text": "inevitable"
+      },
+      {
+        "id": "c",
+        "text": "invariable"
+      },
+      {
+        "id": "d",
+        "text": "invaluable"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Indispensable means it cannot be done without. Invaluable means priceless, inevitable means unavoidable, and invariable means unchanging — four common words that share a prefix and nothing else."
+  },
+  {
+    "id": "eng2-ows-talkative",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "one-word-substitution",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "one-word-substitution"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "One word for 'speaking little':",
+    "options": [
+      {
+        "id": "a",
+        "text": "tenacious"
+      },
+      {
+        "id": "b",
+        "text": "taciturn"
+      },
+      {
+        "id": "c",
+        "text": "tacit"
+      },
+      {
+        "id": "d",
+        "text": "tactful"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Taciturn describes someone habitually silent. 'Tacit' means understood without being said, which describes agreements rather than people."
+  },
+  {
+    "id": "eng2-idiom-ballpark2",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "idioms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "idioms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What does 'to move the goalposts' mean?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To set an ambitious goal"
+      },
+      {
+        "id": "b",
+        "text": "To improve the target"
+      },
+      {
+        "id": "c",
+        "text": "To change the criteria after work has begun"
+      },
+      {
+        "id": "d",
+        "text": "To abandon a project"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The phrase describes unfairly altering the standard mid-way, so effort already made no longer counts. It is a complaint about the change of criteria, not about their difficulty."
+  },
+  {
+    "id": "eng2-idiom-bandwidth",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "idioms",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "idioms"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "In a work context, 'I do not have the bandwidth' means",
+    "options": [
+      {
+        "id": "a",
+        "text": "I do not understand"
+      },
+      {
+        "id": "b",
+        "text": "I disagree"
+      },
+      {
+        "id": "c",
+        "text": "The network is slow"
+      },
+      {
+        "id": "d",
+        "text": "I do not have the capacity to take this on"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Borrowed from networking, it means available time or attention rather than technical capacity. Recognising workplace idioms matters because they dominate spoken assessment prompts."
+  },
+  {
+    "id": "eng2-idiom-low-hanging",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "idioms",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "idioms"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "'Low-hanging fruit' refers to",
+    "options": [
+      {
+        "id": "a",
+        "text": "The easiest gains available for the least effort"
+      },
+      {
+        "id": "b",
+        "text": "A junior task"
+      },
+      {
+        "id": "c",
+        "text": "A failing project"
+      },
+      {
+        "id": "d",
+        "text": "Cheap materials"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It names the tasks with the best ratio of result to effort, usually as the place to start. It carries no implication that the work is unimportant."
+  },
+  {
+    "id": "eng2-idiom-back-burner",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "idioms",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "idioms"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "To put something 'on the back burner' is to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cancel it"
+      },
+      {
+        "id": "b",
+        "text": "Deprioritise it without cancelling it"
+      },
+      {
+        "id": "c",
+        "text": "Escalate it"
+      },
+      {
+        "id": "d",
+        "text": "Finish it quickly"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The item stays on the stove but not over the heat — still alive, not being worked on. The distinction from cancelling is what the idiom carries."
+  },
+  {
+    "id": "eng2-confused-affect2",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "confused-pairs",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "confused-pairs"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct word: \"The new index had a noticeable ___ on query time.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "affective"
+      },
+      {
+        "id": "b",
+        "text": "affect"
+      },
+      {
+        "id": "c",
+        "text": "effect"
+      },
+      {
+        "id": "d",
+        "text": "effected"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Here the word is a noun meaning result, which is 'effect'. The verb 'affect' would need a subject acting on something: the index affected query time."
+  },
+  {
+    "id": "eng2-confused-complement",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "confused-pairs",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "confused-pairs"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct word: \"The caching layer ___ the database nicely.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "complains"
+      },
+      {
+        "id": "b",
+        "text": "comprises"
+      },
+      {
+        "id": "c",
+        "text": "compliments"
+      },
+      {
+        "id": "d",
+        "text": "complements"
+      }
+    ],
+    "answer": "d",
+    "explanation": "'Complement' means to complete or go well with; 'compliment' means to praise. The spelling with an e relates to 'complete', which is a reliable way to remember it."
+  },
+  {
+    "id": "eng2-confused-fewer",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "confused-pairs",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "confused-pairs"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct word: \"There were ___ defects this sprint than last.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "fewer"
+      },
+      {
+        "id": "b",
+        "text": "lesser"
+      },
+      {
+        "id": "c",
+        "text": "little"
+      },
+      {
+        "id": "d",
+        "text": "less"
+      }
+    ],
+    "answer": "a",
+    "explanation": "'Fewer' is used with countable nouns and 'less' with uncountable ones. Defects can be counted, so 'fewer' is required — the same rule that makes 'less water' and 'fewer bottles' correct."
+  },
+  {
+    "id": "eng2-confused-its",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "confused-pairs",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "confused-pairs"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct word: \"The service lost ___ connection to the queue.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "it's"
+      },
+      {
+        "id": "b",
+        "text": "its"
+      },
+      {
+        "id": "c",
+        "text": "its'"
+      },
+      {
+        "id": "d",
+        "text": "it is"
+      }
+    ],
+    "answer": "b",
+    "explanation": "'Its' is the possessive; \"it's\" is only ever the contraction of 'it is' or 'it has'. Expanding the contraction is the quickest test, and it catches the error every time."
+  },
+  {
+    "id": "eng2-confused-then",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "confused-pairs",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "confused-pairs"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Choose the correct word: \"This build is slower ___ the last one.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "thus"
+      },
+      {
+        "id": "b",
+        "text": "then"
+      },
+      {
+        "id": "c",
+        "text": "than"
+      },
+      {
+        "id": "d",
+        "text": "that"
+      }
+    ],
+    "answer": "c",
+    "explanation": "'Than' makes comparisons; 'then' refers to time or sequence. They are not interchangeable despite being near-homophones in rapid speech."
+  },
+  {
+    "id": "eng2-confused-ensure",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "confused-pairs",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "confused-pairs"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct word: \"Please ___ that the backup completes before the upgrade.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "assure"
+      },
+      {
+        "id": "b",
+        "text": "endure"
+      },
+      {
+        "id": "c",
+        "text": "insure"
+      },
+      {
+        "id": "d",
+        "text": "ensure"
+      }
+    ],
+    "answer": "d",
+    "explanation": "'Ensure' means to make certain of an outcome. 'Assure' reassures a person, and 'insure' concerns financial cover — three words separated only by their objects."
+  },
+  {
+    "id": "eng2-wf-noun",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "word-formation",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "word-formation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"The ___ of the API broke three clients.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "deprecation"
+      },
+      {
+        "id": "b",
+        "text": "deprecated"
+      },
+      {
+        "id": "c",
+        "text": "deprecating"
+      },
+      {
+        "id": "d",
+        "text": "deprecate"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The slot follows 'the' and precedes 'of', so it needs a noun. Recognising which part of speech a slot requires solves most word-formation questions before meaning is even considered."
+  },
+  {
+    "id": "eng2-wf-adjective",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "word-formation",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "word-formation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"The results were ___ inconclusive.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "frustration"
+      },
+      {
+        "id": "b",
+        "text": "frustratingly"
+      },
+      {
+        "id": "c",
+        "text": "frustrated"
+      },
+      {
+        "id": "d",
+        "text": "frustrate"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The slot modifies the adjective 'inconclusive', so it must be an adverb. The clue is the word that follows, not the meaning of the sentence."
+  },
+  {
+    "id": "eng2-wf-verb",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "word-formation",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "word-formation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Choose the correct form: \"We need to ___ the configuration before release.\"",
+    "options": [
+      {
+        "id": "a",
+        "text": "validation"
+      },
+      {
+        "id": "b",
+        "text": "valid"
+      },
+      {
+        "id": "c",
+        "text": "validate"
+      },
+      {
+        "id": "d",
+        "text": "validly"
+      }
+    ],
+    "answer": "c",
+    "explanation": "'To' signals an infinitive, so a verb is required. Scanning for the structural marker before the slot is faster than reasoning about the sentence as a whole."
+  },
+  {
+    "id": "eng2-wf-negative",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "word-formation",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "word-formation"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Choose the correct negative form of 'reversible':",
+    "options": [
+      {
+        "id": "a",
+        "text": "disreversible"
+      },
+      {
+        "id": "b",
+        "text": "non-reversible"
+      },
+      {
+        "id": "c",
+        "text": "unreversible"
+      },
+      {
+        "id": "d",
+        "text": "irreversible"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Words beginning with r commonly take 'ir-' as the negative prefix, by assimilation. The prefix is not freely chosen: it is fixed per word and has to be learned rather than derived."
+  },
+  {
+    "id": "eng2-ctx-abstract",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "context-meaning",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "context-meaning"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In \"the interface abstracts away the storage details\", 'abstracts' most nearly means",
+    "options": [
+      {
+        "id": "a",
+        "text": "hides behind a simpler model"
+      },
+      {
+        "id": "b",
+        "text": "removes entirely"
+      },
+      {
+        "id": "c",
+        "text": "makes theoretical"
+      },
+      {
+        "id": "d",
+        "text": "summarises"
+      }
+    ],
+    "answer": "a",
+    "explanation": "In a technical context abstraction means presenting a simplified view while the detail continues to exist underneath. The everyday sense of summarising is the intended trap."
+  },
+  {
+    "id": "eng2-ctx-degrade",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "context-meaning",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "context-meaning"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In \"the service degrades gracefully under load\", 'degrades' means",
+    "options": [
+      {
+        "id": "a",
+        "text": "fails completely"
+      },
+      {
+        "id": "b",
+        "text": "reduces function while continuing to work"
+      },
+      {
+        "id": "c",
+        "text": "becomes corrupted"
+      },
+      {
+        "id": "d",
+        "text": "slows permanently"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Graceful degradation is a design property: capability is shed in a controlled way rather than the system stopping. Reading 'degrades' as failure inverts the compliment being paid."
+  },
+  {
+    "id": "eng2-ctx-sound",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "context-meaning",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "context-meaning"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "In \"the argument is sound\", 'sound' means",
+    "options": [
+      {
+        "id": "a",
+        "text": "complete"
+      },
+      {
+        "id": "b",
+        "text": "audible"
+      },
+      {
+        "id": "c",
+        "text": "logically valid"
+      },
+      {
+        "id": "d",
+        "text": "loud"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Here 'sound' is an adjective meaning free from error or defect. Words with a common concrete sense and a distinct abstract one are standard vocabulary-in-context material."
+  },
+  {
+    "id": "eng2-ctx-nominal",
+    "kind": "mcq",
+    "stage": "english",
+    "topic": "vocabulary",
+    "subtopic": "context-meaning",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "english",
+      "context-meaning"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "In \"all systems nominal\", 'nominal' means",
+    "options": [
+      {
+        "id": "a",
+        "text": "very small"
+      },
+      {
+        "id": "b",
+        "text": "in name only"
+      },
+      {
+        "id": "c",
+        "text": "named"
+      },
+      {
+        "id": "d",
+        "text": "within expected parameters"
+      }
+    ],
+    "answer": "d",
+    "explanation": "In engineering usage nominal means performing as specified. In finance it means in name only, and in casual use it means trivially small — the field decides the sense."
   }
 ]
