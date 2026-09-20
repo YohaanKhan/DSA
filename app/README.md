@@ -113,9 +113,9 @@ left alone.
   plainly which metrics it could not take
 - 30 essay prompts, 24 speaking prompts and 36 grammar/vocabulary questions, hand-authored
 
-**Content — 717 items, all hand-authored and validated**
-- technical 325, english 178, ai-literacy 150, debugging 58, AI-assisted coding 6
-- Enough for four mocks before any English or trace item repeats, and fourteen for technical
+**Content — 926 items, all hand-authored and validated**
+- technical 400, english 298, ai-literacy 162, debugging 58, AI-assisted coding 8
+- **Eight numbered mock papers with no question shared between any two of them**
 - Trace answers are verified by executing an equivalent program, not by the author's reasoning
 - Debug exercises are mutated from solutions that compiled and passed first, so each is
   provably broken and provably fixable

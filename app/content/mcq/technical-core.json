@@ -18,22 +18,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It handles duplicates"
-      },
-      {
-        "id": "b",
         "text": "It is required for sorted input"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "It is faster"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "It avoids integer overflow when lo and hi are both large"
+      },
+      {
+        "id": "d",
+        "text": "It handles duplicates"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Both forms give the same value mathematically, but lo + hi can exceed the range of a fixed-width int and wrap to a negative index. Subtracting first keeps every intermediate inside the range. This is a classic C, C++ and Java trap that Python users never hit, because Python integers do not overflow."
   },
   {
@@ -55,22 +55,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Sorted order with respect to the comparison being used"
-      },
-      {
-        "id": "b",
         "text": "A power-of-two length"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "No negative values"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "All elements distinct"
+      },
+      {
+        "id": "d",
+        "text": "Sorted order with respect to the comparison being used"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "The algorithm works by discarding half the range, which is only sound if the ordering guarantees the target cannot be in the discarded half. Duplicates, negatives and odd lengths are all fine; unsorted input is not."
   },
   {
@@ -92,22 +92,22 @@
     "options": [
       {
         "id": "a",
-        "text": "O(1)"
-      },
-      {
-        "id": "b",
         "text": "O(log n)"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "O(n)"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "O(n log n)"
+      },
+      {
+        "id": "d",
+        "text": "O(1)"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Each comparison halves the remaining range, so the number of steps is how many times n can be halved before reaching one. That count is the base-two logarithm of n."
   },
   {
@@ -129,22 +129,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It uses extra memory"
-      },
-      {
-        "id": "b",
         "text": "The array is short"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Moving the left pointer right can only increase the sum, and the right pointer left can only decrease it"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Sorting removes duplicates"
+      },
+      {
+        "id": "d",
+        "text": "It uses extra memory"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Sortedness makes the sum monotonic in each pointer's movement, so a sum that is too small has exactly one useful move and one that is too large has the other. That is what lets you discard a candidate permanently and finish in a single linear pass."
   },
   {
@@ -166,22 +166,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Nested loops"
-      },
-      {
-        "id": "b",
         "text": "Binary search each element"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Sort it and use two pointers"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "A hash map from value to index, checking for target minus current as you scan"
+      },
+      {
+        "id": "d",
+        "text": "Nested loops"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Sorting destroys the indices you were asked to return, and restoring them costs extra bookkeeping. One pass storing what you have seen answers the question in linear time and preserves position naturally."
   },
   {
@@ -203,22 +203,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Contiguous subarray or substring satisfying a constraint that can be maintained incrementally"
-      },
-      {
-        "id": "b",
         "text": "Problems needing sorted input"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Problems on trees"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Any array problem"
+      },
+      {
+        "id": "d",
+        "text": "Contiguous subarray or substring satisfying a constraint that can be maintained incrementally"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "The window pays off when extending or shrinking by one element updates the answer in constant time rather than forcing a recount. Contiguity is essential — subsequences that skip elements cannot be maintained this way."
   },
   {
@@ -240,22 +240,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The inner loop runs at most once"
-      },
-      {
-        "id": "b",
         "text": "Each element enters and leaves the window at most once across the whole run"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "The array is sorted"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "The window has fixed size"
+      },
+      {
+        "id": "d",
+        "text": "The inner loop runs at most once"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Count total work rather than nesting depth. The left pointer only ever moves forward, so the inner loop's cumulative iterations are bounded by n regardless of how many run on any single outer step. This amortised argument is the point of the pattern."
   },
   {
@@ -277,22 +277,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It sorts in place"
-      },
-      {
-        "id": "b",
         "text": "It never crashes"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Equal elements keep their original relative order"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "It runs in O(n log n) always"
+      },
+      {
+        "id": "d",
+        "text": "It sorts in place"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Stability matters when you sort by one key after another: a stable second sort preserves the first ordering within ties, which is how multi-key sorting is built up. Quicksort and heapsort are not stable; mergesort and counting sort are."
   },
   {
@@ -314,22 +314,22 @@
     "options": [
       {
         "id": "a",
-        "text": "O(n), on sorted input"
-      },
-      {
-        "id": "b",
         "text": "O(log n), on random input"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "O(n log n), never"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "O(n²), when partitioning is consistently unbalanced, such as an already-sorted array with a naive pivot"
+      },
+      {
+        "id": "d",
+        "text": "O(n), on sorted input"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Quicksort's speed rests on splitting roughly in half. A pivot that always lands at an end gives partitions of size n-1 and 0, so the recursion depth becomes n. Randomised or median-of-three pivots exist specifically to make that case improbable."
   },
   {
@@ -351,22 +351,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Many keys colliding into the same bucket, degrading toward O(n)"
-      },
-      {
-        "id": "b",
         "text": "Integer keys"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Keys inserted in sorted order"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Large maps"
+      },
+      {
+        "id": "d",
+        "text": "Many keys colliding into the same bucket, degrading toward O(n)"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "The constant-time claim is average-case under a good hash and a controlled load factor. Adversarial or badly distributed keys pile into one bucket and the lookup degenerates to scanning that bucket. This is why interview answers should say 'amortised average' rather than flatly O(1)."
   },
   {
@@ -388,22 +388,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Nested loops comparing every pair"
-      },
-      {
-        "id": "b",
         "text": "One pass inserting into a hash set and stopping when an insert finds the value present"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Sort, then compare neighbours"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Binary search for each element"
+      },
+      {
+        "id": "d",
+        "text": "Nested loops comparing every pair"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "A single pass with a set is linear time and linear space; sorting is n log n but constant extra space. Both are acceptable answers, and naming the space-versus-time trade-off explicitly is what distinguishes a strong response from a correct one."
   },
   {
@@ -425,22 +425,22 @@
     "options": [
       {
         "id": "a",
-        "text": "O(n log n)"
-      },
-      {
-        "id": "b",
         "text": "O(n)"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "O(1)"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "O(log n)"
+      },
+      {
+        "id": "d",
+        "text": "O(n log n)"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Only the two indices and one temporary for the swap are needed, and none of them grows with n. 'In place' means auxiliary space is constant, not that literally nothing is allocated."
   },
   {
@@ -462,22 +462,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Remove and append each zero"
-      },
-      {
-        "id": "b",
         "text": "Use a second array"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Sort the array"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "A write pointer that lags the read pointer, copying non-zeroes forward then filling the tail"
+      },
+      {
+        "id": "d",
+        "text": "Remove and append each zero"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "The lagging write index is the general shape of every in-place filter: read scans everything, write records only what survives, and the gap between them is exactly the number of removed elements. Recognise it and a whole family of problems becomes one pattern."
   },
   {
@@ -499,22 +499,22 @@
     "options": [
       {
         "id": "a",
-        "text": "A prefix-sum array, after which any range costs one subtraction"
-      },
-      {
-        "id": "b",
         "text": "Sorting the array"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "A hash map of ranges"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Recomputing each sum"
+      },
+      {
+        "id": "d",
+        "text": "A prefix-sum array, after which any range costs one subtraction"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "Pay linear time once to build cumulative totals, then answer every query in constant time. The trade is that any update invalidates the table, so this applies to static data; changing data wants a different structure."
   },
   {
@@ -536,22 +536,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Sort both and compare"
-      },
-      {
-        "id": "b",
         "text": "Count character frequencies in one pass and decrement while scanning the other"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Generate all permutations"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Compare hash codes"
+      },
+      {
+        "id": "d",
+        "text": "Sort both and compare"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Counting is linear; sorting is n log n. For a fixed alphabet the count array is constant space, so the frequency method wins on both axes. Equal hash codes do not imply equal contents and cannot settle it."
   },
   {
@@ -573,22 +573,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Concatenation is not supported"
-      },
-      {
-        "id": "b",
         "text": "The loop is slow"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Strings are immutable, so each concatenation allocates and copies a new string"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Java has no string type"
+      },
+      {
+        "id": "d",
+        "text": "Concatenation is not supported"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Each += produces a fresh object holding a copy of everything so far, making the total work quadratic in the final length. StringBuilder keeps one growable buffer instead. Python has the same trap with str, and the same fix in the form of join."
   },
   {
@@ -610,22 +610,22 @@
     "options": [
       {
         "id": "a",
-        "text": "A wrong answer but no crash"
-      },
-      {
-        "id": "b",
         "text": "An infinite loop with no memory cost"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "A compile error"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "A stack overflow at run time"
+      },
+      {
+        "id": "d",
+        "text": "A wrong answer but no crash"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Each call consumes a stack frame and nothing ever returns, so the stack grows until it is exhausted. This is a run-time failure, not a compile-time one — the compiler cannot tell whether the base case is reachable."
   },
   {
@@ -647,22 +647,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The same subproblems are recomputed many times across different branches"
-      },
-      {
-        "id": "b",
         "text": "It uses too much memory"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Addition is slow"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Recursion is inherently slow"
+      },
+      {
+        "id": "d",
+        "text": "The same subproblems are recomputed many times across different branches"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "The call tree branches twice at every level and the branches overlap heavily, so a given value is computed again and again. Memoisation collapses the tree to linear work by recording each result the first time it is produced."
   },
   {
@@ -684,22 +684,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Finding the median"
-      },
-      {
-        "id": "b",
         "text": "Checking whether brackets are balanced"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Sorting integers"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Binary search"
+      },
+      {
+        "id": "d",
+        "text": "Finding the median"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "The last opened bracket must be the first closed, which is exactly last-in-first-out. Whenever a problem says 'most recent unmatched thing', a stack is almost always the structure."
   },
   {
@@ -721,22 +721,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It uses less memory"
-      },
-      {
-        "id": "b",
         "text": "Queues are faster"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "First-in-first-out visits all nodes at the current depth before any deeper node"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Stacks cannot hold nodes"
+      },
+      {
+        "id": "d",
+        "text": "It uses less memory"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "The order the structure returns nodes in is what defines the traversal. Swap the queue for a stack and the same code performs depth-first instead — the algorithms differ only in that choice."
   },
   {
@@ -758,22 +758,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Sorting the nodes"
-      },
-      {
-        "id": "b",
         "text": "Reversing the list"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "A hash set of visited nodes"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Two pointers advancing at different speeds until they meet"
+      },
+      {
+        "id": "d",
+        "text": "Sorting the nodes"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "If a cycle exists the faster pointer eventually laps the slower one inside it; if it does not, the fast pointer reaches the end. A visited set also works but costs linear space, so it fails the constant-space requirement."
   },
   {
@@ -795,22 +795,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Big-O describes growth as n grows without bound, where the highest-order term dominates and constants do not affect the rate"
-      },
-      {
-        "id": "b",
         "text": "The numbers are estimates"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "It is a convention with no meaning"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "The other terms are always small"
+      },
+      {
+        "id": "d",
+        "text": "Big-O describes growth as n grows without bound, where the highest-order term dominates and constants do not affect the rate"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "It is a statement about asymptotic growth rate, not about the value at any particular n. For small inputs the linear term or the constant may well dominate in practice, which is why big-O is not by itself a performance measurement."
   },
   {
@@ -832,22 +832,22 @@
     "options": [
       {
         "id": "a",
-        "text": "O(1)"
-      },
-      {
-        "id": "b",
         "text": "O(log n) for the call stack, since the depth is the tree height"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "O(n) always"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "O(n log n)"
+      },
+      {
+        "id": "d",
+        "text": "O(1)"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Recursion's space cost is its maximum depth, which for a balanced tree is the height. A degenerate tree that is effectively a chain makes the same code O(n), so the answer depends on balance and it is worth saying so."
   },
   {
@@ -869,22 +869,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The compiler forbids column order"
-      },
-      {
-        "id": "b",
         "text": "Rows are shorter"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Row-major layout means consecutive row elements are adjacent in memory, so cache lines are used fully"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Columns need extra bounds checks"
+      },
+      {
+        "id": "d",
+        "text": "The compiler forbids column order"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "In a row-major language such as C, C++ or Java, walking a row touches consecutive addresses and each fetched cache line serves several elements. Walking a column strides across memory and can waste most of every line. Same asymptotic complexity, very different wall-clock time."
   },
   {
@@ -906,22 +906,22 @@
     "options": [
       {
         "id": "a",
-        "text": "On sorted input"
-      },
-      {
-        "id": "b",
         "text": "Never"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Whenever it is faster than the alternative"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "When the problem has optimal substructure and the greedy choice property — a locally best choice is part of some global optimum"
+      },
+      {
+        "id": "d",
+        "text": "On sorted input"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Greedy is correct only when you can argue that taking the best immediate option never forecloses the optimum. Coin change is the standard counterexample: greedy works for some denominations and fails for others, so the algorithm must be justified against the specific problem."
   },
   {
@@ -943,22 +943,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Compile, link, run, debug"
-      },
-      {
-        "id": "b",
         "text": "Public, private, protected, default"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Classes, objects, methods, fields"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Encapsulation, abstraction, inheritance, polymorphism"
+      },
+      {
+        "id": "d",
+        "text": "Compile, link, run, debug"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "These four name what the paradigm offers: hiding internals, exposing a simplified model, deriving from existing types, and one interface serving several implementations. The other lists are language mechanics rather than principles."
   },
   {
@@ -980,22 +980,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Bundling data with the methods that operate on it and restricting direct outside access to the data"
-      },
-      {
-        "id": "b",
         "text": "Inheriting from a base class"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Overloading a method"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Putting code in a class"
+      },
+      {
+        "id": "d",
+        "text": "Bundling data with the methods that operate on it and restricting direct outside access to the data"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "The value is the restriction: because outside code cannot reach the fields directly, the class can guarantee its own invariants and change its internals without breaking callers. Merely placing code in a class achieves none of that."
   },
   {
@@ -1017,22 +1017,22 @@
     "options": [
       {
         "id": "a",
-        "text": "They are the same"
-      },
-      {
-        "id": "b",
         "text": "Abstraction is about exposing only the relevant model; encapsulation is about enforcing that boundary"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Abstraction applies to classes, encapsulation to methods"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Encapsulation is a Java-only concept"
+      },
+      {
+        "id": "d",
+        "text": "They are the same"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Abstraction is a design decision about what to show; encapsulation is the mechanism that makes hiding the rest enforceable. Design decides the interface, access control protects it."
   },
   {
@@ -1054,22 +1054,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Overloading requires inheritance"
-      },
-      {
-        "id": "b",
         "text": "Overloading happens at run time"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Overloading is same name with different parameter lists resolved at compile time; overriding replaces a superclass method, resolved at run time"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Overriding requires static methods"
+      },
+      {
+        "id": "d",
+        "text": "Overloading requires inheritance"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "The dividing line is when the target is chosen. The compiler picks an overload from the declared argument types; the runtime picks an override from the object's actual type. That is why an overridden call through a base-class reference runs the subclass version."
   },
   {
@@ -1091,22 +1091,22 @@
     "options": [
       {
         "id": "a",
-        "text": "A compile error"
-      },
-      {
-        "id": "b",
         "text": "Ignored"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Overridden"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Hidden — resolution uses the reference type, not the object"
+      },
+      {
+        "id": "d",
+        "text": "A compile error"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Static members belong to the class, so there is no dynamic dispatch to perform. Calling through a superclass reference runs the superclass method even if the object is a subclass instance, which is the opposite of the instance-method behaviour people expect."
   },
   {
@@ -1128,22 +1128,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Superclass first, then subclass"
-      },
-      {
-        "id": "b",
         "text": "Only the subclass constructor"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Order is unspecified"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Subclass first, then superclass"
+      },
+      {
+        "id": "d",
+        "text": "Superclass first, then subclass"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "A subclass may depend on state the superclass establishes, so the base must be fully initialised before the derived constructor body runs. This is why calling an overridable method from a constructor is dangerous: it can execute against a not-yet-initialised subclass."
   },
   {
@@ -1165,22 +1165,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It still exists implicitly"
-      },
-      {
-        "id": "b",
         "text": "It does not exist — the compiler only supplies a default when no constructor is declared"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "It is inherited from Object"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "It must be declared final"
+      },
+      {
+        "id": "d",
+        "text": "It still exists implicitly"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "The implicit no-argument constructor is a convenience granted only to classes that declare none. Adding any constructor withdraws it, which is why adding a parameterised constructor can break code elsewhere that used new with no arguments."
   },
   {
@@ -1202,22 +1202,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Interfaces cannot be implemented by abstract classes"
-      },
-      {
-        "id": "b",
         "text": "Interfaces cannot have methods with bodies"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "An abstract class can hold instance state and a constructor; a class may extend only one but implement many interfaces"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Abstract classes cannot be extended"
+      },
+      {
+        "id": "d",
+        "text": "Interfaces cannot be implemented by abstract classes"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Default methods narrowed the gap on behaviour, so the durable distinctions are instance fields, constructors, and single versus multiple inheritance. Choose an interface for a capability contract and an abstract class for shared state plus partial implementation."
   },
   {
@@ -1239,22 +1239,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Static methods"
-      },
-      {
-        "id": "b",
         "text": "Final methods"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Method overloading"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Method overriding with dynamic dispatch on the object's actual type"
+      },
+      {
+        "id": "d",
+        "text": "Static methods"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "The call site names a method on a declared type; the virtual dispatch mechanism selects the implementation from the object's real type at run time. Final and static methods are bound earlier precisely because they cannot be overridden."
   },
   {
@@ -1276,22 +1276,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Inheritance couples a subclass to its parent's implementation, so parent changes can silently break it"
-      },
-      {
-        "id": "b",
         "text": "Composition uses less memory"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Inheritance is deprecated"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Inheritance is slower"
+      },
+      {
+        "id": "d",
+        "text": "Inheritance couples a subclass to its parent's implementation, so parent changes can silently break it"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "A subclass depends on internal details its parent never promised to keep, so a harmless-looking parent change can break it — the fragile base class problem. Composition depends only on a published interface, which is a contract the other side is expected to honour."
   },
   {
@@ -1313,22 +1313,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Car extends Engine"
-      },
-      {
-        "id": "b",
         "text": "Car holds an Engine as a field"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Engine extends Car"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Both must implement the same interface"
+      },
+      {
+        "id": "d",
+        "text": "Car extends Engine"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Inheritance expresses 'is a kind of', composition expresses 'has a'. A car is not a sort of engine, so extending would let a car be used wherever an engine is expected — which is exactly the substitution error the distinction exists to prevent."
   },
   {
@@ -1350,22 +1350,22 @@
     "options": [
       {
         "id": "a",
-        "text": "protected"
-      },
-      {
-        "id": "b",
         "text": "public"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "package-private, the default when no modifier is written"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "private"
+      },
+      {
+        "id": "d",
+        "text": "protected"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Omitting the modifier is itself a choice, not an absence of one. Note that protected is wider, not narrower: it adds subclasses in other packages on top of package access."
   },
   {
@@ -1387,22 +1387,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It is always public"
-      },
-      {
-        "id": "b",
         "text": "It is initialised last"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "It cannot be changed"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "One copy exists per class rather than per object"
+      },
+      {
+        "id": "d",
+        "text": "It is always public"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Sharing is the whole point and the whole risk: every instance sees the same storage, so mutable static state becomes shared mutable state and needs the same care as any other global."
   },
   {
@@ -1424,22 +1424,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Multiple inheritance of state creates ambiguity about which copy of a field an object has; interfaces historically carried no state"
-      },
-      {
-        "id": "b",
         "text": "Classes are final by default"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "It is an arbitrary rule"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Interfaces are smaller"
+      },
+      {
+        "id": "d",
+        "text": "Multiple inheritance of state creates ambiguity about which copy of a field an object has; interfaces historically carried no state"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "The ambiguity classic multiple inheritance introduces is about data, not method names. Interfaces avoided it by carrying no fields; when default methods arrived, Java added explicit conflict rules rather than reopening the state problem."
   },
   {
@@ -1461,22 +1461,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Open-closed, because it cannot be extended"
-      },
-      {
-        "id": "b",
         "text": "Single responsibility — it has two unrelated reasons to change, so each change risks the other"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Liskov substitution, because it cannot be subclassed"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Dependency inversion, because it uses concrete types"
+      },
+      {
+        "id": "d",
+        "text": "Open-closed, because it cannot be extended"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "The test is how many distinct forces would make you edit the class. Two unrelated ones mean an edit for either concern can break the other, and the class gets pulled in two directions by different stakeholders over time."
   },
   {
@@ -1498,22 +1498,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Serialisation"
-      },
-      {
-        "id": "b",
         "text": "Compilation"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Hash-based collections such as HashMap and HashSet, which locate objects by bucket first"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Sorting"
+      },
+      {
+        "id": "d",
+        "text": "Serialisation"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "Hash-based lookup finds the bucket from hashCode and only then compares with equals. Two objects that are equal but hash differently land in different buckets, so the lookup never reaches the comparison and the object appears absent."
   },
   {

@@ -1430,5 +1430,471 @@
         "expectedStdout": "1 2 3 4 5 9"
       }
     ]
+  },
+  {
+    "id": "aic-rotate-array",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "arrays",
+    "subtopic": "in-place",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "arrays",
+      "in-place"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Rotate an array left by k",
+    "language": "c",
+    "problem": "Given an integer array and a count k, rotate it left by k positions in place with O(1) extra space. k may be zero, or larger than the array length. Input is n, then n integers, then k; print the rotated array space-separated.",
+    "expectedComplexity": "O(n) time, O(1) extra space",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States the input is an integer array plus a rotation count",
+          "patterns": [
+            "int array",
+            "integer array",
+            "array and k",
+            "count k",
+            "int *"
+          ]
+        },
+        {
+          "id": "k-range",
+          "requirement": "Notices k may exceed the array length, or be zero",
+          "patterns": [
+            "k larger than",
+            "k > n",
+            "modulo",
+            "k mod n",
+            "k may be zero",
+            "wrap"
+          ]
+        },
+        {
+          "id": "in-place",
+          "requirement": "States the rotation must happen in place with constant extra space",
+          "patterns": [
+            "in place",
+            "in-place",
+            "o(1) space",
+            "constant space",
+            "without a second array"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as k equal to n, k zero, or a single element",
+          "patterns": [
+            "k = 0",
+            "k equals n",
+            "single element",
+            "length 1",
+            "n = 1"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "reversal",
+          "requirement": "Describes the three-reversal method, or an equivalent O(1)-space approach",
+          "patterns": [
+            "reverse",
+            "three reversal",
+            "triple reverse",
+            "juggling",
+            "cyclic replacement"
+          ]
+        },
+        {
+          "id": "normalise",
+          "requirement": "Says k must be reduced modulo n before use",
+          "patterns": [
+            "k mod n",
+            "k %= n",
+            "modulo",
+            "reduce k",
+            "normalise k"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time and constant extra space",
+          "patterns": [
+            "o(n)",
+            "linear",
+            "o(1) space",
+            "constant space"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C explicitly",
+          "patterns": [
+            "a c function",
+            "c function",
+            "in c",
+            "c program"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "void rotateleft",
+            "int *a",
+            "int n",
+            "int k",
+            "(int"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "Requires in-place rotation and handling of k beyond n",
+          "patterns": [
+            "in place",
+            "in-place",
+            "o(1)",
+            "k mod n",
+            "k larger than n",
+            "modulo"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read n",
+            "print",
+            "space-separated",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "missing-modulo",
+          "requirement": "Notices k is used without being reduced modulo n, so a large k reads out of bounds",
+          "patterns": [
+            "modulo",
+            "k mod n",
+            "k %= n",
+            "not reduced",
+            "larger than n",
+            "out of bounds",
+            "out of range"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input with k greater than the length that goes wrong",
+          "patterns": [
+            "k = 7",
+            "k greater",
+            "k > n",
+            "large k",
+            "seven"
+          ]
+        },
+        {
+          "id": "undefined-behaviour",
+          "requirement": "Notices that reading past the array is undefined rather than merely wrong",
+          "patterns": [
+            "undefined behaviour",
+            "undefined behavior",
+            "out of bounds",
+            "past the end",
+            "memory"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "negative-values",
+        "requirement": "Claims negative array values are a problem",
+        "patterns": [
+          "negative values",
+          "negative numbers in the array"
+        ]
+      },
+      {
+        "id": "overflow",
+        "requirement": "Claims an integer overflow that cannot occur here",
+        "patterns": [
+          "overflow",
+          "int overflow"
+        ]
+      },
+      {
+        "id": "sorting",
+        "requirement": "Claims the array must be sorted first",
+        "patterns": [
+          "sort the array",
+          "should sort"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C function `void rotateLeft(int *a, int n, int k)` that rotates the array left by k positions in place.\\n\\nConstraints: O(1) extra space and O(n) time — use the three-reversal method. Reduce k modulo n first, because k may be zero or larger than n.\\nEdge cases: k = 0, k equal to n, k larger than n, and n = 1.\\n\\nAlso give a complete main() that reads n, then n integers, then k from stdin, and prints the rotated array space-separated on one line.",
+    "fallbackAssistantOutput": "```c\n#include <stdio.h>\n\nstatic void reverse(int *a, int lo, int hi) {\n    while (lo < hi) {\n        int t = a[lo]; a[lo] = a[hi]; a[hi] = t;\n        lo++; hi--;\n    }\n}\n\nvoid rotateLeft(int *a, int n, int k) {\n    if (n <= 1) return;\n    reverse(a, 0, k - 1);\n    reverse(a, k, n - 1);\n    reverse(a, 0, n - 1);\n}\n\nint main(void) {\n    int n, k;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    int a[100000];\n    for (int i = 0; i < n; i++) { if (scanf(\"%d\", &a[i]) != 1) return 0; }\n    if (scanf(\"%d\", &k) != 1) return 0;\n    rotateLeft(a, n, k);\n    for (int i = 0; i < n; i++) printf(\"%d%s\", a[i], i + 1 < n ? \" \" : \"\");\n    printf(\"\\n\");\n    return 0;\n}\n```",
+    "referenceSolution": "#include <stdio.h>\n\nstatic void reverse(int *a, int lo, int hi) {\n    while (lo < hi) {\n        int t = a[lo]; a[lo] = a[hi]; a[hi] = t;\n        lo++; hi--;\n    }\n}\n\nvoid rotateLeft(int *a, int n, int k) {\n    if (n <= 1) return;\n    k %= n;\n    if (k < 0) k += n;\n    reverse(a, 0, k - 1);\n    reverse(a, k, n - 1);\n    reverse(a, 0, n - 1);\n}\n\nint main(void) {\n    int n, k;\n    if (scanf(\"%d\", &n) != 1) return 0;\n    int a[100000];\n    for (int i = 0; i < n; i++) { if (scanf(\"%d\", &a[i]) != 1) return 0; }\n    if (scanf(\"%d\", &k) != 1) return 0;\n    rotateLeft(a, n, k);\n    for (int i = 0; i < n; i++) printf(\"%d%s\", a[i], i + 1 < n ? \" \" : \"\");\n    printf(\"\\n\");\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "5\n1 2 3 4 5\n2",
+        "expectedStdout": "3 4 5 1 2"
+      },
+      {
+        "stdin": "4\n1 2 3 4\n4",
+        "expectedStdout": "1 2 3 4"
+      },
+      {
+        "stdin": "3\n7 8 9\n0",
+        "expectedStdout": "7 8 9"
+      },
+      {
+        "stdin": "5\n1 2 3 4 5\n7",
+        "expectedStdout": "3 4 5 1 2"
+      },
+      {
+        "stdin": "1\n9\n3",
+        "expectedStdout": "9"
+      }
+    ]
+  },
+  {
+    "id": "aic-add-big-numbers",
+    "kind": "aic",
+    "stage": "aic",
+    "topic": "strings",
+    "subtopic": "parsing",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "strings",
+      "parsing"
+    ],
+    "source": "authored",
+    "targetSeconds": 1200,
+    "title": "Add two numbers given as digit strings",
+    "language": "cpp",
+    "problem": "Two non-negative integers are given as strings of digits, each possibly far too long for any built-in integer type. Print their sum, also as a string. Do not convert to a numeric type.",
+    "expectedComplexity": "O(n) time in the length of the longer input",
+    "rubric": {
+      "frame": [
+        {
+          "id": "input-type",
+          "requirement": "States both inputs are digit strings of arbitrary length",
+          "patterns": [
+            "digit string",
+            "as strings",
+            "arbitrary length",
+            "very long",
+            "string of digits"
+          ]
+        },
+        {
+          "id": "no-conversion",
+          "requirement": "States the values must not be converted to int or long",
+          "patterns": [
+            "do not convert",
+            "without converting",
+            "too large for",
+            "no integer type",
+            "cannot fit"
+          ]
+        },
+        {
+          "id": "output-type",
+          "requirement": "States the output is a digit string, not a number",
+          "patterns": [
+            "as a string",
+            "string output",
+            "print the sum",
+            "digit string"
+          ]
+        },
+        {
+          "id": "edge-cases",
+          "requirement": "Names an edge case such as different lengths, a final carry, or zero",
+          "patterns": [
+            "different length",
+            "carry",
+            "final carry",
+            "leading zero",
+            "zero"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "id": "right-to-left",
+          "requirement": "Describes adding from the least significant digit with a carry",
+          "patterns": [
+            "right to left",
+            "from the end",
+            "least significant",
+            "carry"
+          ]
+        },
+        {
+          "id": "final-carry",
+          "requirement": "Says a carry remaining after both strings are exhausted must still be emitted",
+          "patterns": [
+            "final carry",
+            "remaining carry",
+            "carry after",
+            "extra digit",
+            "carry out"
+          ]
+        },
+        {
+          "id": "complexity",
+          "requirement": "States linear time in the longer input",
+          "patterns": [
+            "o(n)",
+            "linear",
+            "single pass",
+            "one pass"
+          ]
+        }
+      ],
+      "prompt": [
+        {
+          "id": "language",
+          "requirement": "Names C++ explicitly",
+          "patterns": [
+            "c++",
+            "cpp",
+            "in c++"
+          ]
+        },
+        {
+          "id": "signature",
+          "requirement": "Gives the function signature or its parameters",
+          "patterns": [
+            "addstrings",
+            "std::string",
+            "const string",
+            "(string"
+          ]
+        },
+        {
+          "id": "constraint",
+          "requirement": "Forbids converting to a numeric type and requires the trailing carry",
+          "patterns": [
+            "do not convert",
+            "without converting",
+            "carry",
+            "no integer type"
+          ]
+        },
+        {
+          "id": "io-format",
+          "requirement": "States the input and output format",
+          "patterns": [
+            "read two",
+            "cin",
+            "print",
+            "stdin",
+            "stdout"
+          ]
+        }
+      ],
+      "review": [
+        {
+          "id": "dropped-carry",
+          "requirement": "Notices the loop ends before emitting a carry left over after both strings run out",
+          "patterns": [
+            "carry",
+            "final carry",
+            "drops the carry",
+            "loop condition",
+            "while i >= 0 || j >= 0",
+            "missing digit"
+          ]
+        },
+        {
+          "id": "failing-case",
+          "requirement": "Identifies an input where the answer is one digit too short",
+          "patterns": [
+            "999",
+            "1000",
+            "carry over",
+            "one digit short",
+            "000"
+          ]
+        },
+        {
+          "id": "leading-zero",
+          "requirement": "Notices the result can come out with a wrong leading digit or length",
+          "patterns": [
+            "leading",
+            "length",
+            "digit count",
+            "shorter"
+          ]
+        }
+      ]
+    },
+    "reviewDecoys": [
+      {
+        "id": "unicode",
+        "requirement": "Claims a character-encoding problem the specification does not raise",
+        "patterns": [
+          "unicode",
+          "utf-8",
+          "encoding"
+        ]
+      },
+      {
+        "id": "performance",
+        "requirement": "Claims a performance problem in a single linear pass",
+        "patterns": [
+          "too slow",
+          "inefficient",
+          "performance issue"
+        ]
+      },
+      {
+        "id": "negatives",
+        "requirement": "Claims negative inputs must be handled when the specification says non-negative",
+        "patterns": [
+          "negative number",
+          "minus sign",
+          "handle negatives"
+        ]
+      }
+    ],
+    "modelPromptExample": "Write a C++ function `std::string addStrings(const std::string &a, const std::string &b)` that adds two non-negative integers given as digit strings.\\n\\nConstraints: do not convert to int, long or any numeric type — the values may be hundreds of digits. Add right to left with a carry, and emit the final carry after both strings are exhausted. O(n) time.\\nEdge cases: inputs of different length, a carry out of the most significant digit, and both inputs zero.\\n\\nAlso give a complete main() that reads two whitespace-separated tokens from stdin and prints the sum on one line.",
+    "fallbackAssistantOutput": "```cpp\n#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nstring addStrings(const string &a, const string &b) {\n    string out;\n    int i = (int)a.size() - 1, j = (int)b.size() - 1, carry = 0;\n    while (i >= 0 || j >= 0) {\n        int sum = carry;\n        if (i >= 0) sum += a[i--] - '0';\n        if (j >= 0) sum += b[j--] - '0';\n        out.push_back((char)('0' + sum % 10));\n        carry = sum / 10;\n    }\n    reverse(out.begin(), out.end());\n    return out;\n}\n\nint main() {\n    string a, b;\n    if (!(cin >> a >> b)) return 0;\n    cout << addStrings(a, b) << endl;\n    return 0;\n}\n```",
+    "referenceSolution": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nstring addStrings(const string &a, const string &b) {\n    string out;\n    int i = (int)a.size() - 1, j = (int)b.size() - 1, carry = 0;\n    while (i >= 0 || j >= 0 || carry) {\n        int sum = carry;\n        if (i >= 0) sum += a[i--] - '0';\n        if (j >= 0) sum += b[j--] - '0';\n        out.push_back((char)('0' + sum % 10));\n        carry = sum / 10;\n    }\n    reverse(out.begin(), out.end());\n    return out;\n}\n\nint main() {\n    string a, b;\n    if (!(cin >> a >> b)) return 0;\n    cout << addStrings(a, b) << endl;\n    return 0;\n}",
+    "tests": [
+      {
+        "stdin": "123 456",
+        "expectedStdout": "579"
+      },
+      {
+        "stdin": "999 1",
+        "expectedStdout": "1000"
+      },
+      {
+        "stdin": "1 9999",
+        "expectedStdout": "10000"
+      },
+      {
+        "stdin": "0 0",
+        "expectedStdout": "0"
+      },
+      {
+        "stdin": "5000 5000",
+        "expectedStdout": "10000"
+      }
+    ]
   }
 ]

@@ -18,22 +18,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Numeric"
+        "text": "Auto-incrementing"
       },
       {
         "id": "b",
-        "text": "Unique across rows and never null"
+        "text": "Numeric"
       },
       {
         "id": "c",
-        "text": "The first column"
+        "text": "Unique across rows and never null"
       },
       {
         "id": "d",
-        "text": "Auto-incrementing"
+        "text": "The first column"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "The two guarantees are uniqueness and presence, because the key's job is to identify exactly one row every time. Type, position and generation strategy are implementation choices with no bearing on whether something qualifies."
   },
   {
@@ -55,22 +55,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Surrogate keys"
+        "text": "Composite keys"
       },
       {
         "id": "b",
-        "text": "Foreign keys"
+        "text": "Surrogate keys"
       },
       {
         "id": "c",
-        "text": "Candidate keys, one of which is chosen as the primary key"
+        "text": "Foreign keys"
       },
       {
         "id": "d",
-        "text": "Composite keys"
+        "text": "Candidate keys, one of which is chosen as the primary key"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "Every minimal uniquely-identifying attribute set is a candidate; designating one as primary is a choice, and the others become alternate keys. Minimality matters — adding a spare column to a key stops it being a candidate."
   },
   {
@@ -92,22 +92,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Sorted order"
+        "text": "Referential integrity — a value must exist in the referenced key, or be null"
       },
       {
         "id": "b",
-        "text": "Faster joins"
+        "text": "Sorted order"
       },
       {
         "id": "c",
-        "text": "Uniqueness in its own table"
+        "text": "Faster joins"
       },
       {
         "id": "d",
-        "text": "Referential integrity — a value must exist in the referenced key, or be null"
+        "text": "Uniqueness in its own table"
       }
     ],
-    "answer": "d",
+    "answer": "a",
     "explanation": "It constrains what may be stored, preventing rows that point at nothing. It does not create an index automatically in every engine, so the performance benefit people expect often has to be added deliberately."
   },
   {
@@ -129,22 +129,22 @@
     "options": [
       {
         "id": "a",
-        "text": "First normal form, which requires atomic values"
+        "text": "Second normal form"
       },
       {
         "id": "b",
-        "text": "Third normal form"
+        "text": "First normal form, which requires atomic values"
       },
       {
         "id": "c",
-        "text": "Boyce-Codd normal form"
+        "text": "Third normal form"
       },
       {
         "id": "d",
-        "text": "Second normal form"
+        "text": "Boyce-Codd normal form"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "1NF asks that each cell hold a single indivisible value. A packed list defeats indexing, constraints and querying at once, forcing string surgery for what should be a join."
   },
   {
@@ -166,22 +166,22 @@
     "options": [
       {
         "id": "a",
-        "text": "1NF"
+        "text": "None"
       },
       {
         "id": "b",
-        "text": "2NF, because a non-key attribute depends on only part of the composite key"
+        "text": "1NF"
       },
       {
         "id": "c",
-        "text": "3NF"
+        "text": "2NF, because a non-key attribute depends on only part of the composite key"
       },
       {
         "id": "d",
-        "text": "None"
+        "text": "3NF"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "2NF forbids partial dependency on a composite key. The student's name follows from student_id alone, so it is repeated for every course that student takes and can be updated inconsistently. Move it to a students table."
   },
   {
@@ -203,22 +203,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It is fully normalised"
+        "text": "2NF"
       },
       {
         "id": "b",
-        "text": "1NF"
+        "text": "It is fully normalised"
       },
       {
         "id": "c",
-        "text": "3NF, because a non-key attribute depends on another non-key attribute"
+        "text": "1NF"
       },
       {
         "id": "d",
-        "text": "2NF"
+        "text": "3NF, because a non-key attribute depends on another non-key attribute"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "This is a transitive dependency: employee determines department, and department determines its name. The department name belongs in a departments table, keyed by department_id, or renaming a department means updating every employee row."
   },
   {
@@ -240,22 +240,22 @@
     "options": [
       {
         "id": "a",
-        "text": "To save disk space"
+        "text": "To avoid joins on a read-heavy path, accepting redundancy and the update anomalies it brings"
       },
       {
         "id": "b",
-        "text": "To satisfy the ORM"
+        "text": "To save disk space"
       },
       {
         "id": "c",
-        "text": "Normalisation is wrong"
+        "text": "To satisfy the ORM"
       },
       {
         "id": "d",
-        "text": "To avoid joins on a read-heavy path, accepting redundancy and the update anomalies it brings"
+        "text": "Normalisation is wrong"
       }
     ],
-    "answer": "d",
+    "answer": "a",
     "explanation": "It is a trade, not a mistake: read speed bought with storage and the ongoing risk of copies drifting apart. It is justified by measurement on a specific query, and it should be recorded as a decision rather than left to be discovered."
   },
   {
@@ -277,22 +277,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Once committed, changes survive a crash"
+        "text": "Transactions are fast"
       },
       {
         "id": "b",
-        "text": "Transactions cannot be rolled back"
+        "text": "Once committed, changes survive a crash"
       },
       {
         "id": "c",
-        "text": "Data is encrypted"
+        "text": "Transactions cannot be rolled back"
       },
       {
         "id": "d",
-        "text": "Transactions are fast"
+        "text": "Data is encrypted"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "Durability concerns what happens after commit: the effect must persist even if the machine loses power immediately afterwards, which is why write-ahead logs are flushed before a commit is acknowledged."
   },
   {
@@ -314,22 +314,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Each database runs on its own server"
+        "text": "Users have separate logins"
       },
       {
         "id": "b",
-        "text": "Concurrent transactions do not observe each other's incomplete work"
+        "text": "Each database runs on its own server"
       },
       {
         "id": "c",
-        "text": "Tables cannot be joined"
+        "text": "Concurrent transactions do not observe each other's incomplete work"
       },
       {
         "id": "d",
-        "text": "Users have separate logins"
+        "text": "Tables cannot be joined"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "It constrains the visibility of in-flight changes. Databases offer several isolation levels precisely because full isolation is expensive, so the practical question is which anomalies a given level still permits."
   },
   {
@@ -351,22 +351,22 @@
     "options": [
       {
         "id": "a",
-        "text": "A deadlock"
+        "text": "A non-repeatable read"
       },
       {
         "id": "b",
-        "text": "A phantom read"
+        "text": "A deadlock"
       },
       {
         "id": "c",
-        "text": "A dirty read"
+        "text": "A phantom read"
       },
       {
         "id": "d",
-        "text": "A non-repeatable read"
+        "text": "A dirty read"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "Naming these precisely matters because each isolation level is defined by which it prevents. Read Committed rules out dirty reads; non-repeatable reads and phantoms need stricter levels."
   },
   {
@@ -388,22 +388,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Crashes"
+        "text": "Detects the cycle and aborts one transaction as the victim"
       },
       {
         "id": "b",
-        "text": "Merges the transactions"
+        "text": "Crashes"
       },
       {
         "id": "c",
-        "text": "Waits indefinitely"
+        "text": "Merges the transactions"
       },
       {
         "id": "d",
-        "text": "Detects the cycle and aborts one transaction as the victim"
+        "text": "Waits indefinitely"
       }
     ],
-    "answer": "d",
+    "answer": "a",
     "explanation": "Detection and forced rollback is the standard resolution, which is why application code must be prepared for a transaction to fail and be retried. Consistent lock ordering is the usual way to make the situation rare."
   },
   {
@@ -425,22 +425,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Storage, and time on every insert, update and delete that must maintain it"
+        "text": "Nothing"
       },
       {
         "id": "b",
-        "text": "Only storage"
+        "text": "Storage, and time on every insert, update and delete that must maintain it"
       },
       {
         "id": "c",
-        "text": "Only query planning time"
+        "text": "Only storage"
       },
       {
         "id": "d",
-        "text": "Nothing"
+        "text": "Only query planning time"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "Every index is another structure the engine keeps in step with the table, so writes get slower as indexes accumulate. This is why indexing everything degrades a write-heavy workload rather than improving it."
   },
   {
@@ -462,22 +462,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Text cannot be indexed"
+        "text": "It would be too large"
       },
       {
         "id": "b",
-        "text": "Low selectivity means a lookup still matches a large fraction of rows, so a scan is cheaper"
+        "text": "Text cannot be indexed"
       },
       {
         "id": "c",
-        "text": "Indexes need numbers"
+        "text": "Low selectivity means a lookup still matches a large fraction of rows, so a scan is cheaper"
       },
       {
         "id": "d",
-        "text": "It would be too large"
+        "text": "Indexes need numbers"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "The planner uses an index when it eliminates most rows. Matching half the table costs random access per row plus the table reads, which loses to a sequential scan. Selectivity, not column type, decides whether an index earns its place."
   },
   {
@@ -499,22 +499,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It is always faster"
+        "text": "It never loses data"
       },
       {
         "id": "b",
-        "text": "It is newer"
+        "text": "It is always faster"
       },
       {
         "id": "c",
-        "text": "The access pattern is dominated by whole-document reads and the schema varies between records"
+        "text": "It is newer"
       },
       {
         "id": "d",
-        "text": "It never loses data"
+        "text": "The access pattern is dominated by whole-document reads and the schema varies between records"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "Fit the store to the shape of the data and the queries. Documents suit self-contained aggregates with variable fields; relational systems suit data queried along many dimensions with integrity enforced centrally. Speed claims without a workload mean nothing."
   },
   {
@@ -536,22 +536,22 @@
     "options": [
       {
         "id": "a",
-        "text": "All rows from both tables"
+        "text": "Rows from the left table with no match"
       },
       {
         "id": "b",
-        "text": "Only rows where the join condition matches in both tables"
+        "text": "All rows from both tables"
       },
       {
         "id": "c",
-        "text": "All rows from the left table"
+        "text": "Only rows where the join condition matches in both tables"
       },
       {
         "id": "d",
-        "text": "Rows from the left table with no match"
+        "text": "All rows from the left table"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "Unmatched rows on either side are dropped. That silent dropping is why a count falling after adding a join is usually a data problem rather than a query bug."
   },
   {
@@ -573,22 +573,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Removes duplicates"
+        "text": "Sorts the output"
       },
       {
         "id": "b",
-        "text": "Is faster"
+        "text": "Removes duplicates"
       },
       {
         "id": "c",
-        "text": "Keeps every left-table row, filling right-table columns with null where there is no match"
+        "text": "Is faster"
       },
       {
         "id": "d",
-        "text": "Sorts the output"
+        "text": "Keeps every left-table row, filling right-table columns with null where there is no match"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "It preserves the left side regardless of matching. The classic mistake is then putting a condition on a right-table column in WHERE, which discards the null rows and turns the query back into an inner join."
   },
   {
@@ -610,22 +610,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Either, they are equivalent"
+        "text": "the ON clause, if you want unmatched left rows preserved"
       },
       {
         "id": "b",
-        "text": "HAVING"
+        "text": "Either, they are equivalent"
       },
       {
         "id": "c",
-        "text": "WHERE, always"
+        "text": "HAVING"
       },
       {
         "id": "d",
-        "text": "the ON clause, if you want unmatched left rows preserved"
+        "text": "WHERE, always"
       }
     ],
-    "answer": "d",
+    "answer": "a",
     "explanation": "ON is applied while matching; WHERE is applied to the joined result, by which point the unmatched rows carry nulls and fail the test. Same words, different stage, different answer."
   },
   {
@@ -647,22 +647,22 @@
     "options": [
       {
         "id": "a",
-        "text": "WHERE filters rows before grouping; HAVING filters groups after aggregation"
+        "text": "HAVING is faster"
       },
       {
         "id": "b",
-        "text": "WHERE cannot use indexes"
+        "text": "WHERE filters rows before grouping; HAVING filters groups after aggregation"
       },
       {
         "id": "c",
-        "text": "They are interchangeable"
+        "text": "WHERE cannot use indexes"
       },
       {
         "id": "d",
-        "text": "HAVING is faster"
+        "text": "They are interchangeable"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "Order of operations decides which you need. A condition on an aggregate cannot go in WHERE because the aggregate does not exist yet; a condition on a raw column belongs in WHERE so fewer rows reach the grouping."
   },
   {
@@ -684,22 +684,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Indexed"
+        "text": "Aliased"
       },
       {
         "id": "b",
-        "text": "Either in the GROUP BY or wrapped in an aggregate"
+        "text": "Indexed"
       },
       {
         "id": "c",
-        "text": "Numeric"
+        "text": "Either in the GROUP BY or wrapped in an aggregate"
       },
       {
         "id": "d",
-        "text": "Aliased"
+        "text": "Numeric"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "Each output row represents a whole group, so a bare column would have no single defined value. Some engines historically allowed it and picked one arbitrarily, which produces answers that look fine and are not reproducible."
   },
   {
@@ -721,22 +721,22 @@
     "options": [
       {
         "id": "a",
-        "text": "They are identical"
+        "text": "COUNT(*) only counts distinct values"
       },
       {
         "id": "b",
-        "text": "COUNT(*) is slower"
+        "text": "They are identical"
       },
       {
         "id": "c",
-        "text": "COUNT(column) skips rows where that column is null"
+        "text": "COUNT(*) is slower"
       },
       {
         "id": "d",
-        "text": "COUNT(*) only counts distinct values"
+        "text": "COUNT(column) skips rows where that column is null"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "Aggregates other than COUNT(*) ignore nulls. This quietly changes averages and counts on optional columns, so it is worth stating which behaviour you intend when you write it."
   },
   {
@@ -758,22 +758,22 @@
     "options": [
       {
         "id": "a",
-        "text": "col == NULL"
+        "text": "col IS NULL"
       },
       {
         "id": "b",
-        "text": "NOT col"
+        "text": "col == NULL"
       },
       {
         "id": "c",
-        "text": "col = NULL"
+        "text": "NOT col"
       },
       {
         "id": "d",
-        "text": "col IS NULL"
+        "text": "col = NULL"
       }
     ],
-    "answer": "d",
+    "answer": "a",
     "explanation": "Null means unknown, so any comparison with it evaluates to unknown rather than true, and the row is not returned. SQL therefore provides IS NULL as a separate test — a rule that catches people out constantly."
   },
   {
@@ -795,22 +795,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The combination of all selected columns"
+        "text": "Only the first column"
       },
       {
         "id": "b",
-        "text": "Only indexed columns"
+        "text": "The combination of all selected columns"
       },
       {
         "id": "c",
-        "text": "Rows in the source table"
+        "text": "Only indexed columns"
       },
       {
         "id": "d",
-        "text": "Only the first column"
+        "text": "Rows in the source table"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "Duplicate elimination works on the whole output row. Adding a column to the select list can therefore increase the number of rows returned, which surprises people expecting it to filter one column."
   },
   {
@@ -832,22 +832,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It is slow"
+        "text": "It causes a syntax error"
       },
       {
         "id": "b",
-        "text": "NOT IN with a null in the list yields unknown for every row, returning nothing"
+        "text": "It is slow"
       },
       {
         "id": "c",
-        "text": "IN cannot take subqueries"
+        "text": "NOT IN with a null in the list yields unknown for every row, returning nothing"
       },
       {
         "id": "d",
-        "text": "It causes a syntax error"
+        "text": "IN cannot take subqueries"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "Three-valued logic makes NOT IN collapse when the list contains a null. NOT EXISTS does not have this behaviour, which is why it is the safer default for anti-joins."
   },
   {
@@ -869,22 +869,22 @@
     "options": [
       {
         "id": "a",
-        "text": "UNION ALL requires an index"
+        "text": "UNION is unordered"
       },
       {
         "id": "b",
-        "text": "UNION ALL removes duplicates"
+        "text": "UNION ALL requires an index"
       },
       {
         "id": "c",
-        "text": "UNION removes duplicates and therefore usually costs a sort or hash"
+        "text": "UNION ALL removes duplicates"
       },
       {
         "id": "d",
-        "text": "UNION is unordered"
+        "text": "UNION removes duplicates and therefore usually costs a sort or hash"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "UNION ALL simply concatenates. If you know the inputs are disjoint, asking for deduplication you do not need adds real cost on large results."
   },
   {
@@ -906,22 +906,22 @@
     "options": [
       {
         "id": "a",
-        "text": "TRUNCATE removes the table"
+        "text": "DELETE removes rows and can be filtered and rolled back; TRUNCATE empties the table quickly; DROP removes the table itself"
       },
       {
         "id": "b",
-        "text": "DROP can be filtered with WHERE"
+        "text": "TRUNCATE removes the table"
       },
       {
         "id": "c",
-        "text": "They are synonyms"
+        "text": "DROP can be filtered with WHERE"
       },
       {
         "id": "d",
-        "text": "DELETE removes rows and can be filtered and rolled back; TRUNCATE empties the table quickly; DROP removes the table itself"
+        "text": "They are synonyms"
       }
     ],
-    "answer": "d",
+    "answer": "a",
     "explanation": "The distinction is what survives and what can be undone. TRUNCATE is usually minimally logged and resets identity counters, which is why it is fast and why it is not a drop-in replacement for a filtered delete."
   },
   {
@@ -943,22 +943,22 @@
     "options": [
       {
         "id": "a",
-        "text": "CREATE TABLE"
+        "text": "UPDATE"
       },
       {
         "id": "b",
-        "text": "SELECT"
+        "text": "CREATE TABLE"
       },
       {
         "id": "c",
-        "text": "INSERT"
+        "text": "SELECT"
       },
       {
         "id": "d",
-        "text": "UPDATE"
+        "text": "INSERT"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "DDL defines structure, DML manipulates the data inside it. The practical consequence is that DDL often commits implicitly, so a schema change in the middle of a transaction may not roll back with it."
   },
   {
@@ -980,22 +980,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It allows duplicates"
+        "text": "It is slower"
       },
       {
         "id": "b",
-        "text": "It generally permits one or more nulls, and a table may have several"
+        "text": "It allows duplicates"
       },
       {
         "id": "c",
-        "text": "It cannot be indexed"
+        "text": "It generally permits one or more nulls, and a table may have several"
       },
       {
         "id": "d",
-        "text": "It is slower"
+        "text": "It cannot be indexed"
       }
     ],
-    "answer": "b",
+    "answer": "c",
     "explanation": "Both enforce uniqueness; only the primary key also forbids nulls and is limited to one per table. Exactly how many nulls a unique constraint tolerates varies by engine, which is worth checking rather than assuming."
   },
   {
@@ -1017,22 +1017,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Requires an index"
+        "text": "Only works on numbers"
       },
       {
         "id": "b",
-        "text": "Cannot use aggregates"
+        "text": "Requires an index"
       },
       {
         "id": "c",
-        "text": "Computes across a set of rows while keeping every input row in the output"
+        "text": "Cannot use aggregates"
       },
       {
         "id": "d",
-        "text": "Only works on numbers"
+        "text": "Computes across a set of rows while keeping every input row in the output"
       }
     ],
-    "answer": "c",
+    "answer": "d",
     "explanation": "GROUP BY collapses rows; a window function annotates them. That is what lets you show each row alongside its running total or its rank within a partition, which grouping cannot express in one pass."
   },
   {
@@ -1942,22 +1942,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Merge deletes branches"
-      },
-      {
-        "id": "b",
         "text": "Rebase cannot cause conflicts"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Rebase is faster"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Merge preserves history and adds a merge commit; rebase rewrites commits onto a new base for a linear history"
+      },
+      {
+        "id": "d",
+        "text": "Merge deletes branches"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "The choice is about what the history should say. Rebasing rewrites commit identities, which is why it is safe on your own unpushed work and disruptive on a branch others have based work on."
   },
   {
@@ -1979,22 +1979,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The same region of a file changed differently on both branches, so the tool cannot choose"
-      },
-      {
-        "id": "b",
         "text": "A branch is behind"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "A file was renamed"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Two branches exist"
+      },
+      {
+        "id": "d",
+        "text": "The same region of a file changed differently on both branches, so the tool cannot choose"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "Git merges non-overlapping edits automatically; it stops only where the change regions overlap. Conflicts are a request for a human decision, not an error, and frequent small merges make them rarer and smaller."
   },
   {
@@ -2016,22 +2016,22 @@
     "options": [
       {
         "id": "a",
-        "text": "git reset --hard"
-      },
-      {
-        "id": "b",
         "text": "git revert, which adds a new commit undoing the change"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "git checkout"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "git clean"
+      },
+      {
+        "id": "d",
+        "text": "git reset --hard"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Revert is additive and leaves everyone's history valid. Resetting rewrites what others already have, so their next pull produces divergence they have to untangle."
   },
   {
@@ -2053,22 +2053,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Pushing to a remote"
-      },
-      {
-        "id": "b",
         "text": "Deleting changes permanently"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Setting uncommitted work aside temporarily so the tree is clean"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Creating a branch"
+      },
+      {
+        "id": "d",
+        "text": "Pushing to a remote"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "It parks work in progress when you need a clean tree for something urgent. It is a short-lived convenience — a stash left for days is a branch you did not make."
   },
   {
@@ -2090,22 +2090,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Who writes them"
-      },
-      {
-        "id": "b",
         "text": "Whether they are automated"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "The language they are written in"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "The scope under test, from a single component through interactions to the whole assembled system"
+      },
+      {
+        "id": "d",
+        "text": "Who writes them"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "Scope drives everything else: narrower tests are faster and localise failure precisely, wider ones catch the wiring mistakes narrower ones cannot see. A suite needs both, which is what the test pyramid is describing."
   },
   {
@@ -2127,22 +2127,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Previously working behaviour broken by a subsequent change"
-      },
-      {
-        "id": "b",
         "text": "Slow code"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Compile errors"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "New features that do not work"
+      },
+      {
+        "id": "d",
+        "text": "Previously working behaviour broken by a subsequent change"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "It protects what already worked, which is why a bug fix should arrive with a test that would have failed before it. Without that, the same defect can return silently."
   },
   {
@@ -2164,22 +2164,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Demonstrate the product to stakeholders"
-      },
-      {
-        "id": "b",
         "text": "Inspect how the team worked and agree changes to the process"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Plan the next sprint's items"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Estimate effort"
+      },
+      {
+        "id": "d",
+        "text": "Demonstrate the product to stakeholders"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "The retrospective is about the process; the review is about the product. Collapsing them is the commonest way teams lose the only ceremony aimed at improving how they work."
   },
   {
@@ -2201,22 +2201,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Open to all callers"
-      },
-      {
-        "id": "b",
         "text": "Open source"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Open for extension but closed for modification"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Closed to all changes"
+      },
+      {
+        "id": "d",
+        "text": "Open to all callers"
       }
     ],
-    "answer": "c",
+    "answer": "b",
     "explanation": "New behaviour should be addable without editing code that already works and is already tested. In practice that means designing extension points — interfaces, strategies — rather than reaching for a growing switch statement."
   },
   {
@@ -2238,22 +2238,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Writing code continuously"
-      },
-      {
-        "id": "b",
         "text": "Monitoring production"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Deploying to production continuously"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Merging work to a shared mainline frequently, with an automated build and tests on every change"
+      },
+      {
+        "id": "d",
+        "text": "Writing code continuously"
       }
     ],
-    "answer": "d",
+    "answer": "c",
     "explanation": "The value comes from integrating often enough that conflicts and breakages stay small and are attributable to a recent change. Continuous delivery and deployment are separate practices built on top of it."
   },
   {
@@ -2275,22 +2275,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Requirements are fixed before anything is learned from building, and late feedback is expensive to act on"
-      },
-      {
-        "id": "b",
         "text": "It has no testing phase"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "It is too fast"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "It has no documentation"
+      },
+      {
+        "id": "d",
+        "text": "Requirements are fixed before anything is learned from building, and late feedback is expensive to act on"
       }
     ],
-    "answer": "a",
+    "answer": "d",
     "explanation": "Each phase completes before the next begins, so the first real feedback arrives near the end. Iterative approaches exist to shorten that loop, not to abolish planning."
   }
 ]

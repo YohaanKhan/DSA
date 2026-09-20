@@ -1529,22 +1529,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Switches from user mode to kernel mode, with the associated state save and validation"
-      },
-      {
-        "id": "b",
-        "text": "Uses the network"
-      },
-      {
-        "id": "c",
         "text": "Is interpreted"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Allocates memory"
+      },
+      {
+        "id": "c",
+        "text": "Switches from user mode to kernel mode, with the associated state save and validation"
+      },
+      {
+        "id": "d",
+        "text": "Uses the network"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "The mode switch and argument validation cost far more than a jump. This is why buffered I/O exists: it amortises one system call over many logical operations."
   },
   {
@@ -1565,22 +1565,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Consumed all memory"
-      },
-      {
-        "id": "b",
-        "text": "Terminated but whose exit status has not yet been collected by its parent"
-      },
-      {
-        "id": "c",
         "text": "Stopped responding"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "No parent"
+      },
+      {
+        "id": "c",
+        "text": "Consumed all memory"
+      },
+      {
+        "id": "d",
+        "text": "Terminated but whose exit status has not yet been collected by its parent"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "It holds only a process-table entry until the parent reaps it. An orphan is the different case where the parent exited first and init adopts the child."
   },
   {
@@ -1601,22 +1601,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Pipes"
-      },
-      {
-        "id": "b",
-        "text": "Shared memory"
-      },
-      {
-        "id": "c",
         "text": "Function arguments"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Message queues"
+      },
+      {
+        "id": "c",
+        "text": "Pipes"
+      },
+      {
+        "id": "d",
+        "text": "Shared memory"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "Separate address spaces are exactly what makes direct argument passing impossible, which is why IPC mechanisms exist. Shared memory is the fastest of them and needs its own synchronisation."
   },
   {
@@ -1637,22 +1637,22 @@
     "options": [
       {
         "id": "a",
-        "text": "It is unfair to short jobs"
-      },
-      {
-        "id": "b",
-        "text": "It requires preemption"
-      },
-      {
-        "id": "c",
         "text": "It needs more memory"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Job durations are not known in advance, and long jobs can starve"
+      },
+      {
+        "id": "c",
+        "text": "It is unfair to short jobs"
+      },
+      {
+        "id": "d",
+        "text": "It requires preemption"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "It is used as a theoretical optimum against which real schedulers are compared. Ageing, which raises a waiting job's priority over time, is the standard remedy for starvation."
   },
   {
@@ -1673,22 +1673,22 @@
     "options": [
       {
         "id": "a",
-        "text": "A high-priority task waits on a lock held by a low-priority task that is itself preempted"
-      },
-      {
-        "id": "b",
-        "text": "Priorities are equal"
-      },
-      {
-        "id": "c",
         "text": "The scheduler crashes"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "A high-priority task runs first"
+      },
+      {
+        "id": "c",
+        "text": "A high-priority task waits on a lock held by a low-priority task that is itself preempted"
+      },
+      {
+        "id": "d",
+        "text": "Priorities are equal"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "Priority inheritance temporarily raises the lock holder's priority so it can finish and release. The Mars Pathfinder fault is the famous case study."
   },
   {
@@ -1709,22 +1709,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Is slower"
-      },
-      {
-        "id": "b",
-        "text": "Can interrupt a running task without its cooperation"
-      },
-      {
-        "id": "c",
         "text": "Uses less memory"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Needs no timer"
+      },
+      {
+        "id": "c",
+        "text": "Is slower"
+      },
+      {
+        "id": "d",
+        "text": "Can interrupt a running task without its cooperation"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "Cooperative scheduling depends on every task yielding, so one misbehaving task freezes the system. Preemption needs a timer interrupt, which is what makes it robust."
   },
   {
@@ -1745,22 +1745,22 @@
     "options": [
       {
         "id": "a",
-        "text": "There is one thread"
-      },
-      {
-        "id": "b",
-        "text": "The critical section is long"
-      },
-      {
-        "id": "c",
         "text": "The expected wait is shorter than the cost of a context switch"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Memory is scarce"
+      },
+      {
+        "id": "c",
+        "text": "There is one thread"
+      },
+      {
+        "id": "d",
+        "text": "The critical section is long"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "Spinning burns CPU, so it only pays when the wait is very short and a core is available. Using one around a long or blocking section is a serious performance bug."
   },
   {
@@ -1781,22 +1781,22 @@
     "options": [
       {
         "id": "a",
-        "text": "No synchronisation"
-      },
-      {
-        "id": "b",
-        "text": "Two processes"
-      },
-      {
-        "id": "c",
         "text": "One lock only"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "A bounded buffer with synchronisation for both full and empty conditions"
+      },
+      {
+        "id": "c",
+        "text": "No synchronisation"
+      },
+      {
+        "id": "d",
+        "text": "Two processes"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "Two condition variables, or two counting semaphores plus a mutex, handle the two distinct waits. Using a single condition for both is a classic source of missed wakeups."
   },
   {
@@ -1817,22 +1817,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Could still run, but is repeatedly passed over"
-      },
-      {
-        "id": "b",
-        "text": "Holds all resources"
-      },
-      {
-        "id": "c",
         "text": "Is in kernel mode"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Has crashed"
+      },
+      {
+        "id": "c",
+        "text": "Could still run, but is repeatedly passed over"
+      },
+      {
+        "id": "d",
+        "text": "Holds all resources"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "Deadlock is a permanent circular wait; starvation is a scheduling unfairness that could resolve. Ageing fixes starvation and does nothing for deadlock."
   },
   {
@@ -1853,22 +1853,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Detecting cycles after the fact"
-      },
-      {
-        "id": "b",
-        "text": "Granting a request only if the resulting state is still safe"
-      },
-      {
-        "id": "c",
         "text": "Preempting resources"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Killing processes"
+      },
+      {
+        "id": "c",
+        "text": "Detecting cycles after the fact"
+      },
+      {
+        "id": "d",
+        "text": "Granting a request only if the resulting state is still safe"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "It requires each process to declare its maximum need up front, which is why it is rarely practical outside teaching. Detection and recovery is what real systems use."
   },
   {
@@ -1889,22 +1889,22 @@
     "options": [
       {
         "id": "a",
-        "text": "On disk"
-      },
-      {
-        "id": "b",
-        "text": "Between allocated blocks"
-      },
-      {
-        "id": "c",
         "text": "Inside an allocated block, because the allocation was rounded up"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "In the page table"
+      },
+      {
+        "id": "c",
+        "text": "On disk"
+      },
+      {
+        "id": "d",
+        "text": "Between allocated blocks"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "Paging removes external fragmentation and introduces internal fragmentation in the final partial page. Segmentation has the opposite profile, which is why many systems combine the two."
   },
   {
@@ -1925,22 +1925,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Instructions"
-      },
-      {
-        "id": "b",
-        "text": "File handles"
-      },
-      {
-        "id": "c",
         "text": "Disk blocks"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Recent virtual-to-physical page translations"
+      },
+      {
+        "id": "c",
+        "text": "Instructions"
+      },
+      {
+        "id": "d",
+        "text": "File handles"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "Without it every memory access would need an extra walk of the page table. A TLB miss is one of the hidden costs of a context switch, since the entries are often invalidated."
   },
   {
@@ -1961,22 +1961,22 @@
     "options": [
       {
         "id": "a",
-        "text": "When it is first accessed, triggering a page fault"
-      },
-      {
-        "id": "b",
-        "text": "On exit"
-      },
-      {
-        "id": "c",
         "text": "Never"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "At program start"
+      },
+      {
+        "id": "c",
+        "text": "When it is first accessed, triggering a page fault"
+      },
+      {
+        "id": "d",
+        "text": "On exit"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "This makes startup fast and memory use proportional to what is actually touched. The first access to each page pays a fault, which is why warm-up matters for latency-sensitive services."
   },
   {
@@ -1997,22 +1997,22 @@
     "options": [
       {
         "id": "a",
-        "text": "LRU is wrong"
-      },
-      {
-        "id": "b",
-        "text": "Exact LRU requires updating an ordering on every memory access, which is too expensive"
-      },
-      {
-        "id": "c",
         "text": "LRU needs more memory"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "LRU is patented"
+      },
+      {
+        "id": "c",
+        "text": "LRU is wrong"
+      },
+      {
+        "id": "d",
+        "text": "Exact LRU requires updating an ordering on every memory access, which is too expensive"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "The clock or second-chance algorithm uses a single reference bit per page and a rotating pointer, which is close enough at a tiny fraction of the cost."
   },
   {
@@ -2033,22 +2033,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The file's contents"
-      },
-      {
-        "id": "b",
-        "text": "The file's name"
-      },
-      {
-        "id": "c",
         "text": "The file's metadata and the location of its data blocks"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "The directory tree"
+      },
+      {
+        "id": "c",
+        "text": "The file's contents"
+      },
+      {
+        "id": "d",
+        "text": "The file's name"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "Names live in directory entries that point at inodes, which is why one file can have several hard links. Deleting a name only frees the file when the last link and open handle are gone."
   },
   {
@@ -2069,22 +2069,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Compressing data"
-      },
-      {
-        "id": "b",
-        "text": "Encrypting metadata"
-      },
-      {
-        "id": "c",
         "text": "Backing up files"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Writing intended changes to a log before applying them, so recovery can replay or discard"
+      },
+      {
+        "id": "c",
+        "text": "Compressing data"
+      },
+      {
+        "id": "d",
+        "text": "Encrypting metadata"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "Recovery becomes a short log scan rather than a full consistency check of the whole volume. Most implementations journal metadata only by default, which is a durability trade."
   },
   {
@@ -2105,22 +2105,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Points to the inode directly, so the file survives deleting the original name"
-      },
-      {
-        "id": "b",
-        "text": "Is a shortcut file"
-      },
-      {
-        "id": "c",
         "text": "Can link directories"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Can cross file systems"
+      },
+      {
+        "id": "c",
+        "text": "Points to the inode directly, so the file survives deleting the original name"
+      },
+      {
+        "id": "d",
+        "text": "Is a shortcut file"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "A symbolic link stores a path and dangles if the target moves; a hard link is another name for the same inode. Hard links cannot cross file systems because inode numbers are per-volume."
   },
   {
@@ -2141,22 +2141,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Threads cannot be created at run time"
-      },
-      {
-        "id": "b",
-        "text": "Thread creation is expensive and unbounded concurrency exhausts resources"
-      },
-      {
-        "id": "c",
         "text": "Pools are simpler to code"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Threads cannot be reused"
+      },
+      {
+        "id": "c",
+        "text": "Threads cannot be created at run time"
+      },
+      {
+        "id": "d",
+        "text": "Thread creation is expensive and unbounded concurrency exhausts resources"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "The pool amortises creation and, more importantly, bounds concurrency so a spike in work does not exhaust memory or thrash the scheduler."
   },
   {
@@ -2177,22 +2177,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Application"
-      },
-      {
-        "id": "b",
-        "text": "Session"
-      },
-      {
-        "id": "c",
         "text": "Network"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Transport"
+      },
+      {
+        "id": "c",
+        "text": "Application"
+      },
+      {
+        "id": "d",
+        "text": "Session"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "They define message formats and semantics for programs, and rely on the transport layer beneath for delivery. Mapping named protocols to layers is a standard one-mark question."
   },
   {
@@ -2213,22 +2213,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The network"
-      },
-      {
-        "id": "b",
-        "text": "The receiver from being overwhelmed, while congestion control protects the network"
-      },
-      {
-        "id": "c",
         "text": "The sender"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "The application"
+      },
+      {
+        "id": "c",
+        "text": "The network"
+      },
+      {
+        "id": "d",
+        "text": "The receiver from being overwhelmed, while congestion control protects the network"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "Flow control is driven by the receiver's advertised window; congestion control is inferred by the sender from loss and delay. The two operate simultaneously and limit the sending rate independently."
   },
   {
@@ -2249,22 +2249,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Three steps"
-      },
-      {
-        "id": "b",
-        "text": "One step"
-      },
-      {
-        "id": "c",
         "text": "Four steps, because each direction is closed independently"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Two steps"
+      },
+      {
+        "id": "c",
+        "text": "Three steps"
+      },
+      {
+        "id": "d",
+        "text": "One step"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "FIN and ACK in each direction allow a half-closed state where one side has finished sending but still receives. The TIME_WAIT state afterwards exists to absorb delayed duplicates."
   },
   {
@@ -2285,22 +2285,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Encrypting segments"
-      },
-      {
-        "id": "b",
-        "text": "Retransmitting faster"
-      },
-      {
-        "id": "c",
         "text": "Compressing data"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Coalescing small writes into fewer segments"
+      },
+      {
+        "id": "c",
+        "text": "Encrypting segments"
+      },
+      {
+        "id": "d",
+        "text": "Retransmitting faster"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "It reduces header overhead on chatty connections and adds latency to small interactive messages, which is why latency-sensitive applications disable it."
   },
   {
@@ -2321,22 +2321,22 @@
     "options": [
       {
         "id": "a",
-        "text": "192.168.10.128"
-      },
-      {
-        "id": "b",
-        "text": "192.168.10.64"
-      },
-      {
-        "id": "c",
         "text": "192.168.10.192"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "192.168.10.0"
+      },
+      {
+        "id": "c",
+        "text": "192.168.10.128"
+      },
+      {
+        "id": "d",
+        "text": "192.168.10.64"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "A /26 mask makes blocks of 64, so the boundaries are .0, .64, .128 and .192. The address falls in the block starting at .128, whose broadcast is .191."
   },
   {
@@ -2357,22 +2357,22 @@
     "options": [
       {
         "id": "a",
-        "text": "More host addresses"
-      },
-      {
-        "id": "b",
-        "text": "Fewer host addresses, because more bits identify the network"
-      },
-      {
-        "id": "c",
         "text": "A faster network"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "A public address"
+      },
+      {
+        "id": "c",
+        "text": "More host addresses"
+      },
+      {
+        "id": "d",
+        "text": "Fewer host addresses, because more bits identify the network"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "Each additional prefix bit halves the host space, so a /24 holds 254 usable hosts and a /25 holds 126. The relationship being inverse is what catches people out."
   },
   {
@@ -2393,22 +2393,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Name resolution"
-      },
-      {
-        "id": "b",
-        "text": "Encryption of traffic"
-      },
-      {
-        "id": "c",
         "text": "Many private addresses to share one public address"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Faster routing"
+      },
+      {
+        "id": "c",
+        "text": "Name resolution"
+      },
+      {
+        "id": "d",
+        "text": "Encryption of traffic"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "It was widely adopted to conserve scarce IPv4 addresses, and it breaks unsolicited inbound connections, which is why port forwarding exists."
   },
   {
@@ -2429,22 +2429,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Only serves one domain"
-      },
-      {
-        "id": "b",
-        "text": "Cannot cache"
-      },
-      {
-        "id": "c",
         "text": "Stores the zone file"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Queries other servers on the client's behalf until it has an answer"
+      },
+      {
+        "id": "c",
+        "text": "Only serves one domain"
+      },
+      {
+        "id": "d",
+        "text": "Cannot cache"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "Authoritative servers hold the records for their zone; resolvers walk the hierarchy and cache what they learn. TTL values on records control how long that cache is valid."
   },
   {
@@ -2465,22 +2465,22 @@
     "options": [
       {
         "id": "a",
-        "text": "CNAME"
-      },
-      {
-        "id": "b",
-        "text": "MX"
-      },
-      {
-        "id": "c",
         "text": "TXT"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "A"
+      },
+      {
+        "id": "c",
+        "text": "CNAME"
+      },
+      {
+        "id": "d",
+        "text": "MX"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "A and AAAA map to IPv4 and IPv6 addresses, MX names a mail server, and TXT holds arbitrary text used for verification. CNAME is an alias, and it cannot coexist with other records at the same name."
   },
   {
@@ -2501,22 +2501,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Port numbers"
-      },
-      {
-        "id": "b",
-        "text": "Sequence and acknowledgement numbers"
-      },
-      {
-        "id": "c",
         "text": "A checksum"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "A length field"
+      },
+      {
+        "id": "c",
+        "text": "Port numbers"
+      },
+      {
+        "id": "d",
+        "text": "Sequence and acknowledgement numbers"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "No sequencing means no reordering, no retransmission and no connection state to keep. The eight-byte header against TCP's twenty is the visible consequence."
   },
   {
@@ -2537,22 +2537,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Assign an IP address"
-      },
-      {
-        "id": "b",
-        "text": "Encrypt all subsequent traffic directly"
-      },
-      {
-        "id": "c",
         "text": "Authenticate the server and establish a shared symmetric key"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Compress data"
+      },
+      {
+        "id": "c",
+        "text": "Assign an IP address"
+      },
+      {
+        "id": "d",
+        "text": "Encrypt all subsequent traffic directly"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "Asymmetric cryptography authenticates and agrees the key; the bulk data is then encrypted symmetrically because it is far faster. Assuming the certificate encrypts the traffic is a common misconception."
   },
   {
@@ -2573,22 +2573,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Always faster than POST"
-      },
-      {
-        "id": "b",
-        "text": "Encrypted"
-      },
-      {
-        "id": "c",
         "text": "Idempotent and safe, causing no server-side change"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "The only cacheable method"
+      },
+      {
+        "id": "c",
+        "text": "Always faster than POST"
+      },
+      {
+        "id": "d",
+        "text": "Encrypted"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "Safety means no intended side effect, which is why intermediaries may cache and retry GETs freely. A GET that mutates state breaks assumptions all the way through the stack."
   },
   {
@@ -2609,22 +2609,22 @@
     "options": [
       {
         "id": "a",
-        "text": "An upstream server returned an invalid response to a gateway"
-      },
-      {
-        "id": "b",
-        "text": "The resource is missing"
-      },
-      {
-        "id": "c",
         "text": "Authentication failed"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "The client sent a bad request"
+      },
+      {
+        "id": "c",
+        "text": "An upstream server returned an invalid response to a gateway"
+      },
+      {
+        "id": "d",
+        "text": "The resource is missing"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "The 5xx class is server-side. 502 and 504 both point at the upstream rather than at the gateway itself, which is useful when deciding where to look first."
   },
   {
@@ -2645,22 +2645,22 @@
     "options": [
       {
         "id": "a",
-        "text": "IP addresses"
-      },
-      {
-        "id": "b",
-        "text": "MAC addresses, within a single network segment"
-      },
-      {
-        "id": "c",
         "text": "Port numbers"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Domain names"
+      },
+      {
+        "id": "c",
+        "text": "IP addresses"
+      },
+      {
+        "id": "d",
+        "text": "MAC addresses, within a single network segment"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "Switching is layer two and local; routing is layer three and between networks. A device sold as a home router usually performs both functions plus NAT."
   },
   {
@@ -2681,22 +2681,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Converts them to unicast"
-      },
-      {
-        "id": "b",
-        "text": "Also separates them"
-      },
-      {
-        "id": "c",
         "text": "Forwards broadcasts to every port in the segment"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Blocks broadcasts"
+      },
+      {
+        "id": "c",
+        "text": "Converts them to unicast"
+      },
+      {
+        "id": "d",
+        "text": "Also separates them"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "This is why large flat networks suffer from broadcast traffic, and why VLANs exist to subdivide a switch into separate domains."
   },
   {
@@ -2717,22 +2717,22 @@
     "options": [
       {
         "id": "a",
-        "text": "UDP"
-      },
-      {
-        "id": "b",
-        "text": "HTTP"
-      },
-      {
-        "id": "c",
         "text": "TCP"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "ICMP"
+      },
+      {
+        "id": "c",
+        "text": "UDP"
+      },
+      {
+        "id": "d",
+        "text": "HTTP"
       }
     ],
-    "answer": "d",
+    "answer": "b",
     "explanation": "ICMP carries control and diagnostic messages and has no ports, which is why a firewall rule for it looks different from one for TCP or UDP. A blocked ping does not mean the host is down."
   },
   {
@@ -2753,22 +2753,22 @@
     "options": [
       {
         "id": "a",
-        "text": "443"
-      },
-      {
-        "id": "b",
-        "text": "22"
-      },
-      {
-        "id": "c",
         "text": "25"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "80"
+      },
+      {
+        "id": "c",
+        "text": "443"
+      },
+      {
+        "id": "d",
+        "text": "22"
       }
     ],
-    "answer": "a",
+    "answer": "c",
     "explanation": "80 is HTTP, 22 is SSH and 25 is SMTP. These are conventions registered with IANA, not enforced by the protocols, so a service can run on any port."
   },
   {
@@ -2789,22 +2789,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Is faster"
-      },
-      {
-        "id": "b",
-        "text": "Tracks connections, so return traffic for an allowed outbound flow is permitted automatically"
-      },
-      {
-        "id": "c",
         "text": "Inspects payloads"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Requires NAT"
+      },
+      {
+        "id": "c",
+        "text": "Is faster"
+      },
+      {
+        "id": "d",
+        "text": "Tracks connections, so return traffic for an allowed outbound flow is permitted automatically"
       }
     ],
-    "answer": "b",
+    "answer": "d",
     "explanation": "Connection tracking is what makes rule sets manageable: you allow the outbound connection and the replies follow. A stateless filter needs explicit rules for both directions."
   },
   {

@@ -5426,5 +5426,437 @@
     ],
     "answer": "c",
     "explanation": "Explanation is cheap to check against the source in front of you, which makes it a high-value, low-risk use. The check is the part that makes it safe rather than merely fast."
+  },
+  {
+    "id": "ail3-token-limit-output",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "tokens",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "tokens"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A model stops mid-sentence. The most likely cause is",
+    "options": [
+      {
+        "id": "a",
+        "text": "A refusal"
+      },
+      {
+        "id": "b",
+        "text": "An invalid prompt"
+      },
+      {
+        "id": "c",
+        "text": "A network error"
+      },
+      {
+        "id": "d",
+        "text": "The response hit the maximum output token limit"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Generation halts when the output budget is spent, leaving the text truncated rather than concluded. Raising max tokens or asking for a shorter answer are the two fixes."
+  },
+  {
+    "id": "ail3-eval-regression",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Before changing a production prompt you should",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run it against a saved set of cases with known good answers"
+      },
+      {
+        "id": "b",
+        "text": "Ask the model to review it"
+      },
+      {
+        "id": "c",
+        "text": "Increase the token limit"
+      },
+      {
+        "id": "d",
+        "text": "Deploy and watch"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A prompt is configuration that changes behaviour everywhere, so it needs a regression set exactly as code does. Watching production is detection after the fact rather than prevention."
+  },
+  {
+    "id": "ail3-hallucination-domain",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "hallucination",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "hallucination"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Fabrication is most likely when the question concerns",
+    "options": [
+      {
+        "id": "a",
+        "text": "Common general knowledge"
+      },
+      {
+        "id": "b",
+        "text": "Narrow, recent or private facts poorly represented in training"
+      },
+      {
+        "id": "c",
+        "text": "Arithmetic"
+      },
+      {
+        "id": "d",
+        "text": "Grammar"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Sparse coverage leaves the model interpolating from adjacent patterns, which produces plausible specifics. It is exactly the region where retrieval pays for itself."
+  },
+  {
+    "id": "ail3-context-compression",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "context-window",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "context-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Summarising earlier turns to fit the context window risks",
+    "options": [
+      {
+        "id": "a",
+        "text": "Refusals"
+      },
+      {
+        "id": "b",
+        "text": "Higher cost"
+      },
+      {
+        "id": "c",
+        "text": "Losing a detail the summary judged unimportant but a later turn needs"
+      },
+      {
+        "id": "d",
+        "text": "Slower responses"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Compression is lossy and the loss is chosen before you know what will matter. Keeping key facts verbatim in a pinned section is the usual mitigation."
+  },
+  {
+    "id": "ail3-structured-retry",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "output-format",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-format"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "When a model returns JSON that fails to parse, the most robust response is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Accept it"
+      },
+      {
+        "id": "b",
+        "text": "Retry with the parse error fed back as context"
+      },
+      {
+        "id": "c",
+        "text": "Lower temperature only"
+      },
+      {
+        "id": "d",
+        "text": "Strip the braces"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Showing the model what went wrong gives it something to correct. Blind retries resample the same distribution, and manual repair hides a failure you should be measuring."
+  },
+  {
+    "id": "ail3-pii-redaction",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "privacy",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "privacy"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Redacting identifiers before sending text to a model is most reliable when done",
+    "options": [
+      {
+        "id": "a",
+        "text": "After the response returns"
+      },
+      {
+        "id": "b",
+        "text": "By instructing the model to ignore them"
+      },
+      {
+        "id": "c",
+        "text": "In code, before the request is made"
+      },
+      {
+        "id": "d",
+        "text": "By the provider"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Anything that must always hold belongs outside the model. An instruction reduces the rate of leakage; removing the data before transmission removes the possibility."
+  },
+  {
+    "id": "ail3-model-version-pin",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "accountability",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "accountability"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Pinning a specific model version in production protects against",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rate limits"
+      },
+      {
+        "id": "b",
+        "text": "Prompt injection"
+      },
+      {
+        "id": "c",
+        "text": "Higher cost"
+      },
+      {
+        "id": "d",
+        "text": "Behaviour changing under you when the provider updates the default"
+      }
+    ],
+    "answer": "d",
+    "explanation": "An upgraded default can silently alter output your product depended on. Pinning makes the upgrade a deliberate, testable change rather than an incident."
+  },
+  {
+    "id": "ail3-grounding-citation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "grounding",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "grounding"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A citation that does not support the sentence it is attached to is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Expected behaviour"
+      },
+      {
+        "id": "b",
+        "text": "Better than no citation"
+      },
+      {
+        "id": "c",
+        "text": "Worse than none, because it manufactures unearned confidence"
+      },
+      {
+        "id": "d",
+        "text": "A formatting issue"
+      }
+    ],
+    "answer": "c",
+    "explanation": "An unchecked citation transfers authority without transferring evidence, and a reader who spot-checks one and finds it fine will stop checking. Verification has to cover the link between claim and source."
+  },
+  {
+    "id": "ail3-rag-permission",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "failure-modes",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "failure-modes"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A RAG system must filter retrieved documents by the user's permissions",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only for external users"
+      },
+      {
+        "id": "b",
+        "text": "Never, since the model forgets"
+      },
+      {
+        "id": "c",
+        "text": "After generating the answer"
+      },
+      {
+        "id": "d",
+        "text": "Before retrieval, so restricted text never enters the prompt"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Once restricted text is in the context it can surface in the answer in paraphrase, so post-filtering is not a control. Permission filtering belongs in the retrieval query."
+  },
+  {
+    "id": "ail3-agent-loop-detection",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "planning",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "planning"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "An agent repeating the same failing tool call should be stopped by",
+    "options": [
+      {
+        "id": "a",
+        "text": "A larger model"
+      },
+      {
+        "id": "b",
+        "text": "Higher temperature"
+      },
+      {
+        "id": "c",
+        "text": "A longer prompt"
+      },
+      {
+        "id": "d",
+        "text": "A loop detector that breaks on repeated identical calls"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Detecting repetition is cheap and catches the commonest runaway pattern. Raising temperature to break the loop trades a stuck agent for an unpredictable one."
+  },
+  {
+    "id": "ail3-tool-error-handling",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "tool-calling",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "tool-calling"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "When a tool call fails, the agent loop should",
+    "options": [
+      {
+        "id": "a",
+        "text": "Feed the error back as an observation so the next step can adapt, within a retry limit"
+      },
+      {
+        "id": "b",
+        "text": "Stop the whole task"
+      },
+      {
+        "id": "c",
+        "text": "Ignore the failure"
+      },
+      {
+        "id": "d",
+        "text": "Retry indefinitely"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The error is information the next reasoning step can use, and a bounded retry stops a transient failure becoming an infinite loop. Silently ignoring it produces confident answers built on missing data."
+  },
+  {
+    "id": "ail3-cost-model-choice",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "training-vs-inference",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "training-vs-inference"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The cheapest reliable way to cut per-request cost is usually",
+    "options": [
+      {
+        "id": "a",
+        "text": "Using a smaller model for the subtasks that do not need the large one"
+      },
+      {
+        "id": "b",
+        "text": "Lower temperature"
+      },
+      {
+        "id": "c",
+        "text": "Fewer examples"
+      },
+      {
+        "id": "d",
+        "text": "A shorter system prompt"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Routing by difficulty typically saves far more than prompt trimming, because output tokens on a large model dominate the bill. It requires knowing which subtasks are easy, which an eval set tells you."
   }
 ]
