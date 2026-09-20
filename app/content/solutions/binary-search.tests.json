@@ -1,0 +1,13 @@
+{
+  "problem": "Read n, then n integers in ascending order, then a target. Print the index of the target, or -1 if it is absent. Use binary search.",
+  "language": "c",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "found in the middle", "stdin": "5\n1 3 5 7 9\n5", "expectedStdout": "2" },
+    { "name": "first element", "stdin": "5\n1 3 5 7 9\n1", "expectedStdout": "0", "edgeCase": true },
+    { "name": "last element", "stdin": "5\n1 3 5 7 9\n9", "expectedStdout": "4", "edgeCase": true },
+    { "name": "absent", "stdin": "5\n1 3 5 7 9\n4", "expectedStdout": "-1", "edgeCase": true, "hidden": true },
+    { "name": "single element present", "stdin": "1\n42\n42", "expectedStdout": "0", "hidden": true },
+    { "name": "single element absent", "stdin": "1\n42\n7", "expectedStdout": "-1", "edgeCase": true, "hidden": true }
+  ]
+}

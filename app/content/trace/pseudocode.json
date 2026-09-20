@@ -2149,5 +2149,1000 @@
         "output": "9 4"
       }
     ]
+  },
+  {
+    "id": "trace-fizz-short",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "conditionals",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "conditionals"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "For i = 1 To 10\n    If i MOD 15 == 0 Then Print \"F\"\n    Else If i MOD 3 == 0 Then Print \"f\"\n    Else If i MOD 5 == 0 Then Print \"b\"\n    Else Print i\nEnd For",
+    "question": "What is printed, separated by spaces?",
+    "answerMode": "exact",
+    "answer": "1 2 f 4 b f 7 8 f b",
+    "explanation": "Branch order decides the answer: the divisible-by-fifteen case must be tested first, or every multiple of fifteen is caught by the earlier three-test. Within 1 to 10 no multiple of fifteen occurs, so the ordering does not bite here — but reordering the branches would still be a latent bug.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 5,
+        "vars": {
+          "i": 1
+        },
+        "note": "not divisible"
+      },
+      {
+        "step": 2,
+        "line": 3,
+        "vars": {
+          "i": 3
+        },
+        "note": "f"
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "i": 5
+        },
+        "note": "b"
+      },
+      {
+        "step": 4,
+        "line": 3,
+        "vars": {
+          "i": 9
+        },
+        "note": "f"
+      },
+      {
+        "step": 5,
+        "line": 4,
+        "vars": {
+          "i": 10
+        },
+        "note": "b"
+      },
+      {
+        "step": 6,
+        "line": 6,
+        "vars": {
+          "i": 10
+        },
+        "output": "1 2 f 4 b f 7 8 f b",
+        "note": "loop ends"
+      }
+    ]
+  },
+  {
+    "id": "trace-gcd-recursive",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "recursion",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "recursion"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Function g(a, b)\n    If b == 0 Then\n        Return a\n    End If\n    Return g(b, a MOD b)\nEnd Function\nPrint g(84, 36)",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "12",
+    "explanation": "This is Euclid's algorithm written recursively, and it is tail recursive: the call is the last action, so no work waits on the way back up. The base case returns a because once b is zero, a holds the divisor.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 5,
+        "vars": {
+          "a": 84,
+          "b": 36
+        },
+        "note": "84 mod 36 = 12"
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "a": 36,
+          "b": 12
+        },
+        "note": "36 mod 12 = 0"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "a": 12,
+          "b": 0
+        },
+        "note": "base case"
+      },
+      {
+        "step": 4,
+        "line": 7,
+        "vars": {
+          "a": 84,
+          "b": 36
+        },
+        "output": "12",
+        "note": "returns straight back up"
+      }
+    ]
+  },
+  {
+    "id": "trace-to-binary",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "bitwise",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "bitwise"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Integer n = 13\nString out = \"\"\nWhile n > 0\n    out = (n MOD 2) prepended to out\n    n = n DIV 2\nEnd While\nPrint out",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "1101",
+    "explanation": "Repeated division by two produces the binary digits from least significant upward, which is why each new digit is PREPENDED rather than appended. Appending instead would print the bits reversed, a very common off-by-direction bug.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "n": 13,
+          "out": ""
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "n": 6,
+          "out": "1"
+        },
+        "note": "13 is odd"
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "n": 3,
+          "out": "01"
+        },
+        "note": "6 is even"
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "n": 1,
+          "out": "101"
+        }
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "n": 0,
+          "out": "1101"
+        }
+      },
+      {
+        "step": 6,
+        "line": 7,
+        "vars": {
+          "n": 0,
+          "out": "1101"
+        },
+        "output": "1101"
+      }
+    ]
+  },
+  {
+    "id": "trace-matrix-diagonal",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "arrays",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 70,
+    "language": "pseudocode",
+    "sourceCode": "Matrix m = [[1,2,3],[4,5,6],[7,8,9]]\nInteger total = 0\nFor i = 0 To 2\n    total = total + m[i][i]\nEnd For\nPrint total",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "15",
+    "explanation": "Using the same index for both dimensions walks the main diagonal, so only 1, 5 and 9 are added. The anti-diagonal needs m[i][n-1-i], and mixing the two up is the usual error.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "total": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "i": 0,
+          "total": 1
+        }
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "i": 1,
+          "total": 6
+        }
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "i": 2,
+          "total": 15
+        }
+      },
+      {
+        "step": 5,
+        "line": 6,
+        "vars": {
+          "total": 15
+        },
+        "output": "15"
+      }
+    ]
+  },
+  {
+    "id": "trace-count-even-pairs",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "nested-loops",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "nested-loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 110,
+    "language": "pseudocode",
+    "sourceCode": "Array a = [1, 2, 3, 4]\nInteger count = 0\nFor i = 0 To 3\n    For j = i + 1 To 3\n        If (a[i] + a[j]) MOD 2 == 0 Then\n            count = count + 1\n        End If\n    End For\nEnd For\nPrint count",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "2",
+    "explanation": "Starting the inner loop at i+1 visits each unordered pair exactly once, avoiding both self-pairs and duplicates. A sum is even when both values share parity, so the qualifying pairs are the two odds and the two evens.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "count": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "i": 0,
+          "j": 2
+        },
+        "note": "1+3 = 4, even"
+      },
+      {
+        "step": 3,
+        "line": 6,
+        "vars": {
+          "i": 0,
+          "j": 2,
+          "count": 1
+        }
+      },
+      {
+        "step": 4,
+        "line": 6,
+        "vars": {
+          "i": 1,
+          "j": 3,
+          "count": 2
+        },
+        "note": "2+4 = 6, even"
+      },
+      {
+        "step": 5,
+        "line": 10,
+        "vars": {
+          "count": 2
+        },
+        "output": "2",
+        "note": "the four mixed-parity pairs are odd"
+      }
+    ]
+  },
+  {
+    "id": "trace-while-never-runs",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "language": "pseudocode",
+    "sourceCode": "Integer n = 10, count = 0\nWhile n < 5\n    count = count + 1\n    n = n + 1\nEnd While\nPrint count",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "0",
+    "explanation": "A while loop tests before the first pass, so a condition false at the start means the body never executes. A do-while would run once regardless, and confusing the two is exactly what this question checks.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "n": 10,
+          "count": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 2,
+        "vars": {
+          "n": 10,
+          "count": 0
+        },
+        "note": "10 < 5 is false"
+      },
+      {
+        "step": 3,
+        "line": 6,
+        "vars": {
+          "n": 10,
+          "count": 0
+        },
+        "output": "0",
+        "note": "body never ran"
+      }
+    ]
+  },
+  {
+    "id": "trace-count-uppercase",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "strings",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 70,
+    "language": "pseudocode",
+    "sourceCode": "String s = \"HeLLo WoRld\"\nInteger count = 0\nFor i = 0 To length(s) - 1\n    If s[i] is an uppercase letter Then\n        count = count + 1\n    End If\nEnd For\nPrint count",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "5",
+    "explanation": "Walk once and test each character's case. The uppercase letters are H, L, L, W and R. The space is neither upper nor lower, which is the detail that catches people who count by elimination.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "count": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "i": 0,
+          "count": 1
+        },
+        "note": "H"
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "i": 3,
+          "count": 3
+        },
+        "note": "after both Ls"
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "i": 6,
+          "count": 4
+        },
+        "note": "W"
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "i": 8,
+          "count": 5
+        },
+        "note": "R"
+      },
+      {
+        "step": 6,
+        "line": 8,
+        "vars": {
+          "count": 5
+        },
+        "output": "5"
+      }
+    ]
+  },
+  {
+    "id": "trace-rotate-left",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "arrays",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Array a = [1, 2, 3, 4, 5]\nInteger k = 2\na = elements from index k to the end, then elements from 0 to k-1\nPrint a",
+    "question": "What is the array afterwards, space-separated?",
+    "answerMode": "exact",
+    "answer": "3 4 5 1 2",
+    "explanation": "A left rotation by k moves the first k elements to the back. A right rotation by k is the same operation with k replaced by length minus k, which is why stating the direction matters more than the number.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "a": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "line": 2,
+        "vars": {
+          "k": 2
+        }
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "a": [
+            3,
+            4,
+            5,
+            1,
+            2
+          ]
+        },
+        "note": "tail then head"
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "a": [
+            3,
+            4,
+            5,
+            1,
+            2
+          ]
+        },
+        "output": "3 4 5 1 2"
+      }
+    ]
+  },
+  {
+    "id": "trace-ternary-chain",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "conditionals",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "conditionals"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "language": "pseudocode",
+    "sourceCode": "Integer x = 7\nIf x > 10 Then Print \"big\"\nElse If x > 5 Then Print \"mid\"\nElse Print \"small\"",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "mid",
+    "explanation": "An else-if chain stops at the first true branch, so only one prints. Replacing the chain with three separate ifs would print both 'mid' and 'small' for some values, which is the bug this structure prevents.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "x": 7
+        }
+      },
+      {
+        "step": 2,
+        "line": 2,
+        "vars": {
+          "x": 7
+        },
+        "note": "7 > 10 is false"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "x": 7
+        },
+        "output": "mid",
+        "note": "7 > 5 is true, chain stops"
+      }
+    ]
+  },
+  {
+    "id": "trace-smallest-factor",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "integer-arithmetic",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "integer-arithmetic"
+    ],
+    "source": "authored",
+    "targetSeconds": 110,
+    "language": "pseudocode",
+    "sourceCode": "Integer n = 21, d = 2, found = 0\nWhile d * d <= n\n    If n MOD d == 0 Then\n        found = d\n        Break\n    End If\n    d = d + 1\nEnd While\nIf found == 0 Then Print \"prime\" Else Print found",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "3",
+    "explanation": "Testing divisors only up to the square root is sufficient, because any factor above it pairs with one below. The loop stops at the first divisor found, which for 21 is 3.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "n": 21,
+          "d": 2,
+          "found": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 7,
+        "vars": {
+          "d": 3
+        },
+        "note": "21 mod 2 is 1"
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "d": 3,
+          "found": 3
+        },
+        "note": "21 mod 3 is 0, break"
+      },
+      {
+        "step": 4,
+        "line": 9,
+        "vars": {
+          "found": 3
+        },
+        "output": "3",
+        "note": "a factor was found"
+      }
+    ]
+  },
+  {
+    "id": "trace-sum-until-threshold",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Integer total = 0, i = 1\nWhile total < 20\n    total = total + i\n    i = i + 1\nEnd While\nPrint total, i - 1",
+    "question": "What is printed, as two values separated by a space?",
+    "answerMode": "exact",
+    "answer": "21 6",
+    "explanation": "The loop overshoots because the test happens before the addition, so the printed total is the first one to reach or exceed 20. Printing i-1 rather than i gives the last value actually added, which is the off-by-one this item exists to teach.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "total": 0,
+          "i": 1
+        }
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "total": 1,
+          "i": 2
+        }
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "total": 10,
+          "i": 5
+        },
+        "note": "after adding 4"
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "total": 15,
+          "i": 6
+        }
+      },
+      {
+        "step": 5,
+        "line": 4,
+        "vars": {
+          "total": 21,
+          "i": 7
+        },
+        "note": "added 6, now over 20"
+      },
+      {
+        "step": 6,
+        "line": 6,
+        "vars": {
+          "total": 21,
+          "i": 7
+        },
+        "output": "21 6",
+        "note": "i-1 is the last value added"
+      }
+    ]
+  },
+  {
+    "id": "trace-char-shift",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "strings",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "language": "pseudocode",
+    "sourceCode": "String s = \"ABC\", out = \"\"\nFor i = 0 To length(s) - 1\n    out = out + character with code (code of s[i] + 2)\nEnd For\nPrint out",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "CDE",
+    "explanation": "Characters are numbers underneath, so adding to the code moves along the alphabet. A real Caesar cipher also needs to wrap past Z, and this version does not — which is the limitation worth naming rather than the arithmetic.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "out": ""
+        }
+      },
+      {
+        "step": 2,
+        "line": 3,
+        "vars": {
+          "i": 0,
+          "out": "C"
+        },
+        "note": "A + 2"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "i": 1,
+          "out": "CD"
+        }
+      },
+      {
+        "step": 4,
+        "line": 3,
+        "vars": {
+          "i": 2,
+          "out": "CDE"
+        }
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "out": "CDE"
+        },
+        "output": "CDE"
+      }
+    ]
+  },
+  {
+    "id": "trace-min-and-max",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "arrays",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 70,
+    "language": "pseudocode",
+    "sourceCode": "Array a = [7, 2, 9, 4]\nInteger lo = a[0], hi = a[0]\nFor i = 1 To 3\n    If a[i] < lo Then lo = a[i]\n    If a[i] > hi Then hi = a[i]\nEnd For\nPrint lo, hi",
+    "question": "What is printed, as two values separated by a space?",
+    "answerMode": "exact",
+    "answer": "2 9",
+    "explanation": "Both accumulators are seeded from the first element rather than from zero or a large constant, which is what makes the code correct for all-negative or all-large arrays. Seeding min at 0 is a classic bug that only shows on negative input.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "lo": 7,
+          "hi": 7
+        },
+        "note": "seeded from a[0]"
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "i": 1,
+          "lo": 2,
+          "hi": 7
+        },
+        "note": "2 < 7"
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "i": 2,
+          "lo": 2,
+          "hi": 9
+        },
+        "note": "9 > 7"
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "i": 3,
+          "lo": 2,
+          "hi": 9
+        },
+        "note": "4 changes nothing"
+      },
+      {
+        "step": 5,
+        "line": 7,
+        "vars": {
+          "lo": 2,
+          "hi": 9
+        },
+        "output": "2 9"
+      }
+    ]
+  },
+  {
+    "id": "trace-nested-skip-equal",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "nested-loops",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "nested-loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 110,
+    "language": "pseudocode",
+    "sourceCode": "Integer total = 0\nFor i = 1 To 3\n    For j = 1 To 3\n        If i != j Then\n            total = total + i * j\n        End If\n    End For\nEnd For\nPrint total",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "22",
+    "explanation": "The guard removes the three diagonal terms where i equals j. The full nine-term sum is 36 and the diagonal is 1+4+9 = 14, so the answer is 22 — computing the whole grid and subtracting is faster than tracing six terms.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "total": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "i": 1,
+          "j": 2,
+          "total": 2
+        }
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "i": 1,
+          "j": 3,
+          "total": 5
+        }
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "i": 2,
+          "j": 1,
+          "total": 7
+        }
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "i": 3,
+          "j": 1,
+          "total": 16
+        },
+        "note": "after i=2 row and 3*1"
+      },
+      {
+        "step": 6,
+        "line": 5,
+        "vars": {
+          "i": 3,
+          "j": 2,
+          "total": 22
+        }
+      },
+      {
+        "step": 7,
+        "line": 9,
+        "vars": {
+          "total": 22
+        },
+        "output": "22"
+      }
+    ]
+  },
+  {
+    "id": "trace-do-while-once",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "language": "pseudocode",
+    "sourceCode": "Integer n = 0, count = 0\nRepeat\n    count = count + 1\n    n = n + 3\nUntil n >= 9\nPrint n, count",
+    "question": "What is printed, as two values separated by a space?",
+    "answerMode": "exact",
+    "answer": "9 3",
+    "explanation": "A repeat-until tests AFTER the body, so it always runs at least once and stops the first time the condition holds. Three passes take n to 9, at which point the test succeeds and the loop ends.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "n": 0,
+          "count": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "n": 3,
+          "count": 1
+        }
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "n": 6,
+          "count": 2
+        },
+        "note": "6 >= 9 is false"
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "n": 9,
+          "count": 3
+        },
+        "note": "now true"
+      },
+      {
+        "step": 5,
+        "line": 6,
+        "vars": {
+          "n": 9,
+          "count": 3
+        },
+        "output": "9 3",
+        "note": "loop exits after the body"
+      }
+    ]
   }
 ]

@@ -1,0 +1,12 @@
+{
+  "problem": "Read one integer n. Print the sum of every integer from 1 to n inclusive that is a multiple of 3 or of 5. Multiples of both are counted once.",
+  "language": "java",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "up to ten", "stdin": "10\n", "expectedStdout": "33" },
+    { "name": "boundary at fifteen", "stdin": "15\n", "expectedStdout": "60", "edgeCase": true },
+    { "name": "below the first multiple", "stdin": "2\n", "expectedStdout": "0", "edgeCase": true },
+    { "name": "zero", "stdin": "0\n", "expectedStdout": "0", "edgeCase": true, "hidden": true },
+    { "name": "larger range", "stdin": "20\n", "expectedStdout": "98", "hidden": true }
+  ]
+}

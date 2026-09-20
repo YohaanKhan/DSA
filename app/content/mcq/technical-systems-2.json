@@ -1,0 +1,3350 @@
+[
+  {
+    "id": "tech2-er-cardinality",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "er-model",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "er-model"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In an ER diagram, a many-to-many relationship between two entities is implemented as",
+    "options": [
+      {
+        "id": "a",
+        "text": "A separate junction table holding a foreign key to each"
+      },
+      {
+        "id": "b",
+        "text": "A composite primary key on one table"
+      },
+      {
+        "id": "c",
+        "text": "A view"
+      },
+      {
+        "id": "d",
+        "text": "A foreign key on either side"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Neither side can hold a single foreign key without repeating rows, so the relationship becomes its own table. Its primary key is usually the pair of foreign keys, which also enforces uniqueness of the pairing."
+  },
+  {
+    "id": "tech2-weak-entity",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "er-model",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "er-model"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A weak entity is one that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Has few attributes"
+      },
+      {
+        "id": "b",
+        "text": "Cannot be identified without its owning entity, so its key includes the owner's"
+      },
+      {
+        "id": "c",
+        "text": "Is rarely used"
+      },
+      {
+        "id": "d",
+        "text": "Has no primary key at all"
+      }
+    ],
+    "answer": "b",
+    "explanation": "An order line identified only by line number needs the order id to be unique. The dependency is on identification, not on data volume."
+  },
+  {
+    "id": "tech2-surrogate-key",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "keys",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "keys"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A surrogate key is preferred over a natural key when",
+    "options": [
+      {
+        "id": "a",
+        "text": "The data is numeric"
+      },
+      {
+        "id": "b",
+        "text": "The table is small"
+      },
+      {
+        "id": "c",
+        "text": "The natural key is large, changeable, or may not exist for every row"
+      },
+      {
+        "id": "d",
+        "text": "Joins are rare"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Business identifiers change more often than people expect, and a changing primary key means cascading updates everywhere it is referenced. The cost of a surrogate is an extra column and one more join to read the natural key."
+  },
+  {
+    "id": "tech2-composite-key",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "keys",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "keys"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A composite primary key is one that",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is automatically generated"
+      },
+      {
+        "id": "b",
+        "text": "Allows nulls"
+      },
+      {
+        "id": "c",
+        "text": "Combines two tables"
+      },
+      {
+        "id": "d",
+        "text": "Spans two or more columns, which together identify a row uniquely"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Every column in it must still be non-null, and minimality applies: if a subset already identifies the row, the extra column does not belong in the key."
+  },
+  {
+    "id": "tech2-bcnf",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "normalisation",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "normalisation"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Boyce-Codd normal form is stricter than third normal form in that it requires",
+    "options": [
+      {
+        "id": "a",
+        "text": "Every determinant to be a candidate key"
+      },
+      {
+        "id": "b",
+        "text": "At most three columns"
+      },
+      {
+        "id": "c",
+        "text": "No foreign keys"
+      },
+      {
+        "id": "d",
+        "text": "No composite keys"
+      }
+    ],
+    "answer": "a",
+    "explanation": "3NF tolerates a non-key determinant when the dependent attribute is part of a candidate key; BCNF does not. The cases that separate them are rare and involve overlapping candidate keys."
+  },
+  {
+    "id": "tech2-anomalies",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "normalisation",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "normalisation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Update, insert and delete anomalies all arise from",
+    "options": [
+      {
+        "id": "a",
+        "text": "Missing indexes"
+      },
+      {
+        "id": "b",
+        "text": "Redundancy, where the same fact is stored in more than one place"
+      },
+      {
+        "id": "c",
+        "text": "Too many tables"
+      },
+      {
+        "id": "d",
+        "text": "Null values"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Normalisation is the systematic removal of that redundancy, which is why each normal form is defined by the dependency it eliminates rather than by a table count."
+  },
+  {
+    "id": "tech2-acid-atomicity",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "acid",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "acid"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Atomicity guarantees that a transaction",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is written to disk"
+      },
+      {
+        "id": "b",
+        "text": "Runs quickly"
+      },
+      {
+        "id": "c",
+        "text": "Either completes entirely or has no effect at all"
+      },
+      {
+        "id": "d",
+        "text": "Runs alone"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Partial application is what atomicity forbids, which is why a transfer cannot debit one account without crediting the other. Rollback is the mechanism that delivers it."
+  },
+  {
+    "id": "tech2-consistency",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "acid",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "acid"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Consistency in ACID means a transaction takes the database",
+    "options": [
+      {
+        "id": "a",
+        "text": "To the same state every time"
+      },
+      {
+        "id": "b",
+        "text": "To a faster state"
+      },
+      {
+        "id": "c",
+        "text": "Through valid intermediate states"
+      },
+      {
+        "id": "d",
+        "text": "From one state satisfying all constraints to another such state"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It is about constraints and invariants, not about concurrency or replication. The C in ACID and the C in the CAP theorem name different properties, which is a frequent conflation."
+  },
+  {
+    "id": "tech2-isolation-levels",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "concurrency",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "concurrency"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Repeatable Read prevents dirty and non-repeatable reads but may still allow",
+    "options": [
+      {
+        "id": "a",
+        "text": "Phantom reads, where a re-run query sees newly inserted matching rows"
+      },
+      {
+        "id": "b",
+        "text": "Dirty reads"
+      },
+      {
+        "id": "c",
+        "text": "Nothing"
+      },
+      {
+        "id": "d",
+        "text": "Lost updates only"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Row-level stability does not stop new rows appearing in a range. Serializable is the level that excludes phantoms, at a higher concurrency cost."
+  },
+  {
+    "id": "tech2-optimistic-locking",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "concurrency",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "concurrency"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Optimistic concurrency control works by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Locking rows on read"
+      },
+      {
+        "id": "b",
+        "text": "Letting transactions proceed and checking a version at commit, failing if it changed"
+      },
+      {
+        "id": "c",
+        "text": "Serialising everything"
+      },
+      {
+        "id": "d",
+        "text": "Disabling transactions"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It suits low-contention workloads because it avoids holding locks, and pushes the cost onto retrying the rare conflict. Under heavy contention pessimistic locking wins."
+  },
+  {
+    "id": "tech2-index-composite",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "indexing",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "indexing"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A composite index on (a, b) can efficiently serve a query filtering only on",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both equally"
+      },
+      {
+        "id": "b",
+        "text": "b"
+      },
+      {
+        "id": "c",
+        "text": "a"
+      },
+      {
+        "id": "d",
+        "text": "Neither"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The index is ordered by a first, so a prefix of the column list is usable and a suffix is not. This leftmost-prefix rule decides column order when you design the index."
+  },
+  {
+    "id": "tech2-clustered",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "indexing",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "indexing"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A clustered index differs from a non-clustered one in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Allows duplicates"
+      },
+      {
+        "id": "b",
+        "text": "Requires a primary key"
+      },
+      {
+        "id": "c",
+        "text": "Is faster to create"
+      },
+      {
+        "id": "d",
+        "text": "Determines the physical order of the rows, so there can be only one"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Because the data is the index, range scans on the clustered key are very cheap and a poorly chosen clustered key is expensive to change later."
+  },
+  {
+    "id": "tech2-covering-index",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "indexing",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "indexing"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A covering index speeds a query up by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Containing every column the query needs, so the table itself is never read"
+      },
+      {
+        "id": "b",
+        "text": "Caching results"
+      },
+      {
+        "id": "c",
+        "text": "Sorting the table"
+      },
+      {
+        "id": "d",
+        "text": "Being smaller"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Avoiding the lookup back into the table can be a large win on wide tables. The cost is a wider index that is slower to maintain on writes."
+  },
+  {
+    "id": "tech2-view",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "views",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "views"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A standard SQL view is",
+    "options": [
+      {
+        "id": "a",
+        "text": "A copy of the data"
+      },
+      {
+        "id": "b",
+        "text": "A stored query that runs when the view is referenced"
+      },
+      {
+        "id": "c",
+        "text": "An index"
+      },
+      {
+        "id": "d",
+        "text": "A backup"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It provides abstraction and access control without duplicating data, and it costs whatever the underlying query costs each time. A materialised view is the variant that does store results."
+  },
+  {
+    "id": "tech2-materialised-view",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "views",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "views"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A materialised view differs from a standard view in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Has no indexes"
+      },
+      {
+        "id": "b",
+        "text": "Cannot be queried"
+      },
+      {
+        "id": "c",
+        "text": "Stores the query result, trading staleness for read speed"
+      },
+      {
+        "id": "d",
+        "text": "Is always current"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The design question becomes refresh policy: how stale may the data be, and what does refreshing cost. That trade is the reason to choose one over the other."
+  },
+  {
+    "id": "tech2-trigger",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "procedures-triggers",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "procedures-triggers"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A database trigger executes",
+    "options": [
+      {
+        "id": "a",
+        "text": "When called by name"
+      },
+      {
+        "id": "b",
+        "text": "At startup"
+      },
+      {
+        "id": "c",
+        "text": "On a schedule"
+      },
+      {
+        "id": "d",
+        "text": "Automatically in response to an insert, update or delete"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Because it fires implicitly, logic placed in a trigger is easy to miss when debugging. That invisibility is the main argument for keeping business rules in application code."
+  },
+  {
+    "id": "tech2-stored-proc",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "procedures-triggers",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "procedures-triggers"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A stored procedure differs from a trigger in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is invoked explicitly by name rather than firing automatically"
+      },
+      {
+        "id": "b",
+        "text": "Cannot take parameters"
+      },
+      {
+        "id": "c",
+        "text": "Returns no rows"
+      },
+      {
+        "id": "d",
+        "text": "Runs faster"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Explicit invocation makes the control flow visible to whoever reads the calling code, which is why procedures are easier to reason about than triggers."
+  },
+  {
+    "id": "tech2-transaction-savepoint",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "transactions",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "transactions"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A savepoint inside a transaction allows",
+    "options": [
+      {
+        "id": "a",
+        "text": "Committing part of the work"
+      },
+      {
+        "id": "b",
+        "text": "Rolling back to a marked point without abandoning the whole transaction"
+      },
+      {
+        "id": "c",
+        "text": "Skipping locks"
+      },
+      {
+        "id": "d",
+        "text": "Faster commits"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Nothing becomes durable until the outer commit, so a savepoint is a partial undo rather than a partial commit. It is useful for retrying one step of a long transaction."
+  },
+  {
+    "id": "tech2-cap",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "sql-vs-nosql",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sql-vs-nosql"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The CAP theorem states that during a network partition a distributed store must choose between",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reads and writes"
+      },
+      {
+        "id": "b",
+        "text": "Speed and cost"
+      },
+      {
+        "id": "c",
+        "text": "Consistency and availability"
+      },
+      {
+        "id": "d",
+        "text": "Durability and atomicity"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The choice only arises during a partition; the rest of the time a system can offer both. Treating CAP as a permanent pick-two is the most common misreading."
+  },
+  {
+    "id": "tech2-eventual",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "sql-vs-nosql",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sql-vs-nosql"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Eventual consistency means",
+    "options": [
+      {
+        "id": "a",
+        "text": "Writes are rejected"
+      },
+      {
+        "id": "b",
+        "text": "Reads are always stale"
+      },
+      {
+        "id": "c",
+        "text": "Data is sometimes lost"
+      },
+      {
+        "id": "d",
+        "text": "Replicas converge to the same value once updates stop, but may differ in the meantime"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It is a liveness guarantee about convergence, not about how stale a read may be right now. Whether that is acceptable depends entirely on what the application does with the value."
+  },
+  {
+    "id": "tech2-sharding",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "dbms",
+    "subtopic": "sql-vs-nosql",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "sql-vs-nosql"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Sharding a database primarily addresses",
+    "options": [
+      {
+        "id": "a",
+        "text": "Capacity, by splitting data across nodes on a shard key"
+      },
+      {
+        "id": "b",
+        "text": "Consistency"
+      },
+      {
+        "id": "c",
+        "text": "Schema design"
+      },
+      {
+        "id": "d",
+        "text": "Query complexity"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The shard key decides everything downstream: queries that include it stay on one node, and queries that do not must fan out. Choosing it badly is expensive to undo."
+  },
+  {
+    "id": "tech2-full-outer",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "joins",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "joins"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A FULL OUTER JOIN returns",
+    "options": [
+      {
+        "id": "a",
+        "text": "Every row from both tables, with nulls where there is no match"
+      },
+      {
+        "id": "b",
+        "text": "Only left rows"
+      },
+      {
+        "id": "c",
+        "text": "The Cartesian product"
+      },
+      {
+        "id": "d",
+        "text": "Only matching rows"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It is the union of the left and right outer joins. It is the right tool for reconciliation, where you need to see records missing from either side."
+  },
+  {
+    "id": "tech2-cross-join",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "joins",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "joins"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A CROSS JOIN produces",
+    "options": [
+      {
+        "id": "a",
+        "text": "Matching rows only"
+      },
+      {
+        "id": "b",
+        "text": "Every combination of rows from both tables"
+      },
+      {
+        "id": "c",
+        "text": "An error"
+      },
+      {
+        "id": "d",
+        "text": "The left table"
+      }
+    ],
+    "answer": "b",
+    "explanation": "An omitted join condition produces the same result accidentally, which is the usual explanation for a query that suddenly returns millions of rows."
+  },
+  {
+    "id": "tech2-self-join",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "joins",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "joins"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A self join is used to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Remove duplicates"
+      },
+      {
+        "id": "b",
+        "text": "Create an index"
+      },
+      {
+        "id": "c",
+        "text": "Join a table to itself, typically to relate rows within the same table"
+      },
+      {
+        "id": "d",
+        "text": "Speed up a query"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The classic case is an employee table with a manager_id referring to the same table. Aliasing each instance is what makes the query readable."
+  },
+  {
+    "id": "tech2-join-order",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "joins",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "joins"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The order in which you write joins in a standard SQL query",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is ignored entirely"
+      },
+      {
+        "id": "b",
+        "text": "Must match the index order"
+      },
+      {
+        "id": "c",
+        "text": "Determines execution order exactly"
+      },
+      {
+        "id": "d",
+        "text": "Is usually rearranged by the optimiser based on statistics"
+      }
+    ],
+    "answer": "d",
+    "explanation": "You express intent; the planner chooses the physical plan. This is why fixing a slow query usually means improving statistics or indexes rather than reordering the text."
+  },
+  {
+    "id": "tech2-group-by-multiple",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "group-by-having",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "group-by-having"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "GROUP BY department, role produces one row per",
+    "options": [
+      {
+        "id": "a",
+        "text": "Distinct combination of department and role"
+      },
+      {
+        "id": "b",
+        "text": "Role"
+      },
+      {
+        "id": "c",
+        "text": "Table"
+      },
+      {
+        "id": "d",
+        "text": "Department"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Grouping is on the tuple of listed columns. Expecting nested groups is a common misreading — SQL produces a flat result, and hierarchy is a presentation concern."
+  },
+  {
+    "id": "tech2-having-without-group",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "group-by-having",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "group-by-having"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "HAVING used without GROUP BY",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is a syntax error"
+      },
+      {
+        "id": "b",
+        "text": "Treats the whole result as a single group"
+      },
+      {
+        "id": "c",
+        "text": "Behaves like WHERE"
+      },
+      {
+        "id": "d",
+        "text": "Is ignored"
+      }
+    ],
+    "answer": "b",
+    "explanation": "You can write HAVING COUNT(*) > 100 with no grouping to test the whole table. It is legal and occasionally useful, though usually a sign the query means something else."
+  },
+  {
+    "id": "tech2-aggregate-nested",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "aggregates",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "aggregates"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "To find the department with the highest average salary you generally need",
+    "options": [
+      {
+        "id": "a",
+        "text": "An index"
+      },
+      {
+        "id": "b",
+        "text": "A single aggregate"
+      },
+      {
+        "id": "c",
+        "text": "A subquery or window function, since you cannot nest aggregates directly"
+      },
+      {
+        "id": "d",
+        "text": "A join"
+      }
+    ],
+    "answer": "c",
+    "explanation": "AVG of MAX is not permitted because the two collapse at different levels. Computing the averages first and then selecting the maximum over them is the shape that works."
+  },
+  {
+    "id": "tech2-count-distinct",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "aggregates",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "aggregates"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "COUNT(DISTINCT col) differs from COUNT(col) in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is faster"
+      },
+      {
+        "id": "b",
+        "text": "Sorts the result"
+      },
+      {
+        "id": "c",
+        "text": "Includes nulls"
+      },
+      {
+        "id": "d",
+        "text": "Counts unique non-null values rather than all non-null values"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Both ignore nulls; only the distinct form deduplicates, usually at the cost of a sort or hash. That cost is worth knowing before adding it to a large query."
+  },
+  {
+    "id": "tech2-correlated",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "subqueries",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "subqueries"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A correlated subquery differs from an ordinary one in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "References a column from the outer query, so it is evaluated per outer row"
+      },
+      {
+        "id": "b",
+        "text": "Cannot be used in WHERE"
+      },
+      {
+        "id": "c",
+        "text": "Returns multiple rows"
+      },
+      {
+        "id": "d",
+        "text": "Runs once"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The per-row evaluation is what makes it potentially expensive, though optimisers often rewrite it as a join. Recognising the correlation is the first step in diagnosing a slow query."
+  },
+  {
+    "id": "tech2-exists-vs-in",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "subqueries",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "subqueries"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "EXISTS is often preferred over IN with a subquery because it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Returns more rows"
+      },
+      {
+        "id": "b",
+        "text": "Can stop at the first match and is not broken by nulls in the subquery"
+      },
+      {
+        "id": "c",
+        "text": "Is newer syntax"
+      },
+      {
+        "id": "d",
+        "text": "Sorts the result"
+      }
+    ],
+    "answer": "b",
+    "explanation": "IN must materialise or scan the list and NOT IN collapses on a null. EXISTS short-circuits and has no null pathology, which makes it the safer default for anti-joins."
+  },
+  {
+    "id": "tech2-intersect",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "set-operations",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "set-operations"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "INTERSECT returns",
+    "options": [
+      {
+        "id": "a",
+        "text": "The Cartesian product"
+      },
+      {
+        "id": "b",
+        "text": "All rows from both queries"
+      },
+      {
+        "id": "c",
+        "text": "Rows present in both result sets"
+      },
+      {
+        "id": "d",
+        "text": "Rows in the first only"
+      }
+    ],
+    "answer": "c",
+    "explanation": "EXCEPT, called MINUS in some engines, returns rows in the first and not the second. Set operators require the two queries to have matching column counts and compatible types."
+  },
+  {
+    "id": "tech2-order-by-alias",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "select-where",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "select-where"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A column alias defined in SELECT can be referenced in",
+    "options": [
+      {
+        "id": "a",
+        "text": "Both"
+      },
+      {
+        "id": "b",
+        "text": "Neither"
+      },
+      {
+        "id": "c",
+        "text": "WHERE"
+      },
+      {
+        "id": "d",
+        "text": "ORDER BY"
+      }
+    ],
+    "answer": "d",
+    "explanation": "ORDER BY is logically evaluated after SELECT so the alias exists; WHERE runs before it and must repeat the expression. Knowing the logical order of clauses explains most such rules."
+  },
+  {
+    "id": "tech2-like-wildcards",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "select-where",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "select-where"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "In SQL LIKE, the wildcard matching exactly one character is",
+    "options": [
+      {
+        "id": "a",
+        "text": "_"
+      },
+      {
+        "id": "b",
+        "text": "*"
+      },
+      {
+        "id": "c",
+        "text": "?"
+      },
+      {
+        "id": "d",
+        "text": "%"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Percent matches any number of characters including none, and underscore matches exactly one. The shell-style wildcards are a common wrong answer."
+  },
+  {
+    "id": "tech2-case-expression",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "select-where",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "select-where"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A CASE expression in SQL",
+    "options": [
+      {
+        "id": "a",
+        "text": "Can only appear in WHERE"
+      },
+      {
+        "id": "b",
+        "text": "Returns a value and may appear anywhere an expression is allowed"
+      },
+      {
+        "id": "c",
+        "text": "Is a control statement"
+      },
+      {
+        "id": "d",
+        "text": "Requires a subquery"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Being an expression is what lets it sit inside SELECT, ORDER BY and even aggregates, which is how conditional counting is written."
+  },
+  {
+    "id": "tech2-coalesce",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "nulls",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "nulls"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "COALESCE(a, b, 0) returns",
+    "options": [
+      {
+        "id": "a",
+        "text": "Null if any argument is null"
+      },
+      {
+        "id": "b",
+        "text": "Always a"
+      },
+      {
+        "id": "c",
+        "text": "The first non-null argument"
+      },
+      {
+        "id": "d",
+        "text": "The sum"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It is the standard way to supply a default for a nullable column. NULLIF is its counterpart, converting a specific value back to null."
+  },
+  {
+    "id": "tech2-null-aggregate",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "nulls",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "nulls"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "AVG over a column containing nulls computes the average over",
+    "options": [
+      {
+        "id": "a",
+        "text": "Zero rows"
+      },
+      {
+        "id": "b",
+        "text": "Null"
+      },
+      {
+        "id": "c",
+        "text": "All rows, treating null as zero"
+      },
+      {
+        "id": "d",
+        "text": "Only the non-null values"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The denominator is the count of non-null values, so nulls raise the average relative to treating them as zero. Deciding which behaviour you want is a modelling decision, not a syntax one."
+  },
+  {
+    "id": "tech2-primary-key-index",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "constraints",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "constraints"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Declaring a primary key usually also",
+    "options": [
+      {
+        "id": "a",
+        "text": "Creates a unique index to enforce it"
+      },
+      {
+        "id": "b",
+        "text": "Adds a trigger"
+      },
+      {
+        "id": "c",
+        "text": "Sorts the table"
+      },
+      {
+        "id": "d",
+        "text": "Creates a view"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The constraint needs a fast uniqueness check, which the index provides. Adding a separate unique index on the same columns is therefore redundant."
+  },
+  {
+    "id": "tech2-on-delete-cascade",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "constraints",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "constraints"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "ON DELETE CASCADE means that deleting a parent row",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is blocked"
+      },
+      {
+        "id": "b",
+        "text": "Also deletes the referencing child rows"
+      },
+      {
+        "id": "c",
+        "text": "Sets children to null"
+      },
+      {
+        "id": "d",
+        "text": "Is logged"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It is convenient and easy to underestimate: a single delete can remove a large subtree. ON DELETE SET NULL and RESTRICT are the alternatives worth considering first."
+  },
+  {
+    "id": "tech2-index-function",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "ddl-dml-dcl-tcl",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "ddl-dml-dcl-tcl"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A query filtering on UPPER(email) cannot use a plain index on email because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Email is a string"
+      },
+      {
+        "id": "b",
+        "text": "Indexes are case sensitive"
+      },
+      {
+        "id": "c",
+        "text": "The index stores the raw column, not the function's result"
+      },
+      {
+        "id": "d",
+        "text": "UPPER is slow"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Wrapping an indexed column in a function makes the predicate non-sargable. An expression index on UPPER(email), or storing a normalised column, restores the index."
+  },
+  {
+    "id": "tech2-rank-vs-dense",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "window-functions",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "window-functions"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "RANK and DENSE_RANK differ in that",
+    "options": [
+      {
+        "id": "a",
+        "text": "DENSE_RANK is faster"
+      },
+      {
+        "id": "b",
+        "text": "They are identical"
+      },
+      {
+        "id": "c",
+        "text": "RANK ignores ties"
+      },
+      {
+        "id": "d",
+        "text": "RANK leaves gaps after a tie while DENSE_RANK does not"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Two rows tied at rank 1 are followed by rank 3 under RANK and rank 2 under DENSE_RANK. ROW_NUMBER breaks ties arbitrarily and never repeats a value."
+  },
+  {
+    "id": "tech2-partition-by",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "sql",
+    "subtopic": "window-functions",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "technical",
+      "window-functions"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "PARTITION BY in a window function",
+    "options": [
+      {
+        "id": "a",
+        "text": "Restarts the window calculation for each group, without collapsing rows"
+      },
+      {
+        "id": "b",
+        "text": "Sorts the table"
+      },
+      {
+        "id": "c",
+        "text": "Creates a partition on disk"
+      },
+      {
+        "id": "d",
+        "text": "Filters rows"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It is the windowing analogue of GROUP BY, except the input rows survive. This is how you produce a per-department running total alongside each employee row."
+  },
+  {
+    "id": "tech2-user-kernel",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "process-thread",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "process-thread"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A system call is expensive relative to a function call because it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Switches from user mode to kernel mode, with the associated state save and validation"
+      },
+      {
+        "id": "b",
+        "text": "Uses the network"
+      },
+      {
+        "id": "c",
+        "text": "Is interpreted"
+      },
+      {
+        "id": "d",
+        "text": "Allocates memory"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The mode switch and argument validation cost far more than a jump. This is why buffered I/O exists: it amortises one system call over many logical operations."
+  },
+  {
+    "id": "tech2-zombie",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "process-thread",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "process-thread"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A zombie process is one that has",
+    "options": [
+      {
+        "id": "a",
+        "text": "Consumed all memory"
+      },
+      {
+        "id": "b",
+        "text": "Terminated but whose exit status has not yet been collected by its parent"
+      },
+      {
+        "id": "c",
+        "text": "Stopped responding"
+      },
+      {
+        "id": "d",
+        "text": "No parent"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It holds only a process-table entry until the parent reaps it. An orphan is the different case where the parent exited first and init adopts the child."
+  },
+  {
+    "id": "tech2-ipc",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "process-thread",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "process-thread"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which is NOT a standard inter-process communication mechanism?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pipes"
+      },
+      {
+        "id": "b",
+        "text": "Shared memory"
+      },
+      {
+        "id": "c",
+        "text": "Function arguments"
+      },
+      {
+        "id": "d",
+        "text": "Message queues"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Separate address spaces are exactly what makes direct argument passing impossible, which is why IPC mechanisms exist. Shared memory is the fastest of them and needs its own synchronisation."
+  },
+  {
+    "id": "tech2-scheduling-sjf",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "scheduling",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "scheduling"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Shortest-job-first minimises average waiting time but is impractical because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is unfair to short jobs"
+      },
+      {
+        "id": "b",
+        "text": "It requires preemption"
+      },
+      {
+        "id": "c",
+        "text": "It needs more memory"
+      },
+      {
+        "id": "d",
+        "text": "Job durations are not known in advance, and long jobs can starve"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It is used as a theoretical optimum against which real schedulers are compared. Ageing, which raises a waiting job's priority over time, is the standard remedy for starvation."
+  },
+  {
+    "id": "tech2-priority-inversion",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "scheduling",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "scheduling"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Priority inversion occurs when",
+    "options": [
+      {
+        "id": "a",
+        "text": "A high-priority task waits on a lock held by a low-priority task that is itself preempted"
+      },
+      {
+        "id": "b",
+        "text": "Priorities are equal"
+      },
+      {
+        "id": "c",
+        "text": "The scheduler crashes"
+      },
+      {
+        "id": "d",
+        "text": "A high-priority task runs first"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Priority inheritance temporarily raises the lock holder's priority so it can finish and release. The Mars Pathfinder fault is the famous case study."
+  },
+  {
+    "id": "tech2-preemptive",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "scheduling",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "scheduling"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A preemptive scheduler differs from a cooperative one in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is slower"
+      },
+      {
+        "id": "b",
+        "text": "Can interrupt a running task without its cooperation"
+      },
+      {
+        "id": "c",
+        "text": "Uses less memory"
+      },
+      {
+        "id": "d",
+        "text": "Needs no timer"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Cooperative scheduling depends on every task yielding, so one misbehaving task freezes the system. Preemption needs a timer interrupt, which is what makes it robust."
+  },
+  {
+    "id": "tech2-spinlock",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "synchronisation",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "synchronisation"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A spinlock is preferable to a blocking mutex when",
+    "options": [
+      {
+        "id": "a",
+        "text": "There is one thread"
+      },
+      {
+        "id": "b",
+        "text": "The critical section is long"
+      },
+      {
+        "id": "c",
+        "text": "The expected wait is shorter than the cost of a context switch"
+      },
+      {
+        "id": "d",
+        "text": "Memory is scarce"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Spinning burns CPU, so it only pays when the wait is very short and a core is available. Using one around a long or blocking section is a serious performance bug."
+  },
+  {
+    "id": "tech2-producer-consumer",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "synchronisation",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "synchronisation"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The producer-consumer problem requires",
+    "options": [
+      {
+        "id": "a",
+        "text": "No synchronisation"
+      },
+      {
+        "id": "b",
+        "text": "Two processes"
+      },
+      {
+        "id": "c",
+        "text": "One lock only"
+      },
+      {
+        "id": "d",
+        "text": "A bounded buffer with synchronisation for both full and empty conditions"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Two condition variables, or two counting semaphores plus a mutex, handle the two distinct waits. Using a single condition for both is a classic source of missed wakeups."
+  },
+  {
+    "id": "tech2-starvation-deadlock",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "deadlock",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "deadlock"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Starvation differs from deadlock in that a starving process",
+    "options": [
+      {
+        "id": "a",
+        "text": "Could still run, but is repeatedly passed over"
+      },
+      {
+        "id": "b",
+        "text": "Holds all resources"
+      },
+      {
+        "id": "c",
+        "text": "Is in kernel mode"
+      },
+      {
+        "id": "d",
+        "text": "Has crashed"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Deadlock is a permanent circular wait; starvation is a scheduling unfairness that could resolve. Ageing fixes starvation and does nothing for deadlock."
+  },
+  {
+    "id": "tech2-bankers",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "deadlock",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "deadlock"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The banker's algorithm avoids deadlock by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Detecting cycles after the fact"
+      },
+      {
+        "id": "b",
+        "text": "Granting a request only if the resulting state is still safe"
+      },
+      {
+        "id": "c",
+        "text": "Preempting resources"
+      },
+      {
+        "id": "d",
+        "text": "Killing processes"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It requires each process to declare its maximum need up front, which is why it is rarely practical outside teaching. Detection and recovery is what real systems use."
+  },
+  {
+    "id": "tech2-internal-external",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "memory",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "memory"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Internal fragmentation is wasted space",
+    "options": [
+      {
+        "id": "a",
+        "text": "On disk"
+      },
+      {
+        "id": "b",
+        "text": "Between allocated blocks"
+      },
+      {
+        "id": "c",
+        "text": "Inside an allocated block, because the allocation was rounded up"
+      },
+      {
+        "id": "d",
+        "text": "In the page table"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Paging removes external fragmentation and introduces internal fragmentation in the final partial page. Segmentation has the opposite profile, which is why many systems combine the two."
+  },
+  {
+    "id": "tech2-tlb",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "paging",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "paging"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The translation lookaside buffer caches",
+    "options": [
+      {
+        "id": "a",
+        "text": "Instructions"
+      },
+      {
+        "id": "b",
+        "text": "File handles"
+      },
+      {
+        "id": "c",
+        "text": "Disk blocks"
+      },
+      {
+        "id": "d",
+        "text": "Recent virtual-to-physical page translations"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Without it every memory access would need an extra walk of the page table. A TLB miss is one of the hidden costs of a context switch, since the entries are often invalidated."
+  },
+  {
+    "id": "tech2-demand-paging",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "paging",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "paging"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Demand paging loads a page",
+    "options": [
+      {
+        "id": "a",
+        "text": "When it is first accessed, triggering a page fault"
+      },
+      {
+        "id": "b",
+        "text": "On exit"
+      },
+      {
+        "id": "c",
+        "text": "Never"
+      },
+      {
+        "id": "d",
+        "text": "At program start"
+      }
+    ],
+    "answer": "a",
+    "explanation": "This makes startup fast and memory use proportional to what is actually touched. The first access to each page pays a fault, which is why warm-up matters for latency-sensitive services."
+  },
+  {
+    "id": "tech2-lru-approx",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "page-replacement",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "page-replacement"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Real systems approximate LRU rather than implementing it exactly because",
+    "options": [
+      {
+        "id": "a",
+        "text": "LRU is wrong"
+      },
+      {
+        "id": "b",
+        "text": "Exact LRU requires updating an ordering on every memory access, which is too expensive"
+      },
+      {
+        "id": "c",
+        "text": "LRU needs more memory"
+      },
+      {
+        "id": "d",
+        "text": "LRU is patented"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The clock or second-chance algorithm uses a single reference bit per page and a rotating pointer, which is close enough at a tiny fraction of the cost."
+  },
+  {
+    "id": "tech2-inode",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "file-systems",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "file-systems"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An inode stores",
+    "options": [
+      {
+        "id": "a",
+        "text": "The file's contents"
+      },
+      {
+        "id": "b",
+        "text": "The file's name"
+      },
+      {
+        "id": "c",
+        "text": "The file's metadata and the location of its data blocks"
+      },
+      {
+        "id": "d",
+        "text": "The directory tree"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Names live in directory entries that point at inodes, which is why one file can have several hard links. Deleting a name only frees the file when the last link and open handle are gone."
+  },
+  {
+    "id": "tech2-journaling",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "file-systems",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "file-systems"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A journaling file system improves crash recovery by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compressing data"
+      },
+      {
+        "id": "b",
+        "text": "Encrypting metadata"
+      },
+      {
+        "id": "c",
+        "text": "Backing up files"
+      },
+      {
+        "id": "d",
+        "text": "Writing intended changes to a log before applying them, so recovery can replay or discard"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Recovery becomes a short log scan rather than a full consistency check of the whole volume. Most implementations journal metadata only by default, which is a durability trade."
+  },
+  {
+    "id": "tech2-hard-soft-link",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "file-systems",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "file-systems"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A hard link differs from a symbolic link in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Points to the inode directly, so the file survives deleting the original name"
+      },
+      {
+        "id": "b",
+        "text": "Is a shortcut file"
+      },
+      {
+        "id": "c",
+        "text": "Can link directories"
+      },
+      {
+        "id": "d",
+        "text": "Can cross file systems"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A symbolic link stores a path and dangles if the target moves; a hard link is another name for the same inode. Hard links cannot cross file systems because inode numbers are per-volume."
+  },
+  {
+    "id": "tech2-thread-pool",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "os",
+    "subtopic": "process-thread",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "process-thread"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A thread pool is used instead of creating a thread per task because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Threads cannot be created at run time"
+      },
+      {
+        "id": "b",
+        "text": "Thread creation is expensive and unbounded concurrency exhausts resources"
+      },
+      {
+        "id": "c",
+        "text": "Pools are simpler to code"
+      },
+      {
+        "id": "d",
+        "text": "Threads cannot be reused"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The pool amortises creation and, more importantly, bounds concurrency so a spike in work does not exhaust memory or thrash the scheduler."
+  },
+  {
+    "id": "tech2-osi-application",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "osi-tcpip",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "osi-tcpip"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "HTTP, DNS and SMTP all operate at which OSI layer?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Application"
+      },
+      {
+        "id": "b",
+        "text": "Session"
+      },
+      {
+        "id": "c",
+        "text": "Network"
+      },
+      {
+        "id": "d",
+        "text": "Transport"
+      }
+    ],
+    "answer": "a",
+    "explanation": "They define message formats and semantics for programs, and rely on the transport layer beneath for delivery. Mapping named protocols to layers is a standard one-mark question."
+  },
+  {
+    "id": "tech2-tcp-flow-congestion",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "tcp-udp",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "tcp-udp"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "TCP flow control and congestion control differ in that flow control protects",
+    "options": [
+      {
+        "id": "a",
+        "text": "The network"
+      },
+      {
+        "id": "b",
+        "text": "The receiver from being overwhelmed, while congestion control protects the network"
+      },
+      {
+        "id": "c",
+        "text": "The sender"
+      },
+      {
+        "id": "d",
+        "text": "The application"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Flow control is driven by the receiver's advertised window; congestion control is inferred by the sender from loss and delay. The two operate simultaneously and limit the sending rate independently."
+  },
+  {
+    "id": "tech2-tcp-teardown",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "handshake",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "handshake"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "TCP connection teardown normally takes",
+    "options": [
+      {
+        "id": "a",
+        "text": "Three steps"
+      },
+      {
+        "id": "b",
+        "text": "One step"
+      },
+      {
+        "id": "c",
+        "text": "Four steps, because each direction is closed independently"
+      },
+      {
+        "id": "d",
+        "text": "Two steps"
+      }
+    ],
+    "answer": "c",
+    "explanation": "FIN and ACK in each direction allow a half-closed state where one side has finished sending but still receives. The TIME_WAIT state afterwards exists to absorb delayed duplicates."
+  },
+  {
+    "id": "tech2-nagle",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "tcp-udp",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "tcp-udp"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "Nagle's algorithm improves efficiency by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Encrypting segments"
+      },
+      {
+        "id": "b",
+        "text": "Retransmitting faster"
+      },
+      {
+        "id": "c",
+        "text": "Compressing data"
+      },
+      {
+        "id": "d",
+        "text": "Coalescing small writes into fewer segments"
+      }
+    ],
+    "answer": "d",
+    "explanation": "It reduces header overhead on chatty connections and adds latency to small interactive messages, which is why latency-sensitive applications disable it."
+  },
+  {
+    "id": "tech2-subnet-mask",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "ip-addressing",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ip-addressing"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A host with address 192.168.10.130 and mask 255.255.255.192 belongs to which network?",
+    "options": [
+      {
+        "id": "a",
+        "text": "192.168.10.128"
+      },
+      {
+        "id": "b",
+        "text": "192.168.10.64"
+      },
+      {
+        "id": "c",
+        "text": "192.168.10.192"
+      },
+      {
+        "id": "d",
+        "text": "192.168.10.0"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A /26 mask makes blocks of 64, so the boundaries are .0, .64, .128 and .192. The address falls in the block starting at .128, whose broadcast is .191."
+  },
+  {
+    "id": "tech2-cidr",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "ip-addressing",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ip-addressing"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In CIDR notation, a larger prefix length means",
+    "options": [
+      {
+        "id": "a",
+        "text": "More host addresses"
+      },
+      {
+        "id": "b",
+        "text": "Fewer host addresses, because more bits identify the network"
+      },
+      {
+        "id": "c",
+        "text": "A faster network"
+      },
+      {
+        "id": "d",
+        "text": "A public address"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Each additional prefix bit halves the host space, so a /24 holds 254 usable hosts and a /25 holds 126. The relationship being inverse is what catches people out."
+  },
+  {
+    "id": "tech2-nat",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "ip-addressing",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ip-addressing"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Network address translation allows",
+    "options": [
+      {
+        "id": "a",
+        "text": "Name resolution"
+      },
+      {
+        "id": "b",
+        "text": "Encryption of traffic"
+      },
+      {
+        "id": "c",
+        "text": "Many private addresses to share one public address"
+      },
+      {
+        "id": "d",
+        "text": "Faster routing"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It was widely adopted to conserve scarce IPv4 addresses, and it breaks unsolicited inbound connections, which is why port forwarding exists."
+  },
+  {
+    "id": "tech2-dns-recursive",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "dns",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "dns"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A recursive DNS resolver differs from an authoritative server in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only serves one domain"
+      },
+      {
+        "id": "b",
+        "text": "Cannot cache"
+      },
+      {
+        "id": "c",
+        "text": "Stores the zone file"
+      },
+      {
+        "id": "d",
+        "text": "Queries other servers on the client's behalf until it has an answer"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Authoritative servers hold the records for their zone; resolvers walk the hierarchy and cache what they learn. TTL values on records control how long that cache is valid."
+  },
+  {
+    "id": "tech2-dns-record-types",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "dns",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "dns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which record maps a hostname to another hostname rather than to an address?",
+    "options": [
+      {
+        "id": "a",
+        "text": "CNAME"
+      },
+      {
+        "id": "b",
+        "text": "MX"
+      },
+      {
+        "id": "c",
+        "text": "TXT"
+      },
+      {
+        "id": "d",
+        "text": "A"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A and AAAA map to IPv4 and IPv6 addresses, MX names a mail server, and TXT holds arbitrary text used for verification. CNAME is an alias, and it cannot coexist with other records at the same name."
+  },
+  {
+    "id": "tech2-tcp-udp-header",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "tcp-udp",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "tcp-udp"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "UDP has lower overhead than TCP partly because its header lacks",
+    "options": [
+      {
+        "id": "a",
+        "text": "Port numbers"
+      },
+      {
+        "id": "b",
+        "text": "Sequence and acknowledgement numbers"
+      },
+      {
+        "id": "c",
+        "text": "A checksum"
+      },
+      {
+        "id": "d",
+        "text": "A length field"
+      }
+    ],
+    "answer": "b",
+    "explanation": "No sequencing means no reordering, no retransmission and no connection state to keep. The eight-byte header against TCP's twenty is the visible consequence."
+  },
+  {
+    "id": "tech2-tls-handshake",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "tls",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "tls"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "During a TLS handshake, the server's certificate is used to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assign an IP address"
+      },
+      {
+        "id": "b",
+        "text": "Encrypt all subsequent traffic directly"
+      },
+      {
+        "id": "c",
+        "text": "Authenticate the server and establish a shared symmetric key"
+      },
+      {
+        "id": "d",
+        "text": "Compress data"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Asymmetric cryptography authenticates and agrees the key; the bulk data is then encrypted symmetrically because it is far faster. Assuming the certificate encrypts the traffic is a common misconception."
+  },
+  {
+    "id": "tech2-http-methods",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "http-https",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "http-https"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An HTTP GET is expected to be",
+    "options": [
+      {
+        "id": "a",
+        "text": "Always faster than POST"
+      },
+      {
+        "id": "b",
+        "text": "Encrypted"
+      },
+      {
+        "id": "c",
+        "text": "Idempotent and safe, causing no server-side change"
+      },
+      {
+        "id": "d",
+        "text": "The only cacheable method"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Safety means no intended side effect, which is why intermediaries may cache and retry GETs freely. A GET that mutates state breaks assumptions all the way through the stack."
+  },
+  {
+    "id": "tech2-status-5xx",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "http-https",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "http-https"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "An HTTP 502 indicates",
+    "options": [
+      {
+        "id": "a",
+        "text": "An upstream server returned an invalid response to a gateway"
+      },
+      {
+        "id": "b",
+        "text": "The resource is missing"
+      },
+      {
+        "id": "c",
+        "text": "Authentication failed"
+      },
+      {
+        "id": "d",
+        "text": "The client sent a bad request"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The 5xx class is server-side. 502 and 504 both point at the upstream rather than at the gateway itself, which is useful when deciding where to look first."
+  },
+  {
+    "id": "tech2-switch-router",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "devices",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "devices"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A switch differs from a router in that it forwards based on",
+    "options": [
+      {
+        "id": "a",
+        "text": "IP addresses"
+      },
+      {
+        "id": "b",
+        "text": "MAC addresses, within a single network segment"
+      },
+      {
+        "id": "c",
+        "text": "Port numbers"
+      },
+      {
+        "id": "d",
+        "text": "Domain names"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Switching is layer two and local; routing is layer three and between networks. A device sold as a home router usually performs both functions plus NAT."
+  },
+  {
+    "id": "tech2-broadcast-domain",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "devices",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "devices"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A router separates broadcast domains, whereas a switch by default",
+    "options": [
+      {
+        "id": "a",
+        "text": "Converts them to unicast"
+      },
+      {
+        "id": "b",
+        "text": "Also separates them"
+      },
+      {
+        "id": "c",
+        "text": "Forwards broadcasts to every port in the segment"
+      },
+      {
+        "id": "d",
+        "text": "Blocks broadcasts"
+      }
+    ],
+    "answer": "c",
+    "explanation": "This is why large flat networks suffer from broadcast traffic, and why VLANs exist to subdivide a switch into separate domains."
+  },
+  {
+    "id": "tech2-icmp",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "ports",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ports"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "ping uses which protocol?",
+    "options": [
+      {
+        "id": "a",
+        "text": "UDP"
+      },
+      {
+        "id": "b",
+        "text": "HTTP"
+      },
+      {
+        "id": "c",
+        "text": "TCP"
+      },
+      {
+        "id": "d",
+        "text": "ICMP"
+      }
+    ],
+    "answer": "d",
+    "explanation": "ICMP carries control and diagnostic messages and has no ports, which is why a firewall rule for it looks different from one for TCP or UDP. A blocked ping does not mean the host is down."
+  },
+  {
+    "id": "tech2-port-well-known",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "ports",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ports"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "HTTPS conventionally uses port",
+    "options": [
+      {
+        "id": "a",
+        "text": "443"
+      },
+      {
+        "id": "b",
+        "text": "22"
+      },
+      {
+        "id": "c",
+        "text": "25"
+      },
+      {
+        "id": "d",
+        "text": "80"
+      }
+    ],
+    "answer": "a",
+    "explanation": "80 is HTTP, 22 is SSH and 25 is SMTP. These are conventions registered with IANA, not enforced by the protocols, so a service can run on any port."
+  },
+  {
+    "id": "tech2-firewall-stateful",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "networks",
+    "subtopic": "firewall",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "firewall"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A stateful firewall differs from a stateless packet filter in that it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Is faster"
+      },
+      {
+        "id": "b",
+        "text": "Tracks connections, so return traffic for an allowed outbound flow is permitted automatically"
+      },
+      {
+        "id": "c",
+        "text": "Inspects payloads"
+      },
+      {
+        "id": "d",
+        "text": "Requires NAT"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Connection tracking is what makes rule sets manageable: you allow the outbound connection and the replies follow. A stateless filter needs explicit rules for both directions."
+  },
+  {
+    "id": "tech2-git-fetch-pull",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-basics",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "git fetch differs from git pull in that fetch",
+    "options": [
+      {
+        "id": "a",
+        "text": "Downloads remote changes without merging them into your branch"
+      },
+      {
+        "id": "b",
+        "text": "Only works offline"
+      },
+      {
+        "id": "c",
+        "text": "Deletes local commits"
+      },
+      {
+        "id": "d",
+        "text": "Is faster"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Fetching then inspecting before merging is the safer habit, because pull does both in one step and can produce a merge you did not expect."
+  },
+  {
+    "id": "tech2-git-cherry-pick",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-branching",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-branching"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "git cherry-pick is used to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Delete a commit"
+      },
+      {
+        "id": "b",
+        "text": "Apply a specific commit from one branch onto another"
+      },
+      {
+        "id": "c",
+        "text": "Rename a branch"
+      },
+      {
+        "id": "d",
+        "text": "Squash commits"
+      }
+    ],
+    "answer": "b",
+    "explanation": "It creates a new commit with a different hash, so the change exists twice in history. Overusing it on long-lived branches leads to confusing duplicate changes."
+  },
+  {
+    "id": "tech2-git-detached",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-basics",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A detached HEAD state means",
+    "options": [
+      {
+        "id": "a",
+        "text": "The index is locked"
+      },
+      {
+        "id": "b",
+        "text": "The repository is corrupt"
+      },
+      {
+        "id": "c",
+        "text": "HEAD points at a commit rather than a branch, so new commits belong to no branch"
+      },
+      {
+        "id": "d",
+        "text": "Remote is unreachable"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Commits made there are reachable only by hash and can be garbage collected. Creating a branch before leaving is how you keep them."
+  },
+  {
+    "id": "tech2-git-rebase-golden",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-branching",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-branching"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "The rule 'never rebase a public branch' exists because rebasing",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deletes files"
+      },
+      {
+        "id": "b",
+        "text": "Requires force push"
+      },
+      {
+        "id": "c",
+        "text": "Is slow"
+      },
+      {
+        "id": "d",
+        "text": "Rewrites commit hashes, so anyone who pulled the old history diverges"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Everyone based on the old commits has to reconcile a history that no longer exists. Rebasing your own unpushed work is exactly the case the rule leaves open."
+  },
+  {
+    "id": "tech2-git-squash",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-branching",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-branching"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Squashing commits before merging aims to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Present the change as one coherent commit in the mainline history"
+      },
+      {
+        "id": "b",
+        "text": "Speed up CI"
+      },
+      {
+        "id": "c",
+        "text": "Avoid conflicts"
+      },
+      {
+        "id": "d",
+        "text": "Reduce repository size"
+      }
+    ],
+    "answer": "a",
+    "explanation": "It trades the detailed development history for a readable mainline. Teams differ on whether that trade is worth it, which is why it is a convention rather than a rule."
+  },
+  {
+    "id": "tech2-gitignore",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-basics",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 45,
+    "stem": "Adding a file to .gitignore after it has already been committed",
+    "options": [
+      {
+        "id": "a",
+        "text": "Removes it from history"
+      },
+      {
+        "id": "b",
+        "text": "Has no effect until it is removed from tracking"
+      },
+      {
+        "id": "c",
+        "text": "Deletes the file"
+      },
+      {
+        "id": "d",
+        "text": "Rewrites history"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Ignore rules apply to untracked files only. Removing it from the index with git rm --cached is the missing step, and the file remains in past commits either way."
+  },
+  {
+    "id": "tech2-git-bisect",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "git-basics",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "git-basics"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "git bisect finds the commit that introduced a bug by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Checking the blame output"
+      },
+      {
+        "id": "b",
+        "text": "Searching commit messages"
+      },
+      {
+        "id": "c",
+        "text": "Binary searching the history, asking you to test each midpoint"
+      },
+      {
+        "id": "d",
+        "text": "Reverting every commit"
+      }
+    ],
+    "answer": "c",
+    "explanation": "It reduces hundreds of commits to a handful of tests. Automating the test with git bisect run turns it into a single command."
+  },
+  {
+    "id": "tech2-tdd",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "testing-levels",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "testing-levels"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Test-driven development prescribes writing",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only integration tests"
+      },
+      {
+        "id": "b",
+        "text": "Tests only for bugs"
+      },
+      {
+        "id": "c",
+        "text": "Tests after the implementation"
+      },
+      {
+        "id": "d",
+        "text": "A failing test first, then the minimum code to pass it, then refactoring"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The failing test first is what guarantees the test can actually fail, which an after-the-fact test does not establish. The refactor step is the one most often dropped."
+  },
+  {
+    "id": "tech2-mock-stub",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "testing-levels",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "testing-levels"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A mock differs from a stub in that a mock",
+    "options": [
+      {
+        "id": "a",
+        "text": "Verifies that the expected interactions occurred"
+      },
+      {
+        "id": "b",
+        "text": "Returns real data"
+      },
+      {
+        "id": "c",
+        "text": "Requires a database"
+      },
+      {
+        "id": "d",
+        "text": "Is faster"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A stub supplies canned answers so the test can proceed; a mock additionally asserts on how it was called. Over-mocking couples tests to implementation detail and makes refactoring painful."
+  },
+  {
+    "id": "tech2-flaky-test",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "testing-levels",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "testing-levels"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A test that passes and fails without code changes should be",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deleted"
+      },
+      {
+        "id": "b",
+        "text": "Treated as a defect and fixed, because it destroys trust in the whole suite"
+      },
+      {
+        "id": "c",
+        "text": "Run twice"
+      },
+      {
+        "id": "d",
+        "text": "Marked as expected to fail"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A suite people ignore protects nothing, and tolerating one flaky test normalises re-running until green. The usual causes are time, ordering and shared state."
+  },
+  {
+    "id": "tech2-code-review-purpose",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "sdlc",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "sdlc"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The primary value of code review is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assigning blame"
+      },
+      {
+        "id": "b",
+        "text": "Finding syntax errors"
+      },
+      {
+        "id": "c",
+        "text": "Catching design and correctness problems a compiler cannot, and spreading knowledge"
+      },
+      {
+        "id": "d",
+        "text": "Enforcing formatting"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Formatting belongs to an automated formatter, which frees the review for questions only a human can answer. The knowledge-sharing effect is often the larger long-term benefit."
+  },
+  {
+    "id": "tech2-semver",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "ci-cd",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ci-cd"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Under semantic versioning, a breaking API change requires incrementing the",
+    "options": [
+      {
+        "id": "a",
+        "text": "Minor version"
+      },
+      {
+        "id": "b",
+        "text": "Build number"
+      },
+      {
+        "id": "c",
+        "text": "Patch version"
+      },
+      {
+        "id": "d",
+        "text": "Major version"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Minor is for backwards-compatible additions and patch for backwards-compatible fixes. The contract is what lets dependents choose an update policy safely."
+  },
+  {
+    "id": "tech2-feature-flag",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "ci-cd",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ci-cd"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A feature flag decouples",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deploying code from releasing the behaviour to users"
+      },
+      {
+        "id": "b",
+        "text": "Building from compiling"
+      },
+      {
+        "id": "c",
+        "text": "Staging from production"
+      },
+      {
+        "id": "d",
+        "text": "Testing from development"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Merged-but-dark code can ship continuously and be enabled gradually. The cost is flag debt: every flag is a branch in the code that must eventually be removed."
+  },
+  {
+    "id": "tech2-blue-green",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "ci-cd",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "ci-cd"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "stem": "A blue-green deployment reduces risk by",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deploying twice as often"
+      },
+      {
+        "id": "b",
+        "text": "Running two environments and switching traffic, so rollback is a switch back"
+      },
+      {
+        "id": "c",
+        "text": "Testing in production only"
+      },
+      {
+        "id": "d",
+        "text": "Skipping staging"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Rollback becomes near-instant because the previous version is still running. The cost is double the infrastructure and care with shared state such as the database."
+  },
+  {
+    "id": "tech2-technical-debt",
+    "kind": "mcq",
+    "stage": "technical",
+    "topic": "git-se",
+    "subtopic": "solid",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "technical",
+      "solid"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Technical debt is best understood as",
+    "options": [
+      {
+        "id": "a",
+        "text": "Old technology"
+      },
+      {
+        "id": "b",
+        "text": "Bad code written by careless people"
+      },
+      {
+        "id": "c",
+        "text": "A deliberate or accidental shortcut whose ongoing interest is paid in slower future change"
+      },
+      {
+        "id": "d",
+        "text": "Missing documentation"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The metaphor's point is the interest: the shortcut keeps costing until it is repaid. Framing it that way makes the case for repayment in terms a stakeholder can weigh."
+  }
+]

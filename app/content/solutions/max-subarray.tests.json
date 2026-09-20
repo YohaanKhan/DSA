@@ -1,0 +1,12 @@
+{
+  "problem": "Read n, then n integers. Print the largest sum obtainable from any contiguous non-empty subarray.",
+  "language": "cpp",
+  "topic": "logic-errors",
+  "tests": [
+    { "name": "mixed signs", "stdin": "9\n-2 1 -3 4 -1 2 1 -5 4", "expectedStdout": "6" },
+    { "name": "all negative", "stdin": "4\n-5 -2 -9 -1", "expectedStdout": "-1", "edgeCase": true },
+    { "name": "all positive", "stdin": "4\n1 2 3 4", "expectedStdout": "10" },
+    { "name": "single element", "stdin": "1\n-7", "expectedStdout": "-7", "edgeCase": true, "hidden": true },
+    { "name": "zero included", "stdin": "5\n-1 0 -2 3 -1", "expectedStdout": "3", "hidden": true }
+  ]
+}
