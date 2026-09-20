@@ -29,6 +29,39 @@ depth you may not need.
 
 ---
 
+## Current state — 327 items, all hand-authored
+
+Every bank below was written by hand and passes all sixteen validation rules. The targets above
+remain the ceiling; these are the floors that make each stage *diagnosable*, which needs roughly
+ten items per P0 topic so the readiness coverage term can register at all.
+
+| Stage | Items | Per topic |
+| --- | --- | --- |
+| **technical** | 130 | dsa 25 · oop 16 · pseudocode 15 (trace) · dbms 14 · sql 14 · languages 12 · networks 12 · os 12 · git-se 10 |
+| **english** | 90 | writing 30 (essay prompts) · speaking 24 · grammar 28 · vocabulary 8 |
+| **ai-literacy** | 65 | llm-limitations 13 · prompt-engineering 12 · responsible-ai 10 · rag 9 · genai-foundations 8 · agentic-ai 7 · ai-assisted-dev 6 |
+| **debugging** | 36 | logic-errors 18 (injected) · python-bridge 10 · language-traps 8 |
+| **aic** | 6 | arrays 3 · strings 3 |
+
+**Every section of the full mock is now populated.** Before this, `technical-mcq` was reported as
+skipped for want of content, which meant two of the four elimination gates could not be measured
+at all.
+
+What is verified rather than asserted:
+
+- Every **trace** item's answer is produced by executing an equivalent program, and the stated
+  `executionTrace` must end in that same output (V8). An item whose author reasoned wrongly
+  cannot reach the bank.
+- Every **AIC** reference solution compiles and passes its tests, and every fallback compiles and
+  **fails at least one** — checked by `npm run content:verify-aic` against the real toolchain.
+- Every **MCQ** bank has its answer key rotated to 25% per letter per topic, and no explanation
+  names an option by letter (V16), because rotation would turn such a reference into a lie.
+
+Still at zero: `behavioural/adept.json`, `comm/read.json`, `comm/listen.json`. The reading and
+listening modules are not built, so their banks would have nothing to run in.
+
+---
+
 ## Your `dsa-notes/` as seed material ⭐
 
 You already have 19 files of correct, well-commented DSA work. Each one multiplies:

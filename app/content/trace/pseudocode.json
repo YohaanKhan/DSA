@@ -205,5 +205,898 @@
         "output": "4"
       }
     ]
+  },
+  {
+    "id": "trace-sum-evens",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "language": "pseudocode",
+    "sourceCode": "Integer total = 0\nFor i = 1 To 10\n    If i MOD 2 == 0 Then\n        total = total + i\n    End If\nEnd For\nPrint total",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "30",
+    "explanation": "The guard admits only even values, so the loop accumulates 2 + 4 + 6 + 8 + 10. Read the condition first and the body second: the condition tells you which iterations matter, which is faster than walking all ten.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "total": 0
+        },
+        "note": "before the loop"
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "i": 2,
+          "total": 2
+        },
+        "note": "first even value"
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "i": 4,
+          "total": 6
+        }
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "i": 6,
+          "total": 12
+        }
+      },
+      {
+        "step": 5,
+        "line": 4,
+        "vars": {
+          "i": 8,
+          "total": 20
+        }
+      },
+      {
+        "step": 6,
+        "line": 4,
+        "vars": {
+          "i": 10,
+          "total": 30
+        },
+        "note": "last iteration"
+      },
+      {
+        "step": 7,
+        "line": 7,
+        "vars": {
+          "total": 30
+        },
+        "output": "30",
+        "note": "loop has ended"
+      }
+    ]
+  },
+  {
+    "id": "trace-nested-triangle",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "nested-loops",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "nested-loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "For i = 1 To 3\n    For j = i To 3\n        Print i, j\n    End For\nEnd For",
+    "question": "What is printed, as pairs separated by spaces?",
+    "answerMode": "exact",
+    "answer": "11 12 13 22 23 33",
+    "explanation": "The inner loop starts at i rather than at 1, so each outer pass produces one fewer pair than the last. That descending-count shape is the signature of a triangular nested loop, and it runs n(n+1)/2 times rather than n squared.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 3,
+        "vars": {
+          "i": 1,
+          "j": 1
+        }
+      },
+      {
+        "step": 2,
+        "line": 3,
+        "vars": {
+          "i": 1,
+          "j": 2
+        }
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "i": 1,
+          "j": 3
+        },
+        "note": "inner loop ends for i = 1"
+      },
+      {
+        "step": 4,
+        "line": 3,
+        "vars": {
+          "i": 2,
+          "j": 2
+        },
+        "note": "inner starts at 2, not 1"
+      },
+      {
+        "step": 5,
+        "line": 3,
+        "vars": {
+          "i": 2,
+          "j": 3
+        }
+      },
+      {
+        "step": 6,
+        "line": 3,
+        "vars": {
+          "i": 3,
+          "j": 3
+        },
+        "note": "only one pair left"
+      },
+      {
+        "step": 7,
+        "line": 5,
+        "vars": {
+          "i": 3,
+          "j": 3
+        },
+        "output": "11 12 13 22 23 33",
+        "note": "both loops finished"
+      }
+    ]
+  },
+  {
+    "id": "trace-gcd-euclid",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Integer a = 48, b = 18\nWhile b != 0\n    Integer t = b\n    b = a MOD b\n    a = t\nEnd While\nPrint a",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "6",
+    "explanation": "This is the Euclidean algorithm: replacing the pair (a, b) with (b, a mod b) preserves the greatest common divisor and strictly shrinks b, so it terminates with the answer in a. Recognise the shape and you can answer without tracing.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "a": 48,
+          "b": 18
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "a": 18,
+          "b": 12
+        },
+        "note": "48 mod 18 = 12"
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "a": 12,
+          "b": 6
+        },
+        "note": "18 mod 12 = 6"
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "a": 6,
+          "b": 0
+        },
+        "note": "12 mod 6 = 0, so the loop will exit"
+      },
+      {
+        "step": 5,
+        "line": 7,
+        "vars": {
+          "a": 6,
+          "b": 0
+        },
+        "output": "6",
+        "note": "b is zero, a holds the gcd"
+      }
+    ]
+  },
+  {
+    "id": "trace-reverse-digits",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "integer-arithmetic",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "integer-arithmetic"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Integer n = 1234, rev = 0\nWhile n > 0\n    rev = rev * 10 + (n MOD 10)\n    n = n DIV 10\nEnd While\nPrint rev",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "4321",
+    "explanation": "Each pass peels the last digit off n with MOD and pushes it onto rev by multiplying rev by ten first. Any loop combining MOD 10 with DIV 10 is walking the digits, which is worth recognising on sight.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "n": 1234,
+          "rev": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "n": 123,
+          "rev": 4
+        },
+        "note": "took the 4"
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "n": 12,
+          "rev": 43
+        }
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "n": 1,
+          "rev": 432
+        }
+      },
+      {
+        "step": 5,
+        "line": 4,
+        "vars": {
+          "n": 0,
+          "rev": 4321
+        },
+        "note": "n is now 0"
+      },
+      {
+        "step": 6,
+        "line": 6,
+        "vars": {
+          "n": 0,
+          "rev": 4321
+        },
+        "output": "4321",
+        "note": "loop exits"
+      }
+    ]
+  },
+  {
+    "id": "trace-fib-iterative",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "loops",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "loops"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Integer a = 0, b = 1\nFor i = 1 To 6\n    Integer t = a + b\n    a = b\n    b = t\nEnd For\nPrint a",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "8",
+    "explanation": "The pair slides one place along the Fibonacci sequence per iteration, so after six passes a holds the sixth term counting 0 as the zeroth. The common error is reading off b, which is always one term ahead.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "a": 0,
+          "b": 1
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "i": 1,
+          "a": 1,
+          "b": 1
+        }
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "i": 2,
+          "a": 1,
+          "b": 2
+        }
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "i": 3,
+          "a": 2,
+          "b": 3
+        }
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "i": 4,
+          "a": 3,
+          "b": 5
+        }
+      },
+      {
+        "step": 6,
+        "line": 5,
+        "vars": {
+          "i": 5,
+          "a": 5,
+          "b": 8
+        }
+      },
+      {
+        "step": 7,
+        "line": 5,
+        "vars": {
+          "i": 6,
+          "a": 8,
+          "b": 13
+        },
+        "note": "sixth pass"
+      },
+      {
+        "step": 8,
+        "line": 7,
+        "vars": {
+          "a": 8,
+          "b": 13
+        },
+        "output": "8",
+        "note": "a is printed, not b"
+      }
+    ]
+  },
+  {
+    "id": "trace-max-and-count",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "arrays",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "arrays"
+    ],
+    "source": "authored",
+    "targetSeconds": 100,
+    "language": "pseudocode",
+    "sourceCode": "Array arr = [3, 9, 2, 9, 5]\nInteger best = arr[0], count = 1\nFor i = 1 To 4\n    If arr[i] > best Then\n        best = arr[i]\n        count = 1\n    Else If arr[i] == best Then\n        count = count + 1\n    End If\nEnd For\nPrint best, count",
+    "question": "What is printed, as two values separated by a space?",
+    "answerMode": "exact",
+    "answer": "9 2",
+    "explanation": "A strict greater-than resets the count while an equality increments it, so count ends as the number of occurrences of the maximum. Swapping the two branches, or using >= in the first, would break the count while leaving the maximum correct.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "best": 3,
+          "count": 1
+        },
+        "note": "seeded from arr[0]"
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "i": 1,
+          "best": 9,
+          "count": 1
+        },
+        "note": "9 > 3, so reset the count"
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "i": 2,
+          "best": 9,
+          "count": 1
+        },
+        "note": "2 is smaller, nothing changes"
+      },
+      {
+        "step": 4,
+        "line": 8,
+        "vars": {
+          "i": 3,
+          "best": 9,
+          "count": 2
+        },
+        "note": "equal, so increment"
+      },
+      {
+        "step": 5,
+        "line": 4,
+        "vars": {
+          "i": 4,
+          "best": 9,
+          "count": 2
+        },
+        "note": "5 is smaller"
+      },
+      {
+        "step": 6,
+        "line": 11,
+        "vars": {
+          "best": 9,
+          "count": 2
+        },
+        "output": "9 2",
+        "note": "loop ends"
+      }
+    ]
+  },
+  {
+    "id": "trace-count-vowels",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "strings",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 70,
+    "language": "pseudocode",
+    "sourceCode": "String s = \"PROGRAMMING\"\nInteger count = 0\nFor i = 0 To length(s) - 1\n    If s[i] is one of A, E, I, O, U Then\n        count = count + 1\n    End If\nEnd For\nPrint count",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "3",
+    "explanation": "Walk the string once and test each character for membership. PROGRAMMING contains O, A and I. Note the loop bound: 0 to length minus one covers every index exactly once, and getting that bound wrong is the commonest off-by-one in string code.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "count": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "i": 1,
+          "count": 1
+        },
+        "note": "O at index 1"
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "i": 4,
+          "count": 2
+        },
+        "note": "A at index 4"
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "i": 8,
+          "count": 3
+        },
+        "note": "I at index 8"
+      },
+      {
+        "step": 5,
+        "line": 8,
+        "vars": {
+          "count": 3
+        },
+        "output": "3",
+        "note": "no vowels after index 8"
+      }
+    ]
+  },
+  {
+    "id": "trace-swap-no-temp",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "integer-arithmetic",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "integer-arithmetic"
+    ],
+    "source": "authored",
+    "targetSeconds": 80,
+    "language": "pseudocode",
+    "sourceCode": "Integer a = 7, b = 3\na = a + b\nb = a - b\na = a - b\nPrint a, b",
+    "question": "What is printed, as two values separated by a space?",
+    "answerMode": "exact",
+    "answer": "3 7",
+    "explanation": "The sum is held in a while the two originals are recovered from it, so the pair ends swapped without a temporary. It is a puzzle rather than good practice: it overflows on large values and silently zeroes both when a and b are the same variable.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "a": 7,
+          "b": 3
+        }
+      },
+      {
+        "step": 2,
+        "line": 2,
+        "vars": {
+          "a": 10,
+          "b": 3
+        },
+        "note": "a now holds the sum"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "a": 10,
+          "b": 7
+        },
+        "note": "10 - 3 recovers the original a"
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "a": 3,
+          "b": 7
+        },
+        "note": "10 - 7 recovers the original b"
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "a": 3,
+          "b": 7
+        },
+        "output": "3 7",
+        "note": "values are swapped"
+      }
+    ]
+  },
+  {
+    "id": "trace-recursive-sum",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "recursion",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "recursion"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "Function f(n)\n    If n == 0 Then\n        Return 0\n    End If\n    Return n + f(n - 1)\nEnd Function\nPrint f(5)",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "15",
+    "explanation": "Each call adds n to the result of the call below it, and the base case supplies the zero that ends the chain. The additions happen on the way back up, which is why the deepest call returns first and the outermost returns last.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 5,
+        "vars": {
+          "n": 5
+        },
+        "note": "waiting on f(4)"
+      },
+      {
+        "step": 2,
+        "line": 5,
+        "vars": {
+          "n": 4
+        },
+        "note": "waiting on f(3)"
+      },
+      {
+        "step": 3,
+        "line": 5,
+        "vars": {
+          "n": 3
+        },
+        "note": "waiting on f(2)"
+      },
+      {
+        "step": 4,
+        "line": 5,
+        "vars": {
+          "n": 2
+        },
+        "note": "waiting on f(1)"
+      },
+      {
+        "step": 5,
+        "line": 5,
+        "vars": {
+          "n": 1
+        },
+        "note": "waiting on f(0)"
+      },
+      {
+        "step": 6,
+        "line": 3,
+        "vars": {
+          "n": 0
+        },
+        "note": "base case returns 0"
+      },
+      {
+        "step": 7,
+        "line": 7,
+        "vars": {
+          "n": 5
+        },
+        "output": "15",
+        "note": "5+4+3+2+1+0 as the calls unwind"
+      }
+    ]
+  },
+  {
+    "id": "trace-off-by-one-sum",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "find-error",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "find-error"
+    ],
+    "source": "authored",
+    "targetSeconds": 110,
+    "language": "pseudocode",
+    "sourceCode": "Array arr = [10, 20, 30, 40]\nInteger total = 0\nFor i = 0 To length(arr) - 2\n    total = total + arr[i]\nEnd For\nPrint total",
+    "question": "The intention was to sum the whole array. What is actually printed?",
+    "answerMode": "exact",
+    "answer": "60",
+    "explanation": "The bound is length minus two, so the last index is never visited and the final element is dropped. Summing an array needs 0 to length minus one; minus two is the classic fencepost error, and it produces a plausible number rather than a crash, which is what makes it dangerous.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "total": 0
+        }
+      },
+      {
+        "step": 2,
+        "line": 4,
+        "vars": {
+          "i": 0,
+          "total": 10
+        }
+      },
+      {
+        "step": 3,
+        "line": 4,
+        "vars": {
+          "i": 1,
+          "total": 30
+        }
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "i": 2,
+          "total": 60
+        },
+        "note": "loop stops here; index 3 is never read"
+      },
+      {
+        "step": 5,
+        "line": 6,
+        "vars": {
+          "total": 60
+        },
+        "output": "60",
+        "note": "40 was never added"
+      }
+    ]
+  },
+  {
+    "id": "trace-palindrome-two-pointer",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "strings",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "strings"
+    ],
+    "source": "authored",
+    "targetSeconds": 90,
+    "language": "pseudocode",
+    "sourceCode": "String s = \"RACECAR\"\nInteger lo = 0, hi = length(s) - 1\nWhile lo < hi\n    If s[lo] != s[hi] Then\n        Print \"NO\"\n        Stop\n    End If\n    lo = lo + 1\n    hi = hi - 1\nEnd While\nPrint \"YES\"",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "YES",
+    "explanation": "The pointers close in from both ends and the loop exits when they meet or cross, so the middle character of an odd-length string is never compared with itself. That is correct: a single character is trivially a palindrome.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 2,
+        "vars": {
+          "lo": 0,
+          "hi": 6
+        },
+        "note": "R and R"
+      },
+      {
+        "step": 2,
+        "line": 9,
+        "vars": {
+          "lo": 1,
+          "hi": 5
+        },
+        "note": "A and A"
+      },
+      {
+        "step": 3,
+        "line": 9,
+        "vars": {
+          "lo": 2,
+          "hi": 4
+        },
+        "note": "C and C"
+      },
+      {
+        "step": 4,
+        "line": 9,
+        "vars": {
+          "lo": 3,
+          "hi": 3
+        },
+        "note": "pointers meet, so the loop exits"
+      },
+      {
+        "step": 5,
+        "line": 11,
+        "vars": {
+          "lo": 3,
+          "hi": 3
+        },
+        "output": "YES",
+        "note": "no mismatch was found"
+      }
+    ]
+  },
+  {
+    "id": "trace-div-mod-product",
+    "kind": "trace",
+    "stage": "technical",
+    "topic": "pseudocode",
+    "subtopic": "integer-arithmetic",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "pseudocode",
+      "integer-arithmetic"
+    ],
+    "source": "authored",
+    "targetSeconds": 70,
+    "language": "pseudocode",
+    "sourceCode": "Integer x = 17\nInteger a = x DIV 5\nInteger b = x MOD 5\nPrint a * b",
+    "question": "What is printed?",
+    "answerMode": "exact",
+    "answer": "6",
+    "explanation": "Integer division discards the fractional part rather than rounding, giving 3, and the remainder is 2. Python users should note that DIV here matches // and not /, which would give 3.4 and change the answer entirely.",
+    "executionTrace": [
+      {
+        "step": 1,
+        "line": 1,
+        "vars": {
+          "x": 17
+        }
+      },
+      {
+        "step": 2,
+        "line": 2,
+        "vars": {
+          "x": 17,
+          "a": 3
+        },
+        "note": "17 DIV 5 truncates to 3"
+      },
+      {
+        "step": 3,
+        "line": 3,
+        "vars": {
+          "x": 17,
+          "a": 3,
+          "b": 2
+        },
+        "note": "17 - 15 = 2"
+      },
+      {
+        "step": 4,
+        "line": 4,
+        "vars": {
+          "a": 3,
+          "b": 2
+        },
+        "output": "6",
+        "note": "3 * 2"
+      }
+    ]
   }
 ]

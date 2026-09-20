@@ -17,22 +17,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Context window overflow"
-      },
-      {
-        "id": "b",
         "text": "Hallucination"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Knowledge cutoff"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Prompt injection"
+      },
+      {
+        "id": "d",
+        "text": "Context window overflow"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "Hallucination is when a model produces output that is fluent and plausible but factually unsupported or fabricated. The citations are well-formed yet non-existent, which is the defining signature. Pattern: if the model INVENTED something, it is hallucination; if it merely does not KNOW something recent, it is knowledge cutoff.",
     "distractorRationale": {
       "a": "Context window overflow truncates or loses earlier input; it does not invent new facts.",
@@ -57,22 +57,22 @@
     "options": [
       {
         "id": "a",
-        "text": "The model's training data ends before the release"
+        "text": "The model was fine-tuned on the wrong task"
       },
       {
         "id": "b",
-        "text": "The prompt exceeded the context window"
+        "text": "The model's training data ends before the release"
       },
       {
         "id": "c",
-        "text": "The temperature setting was too low"
+        "text": "The prompt exceeded the context window"
       },
       {
         "id": "d",
-        "text": "The model was fine-tuned on the wrong task"
+        "text": "The temperature setting was too low"
       }
     ],
-    "answer": "a",
+    "answer": "b",
     "explanation": "A model only knows what was in its training data up to its cutoff date. Without retrieval or tool access it cannot learn about anything released afterwards, so it answers from the most recent version it saw. The fix is to supply the current information in the prompt or give the model a retrieval tool.",
     "distractorRationale": {
       "b": "A short question does not come close to filling a context window, and overflow would truncate input rather than substitute older facts.",
@@ -97,22 +97,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Write code for second largest."
-      },
-      {
-        "id": "b",
-        "text": "You are an expert programmer. Please write very high quality code for the second largest element problem."
-      },
-      {
-        "id": "c",
         "text": "Write a Java method int secondLargest(int[] nums) returning the second largest DISTINCT value. Return Integer.MIN_VALUE if fewer than two distinct values exist. Handle empty, single-element, all-equal and negative inputs. Target O(n) time, O(1) space, and state the complexity."
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Can you help me with an array problem? It is about finding a large element. Thanks."
+      },
+      {
+        "id": "c",
+        "text": "Write code for second largest."
+      },
+      {
+        "id": "d",
+        "text": "You are an expert programmer. Please write very high quality code for the second largest element problem."
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "A strong prompt states the language, the exact signature and behaviour, the input and output contract, the edge cases and the complexity target. The prompt naming the Java signature supplies all of them, so the model has no ambiguity to guess at. Pattern: the better prompt is always the one with explicit task, explicit constraints and explicit output expectations, not the one with flattery or a persona.",
     "distractorRationale": {
       "a": "No language, no definition of distinct, no edge-case handling and no complexity target.",
@@ -138,22 +138,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Paste it, since the tool's provider promises not to train on inputs"
-      },
-      {
-        "id": "b",
-        "text": "Paste only the first hundred lines to reduce exposure"
-      },
-      {
-        "id": "c",
         "text": "Redact or synthesise the personal and payment data before sharing anything"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "Paste it but ask the model to ignore the personal data"
+      },
+      {
+        "id": "c",
+        "text": "Paste it, since the tool's provider promises not to train on inputs"
+      },
+      {
+        "id": "d",
+        "text": "Paste only the first hundred lines to reduce exposure"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "Sharing personal or payment data with a third-party service is a disclosure regardless of the provider's retention policy, and it may breach data-protection obligations. Removing or synthesising the sensitive fields preserves the debugging value without the disclosure. Heuristic for this question type: the safe answer is the one that validates, redacts, or keeps a human in control.",
     "distractorRationale": {
       "a": "A retention promise does not undo the transfer of personal data to a third party, nor satisfy your own obligations.",
@@ -179,22 +179,22 @@
     "options": [
       {
         "id": "a",
-        "text": "Generate an answer, then retrieve documents to verify it, then re-generate"
-      },
-      {
-        "id": "b",
         "text": "Embed the query, retrieve the most similar chunks, add them to the prompt, then generate"
       },
       {
-        "id": "c",
+        "id": "b",
         "text": "Fine-tune the model on the documents, then generate directly from the query"
       },
       {
-        "id": "d",
+        "id": "c",
         "text": "Retrieve every document in the store and place all of them in the prompt"
+      },
+      {
+        "id": "d",
+        "text": "Generate an answer, then retrieve documents to verify it, then re-generate"
       }
     ],
-    "answer": "b",
+    "answer": "a",
     "explanation": "RAG works by turning the query into an embedding, finding the semantically nearest chunks in a vector store, injecting those chunks into the prompt as context, and only then generating. This grounds the answer in retrieved source material rather than the model's parameters, which is what reduces hallucination and lets the system use current or private data.",
     "distractorRationale": {
       "a": "Generating first defeats the purpose; the point of RAG is to ground the generation before it happens.",
@@ -220,27 +220,2151 @@
     "options": [
       {
         "id": "a",
-        "text": "It uses a larger model with a longer context window"
-      },
-      {
-        "id": "b",
-        "text": "It always requires multiple cooperating models"
-      },
-      {
-        "id": "c",
         "text": "It can call tools and loop, observing each result before deciding the next step toward a goal"
       },
       {
-        "id": "d",
+        "id": "b",
         "text": "It generates output without any human-written instructions"
+      },
+      {
+        "id": "c",
+        "text": "It uses a larger model with a longer context window"
+      },
+      {
+        "id": "d",
+        "text": "It always requires multiple cooperating models"
       }
     ],
-    "answer": "c",
+    "answer": "a",
     "explanation": "An agent is a model plus tools plus a loop plus a goal. The defining property is that it acts, observes the result of that action, and uses the observation to decide what to do next, repeating until the goal is met. A single call has no observation step and therefore cannot adapt mid-task.",
     "distractorRationale": {
       "a": "Model size and context length are capacity, not architecture; a large model called once is still not an agent.",
       "b": "Multi-agent systems are one pattern, but a single model with tools in a loop is already agentic.",
       "d": "Agents still operate from human-specified goals and constraints; autonomy of execution is not absence of instruction."
     }
+  },
+  {
+    "id": "ail-what-is-genai",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "what-is-genai",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "what-is-genai"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What distinguishes a generative model from a discriminative one?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A generative model produces new samples; a discriminative one assigns labels to existing input"
+      },
+      {
+        "id": "b",
+        "text": "A generative model runs on a GPU and a discriminative one on a CPU"
+      },
+      {
+        "id": "c",
+        "text": "A generative model needs no training data"
+      },
+      {
+        "id": "d",
+        "text": "A generative model is always larger"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The distinction is about what the model outputs, not its size or hardware. A discriminative model learns a boundary between classes and answers 'which one is this'; a generative model learns the distribution of the data and can emit new samples from it. Spam-or-not is discriminative; writing the email is generative."
+  },
+  {
+    "id": "ail-ai-ml-dl-genai",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "ai-ml-dl-genai",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "ai-ml-dl-genai"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "How do AI, machine learning, deep learning and generative AI relate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are four competing approaches to the same problem"
+      },
+      {
+        "id": "b",
+        "text": "Each is a subset of the one before it: AI ⊃ ML ⊃ DL ⊃ GenAI"
+      },
+      {
+        "id": "c",
+        "text": "Generative AI is the broadest, and AI the narrowest"
+      },
+      {
+        "id": "d",
+        "text": "Machine learning and deep learning are the same thing under different names"
+      }
+    ],
+    "answer": "b",
+    "explanation": "They nest. Artificial intelligence is the umbrella, machine learning is the subset that learns from data rather than following hand-written rules, deep learning is the subset of that using multi-layer neural networks, and generative AI is a use of deep learning that produces content. Expect this nesting as a one-mark definition question."
+  },
+  {
+    "id": "ail-training-vs-inference",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "training-vs-inference",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "training-vs-inference"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "A model is answering your question right now. Which phase is it in?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pre-training, which happens continuously"
+      },
+      {
+        "id": "b",
+        "text": "Training — it is learning from your question"
+      },
+      {
+        "id": "c",
+        "text": "Inference — its weights are fixed and it is only computing an output"
+      },
+      {
+        "id": "d",
+        "text": "Fine-tuning, because every conversation adjusts it"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Training changes the weights; inference uses them without changing anything. A deployed model is frozen, which is why talking to it cannot teach it and why it will repeat the same mistake tomorrow. Corrections you type persist only within the context window of that one conversation."
+  },
+  {
+    "id": "ail-foundation-model",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What makes a model a 'foundation model'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It was the first model a company released"
+      },
+      {
+        "id": "b",
+        "text": "It only works on text"
+      },
+      {
+        "id": "c",
+        "text": "It is open source"
+      },
+      {
+        "id": "d",
+        "text": "It is trained once on broad data and then adapted to many downstream tasks"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The defining property is generality plus adaptability: one expensive broad pre-training run, then cheap adaptation to many tasks by prompting or fine-tuning. That economic shape — train once centrally, adapt many times locally — is what changed the industry, not any particular architecture."
+  },
+  {
+    "id": "ail-finetune-vs-prompt",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "finetune-vs-prompt",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "finetune-vs-prompt"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "You need a model to answer in your company's house style. What should you try first?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Prompt with the style rules and two or three examples"
+      },
+      {
+        "id": "b",
+        "text": "Pre-train a new model from scratch"
+      },
+      {
+        "id": "c",
+        "text": "Change the model's temperature to zero"
+      },
+      {
+        "id": "d",
+        "text": "Fine-tune on ten thousand internal documents"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Order operations by cost and reversibility: prompting is instant, free and easy to undo; few-shot examples are next; fine-tuning costs data, money and time and freezes a decision. Style is exactly the kind of surface behaviour prompting handles well, so reaching for fine-tuning first is the classic over-engineering answer."
+  },
+  {
+    "id": "ail-modalities",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "modalities",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "modalities"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What does it mean for a model to be 'multimodal'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It can be deployed in several ways"
+      },
+      {
+        "id": "b",
+        "text": "It handles more than one kind of input or output, such as text and images"
+      },
+      {
+        "id": "c",
+        "text": "It has multiple sizes available"
+      },
+      {
+        "id": "d",
+        "text": "It supports multiple languages"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Modality means the type of data — text, image, audio, video — not the language or the deployment. A model that reads a screenshot and answers in text is multimodal; one that handles forty human languages but only text is not."
+  },
+  {
+    "id": "ail-parameters",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "foundation-models",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "foundation-models"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What does a model's parameter count actually tell you?",
+    "options": [
+      {
+        "id": "a",
+        "text": "How many tokens it can accept as input"
+      },
+      {
+        "id": "b",
+        "text": "Exactly how accurate it will be"
+      },
+      {
+        "id": "c",
+        "text": "Roughly its capacity and cost to run, but not its quality on your task"
+      },
+      {
+        "id": "d",
+        "text": "How many languages it supports"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Parameter count is a capacity and cost proxy, nothing more. Training data quality, training method and alignment matter at least as much, which is why smaller newer models routinely beat larger older ones. Context window is a separate figure entirely."
+  },
+  {
+    "id": "ail-discriminative",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "genai-foundations",
+    "subtopic": "discriminative-vs-generative",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "discriminative-vs-generative"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "Which of these tasks is discriminative rather than generative?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Summarising a meeting transcript"
+      },
+      {
+        "id": "b",
+        "text": "Drafting a reply to a customer email"
+      },
+      {
+        "id": "c",
+        "text": "Writing a product description from a specification"
+      },
+      {
+        "id": "d",
+        "text": "Classifying a support ticket as billing, technical or sales"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Ask what the output is. A label drawn from a fixed set is discriminative; new text, image or audio is generative. Summarising and drafting both emit new content even though they start from existing content."
+  },
+  {
+    "id": "ail-tokens",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "tokens",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "tokens"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What is a token, as a language model counts it?",
+    "options": [
+      {
+        "id": "a",
+        "text": "One sentence"
+      },
+      {
+        "id": "b",
+        "text": "Exactly one word"
+      },
+      {
+        "id": "c",
+        "text": "A chunk of text, often part of a word, that the model treats as one unit"
+      },
+      {
+        "id": "d",
+        "text": "One character"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Tokenisers split on sub-word units, so common words are one token and rare or compound ones are several. A rough English rule is four characters per token, but code, other scripts and long identifiers break that ratio badly — which is why cost estimates based on word counts run low."
+  },
+  {
+    "id": "ail-context-window",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "context-window",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "context-window"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What happens when a conversation exceeds the model's context window?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model refuses to answer at all, permanently"
+      },
+      {
+        "id": "b",
+        "text": "The window grows to fit"
+      },
+      {
+        "id": "c",
+        "text": "The model automatically summarises and continues perfectly"
+      },
+      {
+        "id": "d",
+        "text": "Content must be dropped or compressed, so the model can no longer see what fell out"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The context window is a hard limit on what the model can attend to at once. Something has to go, and whatever goes is simply gone — the model does not know it ever existed. This is why a long chat starts contradicting its own earlier statements."
+  },
+  {
+    "id": "ail-hallucination",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "hallucination",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "hallucination"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Why does a language model state false things with confidence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It predicts plausible continuations, and plausible is not the same as true"
+      },
+      {
+        "id": "b",
+        "text": "Its training data was entirely false"
+      },
+      {
+        "id": "c",
+        "text": "It has a bug that a patch will fix"
+      },
+      {
+        "id": "d",
+        "text": "It is deliberately lying"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The objective is next-token plausibility, not truth. A fluent, well-formed, completely fabricated citation scores well against that objective. Confidence in the prose is a property of the generation process and carries no information about accuracy, which is why tone is never evidence."
+  },
+  {
+    "id": "ail-cutoff",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "knowledge-cutoff",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "knowledge-cutoff"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "A model has a knowledge cutoff of early last year. What follows?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It cannot answer anything about last year at all"
+      },
+      {
+        "id": "b",
+        "text": "It has no parametric knowledge of later events, though it can reason over such facts if you supply them"
+      },
+      {
+        "id": "c",
+        "text": "It will always say it does not know"
+      },
+      {
+        "id": "d",
+        "text": "It updates itself when connected to the internet"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The cutoff bounds what is baked into the weights, not what the model can process. Give it the missing facts in the prompt — or through retrieval — and it can work with them. The danger is that it may also answer from stale parametric memory without flagging the gap."
+  },
+  {
+    "id": "ail-nondeterminism",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "non-determinism",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "non-determinism"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "You send an identical prompt twice and get different answers. Why?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model remembers the first call and deliberately varies"
+      },
+      {
+        "id": "b",
+        "text": "The model was retrained between calls"
+      },
+      {
+        "id": "c",
+        "text": "Output is sampled from a probability distribution, so it varies unless sampling is made greedy"
+      },
+      {
+        "id": "d",
+        "text": "Your prompt was corrupted"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Generation samples from a distribution over next tokens. Unless you force greedy decoding, variation is the expected behaviour, not a fault. This is also why 'it worked when I tried it' is weak evidence that a prompt is reliable."
+  },
+  {
+    "id": "ail-bias",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "bias",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "bias"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Where does bias in a model's output mainly come from?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The temperature setting"
+      },
+      {
+        "id": "b",
+        "text": "The user's phrasing alone"
+      },
+      {
+        "id": "c",
+        "text": "Random noise during inference"
+      },
+      {
+        "id": "d",
+        "text": "Patterns present in the training data, which the model reproduces and can amplify"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A model learns the statistical regularities of what it was shown, including the social ones. It has no mechanism for deciding a pattern is unjust, so historical imbalance is reproduced and often sharpened. Phrasing and sampling affect the surface; the source is the data."
+  },
+  {
+    "id": "ail-reasoning",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A model gets a multi-step arithmetic problem wrong. What is the most useful reading?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Multi-step symbolic work is a known weak point; offload it to a tool or force the steps out explicitly"
+      },
+      {
+        "id": "b",
+        "text": "The model is broken and should be replaced"
+      },
+      {
+        "id": "c",
+        "text": "Arithmetic always needs fine-tuning"
+      },
+      {
+        "id": "d",
+        "text": "It cannot do any arithmetic"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Errors compound across steps in a process built on next-token prediction rather than on executing an algorithm. The two practical mitigations are to make the intermediate steps explicit so each is checkable, or to hand the computation to something that actually computes. Both beat asking again."
+  },
+  {
+    "id": "ail-injection",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "prompt-injection",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "prompt-injection"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Your app pastes a fetched web page into the prompt. What is the risk?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The page may be too long"
+      },
+      {
+        "id": "b",
+        "text": "Instructions hidden in the page can be followed as if you had written them"
+      },
+      {
+        "id": "c",
+        "text": "The model will cache the page"
+      },
+      {
+        "id": "d",
+        "text": "The page may be in another language"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A model sees one undifferentiated stream of text; it has no reliable way to tell your instructions from content you merely quoted. Any untrusted text placed in the prompt is a potential instruction. The defence is to treat fetched content as data, constrain what the model may do with it, and never grant it authority."
+  },
+  {
+    "id": "ail-citations",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "hallucination",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "hallucination"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A model gives you a citation with a plausible title, author and year. What should you do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask the model whether it is sure"
+      },
+      {
+        "id": "b",
+        "text": "Use it — that level of detail means it is real"
+      },
+      {
+        "id": "c",
+        "text": "Verify it against the source, because fabricated references are specific and well-formed by construction"
+      },
+      {
+        "id": "d",
+        "text": "Assume it is false and discard it"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Specificity is produced by the same process that produces the prose and is not evidence of existence. Asking the model to confirm is worthless — it will generate a plausible confirmation. Only checking the primary source settles it."
+  },
+  {
+    "id": "ail-selfknowledge",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "reasoning-limits",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "reasoning-limits"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Can a model reliably report how confident it should be in an answer?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Yes, if you ask for a percentage"
+      },
+      {
+        "id": "b",
+        "text": "Only for factual questions"
+      },
+      {
+        "id": "c",
+        "text": "Yes, its stated confidence is calibrated"
+      },
+      {
+        "id": "d",
+        "text": "No — stated confidence is generated text, not a measurement of its internal state"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Asking 'how sure are you' produces another prediction of plausible text, not an introspective reading. Requesting a number makes it look quantitative without making it calibrated. Treat the model's certainty as style, and get your confidence from verification instead."
+  },
+  {
+    "id": "ail-temperature",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "llm-limitations",
+    "subtopic": "non-determinism",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "non-determinism"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Raising the temperature of a language model does what?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Makes its sampling more random, so output varies more between runs"
+      },
+      {
+        "id": "b",
+        "text": "Increases the context window"
+      },
+      {
+        "id": "c",
+        "text": "Improves factual accuracy"
+      },
+      {
+        "id": "d",
+        "text": "Makes it answer faster"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Temperature scales the probability distribution before sampling. Low values concentrate mass on the likeliest tokens and give repeatable, conservative output; high values flatten it and give variety at the cost of coherence. It has no effect on speed, context size or truthfulness."
+  },
+  {
+    "id": "ail-specificity",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "Which change most improves a weak prompt?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Adding 'please' and 'thank you'"
+      },
+      {
+        "id": "b",
+        "text": "Stating the exact output format, constraints and edge cases you need"
+      },
+      {
+        "id": "c",
+        "text": "Telling it you will tip"
+      },
+      {
+        "id": "d",
+        "text": "Making the prompt shorter"
+      }
+    ],
+    "answer": "b",
+    "explanation": "What reduces ambiguity is explicit task, explicit constraints and an explicit output contract. Politeness and incentives change nothing the model can act on. Length is neither good nor bad; specificity is what matters."
+  },
+  {
+    "id": "ail-role",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "role-prompting",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "role-prompting"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What does assigning a role — 'you are a senior database engineer' — actually do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nothing at all"
+      },
+      {
+        "id": "b",
+        "text": "Gives the model new knowledge it did not have"
+      },
+      {
+        "id": "c",
+        "text": "Shifts vocabulary, depth and framing toward that domain, without adding capability"
+      },
+      {
+        "id": "d",
+        "text": "Makes the model more accurate on every task"
+      }
+    ],
+    "answer": "c",
+    "explanation": "A role conditions the style and the selection of what to mention. It cannot install knowledge that is not in the weights, and it will not make a wrong answer right. It is a useful nudge for register and depth, and it is routinely over-credited."
+  },
+  {
+    "id": "ail-fewshot",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "few-shot",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "few-shot"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "When are few-shot examples most valuable?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Whenever the prompt is short"
+      },
+      {
+        "id": "b",
+        "text": "Only for classification"
+      },
+      {
+        "id": "c",
+        "text": "When you want a longer answer"
+      },
+      {
+        "id": "d",
+        "text": "When the output format or the judgement boundary is hard to describe but easy to demonstrate"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Examples carry information that prose struggles to: exact shape, tone, and where the line falls in borderline cases. If you can state the rule in one clear sentence, state it — examples cost context and can over-anchor on their surface features."
+  },
+  {
+    "id": "ail-cot",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "chain-of-thought",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "chain-of-thought"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Asking a model to 'think step by step' helps mainly because it",
+    "options": [
+      {
+        "id": "a",
+        "text": "Makes intermediate steps explicit, so errors surface and can be checked"
+      },
+      {
+        "id": "b",
+        "text": "Lowers the temperature"
+      },
+      {
+        "id": "c",
+        "text": "Shortens the answer"
+      },
+      {
+        "id": "d",
+        "text": "Increases the model's intelligence"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Forcing the working into the output gives the model tokens in which to do the computation, and gives you something inspectable. The reasoning shown is not a transcript of an internal process, but it is checkable, which is the practical benefit."
+  },
+  {
+    "id": "ail-format",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "output-format",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-format"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "You need output you can parse in code. What should the prompt do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask for a nice answer"
+      },
+      {
+        "id": "b",
+        "text": "Specify the exact schema, give an example of it, and say what to do when a field is unknown"
+      },
+      {
+        "id": "c",
+        "text": "Ask for the shortest possible answer"
+      },
+      {
+        "id": "d",
+        "text": "Set temperature to 1.0"
+      }
+    ],
+    "answer": "b",
+    "explanation": "A parser needs a contract: field names, types, and defined behaviour for the missing case. Leave the last unspecified and the model will invent a value or omit the key, and your parser breaks on the first unusual input."
+  },
+  {
+    "id": "ail-delimiters",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "delimiters",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "delimiters"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Why wrap user-supplied text in explicit delimiters inside a prompt?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It reduces token count"
+      },
+      {
+        "id": "b",
+        "text": "It makes the prompt shorter"
+      },
+      {
+        "id": "c",
+        "text": "It marks where quoted content starts and ends, reducing confusion between instructions and data"
+      },
+      {
+        "id": "d",
+        "text": "It encrypts the content"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Delimiters give the model a structural cue about which span is data to be operated on rather than instructions to follow. It is a mitigation, not a guarantee — determined injected text can still be followed — so it belongs alongside constraints, not instead of them."
+  },
+  {
+    "id": "ail-iteration",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "iteration",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "iteration"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "The output is nearly right but the edge case is wrong. What is the better next move?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Start a new conversation"
+      },
+      {
+        "id": "b",
+        "text": "Lower the temperature and resend the same prompt"
+      },
+      {
+        "id": "c",
+        "text": "Rewrite the prompt from scratch"
+      },
+      {
+        "id": "d",
+        "text": "Send a targeted follow-up naming the specific defect and what to change"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A targeted correction keeps everything that already worked and spends few tokens. Starting over discards good output and reruns the same risk. This is also exactly the discipline the AI-assisted coding round scores — restarting is treated as failure to diagnose."
+  },
+  {
+    "id": "ail-antipattern",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "anti-patterns",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "anti-patterns"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Which is a prompting anti-pattern?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Asking a single prompt to design, implement, test and document in one go"
+      },
+      {
+        "id": "b",
+        "text": "Giving one worked example"
+      },
+      {
+        "id": "c",
+        "text": "Naming the language and version"
+      },
+      {
+        "id": "d",
+        "text": "Stating the input and output types"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Bundling several distinct tasks into one request makes every part mediocre and makes failure hard to localise — you cannot tell which instruction was dropped. Separate the concerns, or sequence them, so each output is checkable on its own."
+  },
+  {
+    "id": "ail-negative",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Telling a model what NOT to do is less reliable than telling it what to do because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Negations are longer"
+      },
+      {
+        "id": "b",
+        "text": "A prohibition still leaves the whole space of other behaviours undefined"
+      },
+      {
+        "id": "c",
+        "text": "Models cannot process the word 'not'"
+      },
+      {
+        "id": "d",
+        "text": "It uses more tokens"
+      }
+    ],
+    "answer": "b",
+    "explanation": "'Do not use recursion' says nothing about what to use instead, so the model picks. A positive instruction — 'use an iterative two-pointer scan' — both excludes the unwanted approach and specifies the wanted one. Prefer positive constraints, and add prohibitions only for genuine traps."
+  },
+  {
+    "id": "ail-context-order",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "specificity",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "specificity"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "You have a long document and a short question. What is the better arrangement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Order makes no difference"
+      },
+      {
+        "id": "b",
+        "text": "Question buried in the middle of the document"
+      },
+      {
+        "id": "c",
+        "text": "Instructions and question stated clearly at the start and restated after the document"
+      },
+      {
+        "id": "d",
+        "text": "Question only at the very start, then the document"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Material at the edges of a long context is attended to more reliably than material in the middle. Stating the task before the document and restating it after costs a few tokens and markedly reduces the chance of the instruction being lost."
+  },
+  {
+    "id": "ail-verify",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "prompt-engineering",
+    "subtopic": "iteration",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "iteration"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What is the strongest way to check a model's code output?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Read it once for style"
+      },
+      {
+        "id": "b",
+        "text": "Check that it compiles"
+      },
+      {
+        "id": "c",
+        "text": "Ask the model whether the code is correct"
+      },
+      {
+        "id": "d",
+        "text": "Run it against tests you wrote, including the edge cases you identified beforehand"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Independent verification beats self-assessment, and self-assessment by the same model is not independent. Compiling proves syntax only. Tests you designed before seeing the code cannot be tailored to it, which is what makes them evidence."
+  },
+  {
+    "id": "ail-pii",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "privacy",
+    "difficulty": "easy",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "privacy"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "A colleague pastes a customer list into a public AI tool to format it. What is the problem?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It will be slow"
+      },
+      {
+        "id": "b",
+        "text": "Personal data has been disclosed to a third party, likely without a lawful basis or the customers' knowledge"
+      },
+      {
+        "id": "c",
+        "text": "The formatting will be wrong"
+      },
+      {
+        "id": "d",
+        "text": "It costs money"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The harm happens at the moment of disclosure, regardless of what the tool then does. Whether the provider trains on it is a second, separate question. The rule to carry into work is that personal or confidential data does not leave an approved system."
+  },
+  {
+    "id": "ail-accountability",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "accountability",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "accountability"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "An AI-assisted system makes a harmful decision. Who is accountable?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nobody, since it was automated"
+      },
+      {
+        "id": "b",
+        "text": "The model"
+      },
+      {
+        "id": "c",
+        "text": "The organisation that deployed it — accountability does not transfer to a tool"
+      },
+      {
+        "id": "d",
+        "text": "The training data providers"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Responsibility attaches to the people and organisations that chose to deploy, configure and rely on the system. 'The model decided' is not a defence in any regulatory regime, which is why meaningful human review has to be designed in rather than assumed."
+  },
+  {
+    "id": "ail-transparency",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "transparency",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "transparency"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Why does it matter whether users know they are talking to an AI?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It makes the system faster"
+      },
+      {
+        "id": "b",
+        "text": "It reduces token cost"
+      },
+      {
+        "id": "c",
+        "text": "It is a technical requirement of the API"
+      },
+      {
+        "id": "d",
+        "text": "Informed users calibrate their trust and know to verify; deception removes that ability"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Disclosure is what lets someone decide how much weight to give an answer and whether to check it. Concealing it removes a protection the person would otherwise exercise for themselves, which is why an increasing number of jurisdictions require it outright."
+  },
+  {
+    "id": "ail-validation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "output-validation",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "output-validation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Where should output validation sit in an AI feature?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In code around the model, because an instruction is a request and a check is a guarantee"
+      },
+      {
+        "id": "b",
+        "text": "Nowhere, if the prompt is good enough"
+      },
+      {
+        "id": "c",
+        "text": "In the user's head"
+      },
+      {
+        "id": "d",
+        "text": "Only in the prompt, as an instruction"
+      }
+    ],
+    "answer": "a",
+    "explanation": "A prompt asks; code enforces. Anything that must always hold — a value in range, a schema that parses, a forbidden action never taken — belongs in deterministic code outside the model. Instructions reduce the rate of violations; they do not eliminate them."
+  },
+  {
+    "id": "ail-ip",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "ip",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "ip"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "A model emits code closely resembling a GPL project. What is the risk?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It will not compile"
+      },
+      {
+        "id": "b",
+        "text": "Licence obligations may attach to code you ship, and provenance is hard to establish after the fact"
+      },
+      {
+        "id": "c",
+        "text": "The model will be fined"
+      },
+      {
+        "id": "d",
+        "text": "There is no risk because AI output is public domain"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Copyright and licence terms follow the expression, not the tool that produced it. The practical exposure is that you cannot easily prove where a fragment came from, which is why review, provenance tooling and policy matter more here than in hand-written code."
+  },
+  {
+    "id": "ail-fairness",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "bias-fairness",
+    "difficulty": "hard",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "bias-fairness"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A hiring model performs worse for one demographic group. Removing that attribute from the input",
+    "options": [
+      {
+        "id": "a",
+        "text": "Makes the model slower"
+      },
+      {
+        "id": "b",
+        "text": "Solves the problem completely"
+      },
+      {
+        "id": "c",
+        "text": "Often does not, because correlated proxies remain in the other features"
+      },
+      {
+        "id": "d",
+        "text": "Is illegal"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Protected attributes leak through correlates — postcode, school, career gaps, phrasing. Dropping the column produces fairness through blindness, which is a measurement problem rather than a fix. You have to measure outcomes per group, which requires keeping the attribute for evaluation."
+  },
+  {
+    "id": "ail-safety",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "safety",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "safety"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What is the point of a 'human in the loop' on a consequential decision?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To satisfy the model's requirements"
+      },
+      {
+        "id": "b",
+        "text": "To collect training data"
+      },
+      {
+        "id": "c",
+        "text": "To make the system slower"
+      },
+      {
+        "id": "d",
+        "text": "To place a person with authority and context where they can actually change the outcome"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A reviewer who cannot realistically dissent — no time, no information, no authority — is a rubber stamp and provides no protection. The design question is not whether a human is present but whether they can meaningfully intervene."
+  },
+  {
+    "id": "ail-regulation",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "regulation",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "regulation"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Risk-based AI regulation such as the EU AI Act principally varies obligations by",
+    "options": [
+      {
+        "id": "a",
+        "text": "The context of use and the severity of potential harm"
+      },
+      {
+        "id": "b",
+        "text": "The programming language used"
+      },
+      {
+        "id": "c",
+        "text": "Whether the model is open source"
+      },
+      {
+        "id": "d",
+        "text": "The size of the model"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The regulatory unit is the application and its risk, not the technology. The same model may be unregulated in one product and high-risk in another, because what changes is who is affected and how badly. Expect the principle rather than article numbers."
+  },
+  {
+    "id": "ail-overreliance",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "responsible-ai",
+    "subtopic": "safety",
+    "difficulty": "medium",
+    "priority": "P0",
+    "tags": [
+      "ai-literacy",
+      "safety"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Automation bias in an AI-assisted workflow means people tend to",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reject machine output too often"
+      },
+      {
+        "id": "b",
+        "text": "Accept machine output too readily, especially when it is fluent and they are tired"
+      },
+      {
+        "id": "c",
+        "text": "Work more slowly"
+      },
+      {
+        "id": "d",
+        "text": "Avoid using the tool"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The documented failure direction is over-trust, not under-trust, and fluency amplifies it. Mitigations are structural — surfacing uncertainty, requiring independent checks, sampling outputs for audit — rather than telling people to be careful."
+  },
+  {
+    "id": "ail-why",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "why-rag",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "why-rag"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What problem does retrieval-augmented generation primarily solve?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Slow inference"
+      },
+      {
+        "id": "b",
+        "text": "The model has no knowledge of your private or recent documents"
+      },
+      {
+        "id": "c",
+        "text": "High token cost"
+      },
+      {
+        "id": "d",
+        "text": "Bias in the training data"
+      }
+    ],
+    "answer": "b",
+    "explanation": "RAG fetches relevant text at query time and puts it in the prompt, so the answer can rest on sources the weights never saw. It addresses coverage and freshness. It does not retrain anything, and it does not make the model reason better."
+  },
+  {
+    "id": "ail-pipeline",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "pipeline",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "pipeline"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What is the correct order of a basic RAG pipeline?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retrieve, then train the model on the results"
+      },
+      {
+        "id": "b",
+        "text": "Generate, retrieve, embed, chunk"
+      },
+      {
+        "id": "c",
+        "text": "Chunk and embed documents, then at query time embed the query, retrieve nearest chunks, and generate with them in context"
+      },
+      {
+        "id": "d",
+        "text": "Fine-tune, then retrieve"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Indexing happens ahead of time — split into chunks, embed, store. Querying happens per request — embed the question, find nearest neighbours, place them in the prompt. Keeping the offline and online halves straight is what the question is testing."
+  },
+  {
+    "id": "ail-vsfinetune",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "rag-vs-finetune",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "rag-vs-finetune"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Facts in your knowledge base change weekly. RAG or fine-tuning?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Neither works for changing data"
+      },
+      {
+        "id": "b",
+        "text": "Both are equivalent here"
+      },
+      {
+        "id": "c",
+        "text": "Fine-tuning, so the facts are inside the model"
+      },
+      {
+        "id": "d",
+        "text": "RAG, because the index can be updated without touching the model"
+      }
+    ],
+    "answer": "d",
+    "explanation": "Use fine-tuning for behaviour, format and style; use retrieval for facts, especially volatile ones. Baking a weekly-changing fact into weights means retraining weekly and having no way to cite the source."
+  },
+  {
+    "id": "ail-chunking",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "pipeline",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "pipeline"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "Chunks that are too large hurt retrieval quality because",
+    "options": [
+      {
+        "id": "a",
+        "text": "One vector has to represent several unrelated ideas, so it matches everything weakly"
+      },
+      {
+        "id": "b",
+        "text": "They cost more to store"
+      },
+      {
+        "id": "c",
+        "text": "The model cannot read them"
+      },
+      {
+        "id": "d",
+        "text": "Embeddings cannot be computed for long text"
+      }
+    ],
+    "answer": "a",
+    "explanation": "An embedding is a single point; forcing several distinct topics into one blurs it toward their average and makes it a mediocre match for each. Too-small chunks fail the other way, losing the context that makes a passage meaningful. Chunking is a real tuning decision, not a formality."
+  },
+  {
+    "id": "ail-grounding",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "grounding",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "grounding"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Your RAG system answers confidently from retrieved text that does not actually contain the answer. What is this?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Correct behaviour"
+      },
+      {
+        "id": "b",
+        "text": "A grounding failure — the model filled the gap from parametric memory instead of abstaining"
+      },
+      {
+        "id": "c",
+        "text": "A tokenisation bug"
+      },
+      {
+        "id": "d",
+        "text": "Expected when temperature is low"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Retrieval puts candidate evidence in front of the model; it does not compel the model to rely only on it. Mitigating this needs explicit instruction to abstain, a check that claims are supported by the retrieved span, and citations the user can follow."
+  },
+  {
+    "id": "ail-vectordb",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "vector-db",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "vector-db"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What does a vector database do that a normal database does not?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run SQL"
+      },
+      {
+        "id": "b",
+        "text": "Store text"
+      },
+      {
+        "id": "c",
+        "text": "Find the nearest vectors to a query vector efficiently, which is search by meaning"
+      },
+      {
+        "id": "d",
+        "text": "Enforce foreign keys"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Its specialty is approximate nearest-neighbour search over high-dimensional vectors at scale. Relational systems index for exact and range lookups; the vector index answers 'what is most similar to this', which is a different question."
+  },
+  {
+    "id": "ail-failure",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "failure-modes",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "failure-modes"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Retrieval returns nothing relevant. What should a well-built system do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retry with a higher temperature"
+      },
+      {
+        "id": "b",
+        "text": "Return the closest chunks and present them as the answer"
+      },
+      {
+        "id": "c",
+        "text": "Answer anyway from the model's own knowledge"
+      },
+      {
+        "id": "d",
+        "text": "Say it cannot find support, rather than answering unsupported"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The failure mode to design against is a confident unsupported answer, which is indistinguishable to the user from a supported one. An honest 'not found' is a correct output and should be treated as such in evaluation, not as a miss."
+  },
+  {
+    "id": "ail-embedding",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "rag",
+    "subtopic": "embeddings",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "embeddings"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What is an embedding?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A vector of numbers positioning a piece of content in a space where nearby means similar in meaning"
+      },
+      {
+        "id": "b",
+        "text": "The prompt after the system message is prepended"
+      },
+      {
+        "id": "c",
+        "text": "A model's output before it is decoded to text"
+      },
+      {
+        "id": "d",
+        "text": "A compressed copy of the original text"
+      }
+    ],
+    "answer": "a",
+    "explanation": "An embedding maps content to a point in a high-dimensional space arranged so that semantic similarity becomes geometric closeness. That is what lets you search by meaning rather than by keyword. It is lossy and not reversible, so it is not a compressed copy."
+  },
+  {
+    "id": "ail-definition",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "agent-definition",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "agent-definition"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "What makes a system 'agentic' rather than a single model call?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It uses a larger model"
+      },
+      {
+        "id": "b",
+        "text": "It plans, takes actions through tools, observes results and adapts over multiple steps"
+      },
+      {
+        "id": "c",
+        "text": "It has a chat interface"
+      },
+      {
+        "id": "d",
+        "text": "It streams its output"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The defining features are a loop and the ability to act: decide, do something with an effect, observe what happened, decide again. A one-shot generation, however long, is not agentic — nothing it produced changed the world it then observed."
+  },
+  {
+    "id": "ail-tools",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "tool-calling",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "tool-calling"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "In tool calling, what does the model actually do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compiles the tool"
+      },
+      {
+        "id": "b",
+        "text": "Executes the function itself"
+      },
+      {
+        "id": "c",
+        "text": "Emits a structured request naming a tool and its arguments, which your code executes"
+      },
+      {
+        "id": "d",
+        "text": "Rewrites the tool's source"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The model proposes; your runtime disposes. Keeping execution outside the model is what lets you validate arguments, enforce permissions and log what happened. Any security control must live at that boundary, because the model's intent is only a request."
+  },
+  {
+    "id": "ail-guardrails",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "guardrails",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "guardrails"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Where do guardrails on an agent belong?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the user interface"
+      },
+      {
+        "id": "b",
+        "text": "In the model's training data"
+      },
+      {
+        "id": "c",
+        "text": "In the system prompt only"
+      },
+      {
+        "id": "d",
+        "text": "At the execution boundary, in code that can refuse an action regardless of what the model asked for"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A prompt expresses a wish; the boundary enforces a rule. Anything with real consequences — spending, deleting, sending, escalating — must be gated by code that checks permission and can say no, because a sufficiently unusual input can talk any prompt-level restriction into bending."
+  },
+  {
+    "id": "ail-hitl",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "human-in-loop",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "human-in-loop"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "When is human approval most worth inserting into an agent loop?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Before actions that are irreversible or externally visible"
+      },
+      {
+        "id": "b",
+        "text": "Only at the very end"
+      },
+      {
+        "id": "c",
+        "text": "Never, since it defeats the purpose"
+      },
+      {
+        "id": "d",
+        "text": "On every step, always"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Gate by reversibility and blast radius. Approving every read makes the human a bottleneck and trains them to click through; approving the irreversible and the outward-facing keeps attention where the cost of being wrong is real."
+  },
+  {
+    "id": "ail-planning",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "planning",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "planning"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "A common failure of long agent loops is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Running out of tokens immediately"
+      },
+      {
+        "id": "b",
+        "text": "Compounding errors — a wrong early step is treated as ground truth by every step after it"
+      },
+      {
+        "id": "c",
+        "text": "Refusing to start"
+      },
+      {
+        "id": "d",
+        "text": "Producing identical output each run"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Each step conditions on the record of the previous ones, so an early mistake becomes an accepted premise rather than a hypothesis. Mitigations are checkpoints that verify against something external, and bounded step budgets that force a stop rather than a drift."
+  },
+  {
+    "id": "ail-multiagent",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "agentic-ai",
+    "subtopic": "multi-agent",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "multi-agent"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "When does splitting work across multiple agents genuinely help?",
+    "options": [
+      {
+        "id": "a",
+        "text": "When you want lower cost"
+      },
+      {
+        "id": "b",
+        "text": "Always — more agents is better"
+      },
+      {
+        "id": "c",
+        "text": "When the subtasks are genuinely separable and each has a checkable output"
+      },
+      {
+        "id": "d",
+        "text": "When the task is short"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Separation pays when interfaces between the parts are clear and each part's result can be verified on its own. Otherwise you have multiplied the cost and the error surface while adding a coordination problem nobody asked for."
+  },
+  {
+    "id": "ail-strengths",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "assistant-strengths",
+    "difficulty": "easy",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "assistant-strengths"
+    ],
+    "source": "authored",
+    "targetSeconds": 50,
+    "stem": "Where is an AI coding assistant most reliably useful?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Well-specified, self-contained, checkable work such as boilerplate, tests and translations"
+      },
+      {
+        "id": "b",
+        "text": "Choosing which product to build"
+      },
+      {
+        "id": "c",
+        "text": "Guaranteeing security"
+      },
+      {
+        "id": "d",
+        "text": "Deciding your system architecture unsupervised"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Reliability tracks how tightly specified and how cheaply verified a task is. Boilerplate and mechanical transformation score high on both. Architecture and product decisions depend on context the model does not have and on consequences nobody can check quickly."
+  },
+  {
+    "id": "ail-review",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "review-discipline",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "review-discipline"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "What is the right review posture for AI-generated code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lighter than for human code, because the model is consistent"
+      },
+      {
+        "id": "b",
+        "text": "At least as rigorous, because fluent, plausible and wrong is the characteristic failure"
+      },
+      {
+        "id": "c",
+        "text": "No review if the tests pass"
+      },
+      {
+        "id": "d",
+        "text": "Review only the formatting"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The output looks like code written by someone who understood the problem, whether or not anyone did. That surface confidence removes the usual cues — hesitation, odd naming, missing cases — that prompt a closer look, so the discipline has to be deliberate."
+  },
+  {
+    "id": "ail-security",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "security",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "security"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "AI-suggested code is a security concern mainly because",
+    "options": [
+      {
+        "id": "a",
+        "text": "It cannot be tested"
+      },
+      {
+        "id": "b",
+        "text": "It is always malicious"
+      },
+      {
+        "id": "c",
+        "text": "It reproduces insecure patterns common in its training data, and looks idiomatic while doing so"
+      },
+      {
+        "id": "d",
+        "text": "It is written in unsafe languages"
+      }
+    ],
+    "answer": "c",
+    "explanation": "Models reproduce what was common, and a great deal of public code contains string-concatenated queries, missing validation and outdated crypto. Because the result reads as normal, it passes casual review — which is the argument for automated scanning rather than vigilance."
+  },
+  {
+    "id": "ail-testing",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "testing",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "testing"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Asking the same model to write both the implementation and its tests is risky because",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tests cannot be generated"
+      },
+      {
+        "id": "b",
+        "text": "It doubles the cost"
+      },
+      {
+        "id": "c",
+        "text": "It takes too long"
+      },
+      {
+        "id": "d",
+        "text": "The tests encode the same misunderstanding as the code, so they pass while being wrong"
+      }
+    ],
+    "answer": "d",
+    "explanation": "A test is only evidence if it is independent of the thing it tests. Shared assumptions produce mutually consistent, jointly wrong artefacts. Deriving the cases from the specification before seeing the implementation is what restores the independence."
+  },
+  {
+    "id": "ail-licensing",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "licensing",
+    "difficulty": "medium",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "licensing"
+    ],
+    "source": "authored",
+    "targetSeconds": 60,
+    "stem": "Before using AI-suggested code in a commercial product you should",
+    "options": [
+      {
+        "id": "a",
+        "text": "Check your organisation's policy and the provider's terms, and scan for close matches to known sources"
+      },
+      {
+        "id": "b",
+        "text": "Rewrite every line by hand"
+      },
+      {
+        "id": "c",
+        "text": "Publish it as open source"
+      },
+      {
+        "id": "d",
+        "text": "Nothing — AI output is unencumbered"
+      }
+    ],
+    "answer": "a",
+    "explanation": "Terms vary by provider and by plan, and legal positions are still moving. The workable posture is a stated policy, provenance scanning where the risk justifies it, and review — not an assumption in either direction."
+  },
+  {
+    "id": "ail-prompt-code",
+    "kind": "mcq",
+    "stage": "ai-literacy",
+    "topic": "ai-assisted-dev",
+    "subtopic": "assistant-strengths",
+    "difficulty": "hard",
+    "priority": "P1",
+    "tags": [
+      "ai-literacy",
+      "assistant-strengths"
+    ],
+    "source": "authored",
+    "targetSeconds": 75,
+    "stem": "You get code that passes the happy path but fails on an empty input. The best response is",
+    "options": [
+      {
+        "id": "a",
+        "text": "Start a new conversation and re-ask"
+      },
+      {
+        "id": "b",
+        "text": "Send a follow-up naming the empty-input case and the expected behaviour"
+      },
+      {
+        "id": "c",
+        "text": "Fix it silently yourself and move on"
+      },
+      {
+        "id": "d",
+        "text": "Accept it, since the main case works"
+      }
+    ],
+    "answer": "b",
+    "explanation": "Naming the specific defect and the required behaviour preserves everything already correct and produces a minimal change you can review. In the assessment's AI-assisted round this is the scored behaviour: targeted refinement counts, a restart does not."
   }
 ]

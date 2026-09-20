@@ -113,6 +113,12 @@ left alone.
   plainly which metrics it could not take
 - 30 essay prompts, 24 speaking prompts and 36 grammar/vocabulary questions, hand-authored
 
+**Content — 327 items, all hand-authored and validated**
+- technical 130, english 90, ai-literacy 65, debugging 36, AI-assisted coding 6
+- Every section of the full mock is populated; nothing is skipped for want of content
+- Trace answers are verified by executing an equivalent program, not by the author's reasoning
+- AIC reference solutions are compiled and run, and every offline fallback is proven to fail
+
 Listening and reading drills are deliberately not built — they are the least-reported
 components, and text-to-speech is a poor stand-in for real exam audio.
 
