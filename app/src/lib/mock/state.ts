@@ -21,6 +21,8 @@ export interface SectionState {
 
 export interface MockState {
   profileId: string;
+  /** Which numbered paper this sitting is. Papers never share a question. */
+  paper: number;
   sections: MockSection[];
   sectionState: SectionState[];
   currentIndex: number;

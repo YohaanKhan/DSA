@@ -3,12 +3,15 @@ import { nanoid } from 'nanoid';
 import { z } from 'zod';
 import { db } from '@/lib/db/client';
 import { sessions } from '@/lib/db/schema';
-import { getProfile, isBuilt } from '@/lib/config/exam-profiles';
-import { selectItems } from '@/lib/content/select';
-import { GAMES } from '@/lib/games';
+import { PROFILES, getProfile, isBuilt } from '@/lib/config/exam-profiles';
+import { nextPaper, paperStatuses, sectionSlice, cleanPapers, limitingSection } from '@/lib/mock/papers';
 import type { MockState, SectionState } from '@/lib/mock/state';
 
-const Body = z.object({ profileId: z.string() });
+const Body = z.object({
+  profileId: z.string(),
+  /** 1-based. Omitted means "the next one I have not sat".*/
+  paper: z.number().int().min(1).optional(),
+});
 
 export async function POST(request: Request) {
   const parsed = Body.safeParse(await request.json());
@@ -17,8 +20,10 @@ export async function POST(request: Request) {
   const profile = getProfile(parsed.data.profileId);
   if (!profile) return NextResponse.json({ error: 'No such profile' }, { status: 404 });
 
-  // Items are chosen up front so a resume serves the same questions, and so a
-  // thin bank is reported honestly rather than silently shortening a section.
+  const paper = parsed.data.paper ?? nextPaper(profile);
+
+  // Items come from this paper's slice of each bank, not from a random draw, so
+  // two papers cannot share a question. See lib/mock/papers.ts.
   const sectionState: SectionState[] = profile.sections.map((section) => {
     if (!isBuilt(section.kind)) {
       return {
@@ -27,23 +32,7 @@ export async function POST(request: Request) {
       };
     }
 
-    // A cognitive section has no content bank — the puzzles are generated. Its
-    // "items" are the games it will run, picked fresh so two mocks differ.
-    if (section.kind === 'game') {
-      const picked = [...GAMES].sort(() => Math.random() - 0.5).slice(0, section.count).map((g) => g.id);
-      return { id: section.id, itemIds: picked, startedAt: null, finishedAt: null, score: null, skipped: false };
-    }
-
-    const kinds = section.kind === 'mcq' ? ['mcq'] : [section.kind];
-    const itemIds = selectItems({
-      kinds,
-      stage: section.kind === 'debug' || section.kind === 'aic' ? section.stage : section.stage,
-      topics: section.topics,
-      count: section.count,
-      // Mock realism: a real exam does not serve you your weakest topics.
-      strategy: 'random',
-    });
-
+    const { itemIds } = sectionSlice(section, paper);
     if (itemIds.length === 0) {
       return {
         id: section.id, itemIds: [], startedAt: null, finishedAt: null, score: null,
@@ -63,6 +52,7 @@ export async function POST(request: Request) {
 
   const state: MockState = {
     profileId: profile.id,
+    paper,
     sections: profile.sections,
     sectionState,
     currentIndex: 0,
@@ -75,23 +65,33 @@ export async function POST(request: Request) {
     config: state, startedAt: new Date(),
   }).run();
 
-  return NextResponse.json({ mockId: id, state });
+  return NextResponse.json({ mockId: id, paper, state });
 }
 
-/** Any mock still in progress, so the runner can offer to resume it. */
+/** Any mock still in progress, plus the paper list for every profile. */
 export async function GET() {
   const open = db.select().from(sessions).all()
     .filter((s) => s.mode === 'mock' && s.finishedAt === null)
     .sort((a, b) => b.startedAt.getTime() - a.startedAt.getTime())[0];
 
-  if (!open) return NextResponse.json({ resumable: null });
+  const papers = Object.fromEntries(
+    PROFILES.map((p) => [p.id, {
+      statuses: paperStatuses(p),
+      clean: cleanPapers(p),
+      limiting: limitingSection(p),
+    }]),
+  );
+
+  if (!open) return NextResponse.json({ resumable: null, papers });
 
   const state = open.config as MockState;
   const section = state.sections[state.currentIndex];
   return NextResponse.json({
+    papers,
     resumable: {
       mockId: open.id,
       profileId: state.profileId,
+      paper: state.paper ?? 1,
       sectionLabel: section?.label ?? null,
       startedAt: open.startedAt.toISOString(),
     },
